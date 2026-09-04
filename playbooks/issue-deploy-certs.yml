@@ -1,0 +1,330 @@
+---
+# Émet/renouvelle des certificats Let's Encrypt par challenge DNS-01 pour les
+# domaines listés dans group_vars/all/certificates.yml, puis les déploie sur
+# le serveur qui héberge chaque domaine (nginx/apache), avec reload
+# UNIQUEMENT si le certificat a réellement changé (comparaison de numéro de
+# série avant/après émission — pas de coupure de service inutile).
+#
+# Deux backends DNS supportés (un par domaine, voir certificates.yml) :
+#   - rfc2136  : ns1 (BIND), via le plugin officiel certbot-dns-rfc2136
+#   - powerdns : dnsp-mst (PowerDNS), via l'API REST + hooks certbot --manual
+#                (pas de plugin apt/pip fiable disponible pour PowerDNS —
+#                l'API REST officielle est plus stable qu'un plugin tiers)
+#
+# Prérequis avant le premier run :
+#   1. Remplir group_vars/all/certificates.yml (domaine -> backend/hôte cible)
+#   2. Créer group_vars/all/vault.yml chiffré à partir de vault.yml.example :
+#        ansible-vault create group_vars/all/vault.yml
+#   3. SSH par clé déjà déployé sur chaque target_host
+#      (cf. playbooks/deploy-ssh-key.yml)
+#
+# Usage :
+#   ansible-playbook playbooks/issue-deploy-certs.yml --ask-vault-pass
+#
+# Ne traiter qu'un seul domaine du catalogue (ex. premier test) :
+#   ansible-playbook playbooks/issue-deploy-certs.yml --ask-vault-pass \
+#     -e certs_filter=outremer-telecom.fr
+#
+# Mode ad-hoc — n'importe quel domaine hébergé sur ns1, SANS l'ajouter à
+# certificates.yml : la zone ns1 (et son fichier) qui héberge le domaine
+# est découverte automatiquement via named.conf sur ns1. Utile pour un
+# domaine ponctuel qui n'a pas vocation à être géré durablement ici.
+#   ansible-playbook playbooks/issue-deploy-certs.yml --ask-vault-pass --ask-become-pass \
+#     --tags issue -e cert_domain=nouveau.only.fr
+# Avec déploiement (sinon target_host reste "CHANGEME" et --tags deploy échoue) :
+#     -e cert_domain=nouveau.only.fr -e adhoc_target_host=web1 \
+#     -e adhoc_webserver=nginx -e adhoc_service_name=nginx \
+#     -e adhoc_cert_dest_dir=/etc/nginx/ssl/nouveau.only.fr
+#
+# ATTENTION mode ad-hoc : acme-zone-update.sh suppose un format de fichier
+# de zone précis (serial SOA "NNNNNNNNNN ; serial", TXT sur une seule
+# ligne) — validé sur only.fr. Pour une zone jamais testée, vérifiez d'abord
+# sur une copie (cf. méthode utilisée pour only.fr) avant de faire confiance
+# à ce mode sur une zone de production inconnue.
+
+- name: Émettre/renouveler les certificats Let's Encrypt (DNS-01) et les installer
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  become: true
+  vars:
+    letsencrypt_email: "{{ vault_letsencrypt_email }}"
+    # Sécurité par défaut : émet contre l'environnement STAGING de Let's
+    # Encrypt (certificats non fiables par les navigateurs, mais rate-limit
+    # très large) tant que ce n'est pas explicitement désactivé. Passez
+    # -e letsencrypt_staging=false pour un vrai certificat de production —
+    # à ne faire qu'une fois le playbook validé en staging.
+    letsencrypt_staging: true
+    # Mode ad-hoc (cert_domain défini) : la liste démarre vide, elle est
+    # reconstruite plus bas dans pre_tasks une fois la zone ns1 découverte.
+    active_certificates: >-
+      {{ [] if cert_domain is defined
+         else ((certificates | selectattr('domain', 'equalto', certs_filter) | list)
+               if certs_filter is defined else certificates) }}
+    # Vrai si un backend ssh_zonefile (ns1) est en jeu, catalogue OU ad-hoc —
+    # utilisé pour déclencher le provisionnement ns1 (clé root, scripts
+    # distants) avant même que active_certificates soit repeuplé en ad-hoc.
+    ssh_zonefile_needed: >-
+      {{ (active_certificates | selectattr('dns_backend', 'equalto', 'ssh_zonefile') | list | length > 0)
+         or (cert_domain is defined) }}
+
+  pre_tasks:
+    # tags: [always] sur chaque pre_task : sans ça, --tags issue (ou --tags
+    # deploy) les fait sauter silencieusement (aucune ligne "skipping" même
+    # affichée) puisqu'ils n'ont eux-mêmes aucun tag correspondant — piège
+    # rencontré en test réel : certbot jamais installé alors que le run
+    # semblait se dérouler normalement.
+    - name: Installer certbot, le plugin RFC2136, et les outils nécessaires aux hooks
+      ansible.builtin.apt:
+        name:
+          - certbot
+          - python3-certbot-dns-rfc2136
+          - bind9-dnsutils
+          - curl
+          - jq
+        state: present
+        update_cache: true
+      tags: [always]
+
+    - name: S'assurer que le répertoire des identifiants/hooks certbot existe (700)
+      ansible.builtin.file:
+        path: /root/.secrets/certbot
+        state: directory
+        mode: '0700'
+        owner: root
+        group: root
+      tags: [always]
+
+    - name: Déployer le fichier d'identifiants RFC2136 (ns1/BIND)
+      ansible.builtin.template:
+        src: templates/rfc2136-credentials.ini.j2
+        dest: /root/.secrets/certbot/rfc2136.ini
+        mode: '0600'
+        owner: root
+        group: root
+      when: active_certificates | selectattr('dns_backend', 'equalto', 'rfc2136') | list | length > 0
+      tags: [always]
+
+    - name: Déployer les hooks manuels PowerDNS (auth/cleanup)
+      ansible.builtin.copy:
+        src: "files/certbot-hooks/{{ item }}"
+        dest: "/root/.secrets/certbot/{{ item }}"
+        mode: '0700'
+        owner: root
+        group: root
+      loop:
+        - pdns-auth-hook.sh
+        - pdns-cleanup-hook.sh
+      when: active_certificates | selectattr('dns_backend', 'equalto', 'powerdns') | list | length > 0
+      tags: [always]
+
+    - name: Déployer les hooks manuels ns1/BIND (édition de zone via SSH)
+      ansible.builtin.copy:
+        src: "files/certbot-hooks/{{ item }}"
+        dest: "/root/.secrets/certbot/{{ item }}"
+        mode: '0700'
+        owner: root
+        group: root
+      loop:
+        - ns1-zonefile-auth-hook.sh
+        - ns1-zonefile-cleanup-hook.sh
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    # become: false ici : scp/ssh doivent utiliser le ~/.ssh/config et la clé
+    # de koby (où l'alias "ns1" est défini), pas ceux de root — become: true
+    # au niveau du play les ferait échouer avec "Could not resolve hostname".
+    # Chemin distant en dur (pas de "~") : le module command d'Ansible
+    # expanse "~" côté contrôleur (avec le home de koby !) avant d'envoyer
+    # la commande à ssh — piège rencontré en test réel.
+    - name: Déployer le script distant d'édition de zone sur ns1
+      become: false
+      ansible.builtin.command: >-
+        scp {{ playbook_dir }}/files/ns1-hooks/acme-zone-update.sh
+        {{ vault_ns1_ssh_alias }}:{{ vault_ns1_admin_home | default('/home/admin') }}/acme-zone-update.sh
+      changed_when: true
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    - name: Rendre le script distant exécutable sur ns1
+      become: false
+      ansible.builtin.command: >-
+        ssh {{ vault_ns1_ssh_alias }} chmod +x {{ vault_ns1_admin_home | default('/home/admin') }}/acme-zone-update.sh
+      changed_when: true
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    - name: Déployer le script de découverte de zone sur ns1 (mode ad-hoc)
+      become: false
+      ansible.builtin.command: >-
+        scp {{ playbook_dir }}/files/ns1-hooks/find-zone.sh
+        {{ vault_ns1_ssh_alias }}:{{ vault_ns1_admin_home | default('/home/admin') }}/find-zone.sh
+      changed_when: true
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    - name: Rendre le script de découverte de zone exécutable sur ns1
+      become: false
+      ansible.builtin.command: >-
+        ssh {{ vault_ns1_ssh_alias }} chmod +x {{ vault_ns1_admin_home | default('/home/admin') }}/find-zone.sh
+      changed_when: true
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    # certbot (plus loin dans ce playbook) tourne en root et invoque nos
+    # hooks --manual, qui font "ssh ${NS1_SSH_ALIAS}" — il faut donc que
+    # root ait AUSSI la clé et l'alias ns1, pas seulement koby.
+    - name: Provisionner le ~/.ssh de root avec la clé et l'alias ns1 (pour les hooks certbot)
+      ansible.builtin.copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+        mode: "{{ item.mode }}"
+        owner: root
+        group: root
+        remote_src: true
+      loop:
+        - { src: "/home/koby/.ssh/id_rsa", dest: "/root/.ssh/id_rsa", mode: '0600' }
+        - { src: "/home/koby/.ssh/id_rsa.pub", dest: "/root/.ssh/id_rsa.pub", mode: '0644' }
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    - name: S'assurer que le ~/.ssh de root a les bonnes permissions de répertoire
+      ansible.builtin.file:
+        path: /root/.ssh
+        state: directory
+        mode: '0700'
+        owner: root
+        group: root
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    - name: Ajouter l'alias ns1 au ~/.ssh/config de root, s'il n'y est pas déjà
+      ansible.builtin.blockinfile:
+        path: /root/.ssh/config
+        create: true
+        mode: '0600'
+        owner: root
+        group: root
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - alias ns1"
+        block: |
+          Host {{ vault_ns1_ssh_alias }}
+              HostName {{ vault_ns1_dns_host }}
+              User admin
+              IdentityFile /root/.ssh/id_rsa
+              HostKeyAlgorithms +ssh-rsa
+              PubkeyAcceptedAlgorithms +ssh-rsa
+              IdentitiesOnly yes
+              StrictHostKeyChecking accept-new
+      when: ssh_zonefile_needed
+      tags: [always]
+
+    # --- Mode ad-hoc : découverte de la zone ns1 pour cert_domain ---
+    - name: "[ad-hoc] Découvrir la zone ns1 hébergeant {{ cert_domain | default('') }}"
+      become: false
+      ansible.builtin.command:
+        cmd: >-
+          ssh {{ vault_ns1_ssh_alias }}
+          "sudo -S {{ vault_ns1_admin_home | default('/home/admin') }}/find-zone.sh {{ cert_domain }}"
+        stdin: "{{ vault_ns1_sudo_password }}"
+      register: ns1_zone_lookup
+      changed_when: false
+      failed_when: false
+      no_log: true
+      when: cert_domain is defined
+      tags: [always]
+
+    - name: "[ad-hoc] Échouer si aucune zone ns1 ne contient {{ cert_domain | default('') }}"
+      ansible.builtin.fail:
+        msg: >-
+          Aucune zone trouvée sur ns1 pour {{ cert_domain }} :
+          {{ ns1_zone_lookup.stderr | default('sortie indisponible') }}
+      when: cert_domain is defined and ns1_zone_lookup.rc | default(1) != 0
+      tags: [always]
+
+    - name: "[ad-hoc] Extraire zone/fichier depuis la sortie de find-zone.sh"
+      ansible.builtin.set_fact:
+        ns1_zone_parts: "{{ ns1_zone_lookup.stdout.split('\t') }}"
+      when: cert_domain is defined and ns1_zone_lookup.rc == 0
+      tags: [always]
+
+    - name: "[ad-hoc] Construire l'entrée de certificat pour {{ cert_domain | default('') }}"
+      ansible.builtin.set_fact:
+        active_certificates: >-
+          {{ [{
+            'domain': cert_domain,
+            'extra_sans': [],
+            'dns_backend': 'ssh_zonefile',
+            'zone': ns1_zone_parts[0],
+            'zone_file': ns1_zone_parts[1],
+            'target_host': adhoc_target_host | default('CHANGEME'),
+            'webserver': adhoc_webserver | default('nginx'),
+            'service_name': adhoc_service_name | default('nginx'),
+            'cert_dest_dir': adhoc_cert_dest_dir | default('/etc/nginx/ssl/' + cert_domain),
+          }] }}
+      when: cert_domain is defined and ns1_zone_lookup.rc == 0
+      tags: [always]
+
+    - name: "[ad-hoc] Zone découverte pour {{ cert_domain | default('') }}"
+      ansible.builtin.debug:
+        msg: "{{ cert_domain }} -> zone {{ active_certificates[0].zone }} ({{ active_certificates[0].zone_file }})"
+      when: cert_domain is defined
+      tags: [always]
+
+  tasks:
+    - name: Émettre/renouveler les certificats — backend rfc2136 (ns1/BIND)
+      ansible.builtin.include_tasks: tasks/issue_and_queue_cert.yml
+      loop: "{{ active_certificates | selectattr('dns_backend', 'equalto', 'rfc2136') | list }}"
+      loop_control:
+        loop_var: cert
+      vars:
+        cert_backend_args: >-
+          --dns-rfc2136
+          --dns-rfc2136-credentials /root/.secrets/certbot/rfc2136.ini
+          --dns-rfc2136-propagation-seconds 30
+      tags: [issue]
+
+    - name: Émettre/renouveler les certificats — backend powerdns (dnsp-mst)
+      ansible.builtin.include_tasks: tasks/issue_and_queue_cert.yml
+      loop: "{{ active_certificates | selectattr('dns_backend', 'equalto', 'powerdns') | list }}"
+      loop_control:
+        loop_var: cert
+      vars:
+        cert_backend_args: >-
+          --manual --preferred-challenges dns
+          --manual-auth-hook /root/.secrets/certbot/pdns-auth-hook.sh
+          --manual-cleanup-hook /root/.secrets/certbot/pdns-cleanup-hook.sh
+        cert_env:
+          PDNS_API_URL: "{{ vault_powerdns_api_url }}"
+          PDNS_API_KEY: "{{ vault_powerdns_api_key }}"
+          PDNS_DNS_HOST: "{{ vault_powerdns_dns_host }}"
+      tags: [issue]
+
+    - name: Émettre/renouveler les certificats — backend ssh_zonefile (ns1/BIND, édition manuelle)
+      ansible.builtin.include_tasks: tasks/issue_and_queue_cert.yml
+      loop: "{{ active_certificates | selectattr('dns_backend', 'equalto', 'ssh_zonefile') | list }}"
+      loop_control:
+        loop_var: cert
+      vars:
+        cert_backend_args: >-
+          --manual --preferred-challenges dns
+          --manual-auth-hook /root/.secrets/certbot/ns1-zonefile-auth-hook.sh
+          --manual-cleanup-hook /root/.secrets/certbot/ns1-zonefile-cleanup-hook.sh
+        cert_env:
+          NS1_SSH_ALIAS: "{{ vault_ns1_ssh_alias }}"
+          NS1_DNS_HOST: "{{ vault_ns1_dns_host }}"
+          NS1_SUDO_PASS: "{{ vault_ns1_sudo_password }}"
+          NS1_ZONE_FILE: "{{ cert.zone_file }}"
+          NS1_ZONE_NAME: "{{ cert.zone }}"
+      tags: [issue]
+
+    - name: Résumé des certificats traités
+      ansible.builtin.debug:
+        var: certs_deploy_queue
+      tags: [issue, deploy]
+
+    - name: Déployer le certificat et recharger le webserver (uniquement si changé)
+      ansible.builtin.include_tasks: tasks/deploy_and_reload_cert.yml
+      loop: "{{ certs_deploy_queue | default([]) | selectattr('changed', 'equalto', true) | list }}"
+      loop_control:
+        loop_var: deploy_item
+      tags: [deploy]
