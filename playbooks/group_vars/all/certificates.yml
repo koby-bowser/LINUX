@@ -1,0 +1,53 @@
+---
+# Catalogue des domaines gérés par playbooks/issue-deploy-certs.yml.
+#
+# dns_backend : "rfc2136" (BIND avec TSIG, via le plugin certbot-dns-rfc2136)
+#            ou "powerdns" (dnsp-mst / PowerDNS, via l'API REST + hooks manuels)
+#            ou "ssh_zonefile" (BIND sans TSIG — édition du fichier de zone
+#                                via SSH, ex. ns1/only.fr — nécessite en plus
+#                                zone: et zone_file: sur l'entrée)
+#
+# target_host : nom d'hôte dans l'inventaire (voir inventory/hosts.ini) du
+#               serveur qui héberge réellement ce domaine (nginx/apache) —
+#               nécessite que le SSH par clé y soit déjà déployé
+#               (cf. playbooks/deploy-ssh-key.yml).
+#
+# service_name : nom exact de l'unité systemd à recharger sur target_host
+#                (ex. "nginx", "apache2" sur Debian/Ubuntu, "httpd" sur RHEL).
+
+certificates:
+  - domain: outremer-telecom.fr
+    extra_sans: []          # ex. ["www.outremer-telecom.fr"]
+    dns_backend: rfc2136
+    target_host: CHANGEME
+    webserver: nginx
+    service_name: nginx
+    cert_dest_dir: /etc/nginx/ssl/outremer-telecom.fr
+
+  - domain: sfrcaraibe.fr
+    extra_sans: []
+    dns_backend: powerdns
+    target_host: CHANGEME
+    webserver: apache
+    service_name: apache2
+    cert_dest_dir: /etc/apache2/ssl/sfrcaraibe.fr
+
+  - domain: andesite.only.fr
+    extra_sans: []
+    dns_backend: ssh_zonefile
+    zone: only.fr
+    zone_file: /var/named/only.fr
+    target_host: CHANGEME
+    webserver: nginx
+    service_name: nginx
+    cert_dest_dir: /etc/nginx/ssl/andesite.only.fr
+
+  - domain: diamond.only.fr
+    extra_sans: []
+    dns_backend: ssh_zonefile
+    zone: only.fr
+    zone_file: /var/named/only.fr
+    target_host: CHANGEME
+    webserver: nginx
+    service_name: nginx
+    cert_dest_dir: /etc/nginx/ssl/diamond.only.fr
