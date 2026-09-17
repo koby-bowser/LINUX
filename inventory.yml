@@ -1,0 +1,15 @@
+all:
+  children:
+    webservers:
+      hosts:
+        # Cible réelle : cette machine, en local (nginx y est installé).
+        localhost:
+          ansible_connection: local
+        web01:
+          ansible_host: 172.30.198.33
+          ansible_port: 30
+          ansible_user: superuser
+        # Ajoutez d'autres serveurs distants ici, par ex. :
+        # web02:
+        #   ansible_host: 203.0.113.10
+        #   ansible_user: koby

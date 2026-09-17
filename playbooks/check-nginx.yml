@@ -1,0 +1,67 @@
+---
+# Vérification en lecture seule de nginx : statut du service, validité de la
+# config, cohérence de sites-enabled (liens cassés + inclusion effective dans
+# nginx.conf), et contenu de tous les domaines dans sites-available/. Aucune
+# modification n'est effectuée.
+#
+#   ansible-playbook playbooks/check-nginx.yml -K
+#   ansible-playbook playbooks/check-nginx.yml -K --limit web01
+- name: Vérifier l'état et la config de nginx
+  hosts: webservers
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Statut du service nginx
+      ansible.builtin.command: systemctl is-active nginx
+      register: _nginx_service
+      changed_when: false
+      failed_when: false
+
+    - name: Test de syntaxe de la config nginx
+      ansible.builtin.command: nginx -t
+      register: _nginx_test
+      changed_when: false
+      failed_when: false
+
+    - name: Contenu de sites-enabled
+      ansible.builtin.command: ls -la /etc/nginx/sites-enabled/
+      register: _sites_enabled
+      changed_when: false
+      failed_when: false
+
+    - name: Liens symboliques cassés dans sites-enabled
+      ansible.builtin.command: find /etc/nginx/sites-enabled/ -xtype l
+      register: _broken_links
+      changed_when: false
+      failed_when: false
+
+    - name: sites-enabled est-il inclus par nginx.conf
+      ansible.builtin.command: grep -n "include.*sites-enabled" /etc/nginx/nginx.conf
+      register: _sites_enabled_included
+      changed_when: false
+      failed_when: false
+
+    - name: Contenu de chaque domaine dans sites-available
+      ansible.builtin.shell: >-
+        for f in /etc/nginx/sites-available/*; do
+          echo "===== $f =====";
+          cat "$f";
+          echo;
+        done
+      register: _sites_available_content
+      changed_when: false
+      failed_when: false
+
+    - name: Résultat
+      ansible.builtin.debug:
+        msg:
+          - "service nginx actif : {{ _nginx_service.stdout | default('') }}"
+          - "config valide : {{ _nginx_test.rc == 0 }}"
+          - "détail du test de config : {{ _nginx_test.stderr_lines }}"
+          - "sites-enabled : {{ _sites_enabled.stdout_lines }}"
+          - "liens cassés dans sites-enabled : {{ _broken_links.stdout_lines }}"
+          - "sites-enabled inclus dans nginx.conf : {{ _sites_enabled_included.rc == 0 }}"
+
+    - name: Configs de sites-available (un domaine par fichier)
+      ansible.builtin.debug:
+        var: _sites_available_content.stdout_lines
