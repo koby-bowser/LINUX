@@ -1,0 +1,370 @@
+---
+# ==============================================================================
+# Playbook: Audit Web Servers (Nginx / Apache / HTTPD) & TLS Certificates
+# ==============================================================================
+# Phase 1: Bootstraps passwordless SSH & sudo for user 'koby-bowser-ansible'
+#          via playbooks/bootstrap-koby-bowser.yml.
+# Phase 2: Audits installed and active web servers (nginx, apache2, httpd).
+#          If one of them is active:
+#            - Extracts all hosted domains (server_name, ServerName, ServerAlias)
+#            - Extracts TLS certificate and private key paths
+#            - Inspects certificate validity (Subject, Issuer, Expiry date, SANs)
+#            - Displays structured per-host reports and a consolidated summary table
+#
+# Usage:
+#   # Audit a single host with initial admin credentials (bootstraps + audits):
+#   ansible-playbook -i "172.30.39.153:30," playbooks/audit-web-certs.yml -u superuser -k -K
+#
+#   # Audit hosts already bootstrapped (using koby-bowser-ansible / id_ed25519):
+#   ansible-playbook -i "172.30.39.153:30," playbooks/audit-web-certs.yml -u koby-bowser-ansible
+#
+#   # Audit an entire inventory group:
+#   ansible-playbook -i inventory/hosts.ini playbooks/audit-web-certs.yml
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Phase 1: Bootstrap passwordless SSH & sudo
+# ------------------------------------------------------------------------------
+- name: "Phase 1 - Bootstrap passwordless SSH & sudo"
+  ansible.builtin.import_playbook: bootstrap-koby-bowser.yml
+
+# ------------------------------------------------------------------------------
+# Phase 2: Audit Web Servers & TLS Certificates
+# ------------------------------------------------------------------------------
+- name: "Phase 2 - Audit Web Servers & TLS Certificates"
+  hosts: all
+  gather_facts: true
+  become: true
+  become_method: ansible.builtin.sudo
+  vars:
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+
+  tasks:
+    - name: Audit web servers (Nginx/Apache) and TLS certificates via Python engine
+      ansible.builtin.command:
+        argv:
+          - python3
+          - -c
+          - |
+            import subprocess, re, os, json, datetime, shutil
+
+            def inspect_cert(cert_path):
+                if not cert_path or not os.path.isfile(cert_path):
+                    return {"path": cert_path, "exists": False, "status": "FILE NOT FOUND"}
+                try:
+                    cmd = ["openssl", "x509", "-in", cert_path, "-noout", "-subject", "-issuer", "-enddate"]
+                    out = subprocess.run(cmd, capture_output=True, text=True).stdout
+                    subject, issuer, enddate_str = "", "", ""
+                    for line in out.splitlines():
+                        if line.startswith("subject="):
+                            subject = line.replace("subject=", "").strip()
+                        elif line.startswith("issuer="):
+                            issuer = line.replace("issuer=", "").strip()
+                        elif line.startswith("notAfter="):
+                            enddate_str = line.replace("notAfter=", "").strip()
+
+                    days_left = None
+                    status = "UNKNOWN"
+                    if enddate_str:
+                        try:
+                            dt = datetime.datetime.strptime(enddate_str, "%b %d %H:%M:%S %Y %Z").replace(tzinfo=datetime.timezone.utc)
+                            now = datetime.datetime.now(datetime.timezone.utc)
+                            days_left = (dt - now).days
+                            if days_left < 0:
+                                status = f"EXPIRED ({abs(days_left)} days ago)"
+                            elif days_left < 30:
+                                status = f"EXPIRING SOON ({days_left} days left)"
+                            else:
+                                status = f"VALID ({days_left} days left)"
+                        except Exception:
+                            status = "PARSE ERROR"
+
+                    sans_out = subprocess.run(["openssl", "x509", "-in", cert_path, "-noout", "-ext", "subjectAltName"], capture_output=True, text=True).stdout
+                    sans = []
+                    for line in sans_out.splitlines():
+                        if "DNS:" in line:
+                            for p in line.split(","):
+                                if "DNS:" in p:
+                                    sans.append(p.strip().replace("DNS:", ""))
+
+                    return {
+                        "path": cert_path,
+                        "exists": True,
+                        "subject": subject,
+                        "issuer": issuer,
+                        "expires": enddate_str,
+                        "days_remaining": days_left,
+                        "status": status,
+                        "sans": sans
+                    }
+                except Exception as e:
+                    return {"path": cert_path, "exists": False, "error": str(e), "status": "ERROR"}
+
+            def parse_nginx():
+                res = {"installed": False, "active": False, "version": "", "vhosts": []}
+                bin_path = shutil.which("nginx") or ("/usr/sbin/nginx" if os.path.exists("/usr/sbin/nginx") else None)
+                if not bin_path:
+                    return res
+                res["installed"] = True
+
+                # Check version
+                v_out = subprocess.run([bin_path, "-v"], capture_output=True, text=True)
+                v_str = (v_out.stderr or v_out.stdout).strip()
+                res["version"] = v_str.replace("nginx version: ", "")
+
+                # Check active
+                act = subprocess.run(["systemctl", "is-active", "nginx"], capture_output=True, text=True).stdout.strip()
+                res["active"] = (act == "active")
+                if not res["active"]:
+                    return res
+
+                # Get configuration dump
+                dump_res = subprocess.run([bin_path, "-T"], capture_output=True, text=True)
+                out = dump_res.stdout if dump_res.returncode == 0 else ""
+
+                if not out:
+                    conf_files = []
+                    for d in ["/etc/nginx/sites-enabled", "/etc/nginx/conf.d"]:
+                        if os.path.isdir(d):
+                            for root, _, files in os.walk(d):
+                                for f in files:
+                                    conf_files.append(os.path.join(root, f))
+                    for cf in conf_files:
+                        try:
+                            with open(cf, "r", errors="ignore") as f:
+                                out += f"\n# configuration file {cf}:\n" + f.read()
+                        except Exception:
+                            pass
+
+                # Tokenize server blocks
+                clean_lines = []
+                current_file = "/etc/nginx/nginx.conf"
+                for line in out.splitlines():
+                    m_file = re.match(r"^# configuration file (.*?):", line)
+                    if m_file:
+                        current_file = m_file.group(1).strip()
+                        clean_lines.append(f"__FILE_MARKER__ {current_file}")
+                        continue
+                    line_clean = re.sub(r"#.*$", "", line)
+                    if line_clean.strip():
+                        clean_lines.append(line_clean)
+
+                full_text = "\n".join(clean_lines)
+                server_matches = re.finditer(r"server\s*\{([^\{\}]*(?:\{[^\{\}]*\}[^\{\}]*)*)\}", full_text, re.DOTALL)
+                for sm in server_matches:
+                    block = sm.group(1)
+                    preceding = full_text[:sm.start()]
+                    file_matches = re.findall(r"__FILE_MARKER__ ([^\n]+)", preceding)
+                    source_file = file_matches[-1] if file_matches else "/etc/nginx/nginx.conf"
+
+                    names = []
+                    for n in re.findall(r"server_name\s+([^;]+);", block):
+                        for part in n.split():
+                            if part and part != "_":
+                                names.append(part)
+
+                    listens = [l.strip() for l in re.findall(r"listen\s+([^;]+);", block)]
+                    certs = re.findall(r"ssl_certificate\s+([^;]+);", block)
+                    keys = re.findall(r"ssl_certificate_key\s+([^;]+);", block)
+
+                    ssl_cert = certs[0].strip() if certs else None
+                    ssl_key = keys[0].strip() if keys else None
+                    is_ssl = any("ssl" in l or "443" in l for l in listens) or bool(ssl_cert)
+                    display_names = names if names else ["_ (default / catch-all)"]
+
+                    cert_info = inspect_cert(ssl_cert) if ssl_cert else None
+
+                    res["vhosts"].append({
+                        "webserver": "nginx",
+                        "domains": display_names,
+                        "ports": listens if listens else ["80 (default)"],
+                        "is_ssl": is_ssl,
+                        "ssl_certificate": ssl_cert,
+                        "ssl_key": ssl_key,
+                        "cert_info": cert_info,
+                        "config_file": source_file
+                    })
+                return res
+
+            def parse_apache():
+                res = {"installed": False, "active": False, "version": "", "service": "", "vhosts": []}
+                bin_path = None
+                service_name = ""
+                for b, s in [("apache2", "apache2"), ("httpd", "httpd"), ("apachectl", "apache2")]:
+                    p = shutil.which(b) or (f"/usr/sbin/{b}" if os.path.exists(f"/usr/sbin/{b}") else None)
+                    if p:
+                        bin_path = p
+                        service_name = s
+                        break
+
+                if not bin_path:
+                    return res
+                res["installed"] = True
+                res["service"] = service_name
+
+                # Check version
+                v_out = subprocess.run([bin_path, "-v"], capture_output=True, text=True)
+                v_str = (v_out.stdout or v_out.stderr).splitlines()
+                if v_str:
+                    res["version"] = v_str[0].replace("Server version: ", "").strip()
+
+                # Check active
+                act = subprocess.run(["systemctl", "is-active", service_name], capture_output=True, text=True).stdout.strip()
+                res["active"] = (act == "active")
+                if not res["active"]:
+                    return res
+
+                # Parse Apache VirtualHosts
+                conf_files = []
+                for d in ["/etc/apache2/sites-enabled", "/etc/apache2/conf-enabled", "/etc/httpd/conf.d"]:
+                    if os.path.isdir(d):
+                        for root, _, files in os.walk(d):
+                            for f in files:
+                                if f.endswith(".conf"):
+                                    conf_files.append(os.path.join(root, f))
+                for f in ["/etc/apache2/apache2.conf", "/etc/httpd/conf/httpd.conf"]:
+                    if os.path.isfile(f) and f not in conf_files:
+                        conf_files.append(f)
+
+                for cf in conf_files:
+                    try:
+                        with open(cf, "r", errors="ignore") as f:
+                            content = f.read()
+                    except Exception:
+                        continue
+
+                    blocks = re.findall(r"<VirtualHost\s+([^>]+)>(.*?)</VirtualHost>", content, re.DOTALL | re.IGNORECASE)
+                    for port, b in blocks:
+                        snames = re.findall(r"^\s*ServerName\s+([^\s#]+)", b, re.MULTILINE | re.IGNORECASE)
+                        saliases = re.findall(r"^\s*ServerAlias\s+([^\n#]+)", b, re.MULTILINE | re.IGNORECASE)
+                        certs = re.findall(r"^\s*SSLCertificateFile\s+([^\s#]+)", b, re.MULTILINE | re.IGNORECASE)
+                        keys = re.findall(r"^\s*SSLCertificateKeyFile\s+([^\s#]+)", b, re.MULTILINE | re.IGNORECASE)
+
+                        domains = []
+                        for sn in snames:
+                            domains.append(sn.strip())
+                        for sa in saliases:
+                            domains.extend(sa.split())
+
+                        ssl_cert = certs[0].strip().strip("\"'") if certs else None
+                        ssl_key = keys[0].strip().strip("\"'") if keys else None
+                        is_ssl = "443" in port or bool(ssl_cert) or bool(re.search(r"SSLEngine\s+on", b, re.IGNORECASE))
+
+                        cert_info = inspect_cert(ssl_cert) if ssl_cert else None
+
+                        res["vhosts"].append({
+                            "webserver": "apache",
+                            "domains": domains if domains else ["_ (default / catch-all)"],
+                            "ports": [port.strip()],
+                            "is_ssl": is_ssl,
+                            "ssl_certificate": ssl_cert,
+                            "ssl_key": ssl_key,
+                            "cert_info": cert_info,
+                            "config_file": cf
+                        })
+                return res
+
+            nginx_data = parse_nginx()
+            apache_data = parse_apache()
+
+            all_vhosts = []
+            if nginx_data["active"]:
+                all_vhosts.extend(nginx_data["vhosts"])
+            if apache_data["active"]:
+                all_vhosts.extend(apache_data["vhosts"])
+
+            unique_domains = []
+            for v in all_vhosts:
+                for d in v.get("domains", []):
+                    if d not in unique_domains and d != "_ (default / catch-all)":
+                        unique_domains.append(d)
+
+            output = {
+                "nginx": nginx_data,
+                "apache": apache_data,
+                "any_active": nginx_data["active"] or apache_data["active"],
+                "vhosts": all_vhosts,
+                "summary": {
+                    "total_vhosts": len(all_vhosts),
+                    "total_ssl_vhosts": len([v for v in all_vhosts if v.get("is_ssl")]),
+                    "domains": unique_domains
+                }
+            }
+            print(json.dumps(output))
+      register: raw_audit_output
+      changed_when: false
+
+    - name: Parse audit results into structured facts
+      ansible.builtin.set_fact:
+        web_audit: "{{ raw_audit_output.stdout | from_json }}"
+
+    # --------------------------------------------------------------------------
+    # Host-Level Reporting
+    # --------------------------------------------------------------------------
+    - name: Display Host Web Services & TLS Audit Report
+      ansible.builtin.debug:
+        msg: |
+          ====================================================================================================
+          HOST AUDIT: {{ inventory_hostname }} ({{ ansible_host | default(ansible_default_ipv4.address | default('N/A')) }})
+          ====================================================================================================
+          * NGINX  : {{ 'INSTALLED & ACTIVE (' ~ web_audit.nginx.version ~ ')' if web_audit.nginx.active else ('INSTALLED (inactive)' if web_audit.nginx.installed else 'NOT INSTALLED') }}
+          * APACHE : {{ 'INSTALLED & ACTIVE (' ~ web_audit.apache.version ~ ')' if web_audit.apache.active else ('INSTALLED (inactive)' if web_audit.apache.installed else 'NOT INSTALLED') }}
+
+          {% if web_audit.any_active %}
+          HOSTED DOMAINS & TLS CERTIFICATES:
+          ----------------------------------------------------------------------------------------------------
+          {% for v in web_audit.vhosts %}
+          [{{ loop.index }}] Web Server : {{ v.webserver | upper }}
+              Config File: {{ v.config_file }}
+              Ports      : {{ v.ports | join(', ') }}
+              Domains    : {{ v.domains | join(', ') }}
+              SSL / TLS  : {{ 'ENABLED' if v.is_ssl else 'DISABLED (Plain HTTP)' }}
+              {% if v.ssl_certificate %}
+              Cert Path  : {{ v.ssl_certificate }}
+              Key Path   : {{ v.ssl_key | default('N/A') }}
+                {% if v.cert_info and v.cert_info.exists %}
+              Status     : {{ v.cert_info.status }}
+              Subject    : {{ v.cert_info.subject }}
+              Issuer     : {{ v.cert_info.issuer }}
+              Expires    : {{ v.cert_info.expires }}
+              SANs       : {{ v.cert_info.sans | join(', ') if v.cert_info.sans else 'None' }}
+                {% else %}
+              Status     : FILE NOT FOUND ON TARGET DISK
+                {% endif %}
+              {% else %}
+              Cert Path  : None (Plain HTTP virtualhost)
+              {% endif %}
+          ----------------------------------------------------------------------------------------------------
+          {% endfor %}
+          {% else %}
+          >>> NO ACTIVE WEB SERVER FOUND ON THIS HOST <<<
+          Neither Nginx nor Apache/HTTPD is currently running.
+          ====================================================================================================
+          {% endif %}
+
+    # --------------------------------------------------------------------------
+    # Consolidated Infrastructure Summary Table
+    # --------------------------------------------------------------------------
+    - name: Display Consolidated Infrastructure Summary Table
+      ansible.builtin.debug:
+        msg: |
+          ================================================================================================================================================================
+          INFRASTRUCTURE WEB & TLS CERTIFICATE SUMMARY TABLE
+          ================================================================================================================================================================
+          {{ '%-20s' | format('HOST') }} | {{ '%-8s' | format('SERVER') }} | {{ '%-35s' | format('HOSTED DOMAIN(S)') }} | {{ '%-12s' | format('PORT(S)') }} | {{ '%-38s' | format('TLS CERTIFICATE PATH') }} | {{ '%-24s' | format('STATUS / EXPIRY') }}
+          ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+          {% for h in ansible_play_hosts_all | sort %}
+          {% set hv = hostvars[h] %}
+          {% set wa = hv.web_audit | default({}) %}
+          {% if wa.any_active | default(false) %}
+          {% for v in wa.vhosts | default([]) %}
+          {% set c_stat = (v.cert_info.status if (v.cert_info and v.cert_info.exists) else ('No TLS' if not v.ssl_certificate else 'FILE NOT FOUND')) %}
+          {{ '%-20s' | format(h) }} | {{ '%-8s' | format(v.webserver) }} | {{ '%-35s' | format((v.domains | default([]) | join(', ')) | truncate(35, True, '...')) }} | {{ '%-12s' | format((v.ports | default([]) | join(',')) | truncate(12, True, '...')) }} | {{ '%-38s' | format((v.ssl_certificate or 'None') | truncate(38, True, '...')) }} | {{ '%-24s' | format(c_stat | truncate(24, True, '...')) }}
+          {% endfor %}
+          {% else %}
+          {{ '%-20s' | format(h) }} | {{ '%-8s' | format('N/A') }} | {{ '%-35s' | format('No active web server') }} | {{ '%-12s' | format('N/A') }} | {{ '%-38s' | format('None') }} | {{ '%-24s' | format('INACTIVE / NO SERVICE') }}
+          {% endif %}
+          {% endfor %}
+          ================================================================================================================================================================
+      run_once: true
+      delegate_to: localhost
