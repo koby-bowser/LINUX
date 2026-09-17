@@ -1,0 +1,46 @@
+---
+- name: Validate local source file
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Validate that src_file parameter is provided
+      ansible.builtin.fail:
+        msg: >-
+          Missing required variable 'src_file'.
+          Usage: ansible-playbook playbooks/copy-to-tmp.yml -e "src_file=/path/to/file"
+      when: src_file is not defined or src_file | length == 0
+
+    - name: Verify source file exists on control machine
+      ansible.builtin.stat:
+        path: "{{ src_file }}"
+      register: local_src_stat
+
+    - name: Fail if source file does not exist on control machine
+      ansible.builtin.fail:
+        msg: "Source file '{{ src_file }}' does not exist on Debian Trixie control node."
+      when: not local_src_stat.stat.exists
+
+- name: Copy file to remote /tmp directory
+  hosts: all
+  gather_facts: false
+  vars:
+    target_filename: "{{ dest_filename | default(src_file | basename) }}"
+    target_dest: "/tmp/{{ target_filename }}"
+
+  tasks:
+    - name: Copy file to remote /tmp directory
+      ansible.builtin.copy:
+        src: "{{ src_file }}"
+        dest: "{{ target_dest }}"
+        mode: "{{ dest_mode | default('0644') }}"
+        backup: "{{ dest_backup | default(false) }}"
+      register: copy_result
+
+    - name: Report file transfer summary
+      ansible.builtin.debug:
+        msg:
+          - "Host: {{ inventory_hostname }}"
+          - "Destination: {{ copy_result.dest | default(target_dest) }}"
+          - "State: {{ 'CHANGED (new/updated file copied)' if copy_result.changed else 'OK (file already identical in /tmp)' }}"
+          - "Checksum: {{ copy_result.checksum | default('N/A') }}"

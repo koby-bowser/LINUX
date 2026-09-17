@@ -1,0 +1,132 @@
+---
+- name: Bootstrap koby-bowser-ansible user with passwordless SSH & sudo
+  hosts: all
+  gather_facts: true
+  become: true
+  become_method: ansible.builtin.sudo
+  vars:
+    target_user: "koby-bowser-ansible"
+    local_pubkey_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+
+  tasks:
+    - name: Verify local public key exists
+      ansible.builtin.stat:
+        path: "{{ local_pubkey_path }}"
+      register: pubkey_stat
+      delegate_to: localhost
+      become: false
+
+    - name: Fail if local public key does not exist
+      ansible.builtin.fail:
+        msg: "Local public key not found at {{ local_pubkey_path }}."
+      when: not pubkey_stat.stat.exists
+
+    - name: Inspect effective sshd configuration
+      ansible.builtin.command: sshd -T
+      changed_when: false
+      register: sshd_config_raw
+
+    - name: Extract sshd AllowGroups if defined
+      ansible.builtin.set_fact:
+        sshd_allow_groups: >-
+          {{ (sshd_config_raw.stdout_lines
+              | select('match', '^allowgroups ')
+              | list | first | default('')
+              ).split()[1:] }}
+        sshd_auth_keys_pattern: >-
+          {{ ((sshd_config_raw.stdout_lines
+               | select('match', '^authorizedkeysfile ')
+               | list | first | default('authorizedkeysfile .ssh/authorized_keys')
+               ).split()[1:])[0] }}
+
+    - name: Create automation user
+      ansible.builtin.user:
+        name: "{{ target_user }}"
+        comment: "Ansible Automation User"
+        shell: /bin/bash
+        create_home: true
+        state: present
+
+    - name: Add automation user to sudo group
+      ansible.builtin.user:
+        name: "{{ target_user }}"
+        groups: sudo
+        append: true
+
+    - name: Add automation user to sshd AllowGroups if configured
+      ansible.builtin.user:
+        name: "{{ target_user }}"
+        groups: "{{ item }}"
+        append: true
+      loop: "{{ sshd_allow_groups }}"
+      when: sshd_allow_groups | length > 0
+
+    - name: Configure passwordless sudo in /etc/sudoers.d
+      ansible.builtin.copy:
+        content: "{{ target_user }} ALL=(ALL) NOPASSWD:ALL\n"
+        dest: "/etc/sudoers.d/{{ target_user }}"
+        owner: root
+        group: root
+        mode: '0440'
+        validate: '/usr/sbin/visudo -cf %s'
+
+    - name: Retrieve target user passwd info
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ target_user }}"
+
+    - name: Determine user home and gid
+      ansible.builtin.set_fact:
+        target_home: "{{ ansible_facts.getent_passwd[target_user][4] }}"
+        target_gid: "{{ ansible_facts.getent_passwd[target_user][2] }}"
+
+    - name: Ensure ~/.ssh directory exists
+      ansible.builtin.file:
+        path: "{{ target_home }}/.ssh"
+        state: directory
+        owner: "{{ target_user }}"
+        group: "{{ target_gid }}"
+        mode: '0700'
+
+    - name: Deploy public key to user ~/.ssh/authorized_keys
+      ansible.posix.authorized_key:
+        user: "{{ target_user }}"
+        state: present
+        key: "{{ lookup('file', local_pubkey_path) }}"
+
+    - name: Deploy public key to centralized AuthorizedKeysFile if configured
+      when: "'%u' in sshd_auth_keys_pattern"
+      block:
+        - name: Resolve centralized authorized_keys path
+          ansible.builtin.set_fact:
+            central_auth_path: "{{ sshd_auth_keys_pattern | replace('%u', target_user) | replace('%h', target_home) }}"
+
+        - name: Ensure parent directory of centralized authorized_keys exists
+          ansible.builtin.file:
+            path: "{{ central_auth_path | dirname }}"
+            state: directory
+            owner: root
+            group: root
+            mode: '0755'
+
+        - name: Deploy key to centralized path
+          ansible.posix.authorized_key:
+            user: "{{ target_user }}"
+            path: "{{ central_auth_path }}"
+            key: "{{ lookup('file', local_pubkey_path) }}"
+            manage_dir: false
+            state: present
+
+        - name: Set strict permissions on centralized authorized_keys file
+          ansible.builtin.file:
+            path: "{{ central_auth_path }}"
+            owner: "{{ target_user }}"
+            group: "{{ target_gid }}"
+            mode: '0600'
+
+    - name: Report bootstrap completion
+      ansible.builtin.debug:
+        msg:
+          - "Host: {{ inventory_hostname }}"
+          - "User {{ target_user }} successfully provisioned with passwordless sudo and SSH key access."

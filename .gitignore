@@ -8,3 +8,7 @@ vault_pass*
 
 # Collections/plugins téléchargés localement (réinstallables via requirements.yml)
 collections/
+
+# Generated server pool and credentials
+inventory/server_pool.*
+server_pool.*

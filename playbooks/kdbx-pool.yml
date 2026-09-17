@@ -1,0 +1,109 @@
+---
+- name: KeePass Server Pool Manager & Search
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    default_db_path: "{{ lookup('env', 'HOME') }}/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx"
+    fallback_db_path: "{{ lookup('env', 'HOME') }}/Downloads/OMT_PFS.SYSTEME.ALL.kdbx"
+    kdbx_path: "{{ kdbx_file | default(default_db_path if default_db_stat.stat.exists else fallback_db_path) }}"
+    pool_json_path: "{{ playbook_dir }}/../inventory/server_pool.json"
+    pool_yaml_path: "{{ playbook_dir }}/../inventory/server_pool.yml"
+    parser_script: "{{ playbook_dir }}/../scripts/build_kdbx_pool.py"
+    target_search: "{{ search | default(term | default('')) }}"
+
+  tasks:
+    - name: Check default KeePass DB existence
+      ansible.builtin.stat:
+        path: "{{ default_db_path }}"
+      register: default_db_stat
+
+    - name: Check server pool cache existence
+      ansible.builtin.stat:
+        path: "{{ pool_json_path }}"
+      register: pool_cache_stat
+
+    - name: Determine if pool synchronization is required
+      ansible.builtin.set_fact:
+        needs_sync: "{{ (action | default('')) == 'sync' or not pool_cache_stat.stat.exists }}"
+
+    - name: Prompt for KeePass database password if pool needs sync
+      ansible.builtin.pause:
+        prompt: "Enter KeePass Master Password for {{ kdbx_path }}"
+        echo: false
+      register: prompt_password
+      when: needs_sync and (kdbx_password is not defined or kdbx_password | length == 0)
+
+    - name: Set resolved KeePass password
+      ansible.builtin.set_fact:
+        resolved_password: "{{ kdbx_password | default(prompt_password.user_input | default('')) }}"
+      no_log: true
+      when: needs_sync
+
+    - name: Synchronize server pool from KeePass database
+      ansible.builtin.command:
+        argv:
+          - "{{ parser_script }}"
+          - "--db"
+          - "{{ kdbx_path }}"
+          - "--output-yaml"
+          - "{{ pool_yaml_path }}"
+          - "--output-json"
+          - "{{ pool_json_path }}"
+          - "--sync"
+          - "--no-color"
+        stdin: "{{ resolved_password }}"
+      register: sync_output
+      when: needs_sync
+      no_log: false
+      changed_when: true
+
+    - name: Display synchronization summary
+      ansible.builtin.debug:
+        msg: "{{ sync_output.stdout_lines }}"
+      when: needs_sync and sync_output.stdout_lines is defined
+
+    - name: Search server pool for query
+      ansible.builtin.command:
+        argv:
+          - "{{ parser_script }}"
+          - "--output-json"
+          - "{{ pool_json_path }}"
+          - "--search"
+          - "{{ target_search }}"
+          - "--no-color"
+      register: search_output
+      when: target_search | length > 0
+      changed_when: false
+
+    - name: Display search results
+      ansible.builtin.debug:
+        msg: "{{ search_output.stdout_lines }}"
+      when: target_search | length > 0 and search_output.stdout_lines is defined
+
+    - name: Show pool overview when no search query is specified
+      when: target_search | length == 0
+      block:
+        - name: Read pool metadata
+          ansible.builtin.slurp:
+            src: "{{ pool_json_path }}"
+          register: pool_raw
+
+        - name: Parse pool metadata
+          ansible.builtin.set_fact:
+            pool_data: "{{ pool_raw.content | b64decode | from_json }}"
+
+        - name: Display pool summary and usage guide
+          ansible.builtin.debug:
+            msg:
+              - "=== KeePass Server Pool Overview ==="
+              - "Source DB       : {{ pool_data.metadata.source_db }}"
+              - "Total Servers   : {{ pool_data.metadata.total_servers }}"
+              - "Servers with IP : {{ pool_data.metadata.total_with_ip }}"
+              - "Last Synced     : {{ pool_data.metadata.generated_at }}"
+              - "Ansible Inventory: {{ pool_yaml_path }}"
+              - ""
+              - "To search for any server, run:"
+              - "  ansible-playbook playbooks/kdbx-pool.yml -e 'search=<search_term>'"
+              - "To resync after modifying your .kdbx:"
+              - "  ansible-playbook playbooks/kdbx-pool.yml -e 'action=sync'"

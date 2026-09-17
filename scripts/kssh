@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+# ==============================================================================
+# Script: kssh (KeePass Server Pool Auto-SSH)
+# Purpose: Instant automated SSH to any server in the KeePass pool by
+#          hostname, IP, or keyword. Handles port, user, key, and password automatically.
+# ==============================================================================
+
+set -eo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+REPO_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+POOL_JSON="${REPO_DIR}/inventory/server_pool.json"
+
+if [ ! -f "$POOL_JSON" ]; then
+    POOL_JSON="${HOME}/.ansible/inventory/server_pool.json"
+fi
+
+if [ ! -f "$POOL_JSON" ]; then
+    echo -e "\033[0;31m[ERROR] Server pool not found at ${POOL_JSON}.\033[0m"
+    echo -e "Run: ansible-playbook playbooks/kdbx-pool.yml -e 'action=sync' to build it."
+    exit 1
+fi
+
+if [ -z "$1" ]; then
+    echo -e "\033[1mUsage:\033[0m kssh <SERVER_NAME_OR_IP> [SSH_OPTIONS / COMMAND]"
+    echo -e "Example: kssh mtq-mailsrvp-01"
+    echo -e "         kssh trp-wextp-fe1 uptime"
+    exit 1
+fi
+
+QUERY="$1"
+shift || true
+EXTRA_ARGS=("$@")
+
+# Query pool via python
+MATCHES_JSON=$(python3 -c "
+import json, sys
+
+query = '''$QUERY'''.lower().strip()
+with open('$POOL_JSON', 'r') as f:
+    data = json.load(f)
+
+servers = data.get('servers', [])
+results = []
+for s in servers:
+    haystack = ' '.join([
+        s.get('title', ''),
+        s.get('group', ''),
+        ' '.join(s.get('ips', [])),
+        s.get('username', ''),
+        s.get('notes', '')
+    ]).lower()
+    if query in haystack:
+        results.append(s)
+
+# Prioritize exact title match or non-recycle bin matches
+exact = [s for s in results if s.get('title', '').lower() == query]
+if exact:
+    # Filter out Recycle Bin if active match exists
+    active = [s for s in exact if 'recycle bin' not in s.get('group', '').lower()]
+    results = active if active else exact
+else:
+    active = [s for s in results if 'recycle bin' not in s.get('group', '').lower()]
+    if active:
+        results = active
+
+print(json.dumps(results))
+")
+
+COUNT=$(python3 -c "import json; print(len(json.loads('''$MATCHES_JSON''')))")
+
+if [ "$COUNT" -eq 0 ]; then
+    echo -e "\033[0;33m[WARN] No server found in KeePass pool matching '$QUERY'.\033[0m"
+    exit 1
+fi
+
+INDEX=0
+if [ "$COUNT" -gt 1 ]; then
+    echo -e "\033[1mMultiple matches found for '$QUERY':\033[0m"
+    python3 -c "
+import json
+matches = json.loads('''$MATCHES_JSON''')
+for i, m in enumerate(matches):
+    ip = m.get('primary_ip') or 'No IP'
+    port = f\":{m.get('port')}\" if m.get('port') else ''
+    print(f\"  [{i+1}] {m.get('title')} ({ip}{port}) - User: {m.get('username')} [{m.get('group')}]\")
+"
+    read -p "Select server [1-$COUNT]: " CHOICE
+    INDEX=$((CHOICE - 1))
+    if [ "$INDEX" -lt 0 ] || [ "$INDEX" -ge "$COUNT" ]; then
+        echo "Invalid selection."
+        exit 1
+    fi
+fi
+
+# Extract connection parameters
+TARGET_INFO=$(python3 -c "
+import json
+matches = json.loads('''$MATCHES_JSON''')
+m = matches[$INDEX]
+print(json.dumps({
+    'title': m.get('title', ''),
+    'ip': m.get('primary_ip', ''),
+    'port': m.get('port') or 22,
+    'user': m.get('username') or 'superuser',
+    'pass': m.get('password') or ''
+}))
+")
+
+TITLE=$(python3 -c "import json; print(json.loads('''$TARGET_INFO''')['title'])")
+IP=$(python3 -c "import json; print(json.loads('''$TARGET_INFO''')['ip'])")
+PORT=$(python3 -c "import json; print(json.loads('''$TARGET_INFO''')['port'])")
+USER=$(python3 -c "import json; print(json.loads('''$TARGET_INFO''')['user'])")
+PASS=$(python3 -c "import json; print(json.loads('''$TARGET_INFO''')['pass'])")
+
+if [ -z "$IP" ]; then
+    echo -e "\033[0;31m[ERROR] No IP address associated with '$TITLE'.\033[0m"
+    exit 1
+fi
+
+echo -e "\033[0;32m[kssh]\033[0m Connecting to \033[1m${TITLE}\033[0m (\033[0;33m${USER}@${IP}:${PORT}\033[0m)..."
+
+# 1. First test if passwordless key authentication works for koby-bowser-ansible
+if ssh -o BatchMode=yes -o ConnectTimeout=2 -o StrictHostKeyChecking=accept-new -p "$PORT" -i "${HOME}/.ssh/id_ed25519" "koby-bowser-ansible@${IP}" "true" 2>/dev/null; then
+    exec ssh -p "$PORT" -i "${HOME}/.ssh/id_ed25519" "koby-bowser-ansible@${IP}" "${EXTRA_ARGS[@]}"
+fi
+
+# 2. Test if passwordless key authentication works for the designated user
+if ssh -o BatchMode=yes -o ConnectTimeout=2 -o StrictHostKeyChecking=accept-new -p "$PORT" -i "${HOME}/.ssh/id_ed25519" "${USER}@${IP}" "true" 2>/dev/null; then
+    exec ssh -p "$PORT" -i "${HOME}/.ssh/id_ed25519" "${USER}@${IP}" "${EXTRA_ARGS[@]}"
+fi
+
+# 3. If key auth not configured and password is available in pool, connect via sshpass
+if [ -n "$PASS" ] && command -v sshpass >/dev/null 2>&1; then
+    exec sshpass -p "$PASS" ssh -p "$PORT" -o StrictHostKeyChecking=accept-new "${USER}@${IP}" "${EXTRA_ARGS[@]}"
+fi
+
+# 4. Fallback to standard interactive SSH
+exec ssh -p "$PORT" -o StrictHostKeyChecking=accept-new "${USER}@${IP}" "${EXTRA_ARGS[@]}"
