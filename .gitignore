@@ -1,0 +1,10 @@
+# Secrets — ne jamais versionner en clair
+*.vault
+vault_pass*
+.vault_pass*
+
+# Fichiers de retry Ansible (désactivés dans ansible.cfg, mais au cas où)
+*.retry
+
+# Collections/plugins téléchargés localement (réinstallables via requirements.yml)
+collections/

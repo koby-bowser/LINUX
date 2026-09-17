@@ -1,0 +1,177 @@
+---
+# Déploie la clé publique SSH locale sur un hôte distant, active/vérifie
+# l'authentification par clé, et corrige la configuration côté serveur.
+#
+# Modèle de connexion attendu (calqué sur l'usage manuel réel) :
+#   - connexion SSH initiale en tant qu'utilisateur non-root (ex. superuser)
+#   - élévation root via sudo, AVEC LE MÊME mot de passe que la connexion SSH
+#     (ex. "sudo -i" côté humain). Ansible reproduit ça avec `become: true` +
+#     `ansible_become_password` : chaque tâche marquée become s'exécute via
+#     sudo non-interactif — résultat identique à un "sudo -i" manuel, sans
+#     shell interactif.
+#
+# Usage :
+#   ansible-playbook -i "<host>," playbooks/deploy-ssh-key.yml -e @/chemin/vars.yml
+#
+# vars.yml (temporaire, JAMAIS versionné) — un seul mot de passe suffit,
+# réutilisé pour la connexion SSH et pour sudo (voir ansible_become_password
+# ci-dessous) :
+#   ansible_user: <utilisateur_non_root>
+#   ansible_password: '<mot_de_passe>'
+#   ansible_port: <port>
+#
+# Vérification "sans mot de passe" : à faire dans une invocation SÉPARÉE,
+# sans ansible_password ni --ask-pass (voir commentaire en bas de fichier).
+# Les extra-vars ont la priorité la plus haute dans Ansible et resteraient
+# actives pour tout second play de ce même fichier — la vérification ne
+# prouverait donc rien si elle était ici.
+
+- name: Déployer la clé publique locale et sécuriser l'accès SSH par clé
+  hosts: all
+  gather_facts: true
+  become: true
+  become_method: sudo
+  vars:
+    local_pubkey_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+    ansible_become_password: "{{ ansible_password }}"
+    ssh_service_name: "{{ 'ssh' if ansible_facts['os_family'] == 'Debian' else 'sshd' }}"
+
+  tasks:
+    - name: Vérifier que la clé publique locale existe
+      ansible.builtin.stat:
+        path: "{{ local_pubkey_path }}"
+      delegate_to: localhost
+      become: false
+      run_once: true
+      register: pubkey_stat
+
+    - name: Échouer si aucune clé publique locale n'est trouvée
+      ansible.builtin.fail:
+        msg: >-
+          Aucune clé publique trouvée à {{ local_pubkey_path }}.
+          Générez-en une avec : ssh-keygen -t ed25519
+      when: not pubkey_stat.stat.exists
+      run_once: true
+
+    - name: Récupérer les informations passwd de {{ ansible_user }} (home, gid)
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ ansible_user }}"
+
+    - name: Déterminer le home distant de {{ ansible_user }}
+      ansible.builtin.set_fact:
+        remote_user_home: "{{ ansible_facts.getent_passwd[ansible_user][4] }}"
+        remote_user_gid: "{{ ansible_facts.getent_passwd[ansible_user][2] }}"
+
+    # --- Configuration sshd effective (résout défauts + Include/*.conf) ---
+    - name: Lire la configuration sshd effective
+      ansible.builtin.command: sshd -T
+      changed_when: false
+      register: sshd_effective_config
+
+    - name: Extraire l'état effectif de PubkeyAuthentication
+      ansible.builtin.set_fact:
+        pubkey_auth_enabled: >-
+          {{ (sshd_effective_config.stdout_lines
+              | select('match', '^pubkeyauthentication ')
+              | list | first | default('pubkeyauthentication yes')
+              ).split()[1] == 'yes' }}
+
+    - name: Extraire le chemin AuthorizedKeysFile effectif (1er chemin si plusieurs)
+      ansible.builtin.set_fact:
+        authorized_keys_file_raw: >-
+          {{ ((sshd_effective_config.stdout_lines
+               | select('match', '^authorizedkeysfile ')
+               | list | first | default('authorizedkeysfile .ssh/authorized_keys')
+               ).split()[1:])[0] }}
+
+    - name: Substituer les jetons %u (utilisateur) et %h (home) dans le chemin
+      ansible.builtin.set_fact:
+        authorized_keys_file_tokenless: >-
+          {{ authorized_keys_file_raw | replace('%u', ansible_user) | replace('%h', remote_user_home) }}
+
+    - name: Résoudre le chemin absolu réel du fichier authorized_keys
+      ansible.builtin.set_fact:
+        resolved_authorized_keys_path: >-
+          {{ authorized_keys_file_tokenless if authorized_keys_file_tokenless.startswith('/')
+             else remote_user_home ~ '/' ~ authorized_keys_file_tokenless }}
+
+    - name: Avertir si AuthorizedKeysFile utilise un chemin non standard
+      ansible.builtin.debug:
+        msg: >-
+          Chemin non standard détecté pour AuthorizedKeysFile :
+          {{ resolved_authorized_keys_path }} (défaut attendu :
+          {{ remote_user_home }}/.ssh/authorized_keys)
+      when: resolved_authorized_keys_path != remote_user_home ~ '/.ssh/authorized_keys'
+
+    # --- Déploiement de la clé + permissions forcées ---
+    #
+    # ATTENTION : on ne gère les permissions du répertoire parent QUE dans le
+    # cas standard "~/.ssh personnel". Si AuthorizedKeysFile pointe vers un
+    # répertoire centralisé/partagé (ex. /etc/ssh/authorized_keys/%u), ce
+    # répertoire contient les clés de TOUS les utilisateurs — en forcer la
+    # propriété à l'utilisateur courant serait une élévation de privilèges
+    # (il pourrait alors altérer les clés de confiance des autres comptes).
+    # Dans ce cas, on suppose que le répertoire est déjà correctement
+    # sécurisé (root:root) par l'administrateur système et on ne le touche
+    # pas — seul le fichier propre à cet utilisateur est géré ci-dessous.
+    - name: S'assurer que le répertoire ~/.ssh existe avec les permissions correctes (700) — cas standard uniquement
+      ansible.builtin.file:
+        path: "{{ resolved_authorized_keys_path | dirname }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ remote_user_gid }}"
+        mode: '0700'
+      when: (resolved_authorized_keys_path | dirname) == (remote_user_home ~ '/.ssh')
+
+    - name: Avertir que le répertoire parent est partagé et n'est pas géré par ce playbook
+      ansible.builtin.debug:
+        msg: >-
+          {{ resolved_authorized_keys_path | dirname }} est un répertoire
+          partagé (hors ~/.ssh) — ses permissions/propriétaire ne sont pas
+          modifiés par ce playbook ; vérifiez manuellement qu'il reste
+          root:root et non accessible en écriture aux utilisateurs normaux.
+      when: (resolved_authorized_keys_path | dirname) != (remote_user_home ~ '/.ssh')
+
+    - name: Déployer la clé publique dans le fichier authorized_keys effectif
+      ansible.posix.authorized_key:
+        user: "{{ ansible_user }}"
+        state: present
+        key: "{{ lookup('file', local_pubkey_path) }}"
+        path: "{{ resolved_authorized_keys_path }}"
+        manage_dir: false
+
+    - name: Forcer les permissions correctes sur authorized_keys (600, bon propriétaire)
+      ansible.builtin.file:
+        path: "{{ resolved_authorized_keys_path }}"
+        owner: "{{ ansible_user }}"
+        group: "{{ remote_user_gid }}"
+        mode: '0600'
+
+    # --- Activer PubkeyAuthentication si nécessaire, avec validation stricte ---
+    - name: Activer PubkeyAuthentication dans sshd_config si elle est désactivée
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?\s*PubkeyAuthentication\s+'
+        line: 'PubkeyAuthentication yes'
+        validate: '/usr/sbin/sshd -t -f %s'
+      when: not (pubkey_auth_enabled | bool)
+      notify: Recharger sshd
+
+    - name: Résumé de l'état SSH sur {{ inventory_hostname }}
+      ansible.builtin.debug:
+        msg:
+          - "Fichier authorized_keys utilisé : {{ resolved_authorized_keys_path }}"
+          - "PubkeyAuthentication était activée avant ce run : {{ pubkey_auth_enabled }}"
+
+  handlers:
+    - name: Recharger sshd
+      ansible.builtin.service:
+        name: "{{ ssh_service_name }}"
+        state: reloaded
+
+# Vérification "sans mot de passe" (invocation séparée, sans ansible_password) :
+#   ansible all -i "<host>," -e ansible_user=<user> -e ansible_port=<port> \
+#     -e 'ansible_ssh_common_args="-o BatchMode=yes -o PreferredAuthentications=publickey"' \
+#     -m command -a whoami

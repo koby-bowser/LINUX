@@ -1,0 +1,50 @@
+---
+# Tâches partagées d'émission d'un certificat pour un backend DNS donné.
+# Attend en entrée :
+#   cert             : un élément de group_vars/all/certificates.yml
+#   cert_backend_args: flags certbot spécifiques au backend (rfc2136/powerdns)
+#   cert_env          : (optionnel) variables d'environnement à passer à certbot
+# Alimente la liste certs_deploy_queue (agrégée sur toute la durée du play).
+#
+# Tags explicites sur chaque tâche (plutôt que de compter sur l'héritage
+# depuis l'include_tasks parent) : avec include_tasks + loop, l'héritage de
+# tag ne propageait pas de façon fiable aux tâches internes dans nos tests.
+
+- name: "[{{ cert.domain }}] Relever le numéro de série actuel (avant émission), si le certificat existe déjà"
+  ansible.builtin.command: "openssl x509 -noout -serial -in /etc/letsencrypt/live/{{ cert.domain }}/cert.pem"
+  register: serial_before
+  changed_when: false
+  failed_when: false
+  tags: [issue]
+
+- name: "[{{ cert.domain }}] certbot certonly"
+  ansible.builtin.command: >-
+    certbot certonly --non-interactive --agree-tos --expand
+    -m {{ letsencrypt_email }}
+    {{ '--test-cert' if letsencrypt_staging | bool else '' }}
+    {{ cert_backend_args }}
+    --cert-name {{ cert.domain }}
+    -d {{ cert.domain }}
+    {{ (cert.extra_sans | default([])) | map('regex_replace', '^(.*)$', '-d \\1') | join(' ') }}
+  environment: "{{ cert_env | default({}) }}"
+  register: certbot_run
+  changed_when: "'not yet due for renewal' not in certbot_run.stdout"
+  tags: [issue]
+
+- name: "[{{ cert.domain }}] Relever le numéro de série (après émission)"
+  ansible.builtin.command: "openssl x509 -noout -serial -in /etc/letsencrypt/live/{{ cert.domain }}/cert.pem"
+  register: serial_after
+  changed_when: false
+  tags: [issue]
+
+- name: "[{{ cert.domain }}] Ajouter à la file de déploiement"
+  ansible.builtin.set_fact:
+    certs_deploy_queue: >-
+      {{ (certs_deploy_queue | default([])) + [{
+        'domain': cert.domain,
+        'changed': (serial_before.stdout | default('') != serial_after.stdout),
+        'target_host': cert.target_host,
+        'service_name': cert.service_name,
+        'cert_dest_dir': cert.cert_dest_dir,
+      }] }}
+  tags: [issue]

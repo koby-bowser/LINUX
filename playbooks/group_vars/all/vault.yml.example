@@ -1,0 +1,32 @@
+---
+# MODÈLE — ne pas utiliser tel quel, ce fichier n'est PAS chiffré.
+#
+# Créez le vrai fichier chiffré avec :
+#   ansible-vault create group_vars/all/vault.yml
+# (ou éditez-le ensuite avec : ansible-vault edit group_vars/all/vault.yml)
+# puis copiez cette structure dedans en remplaçant les valeurs.
+#
+# Ne mettez jamais ces secrets en clair ailleurs dans le dépôt.
+
+# --- Backend rfc2136 (ns1 / BIND) ---
+vault_rfc2136_server: "203.0.113.10"        # IP de ns1
+vault_rfc2136_port: 53
+vault_rfc2136_tsig_key_name: "acme-key."
+vault_rfc2136_tsig_secret: "BASE64_TSIG_SECRET_ICI"
+vault_rfc2136_tsig_algorithm: "HMAC-SHA512"
+
+# --- Backend powerdns (dnsp-mst) ---
+vault_powerdns_api_url: "https://dnsp-mst.example.lan/api/v1"
+vault_powerdns_api_key: "CLE_API_POWERDNS_ICI"
+vault_powerdns_dns_host: "dnsp-mst.example.lan"   # interrogé directement pour vérifier la propagation
+
+# --- Backend ssh_zonefile (ex. ns1 — pas de RFC2136, édition via SSH) ---
+# vault_ns1_ssh_alias doit correspondre à un "Host" défini dans le
+# ~/.ssh/config du nœud de contrôle (clé RSA déployée, options de
+# compatibilité legacy réglées une fois là — voir Host ns1 dans ~/.ssh/config).
+vault_ns1_ssh_alias: "ns1"
+vault_ns1_dns_host: "172.16.75.250"
+vault_ns1_sudo_password: "MOT_DE_PASSE_SUDO_ADMIN_NS1_ICI"
+
+# --- Compte email pour les notifications d'expiration Let's Encrypt ---
+vault_letsencrypt_email: "admin@outremer-telecom.fr"

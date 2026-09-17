@@ -1,0 +1,17 @@
+---
+# Playbook de validation : confirme que le nœud de contrôle fonctionne
+# (collecte des facts + affichage de quelques infos système de base).
+- name: Validation du nœud de contrôle Ansible
+  hosts: control_node
+  gather_facts: true
+
+  tasks:
+    - name: Afficher la distribution et la version détectées
+      ansible.builtin.debug:
+        msg: >-
+          {{ ansible_distribution }} {{ ansible_distribution_version }}
+          ({{ ansible_distribution_release }}) — kernel {{ ansible_kernel }}
+
+    - name: Vérifier l'espace disque disponible sur /
+      ansible.builtin.debug:
+        var: ansible_mounts | selectattr('mount', 'equalto', '/') | list

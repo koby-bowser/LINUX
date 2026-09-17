@@ -1,0 +1,38 @@
+---
+# Déploie un certificat déjà émis vers son serveur cible et recharge le
+# webserver. Attend en entrée : deploy_item (un élément de certs_deploy_queue).
+# delegate_to est défini par l'include qui boucle dessus ; become est géré ici.
+
+- name: "[{{ deploy_item.domain }}] Déployer le certificat et recharger le service"
+  become: true
+  delegate_to: "{{ deploy_item.target_host }}"
+  tags: [deploy]
+  block:
+    - name: "[{{ deploy_item.domain }}] Créer le répertoire de destination du certificat"
+      ansible.builtin.file:
+        path: "{{ deploy_item.cert_dest_dir }}"
+        state: directory
+        mode: '0750'
+        owner: root
+        group: root
+
+    - name: "[{{ deploy_item.domain }}] Déployer fullchain.pem"
+      ansible.builtin.copy:
+        content: "{{ lookup('file', '/etc/letsencrypt/live/' + deploy_item.domain + '/fullchain.pem') }}"
+        dest: "{{ deploy_item.cert_dest_dir }}/fullchain.pem"
+        mode: '0644'
+        owner: root
+        group: root
+
+    - name: "[{{ deploy_item.domain }}] Déployer privkey.pem"
+      ansible.builtin.copy:
+        content: "{{ lookup('file', '/etc/letsencrypt/live/' + deploy_item.domain + '/privkey.pem') }}"
+        dest: "{{ deploy_item.cert_dest_dir }}/privkey.pem"
+        mode: '0600'
+        owner: root
+        group: root
+
+    - name: "[{{ deploy_item.domain }}] Recharger {{ deploy_item.service_name }}"
+      ansible.builtin.service:
+        name: "{{ deploy_item.service_name }}"
+        state: reloaded
