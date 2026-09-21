@@ -1,0 +1,409 @@
+---
+# ==============================================================================
+# Playbook: Audit WEXTP Cluster — Frontend/Backend Topology & BE Deep Dive
+# ==============================================================================
+# 1. Phase 1: Queries KeePass server pool via playbooks/kdbx-pool.yml for all
+#             trp-wextp-be nodes and dynamically registers inventory groups.
+# 2. Phase 2: Audits Front-Ends (fe1, fe2, fe3) to discover which Backend nodes
+#             (and ports) each hosted domain connects to via fastcgi_pass/proxy_pass.
+# 3. Phase 3: Audits Back-Ends (be1 to be11) for:
+#             - PHP CLI version, active PHP-FPM services & listening pool ports
+#             - ProxySQL service status, version, config & listening ports
+#             - Root directories (/var/www/*) and match against routed domains.
+# 4. Phase 4: Consolidates findings into aligned cross-cluster topology tables.
+#
+# Usage:
+#   ansible-playbook -i inventory/hosts.ini playbooks/audit-wextp-topology.yml
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Phase 1: Query Server Pool for Backends via kdbx-pool
+# ------------------------------------------------------------------------------
+- name: "Phase 1a - Query Server Pool for Backends via kdbx-pool"
+  ansible.builtin.import_playbook: kdbx-pool.yml
+  vars:
+    search: "trp-wextp-be"
+
+- name: "Phase 1b - Ensure WEXTP Dynamic Inventory Groups from Pool"
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Load server pool cache
+      ansible.builtin.slurp:
+        src: "{{ playbook_dir }}/../inventory/server_pool.json"
+      register: _pool_raw
+      failed_when: false
+
+    - name: Dynamically register backend hosts if not present
+      ansible.builtin.add_host:
+        name: "{{ item.title.split()[0] }}"
+        ansible_host: "{{ item.primary_ip | default(item.ips[0]) }}"
+        ansible_port: "{{ item.port | default(30) }}"
+        ansible_user: "koby-bowser-ansible"
+        ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+        groups:
+          - wextp_backends
+      loop: "{{ (_pool_raw.content | b64decode | from_json).servers | selectattr('title', 'search', '^trp-wextp-be[0-9]+') | selectattr('group', 'search', 'WEXTP$') | unique(attribute='title') | list }}"
+      when: _pool_raw.content is defined
+
+    - name: Dynamically register frontend hosts if not present
+      ansible.builtin.add_host:
+        name: "{{ item.title.split()[0] }}"
+        ansible_host: "{{ item.primary_ip | default(item.ips[0]) }}"
+        ansible_port: "{{ item.port | default(30) }}"
+        ansible_user: "koby-bowser-ansible"
+        ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+        groups:
+          - wextp_frontends
+      loop: "{{ (_pool_raw.content | b64decode | from_json).servers | selectattr('title', 'search', '^trp-wextp-fe[0-9]+') | selectattr('group', 'search', 'WEXTP$') | unique(attribute='title') | list }}"
+      when: _pool_raw.content is defined
+
+# ------------------------------------------------------------------------------
+# Phase 2: Audit Front-Ends — Extract Domain to Backend Connections
+# ------------------------------------------------------------------------------
+- name: "Phase 2 - Audit Front-Ends (FE to BE Topology)"
+  hosts: wextp_frontends
+  gather_facts: true
+  become: true
+  become_method: ansible.builtin.sudo
+  vars:
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+
+  tasks:
+    - name: Inspect Nginx configuration on Front-Ends
+      ansible.builtin.command:
+        argv:
+          - /usr/bin/python3
+          - -c
+          - |
+            import glob, re, os, json, socket
+
+            upstreams = {}
+            # 1. Parse all upstreams in /etc/nginx/omt/*.conf, conf.d/*.conf, nginx.conf
+            conf_paths = glob.glob("/etc/nginx/omt/*.conf") + glob.glob("/etc/nginx/conf.d/*.conf") + ["/etc/nginx/nginx.conf"]
+            for cp in conf_paths:
+                if not os.path.isfile(cp):
+                    continue
+                try:
+                    with open(cp) as f:
+                        content = f.read()
+                    for m in re.finditer(r"upstream\s+([a-zA-Z0-9_\-]+)\s*\{([^}]+)\}", content):
+                        up_name = m.group(1)
+                        body = m.group(2)
+                        servers = []
+                        for line in body.splitlines():
+                            line = line.strip()
+                            if line.startswith("server ") and not line.startswith("#"):
+                                parts = line.replace(";", "").split()
+                                if len(parts) >= 2:
+                                    target = parts[1]
+                                    node = target.split(":")[0]
+                                    port = target.split(":")[1] if ":" in target else "80"
+                                    servers.append({"target": target, "node": node, "port": port})
+                        if servers:
+                            upstreams[up_name] = servers
+                except Exception:
+                    pass
+
+            # 2. Parse server blocks in sites-enabled
+            def parse_nginx_file(filepath):
+                try:
+                    with open(filepath) as f:
+                        content = f.read()
+                except Exception:
+                    return []
+
+                # Remove comments
+                lines = [l for l in content.splitlines() if not l.strip().startswith("#")]
+                clean_text = "\n".join(lines)
+
+                blocks = []
+                idx = 0
+                while True:
+                    m = re.search(r"(?:^|\s)server\s*\{(?!\s*name)", clean_text[idx:])
+                    if not m:
+                        break
+                    start = idx + m.end()
+                    depth = 1
+                    pos = start
+                    while pos < len(clean_text) and depth > 0:
+                        if clean_text[pos] == "{":
+                            depth += 1
+                        elif clean_text[pos] == "}":
+                            depth -= 1
+                        pos += 1
+                    server_body = clean_text[start:pos-1]
+                    idx = pos
+
+                    # Server names
+                    s_names = []
+                    for sn in re.findall(r"server_name\s+([^;]+);", server_body):
+                        s_names.extend([x.strip() for x in sn.split() if x.strip()])
+
+                    # Roots
+                    roots = re.findall(r"(?:^|\s)root\s+([^;]+);", server_body)
+                    doc_root = roots[0].strip() if roots else None
+
+                    # Passes
+                    passes = re.findall(r"(?:fastcgi_pass|proxy_pass)\s+([^;]+);", server_body)
+                    targets = list(set([p.strip() for p in passes if not p.strip().startswith("$")]))
+
+                    # Listen ports
+                    listens = re.findall(r"listen\s+([^;]+);", server_body)
+                    ports = []
+                    for l in listens:
+                        p = l.strip().split()[0]
+                        if p not in ports:
+                            ports.append(p)
+
+                    if s_names and targets:
+                        blocks.append({
+                            "conf": os.path.basename(filepath),
+                            "domains": [d for d in s_names if d != "_"],
+                            "ports": ports,
+                            "root": doc_root,
+                            "targets": targets
+                        })
+                return blocks
+
+            routes = []
+            for p in sorted(glob.glob("/etc/nginx/sites-enabled/*")):
+                if os.path.isfile(p):
+                    for b in parse_nginx_file(p):
+                        if not b["domains"]:
+                            continue
+                        # Resolve target to backend nodes
+                        resolved_backends = []
+                        target_names = []
+                        for t in b["targets"]:
+                            target_names.append(t)
+                            if t in upstreams:
+                                for s in upstreams[t]:
+                                    resolved_backends.append(s)
+                            else:
+                                # direct IP or host
+                                clean_t = t.replace("http://", "").replace("https://", "").split("/")[0]
+                                if ":" in clean_t:
+                                    h, pt = clean_t.split(":")
+                                    resolved_backends.append({"target": clean_t, "node": h, "port": pt})
+                                else:
+                                    resolved_backends.append({"target": clean_t, "node": clean_t, "port": "80"})
+
+                        # Deduplicate backends
+                        unique_bes = []
+                        seen = set()
+                        for be in resolved_backends:
+                            key = f"{be['node']}:{be['port']}"
+                            if key not in seen:
+                                seen.add(key)
+                                unique_bes.append(be)
+
+                        routes.append({
+                            "conf": b["conf"],
+                            "domains": b["domains"],
+                            "ports": b["ports"],
+                            "root": b["root"],
+                            "target_pools": target_names,
+                            "backends": unique_bes
+                        })
+
+            print(json.dumps({
+                "fe": socket.gethostname(),
+                "routes": routes,
+                "upstreams": upstreams
+            }))
+      register: _fe_audit_raw
+      changed_when: false
+
+    - name: Store parsed frontend routing facts
+      ansible.builtin.set_fact:
+        fe_audit: "{{ _fe_audit_raw.stdout | from_json }}"
+
+# ------------------------------------------------------------------------------
+# Phase 3: Audit Back-Ends — PHP Versions, ProxySQL, Webroots
+# ------------------------------------------------------------------------------
+- name: "Phase 3 - Audit Back-Ends (PHP, ProxySQL, Webroots)"
+  hosts: wextp_backends
+  gather_facts: true
+  become: true
+  become_method: ansible.builtin.sudo
+  vars:
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+
+  tasks:
+    - name: Inspect PHP engines, ProxySQL, and webroots on Backend
+      ansible.builtin.command:
+        argv:
+          - /usr/bin/python3
+          - -c
+          - |
+            import subprocess, os, re, glob, socket, json
+
+            res = {}
+            res["host"] = socket.gethostname()
+
+            # 1. PHP CLI version
+            php_cli = ""
+            try:
+                p = subprocess.run(["php", "-v"], capture_output=True, text=True)
+                if p.returncode == 0:
+                    php_cli = p.stdout.splitlines()[0].strip()
+            except Exception:
+                php_cli = "not installed"
+            res["php_cli"] = php_cli
+
+            # Active FPM services
+            fpm_services = []
+            try:
+                p = subprocess.run(["systemctl", "list-units", "--type=service", "php*", "--state=running", "--no-legend"], capture_output=True, text=True)
+                for line in p.stdout.splitlines():
+                    parts = line.split()
+                    if parts:
+                        fpm_services.append(parts[0])
+            except Exception:
+                pass
+            res["fpm_services"] = fpm_services
+
+            # Listening PHP ports
+            php_ports = []
+            try:
+                p = subprocess.run(["ss", "-tulpn"], capture_output=True, text=True)
+                for line in p.stdout.splitlines():
+                    if "php" in line:
+                        parts = line.split()
+                        if len(parts) >= 5:
+                            local_addr = parts[4]
+                            port = local_addr.split(":")[-1]
+                            php_ports.append(port)
+            except Exception:
+                pass
+            res["php_ports"] = sorted(list(set(php_ports)), key=lambda x: int(x) if x.isdigit() else 0)
+
+            # 2. ProxySQL inspection
+            proxysql = {}
+            try:
+                p = subprocess.run(["systemctl", "is-active", "proxysql"], capture_output=True, text=True)
+                proxysql["service"] = p.stdout.strip()
+            except Exception:
+                proxysql["service"] = "unknown"
+
+            try:
+                p = subprocess.run(["proxysql", "--version"], capture_output=True, text=True)
+                proxysql["version"] = p.stdout.strip()
+            except Exception:
+                proxysql["version"] = "N/A"
+
+            proxysql["config_exists"] = os.path.exists("/etc/proxysql.cnf")
+            proxysql["config_size"] = os.path.getsize("/etc/proxysql.cnf") if proxysql["config_exists"] else 0
+
+            psql_ports = []
+            try:
+                p = subprocess.run(["ss", "-tulpn"], capture_output=True, text=True)
+                for line in p.stdout.splitlines():
+                    if "proxysql" in line:
+                        parts = line.split()
+                        if len(parts) >= 5:
+                            local_addr = parts[4]
+                            port = local_addr.split(":")[-1]
+                            psql_ports.append(port)
+            except Exception:
+                pass
+            proxysql["ports"] = sorted(list(set(psql_ports)), key=lambda x: int(x) if x.isdigit() else 0)
+            res["proxysql"] = proxysql
+
+            # 3. Webroot directories in /var/www/
+            webroots = []
+            if os.path.isdir("/var/www"):
+                for item in sorted(os.listdir("/var/www")):
+                    full = os.path.join("/var/www", item)
+                    if not item.startswith("."):
+                        is_link = os.path.islink(full)
+                        real = os.path.realpath(full) if is_link else full
+                        is_dir = os.path.isdir(full)
+                        if is_dir:
+                            webroots.append({
+                                "name": item,
+                                "path": full,
+                                "is_symlink": is_link,
+                                "target": real if is_link else None,
+                            })
+            res["webroots"] = webroots
+
+            print(json.dumps(res))
+      register: _be_audit_raw
+      changed_when: false
+
+    - name: Store parsed backend audit facts
+      ansible.builtin.set_fact:
+        be_audit: "{{ _be_audit_raw.stdout | from_json }}"
+
+# ------------------------------------------------------------------------------
+# Phase 4: Consolidated Cluster Topology & Audit Reporting
+# ------------------------------------------------------------------------------
+- name: "Phase 4 - Consolidated Cluster Topology & Audit Reporting"
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Display Host-by-Host Backend Health Summary
+      ansible.builtin.debug:
+        msg: |
+          ====================================================================================================
+          BACKEND NODE AUDIT: {{ item }}
+          ====================================================================================================
+          {% set be = hostvars[item].be_audit | default({}) %}
+          * Hostname         : {{ be.host | default(item) }} ({{ hostvars[item].ansible_host | default('N/A') }})
+          * PHP CLI          : {{ be.php_cli | default('N/A') }}
+          * Active PHP-FPM   : {{ be.fpm_services | default([]) | join(', ') if be.fpm_services else 'None running' }}
+          * Listening Ports  : {{ be.php_ports | default([]) | join(', ') if be.php_ports else 'None' }}
+          * ProxySQL Service : {{ be.proxysql.service | default('N/A') | upper }} ({{ be.proxysql.version | default('N/A') }})
+          * ProxySQL Config  : {{ '/etc/proxysql.cnf (' ~ be.proxysql.config_size ~ ' bytes)' if (be.proxysql.config_exists | default(false)) else 'NOT FOUND' }}
+          * ProxySQL Ports   : {{ be.proxysql.ports | default([]) | join(', ') if be.proxysql.ports else 'None' }}
+          * Hosted Webroots  : {{ be.webroots | default([]) | length }} root directories in /var/www/
+          ----------------------------------------------------------------------------------------------------
+      loop: "{{ groups['wextp_backends'] | sort }}"
+
+    - name: Display Front-End to Back-End Domain Routing Topology Table
+      ansible.builtin.debug:
+        msg: |
+          ========================================================================================================================================================================
+          WEXTP TOPOLOGY: FRONT-END TO BACK-END DOMAIN ROUTING TABLE
+          ========================================================================================================================================================================
+          {{ '%-15s' | format('FRONT-END') }} | {{ '%-40s' | format('HOSTED DOMAIN(S)') }} | {{ '%-22s' | format('UPSTREAM POOL') }} | {{ '%-35s' | format('TARGET BACKEND(S)') }} | {{ '%-12s' | format('PORT(S)') }} | {{ '%-25s' | format('FE ROOT DIRECTORY') }}
+          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          {% for fe_name in groups['wextp_frontends'] | sort %}
+          {% set fe = hostvars[fe_name].fe_audit | default({}) %}
+          {% for r in fe.routes | default([]) %}
+          {% set be_nodes = [] %}
+          {% set be_ports = [] %}
+          {% for b in r.backends | default([]) %}
+          {% set _ = be_nodes.append(b.node) %}
+          {% set _ = be_ports.append(b.port) %}
+          {% endfor %}
+          {{ '%-15s' | format(fe_name) }} | {{ '%-40s' | format((r.domains | join(', ')) | truncate(40, True, '...')) }} | {{ '%-22s' | format((r.target_pools | join(', ')) | truncate(22, True, '...')) }} | {{ '%-35s' | format((be_nodes | unique | join(', ')) | truncate(35, True, '...')) }} | {{ '%-12s' | format((be_ports | unique | join(',')) | truncate(12, True, '...')) }} | {{ '%-25s' | format((r.root or 'None') | truncate(25, True, '...')) }}
+          {% endfor %}
+          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          {% endfor %}
+          ========================================================================================================================================================================
+
+    - name: Display Back-End Infrastructure, PHP & ProxySQL Summary Table
+      ansible.builtin.debug:
+        msg: |
+          ========================================================================================================================================================================
+          WEXTP INFRASTRUCTURE: BACK-END NODES, PHP ENGINES & PROXYSQL STATUS
+          ========================================================================================================================================================================
+          {{ '%-16s' | format('BACKEND NODE') }} | {{ '%-16s' | format('IP ADDRESS') }} | {{ '%-18s' | format('PHP CLI') }} | {{ '%-35s' | format('ACTIVE PHP-FPM SERVICES') }} | {{ '%-28s' | format('LISTENING PHP PORTS') }} | {{ '%-16s' | format('PROXYSQL STATUS') }} | {{ '%-14s' | format('PROXYSQL PORTS') }} | {{ '%-8s' | format('WEBROOTS') }}
+          ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          {% for be_name in groups['wextp_backends'] | sort %}
+          {% set be = hostvars[be_name].be_audit | default({}) %}
+          {% set ip = hostvars[be_name].ansible_host | default('N/A') %}
+          {% set php_v = (be.php_cli.split()[1] if (be.php_cli and be.php_cli.split() | length > 1) else (be.php_cli or 'N/A')) %}
+          {% set fpm_str = (be.fpm_services | default([]) | join(', ')) %}
+          {% set ports_str = (be.php_ports | default([]) | join(',')) %}
+          {% set psql_stat = (be.proxysql.service | default('N/A') | upper) %}
+          {% set psql_pts = (be.proxysql.ports | default([]) | join(',')) %}
+          {% set roots_cnt = (be.webroots | default([]) | length | string ~ ' roots') %}
+          {{ '%-16s' | format(be_name) }} | {{ '%-16s' | format(ip) }} | {{ '%-18s' | format(php_v | truncate(18, True, '...')) }} | {{ '%-35s' | format(fpm_str | truncate(35, True, '...')) }} | {{ '%-28s' | format(ports_str | truncate(28, True, '...')) }} | {{ '%-16s' | format(psql_stat | truncate(16, True, '...')) }} | {{ '%-14s' | format(psql_pts | truncate(14, True, '...')) }} | {{ '%-8s' | format(roots_cnt) }}
+          {% endfor %}
+          ========================================================================================================================================================================
