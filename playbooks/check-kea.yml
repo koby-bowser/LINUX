@@ -30,7 +30,7 @@
 # ==============================================================================
 
 - name: Vérifier l'état du processus et des services ISC Kea DHCP
-  hosts: "{{ target_hosts | default('mtq-ipftthp-fe3') }}"
+  hosts: "{{ target_hosts | default('ipftth_frontends' if 'ipftth_frontends' in groups else 'all') }}"
   become: true
   become_method: ansible.builtin.sudo
   gather_facts: false
