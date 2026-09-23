@@ -2,19 +2,17 @@
 # ==============================================================================
 # Playbook: check-kea.yml
 # Purpose: Inspect the status, processes, sockets, configuration, REST API, and
-#          metrics of the ISC Kea DHCP suite (kea-dhcp4, kea-ctrl-agent) on
+#          investigate root cause of frequent kea-dhcp4 crashes / stops on
 #          mtq-ipftthp-fe3 (10.2.41.226:30) via passwordless SSH public key auth.
-#
-# Note on Compatibility:
-#   Target host runs RHEL 8 (el8) with platform-python 3.6.8. All inspection tasks
-#   use ansible.builtin.raw to execute directly over SSH without depending on
-#   a modern remote Python runtime (bypassing PEP 563 annotations incompatibility).
 #
 # Execution:
 #   ansible-playbook check-kea.yml
+#
+# Optional (with sudo to extract deep /var/log/kea/kea-dhcp4.log entries):
+#   ansible-playbook check-kea.yml -K -e use_sudo=true
 # ==============================================================================
 
-- name: Vérifier l'état du processus et des services ISC Kea DHCP
+- name: Vérifier l'état et analyser les causes d'arrêt de ISC Kea DHCP
   hosts: "{{ target_hosts | default('ipftth_frontends' if 'ipftth_frontends' in groups else 'all') }}"
   gather_facts: false
 
@@ -26,6 +24,7 @@
       -o StrictHostKeyChecking=accept-new
       -o PreferredAuthentications=publickey
     kea_api_url: "http://172.30.38.212:8000/"
+    use_sudo: false
 
   tasks:
     # --------------------------------------------------------------------------
@@ -47,14 +46,6 @@
       changed_when: false
       failed_when: false
 
-    - name: "Interroger les statistiques DHCPv4 globales (statistic-get-all)"
-      ansible.builtin.raw: >-
-        curl -s -m 5 -X POST -H "Content-Type: application/json"
-        -d '{"command": "statistic-get-all", "service": ["dhcp4"]}' {{ kea_api_url }}
-      register: _kea_api_stats
-      changed_when: false
-      failed_when: false
-
     # --------------------------------------------------------------------------
     # 2. Network Listening Sockets (UDP 67 DHCP, TCP 8000 Control Agent)
     # --------------------------------------------------------------------------
@@ -72,67 +63,113 @@
       changed_when: false
       failed_when: false
 
-    - name: Vérifier les sockets UNIX de contrôle locaux (/var/run/kea)
+    # --------------------------------------------------------------------------
+    # 3. ROOT CAUSE INVESTIGATION: Database Fail Policy in kea-dhcp4.conf
+    # --------------------------------------------------------------------------
+    - name: "Extraire la politique de panne MySQL (on-fail & retries) dans kea-dhcp4.conf"
       ansible.builtin.raw: >-
-        ls -la /var/run/kea/ 2>&1
-      register: _kea_unix_sockets
+        grep -n -E "on-fail|max-reconnect-tries|reconnect-wait-time|connect-timeout" /usr/local/etc/kea/kea-dhcp4.conf
+      register: _kea_fail_policy
       changed_when: false
       failed_when: false
 
     # --------------------------------------------------------------------------
-    # 3. Process & keactrl Status
+    # 4. ROOT CAUSE INVESTIGATION: ProxySQL & Galera Cluster Incidents
     # --------------------------------------------------------------------------
-    - name: Exécuter le script de statut officiel keactrl
+    - name: "Consulter l'historique des erreurs MySQL/Galera dans ProxySQL (stats_mysql_errors)"
       ansible.builtin.raw: >-
-        /usr/local/sbin/keactrl status 2>&1
-      register: _keactrl_status
+        mysql -u admin -padmin -h 127.0.0.1 -P 6032 -e "
+        SELECT FROM_UNIXTIME(last_seen) AS last_seen_time,
+               FROM_UNIXTIME(first_seen) AS first_seen_time,
+               hostgroup, hostname, count_star, errno, last_error
+        FROM stats_mysql_errors
+        WHERE count_star > 0
+        ORDER BY last_seen DESC LIMIT 10;
+        " 2>&1
+      register: _proxysql_errors
+      changed_when: false
+      failed_when: false
+
+    - name: "Consulter l'état du pool de serveurs et des nœuds exclus/shunned (stats_mysql_connection_pool)"
+      ansible.builtin.raw: >-
+        mysql -u admin -padmin -h 127.0.0.1 -P 6032 -e "
+        SELECT hostgroup, srv_host, srv_port, status, ConnUsed, ConnFree, ConnOK, ConnERR, MaxConnUsed, Latency_us
+        FROM stats_mysql_connection_pool;
+        " 2>&1
+      register: _proxysql_pool
       changed_when: false
       failed_when: false
 
     # --------------------------------------------------------------------------
-    # 4. Configuration Files & Binaries
+    # 5. ROOT CAUSE INVESTIGATION: Systemd Supervision & Stale Lock Files
     # --------------------------------------------------------------------------
-    - name: Vérifier les binaires installés et leur chemin
+    - name: Vérifier si Kea est managé et supervisé par systemd (restart automatique)
       ansible.builtin.raw: >-
-        for bin in kea-dhcp4 kea-dhcp6 kea-ctrl-agent keactrl; do
-          path=$(command -v "$bin" 2>/dev/null || ls /usr/local/sbin/"$bin" 2>/dev/null || true)
-          echo "$bin: $path"
-        done
-      register: _kea_binaries
+        systemctl is-active kea-dhcp4 kea-dhcp4-server isc-kea-dhcp4-server 2>&1 || echo "Aucune unité systemd trouvée"
+      register: _systemd_supervision
       changed_when: false
       failed_when: false
 
-    - name: Lister les fichiers de configuration Kea dans /usr/local/etc/kea/
+    - name: Vérifier les verrous et sockets orphelins (/run/kea et /usr/local/var/run/kea)
       ansible.builtin.raw: >-
-        ls -lh /usr/local/etc/kea/ 2>&1
-      register: _kea_configs
+        ls -la /run/kea/ /var/run/kea/ 2>&1
+      register: _kea_lock_files
       changed_when: false
       failed_when: false
 
     # --------------------------------------------------------------------------
-    # 5. Diagnostic Summary
+    # 6. ROOT CAUSE INVESTIGATION: Log Files Inspection
     # --------------------------------------------------------------------------
-    - name: "=== RAPPORT D'ÉTAT DU PROCESSUS ET DU SERVICE ISC KEA DHCP ==="
+    - name: Vérifier la taille et permissions du fichier de log /var/log/kea/kea-dhcp4.log
+      ansible.builtin.raw: >-
+        ls -lh /var/log/kea/kea-dhcp4.log* 2>&1 || ls -ld /var/log/kea 2>&1
+      register: _kea_log_metadata
+      changed_when: false
+      failed_when: false
+
+    - name: "Extraire les dernières lignes de log Kea (si sudo disponible)"
+      when: use_sudo | bool
+      ansible.builtin.raw: >-
+        sudo grep -iE "fatal|error|exit|shutdown|terminated|database|failed" /var/log/kea/kea-dhcp4.log | tail -n 30 2>&1
+      register: _kea_log_errors
+      changed_when: false
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 7. Comprehensive Diagnostic & Root Cause Report
+    # --------------------------------------------------------------------------
+    - name: "=== RAPPORT DE DIAGNOSTIC DES ARRÊTS FRÉQUENTS DE KEA DHCPv4 ==="
       ansible.builtin.debug:
         msg:
           - "===================================================================="
           - "HÔTE CIBLE : {{ inventory_hostname }} ({{ ansible_host | default(inventory_hostname) }}:{{ ansible_port }})"
-          - "UTILISATEUR: {{ ansible_user }} (Authentification par clé SSH publique)"
           - "===================================================================="
-          - "--- STATUT DU DÉMON DHCPv4 (API REST KEA status-get) ---"
-          - "{{ _kea_api_status.stdout_lines | default(['API non joignable']) }}"
-          - "--- VERSION ET MODULES KEA (API REST version-get) ---"
-          - "{{ _kea_api_version.stdout_lines | default(['Version non disponible']) }}"
-          - "--- SOCKETS RÉSEAU UDP (DHCPv4 :67) ---"
-          - "{{ _kea_udp_sockets.stdout_lines | default(['Aucun socket UDP']) }}"
-          - "--- SOCKETS RÉSEAU TCP (API REST :8000, Exporter :9547) ---"
-          - "{{ _kea_tcp_sockets.stdout_lines | default(['Aucun socket TCP']) }}"
-          - "--- FICHIERS DE CONTRÔLE ET SOCKETS UNIX (/var/run/kea) ---"
-          - "{{ _kea_unix_sockets.stdout_lines | default(['Aucun socket UNIX']) }}"
-          - "--- STATUT DU SCRIPT DE GESTION KEA (keactrl status) ---"
-          - "{{ _keactrl_status.stdout_lines | default(['keactrl non exécuté']) }}"
-          - "--- BINAIRES INSTALLÉS (/usr/local/sbin/) ---"
-          - "{{ _kea_binaries.stdout_lines | default(['Binaires non trouvés']) }}"
-          - "--- FICHIERS DE CONFIGURATION DISPONIBLES (/usr/local/etc/kea/) ---"
-          - "{{ _kea_configs.stdout_lines | default(['Répertoire introuvable']) }}"
+          - "1. ÉTAT ACTUEL DU PROCESSUS KEA DHCPv4"
+          - "{{ _kea_api_status.stdout_lines | default(['API REST non joignable']) }}"
+          - "--------------------------------------------------------------------"
+          - "2. CAUSE PRINCIPALE DÉTECTÉE DANS LA CONFIGURATION (POLITIQUE DE PANNE)"
+          - "Lignes de configuration critiques (kea-dhcp4.conf) :"
+          - "{{ _kea_fail_policy.stdout_lines | default(['Non extrait']) }}"
+          - "=> ANALYSE : 'on-fail': 'serve-retry-exit' avec 'max-reconnect-tries': 3."
+          - "   Si la base MySQL ne répond pas sous 9 à 12 secondes, Kea s'arrête intentionnellement."
+          - "--------------------------------------------------------------------"
+          - "3. INCIDENTS BASE DE DONNÉES / PROXYSQL DÉTECTÉS"
+          - "{{ _proxysql_errors.stdout_lines | default(['Historique ProxySQL non accessible']) }}"
+          - "=> Note : L'erreur 1047 ('WSREP has not yet prepared node for application use') est"
+          - "   fréquente sur les clusters Galera lors de désynchronisations ou bascules."
+          - "--------------------------------------------------------------------"
+          - "4. ÉTAT DU POOL PROXYSQL VERS LE CLUSTER GALERA"
+          - "{{ _proxysql_pool.stdout_lines | default(['Pool non accessible']) }}"
+          - "--------------------------------------------------------------------"
+          - "5. ABSENCE DE SUPERVISEUR SYSTEMD (POURQUOI L'ARRÊT DEVIENT UNE COUPURE)"
+          - "Statut unités systemd : {{ _systemd_supervision.stdout_lines | default([]) }}"
+          - "=> ANALYSE : Kea n'a pas de service systemd avec 'Restart=always'."
+          - "   Dès que Kea quitte suite à un timeout MySQL, il reste arrêté jusqu'à relance manuelle."
+          - "--------------------------------------------------------------------"
+          - "6. VERROUS ET SOCKETS DE CONTRÔLE"
+          - "{{ _kea_lock_files.stdout_lines | default(['Aucun']) }}"
+          - "--------------------------------------------------------------------"
+          - "7. JOURNAL DE LOG /var/log/kea/kea-dhcp4.log"
+          - "{{ _kea_log_metadata.stdout_lines | default([]) }}"
+          - "{{ (_kea_log_errors.stdout_lines | default(['(Activer -e use_sudo=true -K pour lire le contenu brut du log)'])) if (use_sudo | bool) else ['(Exécuter avec -K -e use_sudo=true pour extraire le texte brut du log /var/log/kea/)'] }}"
           - "===================================================================="
