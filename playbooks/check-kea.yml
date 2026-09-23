@@ -1,0 +1,191 @@
+---
+# ==============================================================================
+# Playbook: check-kea.yml
+# Purpose: Inspect the status, processes, sockets, configuration, and logs of the
+#          ISC Kea DHCP service suite (kea-dhcp4, kea-dhcp6, kea-ctrl-agent, etc.)
+#          on mtq-ipftthp-fe3 (10.2.41.226:30) using passwordless SSH public key
+#          authentication with superuser privileges.
+#
+# Prerequisite - Passwordless SSH Access Setup:
+#   If passwordless SSH public key authentication has not been configured yet
+#   on the remote host, use the repository's dedicated SSH key deployment playbook:
+#     ansible-playbook -i "10.2.41.226," playbooks/deploy-ssh-key.yml \
+#       -e ansible_user=superuser \
+#       -e ansible_port=30 \
+#       -k -K
+#   This will install ~/.ssh/id_ed25519.pub to authorized_keys, fix permissions (0700/0600),
+#   and ensure PubkeyAuthentication is enabled in sshd_config.
+#
+# Usage:
+#   # Standard execution against mtq-ipftthp-fe3 using public key SSH:
+#   ansible-playbook check-kea.yml
+#
+#   # If sudo on the remote machine requires a password:
+#   ansible-playbook check-kea.yml -K
+#
+#   # Ad-hoc execution specifying target host directly:
+#   ansible-playbook -i "10.2.41.226," check-kea.yml \
+#     -e ansible_user=superuser \
+#     -e ansible_port=30
+# ==============================================================================
+
+- name: Vérifier l'état du processus et des services ISC Kea DHCP
+  hosts: "{{ target_hosts | default('mtq-ipftthp-fe3') }}"
+  become: true
+  become_method: ansible.builtin.sudo
+  gather_facts: false
+
+  vars:
+    ansible_user: "{{ target_user | default('superuser') }}"
+    ansible_port: "{{ target_port | default(30) }}"
+    ansible_ssh_private_key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+    ansible_ssh_common_args: >-
+      -o StrictHostKeyChecking=accept-new
+      -o PreferredAuthentications=publickey
+
+  tasks:
+    # --------------------------------------------------------------------------
+    # 1. Systemd Service Units Status
+    # --------------------------------------------------------------------------
+    - name: Lister les unités systemd Kea existantes
+      ansible.builtin.shell: >-
+        systemctl list-unit-files 'kea*' '*kea*' --no-pager --no-legend 2>/dev/null || true
+      register: _kea_unit_files
+      changed_when: false
+      failed_when: false
+
+    - name: Vérifier l'état d'activation des services Kea (is-active)
+      ansible.builtin.shell: >-
+        for svc in kea-dhcp4-server kea-dhcp4 isc-kea-dhcp4-server \
+                   kea-dhcp6-server kea-dhcp6 isc-kea-dhcp6-server \
+                   kea-ctrl-agent isc-kea-ctrl-agent \
+                   kea-dhcp-ddns-server kea-dhcp-ddns isc-kea-dhcp-ddns-server; do
+          if systemctl list-unit-files "${svc}.service" &>/dev/null; then
+            state=$(systemctl is-active "$svc" 2>/dev/null || echo "unknown")
+            echo "$svc: $state"
+          fi
+        done
+      register: _kea_services_active
+      changed_when: false
+      failed_when: false
+
+    - name: Obtenir le statut détaillé systemctl pour tous les services Kea
+      ansible.builtin.shell: >-
+        systemctl status 'kea*' 'isc-kea*' --no-pager -l 2>&1 || true
+      register: _kea_systemctl_status
+      changed_when: false
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 2. Process Level Inspection (ps / pgrep)
+    # --------------------------------------------------------------------------
+    - name: Rechercher les processus Kea en cours d'exécution
+      ansible.builtin.shell: >-
+        ps aux | grep -E '[k]ea-(dhcp4|dhcp6|ctrl-agent|dhcp-ddns|netconf|admin)|/kea' || true
+      register: _kea_processes
+      changed_when: false
+      failed_when: false
+
+    - name: Identifier les PIDs précis des processus Kea
+      ansible.builtin.shell: >-
+        pgrep -a -f 'kea-(dhcp|ctrl|netconf)' 2>/dev/null || true
+      register: _kea_pids
+      changed_when: false
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 3. Network Sockets & Port Listening (DHCPv4 :67, DHCPv6 :547, Ctrl Agent)
+    # --------------------------------------------------------------------------
+    - name: Vérifier les sockets réseau UDP et TCP associés à Kea / DHCP
+      ansible.builtin.shell: >-
+        ss -tulpn | grep -E 'kea|:67 |:547 |:8000 |:8080 ' || true
+      register: _kea_listening_sockets
+      changed_when: false
+      failed_when: false
+
+    - name: Vérifier les sockets UNIX locaux de Kea Control Agent
+      ansible.builtin.shell: >-
+        ss -xlpn | grep -E 'kea' || true
+      register: _kea_unix_sockets
+      changed_when: false
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 4. Binaries, Versions, and Configuration Files
+    # --------------------------------------------------------------------------
+    - name: Détecter les binaires Kea installés et leur version
+      ansible.builtin.shell: >-
+        for bin in kea-dhcp4 kea-dhcp6 kea-ctrl-agent kea-admin; do
+          bin_path=$(command -v "$bin" 2>/dev/null || true)
+          if [ -n "$bin_path" ]; then
+            ver=$("$bin_path" -v 2>&1 | head -n 1)
+            echo "$bin_path -> $ver"
+          fi
+        done
+      register: _kea_binaries
+      changed_when: false
+      failed_when: false
+
+    - name: Lister les fichiers de configuration Kea dans /etc/kea
+      ansible.builtin.shell: >-
+        ls -la /etc/kea/ 2>/dev/null || ls -la /usr/local/etc/kea/ 2>/dev/null || echo "Répertoire de configuration introuvable"
+      register: _kea_config_files
+      changed_when: false
+      failed_when: false
+
+    - name: Tester la validité syntaxique de la configuration DHCPv4 si présente
+      ansible.builtin.shell: >-
+        if command -v kea-dhcp4 &>/dev/null && [ -f /etc/kea/kea-dhcp4.conf ]; then
+          kea-dhcp4 -t /etc/kea/kea-dhcp4.conf 2>&1
+        elif command -v kea-dhcp4 &>/dev/null && [ -f /etc/kea/kea.conf ]; then
+          kea-dhcp4 -t /etc/kea/kea.conf 2>&1
+        else
+          echo "Test de syntaxe ignoré : kea-dhcp4 ou fichier de configuration non disponible"
+        fi
+      register: _kea_config_test
+      changed_when: false
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 5. Recent Journalctl Logs
+    # --------------------------------------------------------------------------
+    - name: Récupérer les 30 dernières lignes de logs journalctl relatives à Kea
+      ansible.builtin.shell: >-
+        journalctl -u 'kea*' -u 'isc-kea*' --no-pager -n 30 2>&1 || true
+      register: _kea_recent_logs
+      changed_when: false
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 6. Diagnosis Summary Output
+    # --------------------------------------------------------------------------
+    - name: "=== RÉSUMÉ DE L'ÉTAT DU PROCESSUS ET DES SERVICES KEA ==="
+      ansible.builtin.debug:
+        msg:
+          - "===================================================================="
+          - "HÔTE CIBLE           : {{ inventory_hostname }} ({{ ansible_host | default(inventory_hostname) }}:{{ ansible_port }})"
+          - "UTILISATEUR SSH / SUDO: {{ ansible_user }} (Authentification par clé publique)"
+          - "===================================================================="
+          - "--- SERVICES SYSTEMD DÉTECTÉS ---"
+          - "{{ _kea_services_active.stdout_lines | default(['Aucun service Kea standard détecté dans systemd']) }}"
+          - "--- PROCESSUS EN COURS (PIDs & COMMANDES) ---"
+          - "{{ _kea_pids.stdout_lines | default(['Aucun processus Kea actif']) }}"
+          - "--- DÉTAIL DES PROCESSUS (ps aux) ---"
+          - "{{ _kea_processes.stdout_lines | default(['Aucun processus trouvé']) }}"
+          - "--- PORTS ET SOCKETS D'ÉCOUTE (ss -tulpn) ---"
+          - "{{ _kea_listening_sockets.stdout_lines | default(['Aucun socket réseau Kea/DHCP en écoute']) }}"
+          - "--- SOCKETS UNIX (ss -xlpn) ---"
+          - "{{ _kea_unix_sockets.stdout_lines | default(['Aucun socket UNIX Kea détecté']) }}"
+          - "--- BINAIRES ET VERSIONS KEA ---"
+          - "{{ _kea_binaries.stdout_lines | default(['Aucun binaire Kea trouvé dans le PATH']) }}"
+          - "--- VALIDATION CONFIGURATION ---"
+          - "{{ _kea_config_test.stdout_lines | default(['Test de configuration non effectué']) }}"
+          - "===================================================================="
+
+    - name: "Afficher le statut systemctl détaillé"
+      ansible.builtin.debug:
+        var: _kea_systemctl_status.stdout_lines
+
+    - name: "Afficher les derniers logs Kea (journalctl)"
+      ansible.builtin.debug:
+        var: _kea_recent_logs.stdout_lines
