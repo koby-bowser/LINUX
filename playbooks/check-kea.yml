@@ -4,13 +4,13 @@
 # Purpose: Inspect the status, processes, sockets, configuration, and logs of the
 #          ISC Kea DHCP service suite (kea-dhcp4, kea-dhcp6, kea-ctrl-agent, etc.)
 #          on mtq-ipftthp-fe3 (10.2.41.226:30) using passwordless SSH public key
-#          authentication with superuser privileges.
+#          authentication with admin (sudo) privileges.
 #
 # Prerequisite - Passwordless SSH Access Setup:
 #   If passwordless SSH public key authentication has not been configured yet
 #   on the remote host, use the repository's dedicated SSH key deployment playbook:
-#     ansible-playbook -i "10.2.41.226," playbooks/deploy-ssh-key.yml \
-#       -e ansible_user=superuser \
+#     ansible-playbook -i "10.2.41.226," deploy-ssh-key.yml \
+#       -e ansible_user=admin \
 #       -e ansible_port=30 \
 #       -k -K
 #   This will install ~/.ssh/id_ed25519.pub to authorized_keys, fix permissions (0700/0600),
@@ -25,7 +25,7 @@
 #
 #   # Ad-hoc execution specifying target host directly:
 #   ansible-playbook -i "10.2.41.226," check-kea.yml \
-#     -e ansible_user=superuser \
+#     -e ansible_user=admin \
 #     -e ansible_port=30
 # ==============================================================================
 
@@ -36,7 +36,7 @@
   gather_facts: false
 
   vars:
-    ansible_user: "{{ target_user | default('superuser') }}"
+    ansible_user: "{{ target_user | default('admin') }}"
     ansible_port: "{{ target_port | default(30) }}"
     ansible_ssh_private_key_file: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     ansible_ssh_common_args: >-
