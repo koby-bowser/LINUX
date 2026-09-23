@@ -1,0 +1,168 @@
+---
+- name: Stabilisation DHCP Kea / ProxySQL Single-Writer (Frontaux FE1 et FE3)
+  hosts: "{{ target | default('ipftth_fe1_fe3') }}"
+  gather_facts: false
+  serial: 1  # Traitement nœud par nœud en toute sécurité
+
+  vars:
+    ansible_user: admin
+    ansible_port: 30
+
+  tasks:
+    - name: 1. Vérification de connectivité et identification de l'hôte
+      ansible.builtin.raw: |
+        echo "=== HÔTE: $(hostname) ($(hostname -I | awk '{print $1}')) ==="
+      register: host_banner
+      changed_when: false
+
+    - name: Afficher la bannière hôte
+      ansible.builtin.debug:
+        msg: "{{ host_banner.stdout_lines }}"
+
+    # --------------------------------------------------------------------------
+    # Étape 1 : Middleware — Configuration ProxySQL Single-Writer
+    # --------------------------------------------------------------------------
+    - name: 2. Ajuster les timeouts moniteur ProxySQL (2000 ms)
+      ansible.builtin.raw: |
+        mysql -u admin -padmin -h 127.0.0.1 -P 6032 << 'EOF'
+        SET mysql-monitor_read_only_timeout = 2000;
+        SET mysql-monitor_ping_timeout = 2000;
+        SET mysql-monitor_connect_timeout = 2000;
+        LOAD MYSQL VARIABLES TO RUNTIME;
+        SAVE MYSQL VARIABLES TO DISK;
+        EOF
+      register: proxysql_vars
+      changed_when: "'ERROR' not in proxysql_vars.stdout"
+
+    - name: 3. Basculer les nœuds Galera db2/db3 vers le Hostgroup 20 (Reader)
+      ansible.builtin.raw: |
+        mysql -u admin -padmin -h 127.0.0.1 -P 6032 << 'EOF'
+        UPDATE mysql_servers SET hostgroup_id = 20 
+        WHERE hostname IN {{ galera_readers }} AND hostgroup_id = 10;
+        LOAD MYSQL SERVERS TO RUNTIME;
+        SAVE MYSQL SERVERS TO DISK;
+        EOF
+      register: proxysql_servers
+      changed_when: "'ERROR' not in proxysql_servers.stdout"
+
+    - name: 4. Vérifier la topologie ProxySQL après bascule
+      ansible.builtin.raw: |
+        mysql -u admin -padmin -h 127.0.0.1 -P 6032 -e "
+        SELECT hostgroup_id, hostname, port, status, weight 
+        FROM mysql_servers ORDER BY hostgroup_id, hostname;
+        "
+      register: proxysql_status
+      changed_when: false
+
+    - name: Afficher l'état de ProxySQL
+      ansible.builtin.debug:
+        msg: "{{ proxysql_status.stdout_lines }}"
+
+    # --------------------------------------------------------------------------
+    # Étape 2 : Frontend — Mise à jour de kea-dhcp4.conf
+    # --------------------------------------------------------------------------
+    - name: 5. Sauvegarder et appliquer les correctifs dans kea-dhcp4.conf
+      ansible.builtin.raw: |
+        CONF="/usr/local/etc/kea/kea-dhcp4.conf"
+        BAK="/usr/local/etc/kea/kea-dhcp4.conf.bak_$(date +%Y%m%d_%H%M%S)"
+        
+        # 1. Sauvegarde
+        cp -p "$CONF" "$BAK"
+        
+        # 2. Remplacer serve-retry-exit par serve-retry-continue
+        sed -i 's/"on-fail"[[:space:]]*:[[:space:]]*"serve-retry-exit"/"on-fail": "serve-retry-continue"/g' "$CONF"
+        
+        # 3. Remplacer max-reconnect-tries: 3 par 10
+        sed -i 's/"max-reconnect-tries"[[:space:]]*:[[:space:]]*3/"max-reconnect-tries": 10/g' "$CONF"
+        
+        # 4. Remplacer severity DEBUG 99 par INFO
+        sed -i 's/"severity"[[:space:]]*:[[:space:]]*"DEBUG"/"severity": "INFO"/g' "$CONF"
+        sed -i '/"debuglevel"[[:space:]]*:[[:space:]]*99/d' "$CONF"
+        
+        # 5. Injecter expired-leases-processing si absent
+        if ! grep -q "expired-leases-processing" "$CONF"; then
+          python3 -c "
+        with open('$CONF', 'r') as f:
+            content = f.read()
+        target = '\"Dhcp4\": {'
+        injection = '''\"Dhcp4\": {
+          \"expired-leases-processing\": {
+            \"reclaim-timer-wait-time\": 60,
+            \"flush-reclaimed-timer-wait-time\": 120,
+            \"hold-reclaimed-time\": 3600,
+            \"max-reclaim-leases\": 500,
+            \"max-reclaim-time\": 250,
+            \"unwarned-reclaim-cycles\": 5
+          },'''
+        if target in content:
+            new_content = content.replace(target, injection, 1)
+            with open('$CONF', 'w') as f:
+                f.write(new_content)
+        "
+        fi
+        
+        # 6. Test de syntaxe
+        /usr/local/sbin/kea-dhcp4 -t "$CONF"
+      register: kea_config_result
+      failed_when: "'FATAL' in kea_config_result.stdout or kea_config_result.rc != 0"
+
+    - name: Afficher le résultat du test de configuration Kea
+      ansible.builtin.debug:
+        msg: "{{ kea_config_result.stdout_lines }}"
+
+    # --------------------------------------------------------------------------
+    # Étape 3 : Résilience — Déployer check_kea.sh pour Keepalived
+    # --------------------------------------------------------------------------
+    - name: 6. Déployer le script healthcheck Keepalived /usr/local/bin/check_kea.sh
+      ansible.builtin.raw: |
+        cat << 'EOF' > /usr/local/bin/check_kea.sh
+        #!/bin/bash
+        if ! killall -0 kea-dhcp4 2>/dev/null; then
+            exit 1
+        fi
+        if [ ! -S /usr/local/var/run/kea/kea-dhcp4.socket ]; then
+            exit 1
+        fi
+        exit 0
+        EOF
+        chmod 755 /usr/local/bin/check_kea.sh
+      register: keepalived_script
+      changed_when: false
+
+    # --------------------------------------------------------------------------
+    # Étape 4 : Redémarrage maîtrisé de Kea
+    # --------------------------------------------------------------------------
+    - name: 7. Redémarrer proprement Kea DHCPv4
+      ansible.builtin.raw: |
+        /usr/local/sbin/keactrl stop -s dhcp4
+        sleep 2
+        killall -9 kea-dhcp4 2>/dev/null || true
+        sleep 1
+        /usr/local/sbin/keactrl start -s dhcp4
+        sleep 2
+        /usr/local/sbin/keactrl status -s dhcp4
+      register: kea_restart_result
+
+    - name: Afficher le statut après redémarrage
+      ansible.builtin.debug:
+        msg: "{{ kea_restart_result.stdout_lines }}"
+
+    # --------------------------------------------------------------------------
+    # Étape 5 : Validation et Recette Post-MEP
+    # --------------------------------------------------------------------------
+    - name: 8. Contrôle REST API Kea et vérification d'erreurs
+      ansible.builtin.raw: |
+        echo "--- REST API STATUS ---"
+        curl -s -X POST -H "Content-Type: application/json" \
+          -d '{"command": "status-get", "service": ["dhcp4"]}' \
+          http://127.0.0.1:8000/ || echo "REST API non disponible"
+        
+        echo "--- PROCESS & SOCKET ---"
+        pgrep -a kea-dhcp4 || echo "AUCUN PROCESS TROUVE"
+        ls -la /usr/local/var/run/kea/kea-dhcp4.socket 2>/dev/null || echo "SOCKET ABSENTE"
+      register: post_validation
+      changed_when: false
+
+    - name: Afficher le rapport de recette post-intervention
+      ansible.builtin.debug:
+        msg: "{{ post_validation.stdout_lines }}"
