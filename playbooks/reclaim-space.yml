@@ -1,0 +1,370 @@
+---
+# ==============================================================================
+# Playbook: reclaim-space.yml
+# Targets:  Exclusively for Debian Trixie (13) PC & Ubuntu Resolute Raccoon (26.04) Laptop
+# Purpose:  Reclaims disk space safely and idempotently by targeting:
+#           - APT package caches & orphaned packages with configuration purge
+#           - Inactive Linux kernel images/headers (Debian amd64 & Ubuntu generic)
+#           - Systemd journal archives (retained to 3 days)
+#           - Snap packages & disabled revisions (Ubuntu)
+#           - Flatpak unused runtimes & extensions (Debian / Flathub)
+#           - Web browser caches (Firefox Snap, Native/ESR Firefox, Brave, Chrome, Chromium)
+#           - Desktop trash & thumbnail caches
+#           - Rootless Podman & Docker image/container pruning
+#           - NPM cache & legacy Claude CLI version binaries
+#
+# Execution:
+#   # Run full cleanup (system + user) on the current workstation:
+#   ansible-playbook reclaim-space.yml -K
+#
+#   # Run only user-level cleanup (no sudo required):
+#   ansible-playbook reclaim-space.yml --tags user
+#
+#   # Run only system-level cleanup (requires sudo):
+#   ansible-playbook reclaim-space.yml -K --tags system
+#
+#   # Target a specific machine in inventory (e.g. debian_pc or ubuntu_laptop):
+#   ansible-playbook reclaim-space.yml -K -e "target_hosts=debian_pc"
+# ==============================================================================
+
+- name: Reclaim Disk Space on Debian Trixie & Ubuntu Resolute Raccoon
+  hosts: "{{ target_hosts | default('control_node') }}"
+  gather_facts: true
+  become: false
+
+  vars:
+    # Target host control (defaults to current workstation / control_node)
+    target_hosts: "control_node"
+
+    # System-level flags (requires sudo / become: true)
+    clean_apt: true
+    purge_old_kernels: true
+    clean_snap: true
+    snap_retain_count: 2
+    clean_flatpak: true
+    clean_journal: true
+    journal_vacuum_time: "3d"
+    clean_crash_reports: true
+
+    # User-level flags (no root needed)
+    clean_browser_caches: true
+    clean_user_trash: true
+    clean_user_thumbnails: true
+    clean_npm_cache: true
+    clean_containers: true
+    clean_claude_versions: true
+    claude_keep_versions: 1
+
+  pre_tasks:
+    - name: Safety guard — Restrict exclusively to Debian Trixie and Ubuntu Resolute Raccoon
+      ansible.builtin.assert:
+        that:
+          - >-
+            (ansible_facts['distribution'] == 'Ubuntu' and
+             (ansible_facts['distribution_release'] | lower == 'resolute' or
+              ansible_facts['distribution_version'].startswith('26.04')))
+            or
+            (ansible_facts['distribution'] == 'Debian' and
+             (ansible_facts['distribution_release'] | lower == 'trixie' or
+              ansible_facts['distribution_major_version'] == '13'))
+        fail_msg: >-
+          ABORTED: This playbook is restricted to Debian Trixie (Debian 13) PC and
+          Ubuntu Resolute Raccoon (Ubuntu 26.04) Laptop.
+          Detected: {{ ansible_facts['distribution'] }} {{ ansible_facts['distribution_version'] }} ({{ ansible_facts['distribution_release'] }}).
+        quiet: true
+      tags: [always]
+
+    - name: Identify workstation profile
+      ansible.builtin.set_fact:
+        workstation_profile: >-
+          {{ 'Ubuntu 26.04 Resolute Raccoon Laptop' if ansible_facts['distribution'] == 'Ubuntu'
+             else 'Debian 13 Trixie PC' }}
+      tags: [always]
+
+    - name: Record initial disk space on /
+      ansible.builtin.set_fact:
+        initial_root_stat: "{{ ansible_facts['mounts'] | selectattr('mount', 'equalto', '/') | first }}"
+      tags: [always]
+
+    - name: Display workstation profile and initial storage status
+      ansible.builtin.debug:
+        msg:
+          - "Target Host        : {{ inventory_hostname }}"
+          - "Workstation Profile: {{ workstation_profile }}"
+          - "Kernel             : {{ ansible_facts['kernel'] }}"
+          - "Pre-cleanup Free   : {{ (initial_root_stat.size_available / 1024 / 1024 / 1024) | round(2) }} GB of {{ (initial_root_stat.size_total / 1024 / 1024 / 1024) | round(2) }} GB ({{ 100 - (initial_root_stat.size_available / initial_root_stat.size_total * 100) | round(1) }}% used)"
+      tags: [always]
+
+  tasks:
+    # ==========================================================================
+    # SYSTEM-LEVEL CLEANUP (Requires sudo / become: true)
+    # ==========================================================================
+    - name: System-level disk reclamation
+      become: true
+      tags: [system, system_cleanup]
+      block:
+        - name: Clean APT package archives (/var/cache/apt/archives)
+          ansible.builtin.apt:
+            autoclean: true
+            clean: true
+          when: clean_apt | bool
+          tags: [apt]
+
+        - name: Autoremove unneeded packages and purge residual configs
+          ansible.builtin.apt:
+            autoremove: true
+            purge: true
+          when: clean_apt | bool
+          tags: [apt]
+
+        - name: Identify inactive old Linux kernels and headers (Debian & Ubuntu)
+          ansible.builtin.shell: |
+            set -eo pipefail
+            CURRENT_BASE="{{ ansible_facts['kernel'] | regex_replace('-[a-zA-Z0-9]+$', '') }}"
+            dpkg -l 'linux-image-[0-9]*' 'linux-headers-[0-9]*' 'linux-modules-[0-9]*' 'linux-tools-[0-9]*' 2>/dev/null \
+              | awk '/^ii/{print $2}' \
+              | grep -v -E "($CURRENT_BASE|linux-image-generic|linux-headers-generic|linux-image-amd64|linux-headers-amd64|linux-image-rt-amd64|linux-headers-rt-amd64|linux-generic)" || true
+          args:
+            executable: /bin/bash
+          register: _old_kernel_pkgs
+          changed_when: false
+          when: purge_old_kernels | bool
+          tags: [apt, kernels]
+
+        - name: Purge detected old Linux kernel packages
+          ansible.builtin.apt:
+            name: "{{ _old_kernel_pkgs.stdout_lines }}"
+            state: absent
+            purge: true
+          when:
+            - purge_old_kernels | bool
+            - _old_kernel_pkgs.stdout_lines is defined
+            - _old_kernel_pkgs.stdout_lines | length > 0
+          tags: [apt, kernels]
+
+        - name: Check for snap daemon (primarily Ubuntu)
+          ansible.builtin.command: which snap
+          register: _snap_check
+          changed_when: false
+          failed_when: false
+          when: clean_snap | bool
+          tags: [snap]
+
+        - name: Set snap revision retention limit
+          ansible.builtin.command: "snap set system refresh.retain={{ snap_retain_count }}"
+          register: _snap_retain_set
+          changed_when: false
+          when:
+            - clean_snap | bool
+            - _snap_check.rc == 0
+          tags: [snap]
+
+        - name: Remove disabled and obsolete snap revisions
+          ansible.builtin.shell: |
+            set -eo pipefail
+            snap list --all 2>/dev/null | awk '/disabled/{print $1, $3}' | while read -r name rev; do
+              if [ -n "$name" ] && [ -n "$rev" ]; then
+                echo "Removing disabled snap: $name (revision $rev)"
+                snap remove --revision="$rev" "$name"
+              fi
+            done
+          args:
+            executable: /bin/bash
+          register: _snap_removal
+          changed_when: _snap_removal.stdout != ""
+          when:
+            - clean_snap | bool
+            - _snap_check.rc == 0
+          tags: [snap]
+
+        - name: Check for Flatpak (primarily Debian Trixie)
+          ansible.builtin.command: which flatpak
+          register: _flatpak_check
+          changed_when: false
+          failed_when: false
+          when: clean_flatpak | bool
+          tags: [flatpak]
+
+        - name: Uninstall unused Flatpak runtimes and extensions
+          ansible.builtin.command: flatpak uninstall --unused -y
+          register: _flatpak_prune
+          changed_when:
+            - "'Nothing to do' not in _flatpak_prune.stdout"
+            - "'Uninstalling' in _flatpak_prune.stdout"
+          when:
+            - clean_flatpak | bool
+            - _flatpak_check.rc == 0
+          failed_when: false
+          tags: [flatpak]
+
+        - name: Check for journalctl
+          ansible.builtin.command: which journalctl
+          register: _journalctl_check
+          changed_when: false
+          failed_when: false
+          when: clean_journal | bool
+          tags: [journal, logs]
+
+        - name: Vacuum systemd journal logs
+          ansible.builtin.command: "journalctl --vacuum-time={{ journal_vacuum_time }}"
+          register: _journal_vacuum
+          changed_when:
+            - "'freed' in _journal_vacuum.stdout"
+            - "'freed 0B' not in _journal_vacuum.stdout"
+          when:
+            - clean_journal | bool
+            - _journalctl_check.rc == 0
+          tags: [journal, logs]
+
+        - name: Find crash reports in /var/crash
+          ansible.builtin.find:
+            paths: /var/crash
+            file_type: file
+          register: _crash_files
+          when: clean_crash_reports | bool
+          tags: [crash, logs]
+
+        - name: Remove crash reports in /var/crash
+          ansible.builtin.file:
+            path: "{{ item.path }}"
+            state: absent
+          loop: "{{ _crash_files.files | default([]) }}"
+          when:
+            - clean_crash_reports | bool
+            - _crash_files.files is defined
+          tags: [crash, logs]
+
+    # ==========================================================================
+    # USER-LEVEL CLEANUP (Runs as target user, NO root/sudo needed)
+    # ==========================================================================
+    - name: User-level cache and application disk reclamation
+      become: false
+      tags: [user, user_cleanup]
+      block:
+        - name: Clean web browser caches (Firefox Snap, Native/ESR Firefox, Brave, Chrome, Chromium)
+          ansible.builtin.file:
+            path: "{{ item }}"
+            state: absent
+          loop:
+            - "{{ ansible_facts['user_dir'] }}/snap/firefox/common/.cache"
+            - "{{ ansible_facts['user_dir'] }}/.cache/mozilla/firefox"
+            - "{{ ansible_facts['user_dir'] }}/.cache/BraveSoftware/Brave-Browser/Default/Cache"
+            - "{{ ansible_facts['user_dir'] }}/.cache/BraveSoftware/Brave-Browser/Default/Code Cache"
+            - "{{ ansible_facts['user_dir'] }}/.cache/google-chrome/Default/Cache"
+            - "{{ ansible_facts['user_dir'] }}/.cache/google-chrome/Default/Code Cache"
+            - "{{ ansible_facts['user_dir'] }}/.cache/chromium/Default/Cache"
+            - "{{ ansible_facts['user_dir'] }}/.cache/chromium/Default/Code Cache"
+          when: clean_browser_caches | bool
+          tags: [browser]
+
+        - name: Clean user desktop thumbnail cache
+          ansible.builtin.file:
+            path: "{{ ansible_facts['user_dir'] }}/.cache/thumbnails"
+            state: absent
+          when: clean_user_thumbnails | bool
+          tags: [desktop]
+
+        - name: Empty user desktop trash
+          ansible.builtin.file:
+            path: "{{ item }}"
+            state: absent
+          loop:
+            - "{{ ansible_facts['user_dir'] }}/.local/share/Trash/files"
+            - "{{ ansible_facts['user_dir'] }}/.local/share/Trash/info"
+          when: clean_user_trash | bool
+          tags: [desktop]
+
+        - name: Prune old Claude CLI binary versions
+          ansible.builtin.shell: |
+            set -eo pipefail
+            VERSIONS_DIR="{{ ansible_facts['user_dir'] }}/.local/share/claude/versions"
+            if [ -d "$VERSIONS_DIR" ]; then
+              COUNT=$(ls -1 "$VERSIONS_DIR" 2>/dev/null | wc -l)
+              KEEP={{ claude_keep_versions | int }}
+              if [ "$COUNT" -gt "$KEEP" ]; then
+                REMOVE_COUNT=$(( COUNT - KEEP ))
+                ls -v "$VERSIONS_DIR" | head -n "$REMOVE_COUNT" | while read -r ver; do
+                  rm -f "$VERSIONS_DIR/$ver"
+                  echo "Removed old Claude binary version: $ver"
+                done
+              fi
+            fi
+          args:
+            executable: /bin/bash
+          register: _claude_prune
+          changed_when: _claude_prune.stdout != ""
+          when: clean_claude_versions | bool
+          tags: [claude]
+
+        - name: Clean NPM cache directory
+          ansible.builtin.file:
+            path: "{{ ansible_facts['user_dir'] }}/.npm/_cacache"
+            state: absent
+          when: clean_npm_cache | bool
+          tags: [npm]
+
+        - name: Check for Podman
+          ansible.builtin.command: which podman
+          register: _podman_check
+          changed_when: false
+          failed_when: false
+          when: clean_containers | bool
+          tags: [containers]
+
+        - name: Prune unused rootless Podman images and containers
+          ansible.builtin.command: podman system prune -a -f
+          register: _podman_prune
+          changed_when:
+            - "'Total reclaimed space' in _podman_prune.stdout"
+            - "'Total reclaimed space: 0B' not in _podman_prune.stdout"
+          when:
+            - clean_containers | bool
+            - _podman_check.rc == 0
+          failed_when: false
+          tags: [containers]
+
+        - name: Check for Docker
+          ansible.builtin.command: which docker
+          register: _docker_check
+          changed_when: false
+          failed_when: false
+          when: clean_containers | bool
+          tags: [containers]
+
+        - name: Prune unused Docker images and containers
+          ansible.builtin.command: docker system prune -f
+          register: _docker_prune
+          changed_when:
+            - "'Total reclaimed space' in _docker_prune.stdout"
+            - "'Total reclaimed space: 0B' not in _docker_prune.stdout"
+          when:
+            - clean_containers | bool
+            - _docker_check.rc == 0
+          failed_when: false
+          tags: [containers]
+
+  post_tasks:
+    - name: Refresh filesystem facts
+      ansible.builtin.setup:
+        filter: ansible_mounts
+      tags: [always]
+
+    - name: Calculate final disk space statistics
+      ansible.builtin.set_fact:
+        final_root_stat: "{{ ansible_facts['mounts'] | selectattr('mount', 'equalto', '/') | first }}"
+      tags: [always]
+
+    - name: Display disk reclamation report
+      ansible.builtin.debug:
+        msg:
+          - "================ DISK CLEANUP REPORT ================"
+          - "Target Host        : {{ inventory_hostname }}"
+          - "Workstation        : {{ workstation_profile }}"
+          - "Mount Point        : /"
+          - "Total Capacity     : {{ (final_root_stat.size_total / 1024 / 1024 / 1024) | round(2) }} GB"
+          - "Available Before   : {{ (initial_root_stat.size_available / 1024 / 1024 / 1024) | round(2) }} GB"
+          - "Available After    : {{ (final_root_stat.size_available / 1024 / 1024 / 1024) | round(2) }} GB"
+          - "Reclaimed Space    : {{ ((final_root_stat.size_available - initial_root_stat.size_available) / 1024 / 1024) | round(2) }} MB ({{ ((final_root_stat.size_available - initial_root_stat.size_available) / 1024 / 1024 / 1024) | round(3) }} GB)"
+          - "Final Utilization  : {{ 100 - (final_root_stat.size_available / final_root_stat.size_total * 100) | round(1) }}% used"
+          - "======================================================"
+      tags: [always]
