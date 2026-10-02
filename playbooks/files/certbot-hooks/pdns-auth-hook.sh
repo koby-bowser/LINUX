@@ -15,6 +15,8 @@ elif [[ "${CERTBOT_DOMAIN}" =~ sfrcaraibe\.fr$ ]]; then
   ZONE="sfrcaraibe.fr"
 elif [[ "${CERTBOT_DOMAIN}" =~ only\.fr$ ]]; then
   ZONE="only.fr"
+elif [[ "${CERTBOT_DOMAIN}" =~ 3gppnetwork\.org$ ]]; then
+  ZONE="mnc002.mcc340.pub.3gppnetwork.org"
 else
   ZONE="${CERTBOT_DOMAIN}"
 fi
@@ -27,6 +29,9 @@ else
 fi
 
 PDNS_HOST="${PDNS_DNS_HOST:-172.30.198.162}"
+if [ "${PDNS_HOST}" = "dnsp-mst.example.lan" ] || [ -z "${PDNS_HOST}" ]; then
+  PDNS_HOST="172.30.198.162"
+fi
 SSH_USER="superuser"
 SSH_PORT="30"
 

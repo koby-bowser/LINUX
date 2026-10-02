@@ -51,3 +51,12 @@ certificates:
     webserver: nginx
     service_name: nginx
     cert_dest_dir: /etc/nginx/ssl/diamond.only.fr
+
+  - domain: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+    extra_sans: []
+    dns_backend: powerdns
+    target_host: CHANGEME
+    webserver: nginx
+    service_name: nginx
+    cert_dest_dir: /etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+
