@@ -1,0 +1,318 @@
+---
+# Playbook pour synchroniser les sessions des 3 assistants IA en ligne de commande :
+# - Antigravity CLI (agy) : ~/.gemini/antigravity-cli/brain/
+# - Claude Code : ~/.claude/projects/
+# - Codex CLI : ~/.codex/sessions/
+#
+# Copie les sessions vers le répertoire `sessions/` (sous-dossiers agy/, claude/, codex/)
+# du dépôt LINUX, puis effectue un git add, git commit et git push vers GitHub.
+#
+# Utilisation manuelle :
+#   ansible-playbook sync-ai-sessions.yml
+#   ansible-playbook playbooks/sync-ai-sessions.yml
+#
+# Options utiles :
+#   -e git_push=false       (synchronise et commite localement sans pousser)
+#   -e git_commit=false     (synchronise uniquement sur le disque)
+#   -e sync_delete=true     (supprime les sessions distantes si effacées localement)
+#   -e max_file_size=30m    (taille maximale par fichier, 50m par défaut pour respecter GitHub)
+#
+- name: Synchronize AI CLI sessions (Antigravity, Claude Code, Codex) and push to GitHub
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    ai_sessions_user: "{{ lookup('env', 'SUDO_USER') or lookup('env', 'USER') }}"
+    sessions_dir_name: "sessions"
+    git_remote: "origin"
+    git_branch: ""  # Détecté automatiquement sur la branche active si vide
+    git_commit: true
+    git_push: true
+    sync_delete: false
+    max_file_size: "50m"
+    rsync_extra_args: >-
+      --exclude='*.sock'
+      --exclude='*.socket'
+      --exclude='*.lock'
+      --exclude='*.pid'
+      --exclude='*.db-shm'
+      --exclude='*.db-wal'
+      --exclude='*.db-journal'
+      --exclude='*.key'
+      --exclude='*.pem'
+      --exclude='*credential*'
+      --exclude='auth.json'
+      --exclude='.remember/tmp'
+      --exclude='.remember/capture-alive.d'
+      --max-size={{ max_file_size }}
+
+  tasks:
+    - name: Valider l'utilisateur exécutant
+      ansible.builtin.assert:
+        that:
+          - ai_sessions_user | length > 0
+          - ai_sessions_user != 'root' or (ansible_facts.user_id == 'root' and ai_sessions_user | length > 0)
+        fail_msg: "Impossible d'identifier l'utilisateur propriétaire des sessions IA."
+
+    - name: Trouver le dossier personnel de l'utilisateur
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ ai_sessions_user }}"
+
+    - name: Découvrir la racine du dépôt git
+      ansible.builtin.command:
+        cmd: git -C "{{ playbook_dir }}" rev-parse --show-toplevel
+      register: _repo_root_cmd
+      changed_when: false
+      check_mode: false
+
+    - name: Définir les variables de chemin
+      ansible.builtin.set_fact:
+        user_home: "{{ user_home | default(ansible_facts.getent_passwd[ai_sessions_user][4]) }}"
+        repo_root: >-
+          {{ repo_root | default((_repo_root_cmd.stdout | default('') | trim) if (_repo_root_cmd.stdout | default('') | trim | length > 0) else (playbook_dir if (playbook_dir ~ '/.git') is directory else playbook_dir | dirname)) }}
+
+    - name: Définir les chemins sources et destinations des sessions
+      ansible.builtin.set_fact:
+        sessions_base_dir: "{{ repo_root }}/{{ sessions_dir_name }}"
+        agy_src: "{{ user_home }}/.gemini/antigravity-cli"
+        agy_dest: "{{ repo_root }}/{{ sessions_dir_name }}/agy"
+        claude_src: "{{ user_home }}/.claude"
+        claude_dest: "{{ repo_root }}/{{ sessions_dir_name }}/claude"
+        codex_src: "{{ user_home }}/.codex"
+        codex_dest: "{{ repo_root }}/{{ sessions_dir_name }}/codex"
+
+    - name: Créer l'arborescence cible pour les sessions
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ sessions_base_dir }}"
+        - "{{ agy_dest }}"
+        - "{{ claude_dest }}"
+        - "{{ codex_dest }}"
+
+    - name: Créer le lien symbolique ai-sessions -> sessions
+      ansible.builtin.file:
+        src: "{{ sessions_dir_name }}"
+        dest: "{{ repo_root }}/ai-sessions"
+        state: link
+        force: true
+      when: sessions_dir_name != "ai-sessions"
+
+    - name: Déployer le fichier .gitignore protecteur dans sessions/
+      ansible.builtin.copy:
+        dest: "{{ sessions_base_dir }}/.gitignore"
+        mode: '0644'
+        content: |
+          # Sockets, verrous et PIDs d'exécution
+          *.sock
+          *.socket
+          *.lock
+          *.pid
+
+          # Fichiers temporaires SQLite WAL / SHM
+          *.db-shm
+          *.db-wal
+          *.db-journal
+
+          # Clés privées, certificats, secrets et jetons d'authentification
+          *.key
+          *.pem
+          *credential*
+          *secret*
+          auth.json
+          .env
+
+          # Fichiers transitoires et caches
+          .remember/tmp/
+          .remember/capture-alive.d/
+          __pycache__/
+          *.pyc
+          .DS_Store
+
+    - name: Déployer le fichier README.md de documentation dans sessions/
+      ansible.builtin.copy:
+        dest: "{{ sessions_base_dir }}/README.md"
+        mode: '0644'
+        content: |
+          # AI CLI Sessions Archive
+
+          Ce dossier archive de manière structurée l'ensemble des sessions de travail issues des assistants d'ingénierie IA en ligne de commande :
+
+          - **`agy/`** : Sessions d'Antigravity CLI issues de `~/.gemini/antigravity-cli/brain/`. Contient les journaux complets de conversation (`transcript.jsonl`), scratchpads, artefacts produits, ainsi qu'un index des conversations (`session_index.jsonl`).
+          - **`claude/`** : Sessions de Claude Code issues de `~/.claude/projects/`, organisées par projet (`-home-koby`, etc.) avec les transcriptions JSONL et artefacts associés.
+          - **`codex/`** : Sessions de Codex CLI issues de `~/.codex/sessions/`, ordonnées chronologiquement (`YYYY/MM/DD/`), avec le fichier d'index `session_index.jsonl`.
+
+          ### Mise à jour manuelle
+
+          Pour synchroniser les sessions locales et pousser les modifications sur GitHub :
+
+          ```bash
+          cd ~/LINUX
+          ansible-playbook sync-ai-sessions.yml
+          ```
+
+    - name: Vérifier la présence des répertoires et fichiers sources
+      ansible.builtin.stat:
+        path: "{{ item.path }}"
+      loop:
+        - { key: 'agy_brain', path: "{{ agy_src }}/brain" }
+        - { key: 'agy_history', path: "{{ agy_src }}/history.jsonl" }
+        - { key: 'agy_summaries', path: "{{ agy_src }}/conversation_summaries.db" }
+        - { key: 'claude_projects', path: "{{ claude_src }}/projects" }
+        - { key: 'claude_history', path: "{{ claude_src }}/history.jsonl" }
+        - { key: 'codex_sessions', path: "{{ codex_src }}/sessions" }
+        - { key: 'codex_index', path: "{{ codex_src }}/session_index.jsonl" }
+        - { key: 'codex_history', path: "{{ codex_src }}/history.jsonl" }
+      register: _src_stats
+
+    - name: Convertir les vérifications sources en dictionnaire
+      ansible.builtin.set_fact:
+        src_exists: >-
+          {{ dict(_src_stats.results | map(attribute='item.key') | zip(_src_stats.results | map(attribute='stat.exists'))) }}
+
+    # =========================================================================
+    # 1. Antigravity CLI (agy)
+    # =========================================================================
+    - name: Synchroniser les sessions Antigravity CLI (brain)
+      ansible.builtin.command:
+        cmd: >-
+          rsync -av
+          {{ '--dry-run' if ansible_check_mode else '' }}
+          {{ '--delete' if sync_delete else '' }}
+          {{ rsync_extra_args }}
+          "{{ agy_src }}/brain/" "{{ agy_dest }}/"
+      register: _sync_agy
+      changed_when: "'Number of created files: 0' not in _sync_agy.stdout and (_sync_agy.stdout_lines | length > 4)"
+      when: src_exists.agy_brain
+
+    - name: Copier l'historique prompt d'Antigravity CLI (history.jsonl)
+      ansible.builtin.copy:
+        src: "{{ agy_src }}/history.jsonl"
+        dest: "{{ agy_dest }}/history.jsonl"
+        mode: '0644'
+      when: src_exists.agy_history
+
+    - name: Générer l'index des sessions Antigravity CLI (session_index.jsonl)
+      ansible.builtin.command:
+        cmd: >-
+          python3 "{{ repo_root }}/scripts/export_session_index.py"
+          "{{ agy_src }}/conversation_summaries.db"
+          "{{ agy_dest }}/session_index.jsonl"
+      when: src_exists.agy_summaries and not ansible_check_mode
+      changed_when: false
+
+    # =========================================================================
+    # 2. Claude Code
+    # =========================================================================
+    - name: Synchroniser les sessions Claude Code (projects)
+      ansible.builtin.command:
+        cmd: >-
+          rsync -av
+          {{ '--dry-run' if ansible_check_mode else '' }}
+          {{ '--delete' if sync_delete else '' }}
+          {{ rsync_extra_args }}
+          "{{ claude_src }}/projects/" "{{ claude_dest }}/"
+      register: _sync_claude
+      changed_when: "'Number of created files: 0' not in _sync_claude.stdout and (_sync_claude.stdout_lines | length > 4)"
+      when: src_exists.claude_projects
+
+    - name: Copier l'historique prompt de Claude Code (history.jsonl)
+      ansible.builtin.copy:
+        src: "{{ claude_src }}/history.jsonl"
+        dest: "{{ claude_dest }}/history.jsonl"
+        mode: '0644'
+      when: src_exists.claude_history
+
+    # =========================================================================
+    # 3. Codex CLI
+    # =========================================================================
+    - name: Synchroniser les sessions Codex CLI (sessions)
+      ansible.builtin.command:
+        cmd: >-
+          rsync -av
+          {{ '--dry-run' if ansible_check_mode else '' }}
+          {{ '--delete' if sync_delete else '' }}
+          {{ rsync_extra_args }}
+          "{{ codex_src }}/sessions/" "{{ codex_dest }}/"
+      register: _sync_codex
+      changed_when: "'Number of created files: 0' not in _sync_codex.stdout and (_sync_codex.stdout_lines | length > 4)"
+      when: src_exists.codex_sessions
+
+    - name: Copier l'index des sessions de Codex CLI (session_index.jsonl)
+      ansible.builtin.copy:
+        src: "{{ codex_src }}/session_index.jsonl"
+        dest: "{{ codex_dest }}/session_index.jsonl"
+        mode: '0644'
+      when: src_exists.codex_index
+
+    - name: Copier l'historique prompt de Codex CLI (history.jsonl)
+      ansible.builtin.copy:
+        src: "{{ codex_src }}/history.jsonl"
+        dest: "{{ codex_dest }}/history.jsonl"
+        mode: '0644'
+      when: src_exists.codex_history
+
+    # =========================================================================
+    # 4. Git Commit & Push
+    # =========================================================================
+    - name: Détecter la branche active git
+      ansible.builtin.command:
+        cmd: git -C "{{ repo_root }}" rev-parse --abbrev-ref HEAD
+      register: _git_branch_cmd
+      changed_when: false
+      check_mode: false
+
+    - name: Déterminer la branche git cible
+      ansible.builtin.set_fact:
+        resolved_git_branch: "{{ git_branch if (git_branch | length > 0) else _git_branch_cmd.stdout.strip() }}"
+
+    - name: Vérifier les modifications non commitées dans sessions/
+      ansible.builtin.command:
+        cmd: git -C "{{ repo_root }}" status --porcelain "{{ sessions_dir_name }}" ai-sessions
+      register: _git_status
+      changed_when: false
+      check_mode: false
+
+    - name: Indexer (git add) les sessions
+      ansible.builtin.command:
+        cmd: git -C "{{ repo_root }}" add "{{ sessions_dir_name }}" ai-sessions
+      when:
+        - not ansible_check_mode
+        - git_commit | bool
+        - _git_status.stdout | length > 0
+
+    - name: Créer le commit git pour les sessions
+      ansible.builtin.command:
+        cmd: >-
+          git -C "{{ repo_root }}" commit -m
+          "chore(sessions): sync AI CLI sessions [agy, claude, codex] ({{ ansible_date_time.iso8601 }})"
+      when:
+        - not ansible_check_mode
+        - git_commit | bool
+        - _git_status.stdout | length > 0
+      register: _git_commit_res
+
+    - name: Pousser (git push) les sessions vers GitHub
+      ansible.builtin.command:
+        cmd: git -C "{{ repo_root }}" push "{{ git_remote }}" "{{ resolved_git_branch }}"
+      when:
+        - not ansible_check_mode
+        - git_push | bool
+        - git_commit | bool
+        - _git_status.stdout | length > 0
+      register: _git_push_res
+
+    - name: Rapport récapitulatif
+      ansible.builtin.debug:
+        msg:
+          - "Dossier sessions : {{ sessions_base_dir }}"
+          - "Sessions Antigravity (agy) : {{ 'OK' if src_exists.agy_brain else 'IGNORÉ (source absente)' }}"
+          - "Sessions Claude Code : {{ 'OK' if src_exists.claude_projects else 'IGNORÉ (source absente)' }}"
+          - "Sessions Codex CLI : {{ 'OK' if src_exists.codex_sessions else 'IGNORÉ (source absente)' }}"
+          - "Modifications git détectées : {{ (_git_status.stdout | length > 0) }}"
+          - "Commit git effectué : {{ _git_commit_res is defined and not _git_commit_res.skipped | default(false) }}"
+          - "Push GitHub effectué : {{ _git_push_res is defined and not _git_push_res.skipped | default(false) }}"
+          - "Statut : {{ 'Sessions poussées vers ' ~ git_remote ~ '/' ~ resolved_git_branch if (_git_status.stdout | length > 0 and (git_push | bool)) else 'Les sessions sont déjà synchronisées. Aucun push requis.' }}"

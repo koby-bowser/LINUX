@@ -144,3 +144,52 @@ ansible-playbook -i localhost, playbooks/ai-tool-updates/schedule-ai-tool-update
 ansible-playbook -i localhost, playbooks/ai-tool-updates/update-ai-tools.yml --syntax-check
 python3 tests/test_ai_tool_updates.py
 ```
+
+## Synchronisation des sessions IA (Antigravity, Claude Code, Codex)
+
+`sync-ai-sessions.yml` (et `playbooks/sync-ai-sessions.yml`) synchronise et archive les sessions de travail des trois assistants IA CLI dans le répertoire `sessions/` (avec un lien symbolique `ai-sessions -> sessions` à la racine) et publie les nouveautés sur GitHub :
+
+| Outil IA | Source locale | Destination dans le dépôt | Contenu |
+| --- | --- | --- | --- |
+| **Antigravity CLI (`agy`)** | `~/.gemini/antigravity-cli/brain/` | `sessions/agy/` | Transcriptions complètes (`transcript.jsonl`), scratchpads, artefacts et index des threads (`session_index.jsonl`) |
+| **Claude Code** | `~/.claude/projects/` | `sessions/claude/` | Sessions par projet (`*.jsonl`), sous-agents, tool-results et mémoire |
+| **Codex CLI** | `~/.codex/sessions/` | `sessions/codex/` | Transcriptions chronologiques (`YYYY/MM/DD/rollout-*.jsonl`) et index `session_index.jsonl` |
+
+### Exécution manuelle
+
+Le playbook s'exécute directement en tant qu'utilisateur de la station de travail, sans `sudo` ni `-K` :
+
+```bash
+cd ~/LINUX
+ansible-playbook sync-ai-sessions.yml
+```
+
+### Options utiles
+
+- Synchroniser et commiter localement sans pousser sur GitHub :
+  ```bash
+  ansible-playbook sync-ai-sessions.yml -e git_push=false
+  ```
+- Synchroniser les fichiers sur disque sans créer de commit git :
+  ```bash
+  ansible-playbook sync-ai-sessions.yml -e git_commit=false
+  ```
+- Simulation en mode lecture seule (`--check`) :
+  ```bash
+  ansible-playbook sync-ai-sessions.yml --check
+  ```
+
+### Sécurité et garde-fous
+
+- **Protection des secrets** : Exclusion stricte des jetons d'authentification (`auth.json`), clés privées (`*.key`, `*.pem`), certificats et identifiants.
+- **Exclusion des artefacts temporaires** : Les sockets système (`*.sock`), verrous (`*.lock`, `*.pid`) et fichiers journaux SQLite (`*.db-shm`, `*.db-wal`) sont ignorés.
+- **Plafond de taille GitHub** : Seuil maximal fixé à 50 Mo par fichier (`max_file_size: "50m"`) pour garantir le respect de la limite de 100 Mo imposée par GitHub.
+- **Détection intelligente** : Découverte automatique de la branche git active et création de commit uniquement si des modifications réelles sont constatées.
+
+### Validation
+
+```bash
+ansible-playbook sync-ai-sessions.yml --syntax-check
+python3 tests/test_sync_ai_sessions.py
+```
+

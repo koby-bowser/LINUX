@@ -15,3 +15,7 @@ server_pool.*
 
 # Temporary build artifacts
 containers/legacy-ssh/ca-certificates.crt
+
+# Python cache
+__pycache__/
+*.pyc
