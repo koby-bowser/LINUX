@@ -1,0 +1,60 @@
+---
+- name: Update Antigravity and the user's AI command-line tools
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    ai_updates_user: "{{ lookup('env', 'SUDO_USER') or lookup('env', 'USER') }}"
+    ai_update_failures: []
+    ai_cli_tools:
+      - name: Antigravity
+        binary: .local/bin/agy
+        arguments: [update]
+      - name: Claude Code
+        binary: .local/bin/claude
+        arguments: [update]
+      - name: Codex CLI
+        binary: .local/bin/codex
+        arguments: [update]
+      - name: OpenCode
+        binary: .opencode/bin/opencode
+        arguments: [upgrade, --method, curl]
+
+  tasks:
+    - name: Require the CLI owner or root execution
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.user_id in ['root', ai_updates_user]
+          - ai_updates_user | length > 0
+          - ai_updates_user != 'root'
+        fail_msg: Run as the owner of the native CLI installations, or as root with ai_updates_user set to that owner.
+
+    - name: Find the CLI owner's home directory
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ ai_updates_user }}"
+
+    - name: Build the unprivileged command prefix
+      ansible.builtin.set_fact:
+        ai_updates_home: "{{ ansible_facts.getent_passwd[ai_updates_user][4] }}"
+        ai_run_as_user: >-
+          {{ (['/usr/sbin/runuser', '--user', ai_updates_user, '--']
+              if ansible_facts.user_id == 'root' else [])
+             + ['/usr/bin/env',
+                'HOME=' ~ ansible_facts.getent_passwd[ai_updates_user][4],
+                'PATH=' ~ ansible_facts.getent_passwd[ai_updates_user][4] ~ '/.local/bin:'
+                  ~ ansible_facts.getent_passwd[ai_updates_user][4] ~ '/.opencode/bin:/usr/local/bin:/usr/bin:/bin',
+                '/usr/bin/timeout', '--kill-after=30s', '15m'] }}
+
+    - name: Update each CLI independently
+      ansible.builtin.include_tasks: tasks/update-ai-cli.yml
+      loop: "{{ ai_cli_tools }}"
+      loop_control:
+        loop_var: ai_cli
+        label: "{{ ai_cli.name }}"
+
+    - name: Report any unsuccessful updates to systemd
+      ansible.builtin.assert:
+        that: ai_update_failures | length == 0
+        fail_msg: "{{ ai_update_failures | join('\n') }}"
+        success_msg: All four update checks completed successfully.

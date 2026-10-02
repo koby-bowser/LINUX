@@ -1,0 +1,11 @@
+[Unit]
+Description=Update AI development tools every morning
+
+[Timer]
+OnCalendar={{ ai_updates_calendar }}
+Persistent=true
+AccuracySec=1min
+Unit=ai-tool-updates.service
+
+[Install]
+WantedBy=timers.target

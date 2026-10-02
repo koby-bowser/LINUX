@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+IMAGE_NAME="${LEGACY_SSH_IMAGE:-legacy-ssh:latest}"
+CALL_NAME="$(basename "$0")"
+
+if ! command -v podman >/dev/null 2>&1; then
+    echo -e "\033[0;31m[ERROR] podman is not installed or not in PATH.\033[0m" >&2
+    exit 1
+fi
+
+TTY_FLAGS=""
+if [ -t 0 ] && [ -t 1 ]; then
+    TTY_FLAGS="-it"
+elif [ -t 0 ]; then
+    TTY_FLAGS="-i"
+fi
+
+VOLUME_MOUNTS=()
+ENV_VARS=()
+
+# Mount ~/.ssh read-only to staging location /root/.host_ssh
+# Container entrypoint automatically enforces 0600 permissions
+if [ -d "${HOME}/.ssh" ]; then
+    VOLUME_MOUNTS+=(-v "${HOME}/.ssh:/root/.host_ssh:ro")
+fi
+
+# Forward active SSH agent socket if present
+if [ -n "${SSH_AUTH_SOCK}" ] && [ -S "${SSH_AUTH_SOCK}" ]; then
+    VOLUME_MOUNTS+=(-v "${SSH_AUTH_SOCK}:/tmp/ssh-agent-sock:ro")
+    ENV_VARS+=(-e "SSH_AUTH_SOCK=/tmp/ssh-agent-sock")
+fi
+
+# Forward SSHPASS if set
+if [ -n "${SSHPASS}" ]; then
+    ENV_VARS+=(-e "SSHPASS=${SSHPASS}")
+fi
+
+# Mount current working directory to /work
+VOLUME_MOUNTS+=(-v "${PWD}:/work:rw" -w "/work")
+
+# Handle invocations as legacy-scp or legacy-sftp
+CMD_PREFIX=()
+case "$CALL_NAME" in
+    legacy-scp|podman-scp)
+        CMD_PREFIX=("scp")
+        ;;
+    legacy-sftp|podman-sftp)
+        CMD_PREFIX=("sftp")
+        ;;
+    legacy-keyscan)
+        CMD_PREFIX=("ssh-keyscan")
+        ;;
+esac
+
+exec podman run --rm ${TTY_FLAGS} \
+    --network host \
+    "${VOLUME_MOUNTS[@]}" \
+    "${ENV_VARS[@]}" \
+    "${IMAGE_NAME}" \
+    "${CMD_PREFIX[@]}" \
+    "$@"

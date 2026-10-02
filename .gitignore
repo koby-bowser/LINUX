@@ -12,3 +12,6 @@ collections/
 # Generated server pool and credentials
 inventory/server_pool.*
 server_pool.*
+
+# Temporary build artifacts
+containers/legacy-ssh/ca-certificates.crt

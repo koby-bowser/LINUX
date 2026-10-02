@@ -1,0 +1,50 @@
+LVM Architecture Diagram
+=========================
+
+┌─────────────────────────────────────────────────────────────────┐
+│                        VOLUME GROUP (vg_data)                    │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                     FREE SPACE (15 GB)                     │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────┐  │
+│  │   LV: lv_app     │  │   LV: lv_db      │  │ LV: lv_logs  │  │
+│  │   (10 GB)        │  │   (20 GB)        │  │  (5 GB)      │  │
+│  │   /mnt/app       │  │   /var/lib/db    │  │  /var/log    │  │
+│  └────────┬─────────┘  └────────┬─────────┘  └──────┬───────┘  │
+└───────────│─────────────────────│────────────────────│──────────┘
+            │                     │                    │
+            ▼                     ▼                    ▼
+┌─────────────────────┐ ┌─────────────────────┐ ┌─────────────────────┐
+│   PHYSICAL VOLUME   │ │   PHYSICAL VOLUME   │ │   PHYSICAL VOLUME   │
+│      /dev/sdb       │ │      /dev/sdc       │ │      /dev/sdd       │
+│      (20 GB)        │ │      (20 GB)        │ │      (15 GB)        │
+│                     │ │                     │ │                     │
+│  ┌───────────────┐  │  ┌───────────────┐  │  ┌───────────────┐    │
+│  │ PE 0-5119     │  │  │ PE 0-5119     │  │  │ PE 0-3839     │    │
+│  │ (10 GB used)  │  │  │ (20 GB used)  │  │  │ (5 GB used)   │    │
+│  │ (10 GB free)  │  │  │ (0 GB free)   │  │  │ (10 GB free)  │    │
+│  └───────────────┘  │  └───────────────┘  │  └───────────────┘    │
+└─────────────────────┘ └─────────────────────┘ └─────────────────────┘
+
+LEGEND:
+───────
+PV  = Physical Volume (actual disk/partition)
+VG  = Volume Group (pool of PVs)
+LV  = Logical Volume (virtual partition presented to OS)
+PE  = Physical Extent (smallest allocation unit, default 4 MB)
+LE  = Logical Extent (maps 1:1 to PE)
+
+KEY RELATIONSHIPS:
+──────────────────
+• 1 VG = 1+ PVs combined
+• 1 VG = 1+ LVs carved from it
+• LVs can span multiple PVs (striping)
+• Free space in VG = sum of free PEs across all PVs
+• LVs can be resized by allocating/freeing PEs
+
+EXAMPLE FLOW - Extending lv_app by 5 GB:
+──────────────────────────────────────────
+1. Check VG free space:  vgs vg_data
+2. Extend LV:            lvextend -L +5G /dev/vg_data/lv_app
+3. Resize filesystem:    resize2fs /dev/vg_data/lv_app
+4. Result: lv_app now 15 GB, VG free space reduced by 5 GB

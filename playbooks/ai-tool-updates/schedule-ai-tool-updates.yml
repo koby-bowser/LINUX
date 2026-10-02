@@ -1,0 +1,99 @@
+---
+- name: Schedule daily AI development tool updates on this workstation
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    ai_updates_user: "{{ lookup('env', 'SUDO_USER') or lookup('env', 'USER') }}"
+    ai_updates_calendar: "*-*-* 07:00:00"
+    ai_updates_install_dir: /usr/local/lib/ai-tool-updates
+
+  tasks:
+    - name: Require a Debian-family systemd workstation and root execution
+      ansible.builtin.assert:
+        that:
+          - ansible_facts.os_family == 'Debian'
+          - ansible_facts.service_mgr == 'systemd'
+          - ansible_facts.user_id == 'root' or ansible_check_mode
+          - ai_updates_user | length > 0
+          - ai_updates_user != 'root'
+        fail_msg: Run sudo ansible-playbook with -e ai_updates_user=YOUR_USER (no -K).
+
+    - name: Verify the owner of the CLI installations exists
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ ai_updates_user }}"
+
+    - name: Validate the systemd calendar expression
+      ansible.builtin.command:
+        argv: [systemd-analyze, calendar, "{{ ai_updates_calendar }}"]
+      changed_when: false
+      check_mode: false
+
+    - name: Create root-owned runtime directory
+      ansible.builtin.file:
+        path: "{{ ai_updates_install_dir }}/tasks"
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
+    - name: Deploy the update playbook and task file
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/{{ item }}"
+        dest: "{{ ai_updates_install_dir }}/{{ item }}"
+        owner: root
+        group: root
+        mode: '0644'
+      loop:
+        - update-ai-tools.yml
+        - tasks/update-ai-cli.yml
+
+    - name: Save the CLI owner independently of the invoking shell
+      ansible.builtin.copy:
+        content: "{{ {'ai_updates_user': ai_updates_user} | to_nice_json }}\n"
+        dest: "{{ ai_updates_install_dir }}/settings.json"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Deploy isolated Ansible configuration without the repository vault
+      ansible.builtin.copy:
+        content: |
+          [defaults]
+          inventory = localhost,
+          interpreter_python = /usr/bin/python3
+          retry_files_enabled = False
+          local_tmp = /var/lib/ai-tool-updates/tmp
+        dest: "{{ ai_updates_install_dir }}/ansible.cfg"
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Install the service and timer
+      ansible.builtin.template:
+        src: "ai-tool-updates.{{ item }}.j2"
+        dest: "/etc/systemd/system/ai-tool-updates.{{ item }}"
+        owner: root
+        group: root
+        mode: '0644'
+      loop: [service, timer]
+      notify: Reload AI update timer
+
+    - name: Apply unit changes before enabling the timer
+      ansible.builtin.meta: flush_handlers
+
+    - name: Enable daily updates at boot and start the timer
+      ansible.builtin.systemd_service:
+        name: ai-tool-updates.timer
+        enabled: true
+        state: started
+        daemon_reload: true
+
+  handlers:
+    - name: Reload AI update timer
+      ansible.builtin.systemd_service:
+        name: ai-tool-updates.timer
+        daemon_reload: true
+        state: restarted
+

@@ -66,3 +66,81 @@ pour accepter sa clé.
 - `playbooks/check-nginx.yml` — lecture seule : statut du service, validité
   de la config (`nginx -t`), liens cassés dans `sites-enabled/`, et
   vérification que `sites-enabled/` est bien inclus dans `nginx.conf`.
+
+## Daily AI tool updates
+
+`playbooks/ai-tool-updates/schedule-ai-tool-updates.yml` installs and enables a systemd timer
+for **07:00 every day in the machine's local timezone** (Indian/Mauritius on
+this workstation). `Persistent=true` catches up once after a missed run when
+the machine next boots/resumes. It does not wake a powered-off machine.
+
+Install or refresh the schedule from this repository:
+
+```bash
+cd ~/LINUX
+sudo ansible-playbook -i localhost, playbooks/ai-tool-updates/schedule-ai-tool-updates.yml -e ai_updates_user=koby
+```
+
+To change the morning schedule, run the same playbook with an extra variable:
+
+```bash
+sudo ansible-playbook -i localhost, playbooks/ai-tool-updates/schedule-ai-tool-updates.yml \
+  -e ai_updates_user=koby -e 'ai_updates_calendar="*-*-* 08:00:00 Indian/Mauritius"'
+```
+
+The timer executes a root-owned copy of `playbooks/ai-tool-updates/update-ai-tools.yml` under
+`/usr/local/lib/ai-tool-updates`, independently of the checkout, inventory,
+and vault password. Rerun the scheduling playbook after editing runtime files.
+It targets localhost only and requires Debian/Ubuntu, systemd, Ansible,
+`runuser`, `timeout`, and `flock`.
+
+| Tool | Expected installation | Daily update |
+| --- | --- | --- |
+| Antigravity CLI | `~/.local/bin/agy` | `agy update` |
+| Claude Code | `~/.local/bin/claude` native installation | `claude update` |
+| Codex CLI | `~/.local/bin/codex` standalone installation | `codex update` |
+| OpenCode | `~/.opencode/bin/opencode` curl installation | `opencode upgrade --method curl` |
+
+The CLI commands run as `ai_updates_user` with that user's home and PATH,
+without loading interactive shell startup files. Missing
+installations and failed updates are reported as failures; they do not stop
+the other tools from being attempted. Each CLI command has a 15-minute
+timeout. The service has a 90-minute overall timeout and a lock prevents
+overlapping service runs. Logs include before/after CLI versions and updater
+output. Existing release-channel settings are respected.
+
+The playbook updates existing installations; it does not bootstrap missing
+applications or add package repositories. Antigravity uses the installed
+`agy` CLI's `update` subcommand. The other update commands are documented by
+[Claude Code](https://code.claude.com/docs/en/setup#update-manually),
+[Codex CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli), and
+[OpenCode](https://opencode.ai/docs/cli/#upgrade).
+
+Inspect the schedule, run an update now, or read the latest logs:
+
+```bash
+systemctl list-timers ai-tool-updates.timer
+sudo systemctl start ai-tool-updates.service
+journalctl -u ai-tool-updates.service -n 150 --no-pager
+```
+
+Disable the schedule with `sudo systemctl disable --now ai-tool-updates.timer`.
+This does not interrupt an update already running. Use `--check --diff` on the
+scheduling playbook for a dry run. The update playbook's `--check` validates
+installations without executing CLI updaters.
+
+Run all four updates directly as the installation owner, without sudo:
+
+```bash
+ansible-playbook -i localhost, playbooks/ai-tool-updates/update-ai-tools.yml -e ai_updates_user=koby
+```
+
+Only installing or refreshing the system-wide timer requires sudo.
+
+Validation:
+
+```bash
+ansible-playbook -i localhost, playbooks/ai-tool-updates/schedule-ai-tool-updates.yml --syntax-check
+ansible-playbook -i localhost, playbooks/ai-tool-updates/update-ai-tools.yml --syntax-check
+python3 tests/test_ai_tool_updates.py
+```

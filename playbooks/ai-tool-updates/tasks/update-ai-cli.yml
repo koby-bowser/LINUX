@@ -1,0 +1,53 @@
+---
+- name: "Update {{ ai_cli.name }} without root privileges"
+  block:
+    - name: "Check {{ ai_cli.name }} executable"
+      ansible.builtin.stat:
+        path: "{{ ai_updates_home }}/{{ ai_cli.binary }}"
+        follow: true
+      register: ai_cli_stat
+
+    - name: "Require an existing {{ ai_cli.name }} installation"
+      ansible.builtin.assert:
+        that:
+          - ai_cli_stat.stat.exists
+          - ai_cli_stat.stat.executable | default(false)
+        fail_msg: "Missing executable: {{ ai_updates_home }}/{{ ai_cli.binary }}"
+
+    - name: "Read {{ ai_cli.name }} version before updating"
+      ansible.builtin.command:
+        argv: "{{ ai_run_as_user + [ai_updates_home ~ '/' ~ ai_cli.binary, '--version'] }}"
+        chdir: "{{ ai_updates_home }}"
+      register: ai_cli_before
+      changed_when: false
+      when: not ansible_check_mode
+
+    - name: "Run {{ ai_cli.name }} updater"
+      ansible.builtin.command:
+        argv: "{{ ai_run_as_user + [ai_updates_home ~ '/' ~ ai_cli.binary] + ai_cli.arguments }}"
+        chdir: "{{ ai_updates_home }}"
+      register: ai_cli_update
+      changed_when: false
+      when: not ansible_check_mode
+
+    - name: "Read {{ ai_cli.name }} version after updating"
+      ansible.builtin.command:
+        argv: "{{ ai_run_as_user + [ai_updates_home ~ '/' ~ ai_cli.binary, '--version'] }}"
+        chdir: "{{ ai_updates_home }}"
+      register: ai_cli_after
+      changed_when: ai_cli_before.stdout != ai_cli_after.stdout
+      when: not ansible_check_mode
+
+    - name: "Log {{ ai_cli.name }} update result"
+      ansible.builtin.debug:
+        msg:
+          before: "{{ ai_cli_before.stdout }}"
+          after: "{{ ai_cli_after.stdout }}"
+          output: "{{ ai_cli_update.stdout }}"
+          stderr: "{{ ai_cli_update.stderr }}"
+      when: not ansible_check_mode
+  rescue:
+    - name: "Record {{ ai_cli.name }} failure and continue"
+      ansible.builtin.set_fact:
+        ai_update_failures: "{{ ai_update_failures + [ai_cli.name ~ ': ' ~ ansible_failed_result.msg] }}"
+

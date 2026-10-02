@@ -1,0 +1,27 @@
+ARG BASE_IMAGE=alpine:3.16
+FROM ${BASE_IMAGE}
+
+LABEL maintainer="koby"
+LABEL description="Legacy OpenSSH client container to connect to old Linux servers"
+
+COPY ca-certificates.crt* /etc/ssl/certs/
+
+RUN apk update && \
+    apk add --no-cache \
+        openssh-client \
+        sshpass \
+        bash \
+        bind-tools \
+        netcat-openbsd \
+        ca-certificates && \
+    rm -rf /var/cache/apk/*
+
+COPY ssh_config /etc/ssh/ssh_config
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
+WORKDIR /work
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["-V"]

@@ -1,0 +1,432 @@
+---
+# ==============================================================================
+# Playbook: legacy-ssh-podman.yml
+# Purpose: Builds and manages a Podman container running an older OpenSSH client
+#          version with legacy cryptography (3DES, CBC ciphers, diffie-hellman-
+#          group1-sha1, ssh-dss, ssh-rsa) to allow connecting to ancient Linux
+#          servers, legacy appliances, and obsolete network gear.
+#
+# Usage:
+#   # Setup and build the container image:
+#   ansible-playbook legacy-ssh-podman.yml
+#
+#   # Test connection to a legacy server immediately:
+#   ansible-playbook legacy-ssh-podman.yml \
+#     -e "target_host=10.92.10.213" \
+#     -e "target_user=admin" \
+#     -e "ssh_command='uname -a'"
+#
+#   # With explicit password (if not in ~/.servers.csv):
+#   ansible-playbook legacy-ssh-podman.yml \
+#     -e "target_host=10.92.10.213" \
+#     -e "target_user=admin" \
+#     -e "target_password='secret'" \
+#     -e "ssh_command='uname -a'"
+# ==============================================================================
+
+- name: Setup Legacy OpenSSH Client Container with Podman
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  vars:
+    # Container image settings
+    container_image_name: "legacy-ssh"
+    container_image_tag: "latest"
+    legacy_base_image: "alpine:3.16"
+    force_rebuild: false
+
+    # Paths
+    repo_dir: "{{ (playbook_dir ~ '/..') | realpath if (playbook_dir | basename == 'playbooks') else playbook_dir }}"
+    container_build_dir: "{{ repo_dir }}/containers/legacy-ssh"
+    user_bin_dir: "{{ lookup('env', 'HOME') }}/.local/bin"
+    wrapper_script_path: "{{ user_bin_dir }}/legacy-ssh"
+
+    # Optional target for immediate connection/command testing
+    target_host: ""
+    target_user: "{{ lookup('env', 'USER') | default('root') }}"
+    target_password: ""
+    target_port: 22
+    ssh_command: ""
+    ssh_extra_args: ""
+
+  tasks:
+    # --------------------------------------------------------------------------
+    # 1. Podman Availability & Installation Check
+    # --------------------------------------------------------------------------
+    - name: Check if podman binary is present on control node
+      ansible.builtin.command: which podman
+      register: podman_check
+      failed_when: false
+      changed_when: false
+
+    - name: Podman installation section
+      when: podman_check.rc != 0
+      block:
+        - name: Attempt to install podman via package manager
+          ansible.builtin.package:
+            name: podman
+            state: present
+          become: true
+          register: podman_install_result
+      rescue:
+        - name: Halt with instructions if podman could not be installed automatically
+          ansible.builtin.fail:
+            msg: >-
+              Podman is not installed on this system and automatic installation
+              failed (sudo elevation error). Please install podman manually via
+              'sudo apt update && sudo apt install -y podman' or run this playbook
+              with root privileges: 'sudo ansible-playbook legacy-ssh-podman.yml'.
+
+    # --------------------------------------------------------------------------
+    # 2. Directory Scaffolding & Host Permissions
+    # --------------------------------------------------------------------------
+    - name: Ensure container build directory and user bin directory exist
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: "0755"
+      loop:
+        - "{{ container_build_dir }}"
+        - "{{ repo_dir }}/scripts"
+        - "{{ user_bin_dir }}"
+
+    - name: Ensure user ~/.ssh/config has secure permissions (0600)
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.ssh/config"
+        mode: "0600"
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 3. Detect Proxy & CA Certificates (for Corporate Networks)
+    # --------------------------------------------------------------------------
+    - name: Read system environment file if present
+      ansible.builtin.slurp:
+        src: /etc/environment
+      register: etc_env_raw
+      failed_when: false
+
+    - name: Set proxy facts for container build
+      ansible.builtin.set_fact:
+        effective_http_proxy: >-
+          {{ ansible_facts['env']['http_proxy']
+             | default(ansible_facts['env']['HTTP_PROXY']
+             | default(
+                 ((etc_env_raw.content | default('') | b64decode)
+                  | regex_findall('^http_proxy="?([^"\n]+)"?', multiline=True)
+                  | default([''])
+                 )[0]
+               )) }}
+        effective_https_proxy: >-
+          {{ ansible_facts['env']['https_proxy']
+             | default(ansible_facts['env']['HTTPS_PROXY']
+             | default(
+                 ((etc_env_raw.content | default('') | b64decode)
+                  | regex_findall('^https_proxy="?([^"\n]+)"?', multiline=True)
+                  | default([''])
+                 )[0]
+               )) }}
+
+    - name: Copy host CA certificate bundle into container build context
+      ansible.builtin.copy:
+        src: /etc/ssl/certs/ca-certificates.crt
+        dest: "{{ container_build_dir }}/ca-certificates.crt"
+        mode: "0644"
+        remote_src: true
+      failed_when: false
+
+    # --------------------------------------------------------------------------
+    # 4. Deploy Container Build Assets
+    # --------------------------------------------------------------------------
+    - name: Deploy legacy OpenSSH client ssh_config
+      ansible.builtin.copy:
+        dest: "{{ container_build_dir }}/ssh_config"
+        mode: "0644"
+        content: |
+          # ==============================================================================
+          # Legacy OpenSSH Client Configuration
+          # Enables obsolete ciphers, MACs, KEX, and hostkeys for ancient Linux hosts
+          # ==============================================================================
+
+          Host *
+              # Host Key Algorithms (support RSA with SHA-1, DSA, ECDSA, Ed25519)
+              HostKeyAlgorithms +ssh-rsa,ssh-dss,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
+
+              # Public Key Algorithms for authentication
+              PubkeyAcceptedKeyTypes +ssh-rsa,ssh-dss,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
+              PubkeyAcceptedAlgorithms +ssh-rsa,ssh-dss,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
+
+              # Key Exchange (KEX) algorithms (support Diffie-Hellman Group 1 SHA-1, etc.)
+              KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org
+
+              # Symmetric Ciphers (support 3DES, CBC modes: aes128-cbc, aes256-cbc, etc.)
+              Ciphers +aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com
+
+              # Message Authentication Codes (MACs, support MD5 and SHA1)
+              MACs +hmac-sha1,hmac-sha1-96,hmac-md5,hmac-md5-96,hmac-sha2-256,hmac-sha2-512,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-64-etm@openssh.com,umac-128-etm@openssh.com
+
+              # Connection parameters
+              ServerAliveInterval 60
+              ServerAliveCountMax 3
+              TCPKeepAlive yes
+              StrictHostKeyChecking accept-new
+              SendEnv LANG LC_*
+
+    - name: Deploy container entrypoint dispatcher script
+      ansible.builtin.copy:
+        dest: "{{ container_build_dir }}/entrypoint.sh"
+        mode: "0755"
+        content: |
+          #!/usr/bin/env bash
+          set -e
+
+          # Initialize container SSH directory
+          mkdir -p /root/.ssh
+          chmod 700 /root/.ssh
+
+          # If host SSH directory is mounted to /root/.host_ssh, copy and enforce strict permissions
+          if [ -d /root/.host_ssh ]; then
+              cp -a /root/.host_ssh/. /root/.ssh/ 2>/dev/null || true
+              chmod 700 /root/.ssh
+              chmod 600 /root/.ssh/* 2>/dev/null || true
+              [ -f /root/.ssh/known_hosts ] && chmod 644 /root/.ssh/known_hosts 2>/dev/null || true
+              for pub in /root/.ssh/*.pub; do
+                  [ -f "$pub" ] && chmod 644 "$pub" 2>/dev/null || true
+              done
+          fi
+
+          # If SSHPASS is defined, wrap command with sshpass
+          SSH_RUNNER=()
+          if [ -n "${SSHPASS}" ] && command -v sshpass >/dev/null 2>&1; then
+              SSH_RUNNER=("sshpass" "-e")
+          fi
+
+          case "$1" in
+              ssh)
+                  shift
+                  exec "${SSH_RUNNER[@]}" ssh "$@"
+                  ;;
+              scp)
+                  shift
+                  exec "${SSH_RUNNER[@]}" scp "$@"
+                  ;;
+              sftp)
+                  shift
+                  exec "${SSH_RUNNER[@]}" sftp "$@"
+                  ;;
+              ssh-keyscan|ssh-copy-id)
+                  CMD="$1"
+                  shift
+                  exec "${CMD}" "$@"
+                  ;;
+              sh|bash|/bin/sh|/bin/bash)
+                  exec "$@"
+                  ;;
+              -V|--version)
+                  exec ssh -V
+                  ;;
+              *)
+                  exec "${SSH_RUNNER[@]}" ssh "$@"
+                  ;;
+          esac
+
+    - name: Deploy Containerfile
+      ansible.builtin.copy:
+        dest: "{{ container_build_dir }}/Containerfile"
+        mode: "0644"
+        content: |
+          ARG BASE_IMAGE={{ legacy_base_image }}
+          FROM ${BASE_IMAGE}
+
+          LABEL maintainer="koby"
+          LABEL description="Legacy OpenSSH client container to connect to old Linux servers"
+
+          COPY ca-certificates.crt* /etc/ssl/certs/
+
+          RUN apk update && \
+              apk add --no-cache \
+                  openssh-client \
+                  sshpass \
+                  bash \
+                  bind-tools \
+                  netcat-openbsd \
+                  ca-certificates && \
+              rm -rf /var/cache/apk/*
+
+          COPY ssh_config /etc/ssh/ssh_config
+          COPY entrypoint.sh /entrypoint.sh
+          RUN chmod +x /entrypoint.sh
+
+          RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
+          WORKDIR /work
+
+          ENTRYPOINT ["/entrypoint.sh"]
+          CMD ["-V"]
+
+    # --------------------------------------------------------------------------
+    # 5. Image Build & Check
+    # --------------------------------------------------------------------------
+    - name: Check if container image already exists
+      ansible.builtin.command: >-
+        podman image exists {{ container_image_name }}:{{ container_image_tag }}
+      register: image_exists_check
+      failed_when: false
+      changed_when: false
+
+    - name: Build legacy OpenSSH Podman image
+      when: (image_exists_check.rc != 0) or (force_rebuild | bool)
+      ansible.builtin.command: >-
+        podman build
+        --network host
+        --build-arg BASE_IMAGE={{ legacy_base_image }}
+        {% if effective_http_proxy | length > 0 %}--build-arg http_proxy="{{ effective_http_proxy }}" --build-arg HTTP_PROXY="{{ effective_http_proxy }}"{% endif %}
+        {% if effective_https_proxy | length > 0 %}--build-arg https_proxy="{{ effective_https_proxy }}" --build-arg HTTPS_PROXY="{{ effective_https_proxy }}"{% endif %}
+        -t {{ container_image_name }}:{{ container_image_tag }}
+        {{ container_build_dir }}
+      register: build_out
+      changed_when: true
+
+    - name: Inspect OpenSSH version inside built container
+      ansible.builtin.command: >-
+        podman run --rm {{ container_image_name }}:{{ container_image_tag }} -V
+      register: openssh_version_check
+      changed_when: false
+
+    - name: Display detected container OpenSSH version
+      ansible.builtin.debug:
+        msg: >-
+          Container image '{{ container_image_name }}:{{ container_image_tag }}' is ready.
+          OpenSSH Version: {{ openssh_version_check.stderr | default(openssh_version_check.stdout) }}
+
+    # --------------------------------------------------------------------------
+    # 6. Deploy Wrapper CLI Script & Symlinks
+    # --------------------------------------------------------------------------
+    - name: Deploy repository wrapper script (scripts/legacy-ssh)
+      ansible.builtin.copy:
+        dest: "{{ repo_dir }}/scripts/legacy-ssh"
+        mode: "0755"
+        content: |
+          #!/usr/bin/env bash
+          set -eo pipefail
+
+          IMAGE_NAME="${LEGACY_SSH_IMAGE:-{{ container_image_name }}:{{ container_image_tag }}}"
+          CALL_NAME="$(basename "$0")"
+
+          if ! command -v podman >/dev/null 2>&1; then
+              echo -e "\033[0;31m[ERROR] podman is not installed or not in PATH.\033[0m" >&2
+              exit 1
+          fi
+
+          TTY_FLAGS=""
+          if [ -t 0 ] && [ -t 1 ]; then
+              TTY_FLAGS="-it"
+          elif [ -t 0 ]; then
+              TTY_FLAGS="-i"
+          fi
+
+          VOLUME_MOUNTS=()
+          ENV_VARS=()
+
+          # Mount ~/.ssh read-only to staging location /root/.host_ssh
+          # Container entrypoint automatically enforces 0600 permissions
+          if [ -d "${HOME}/.ssh" ]; then
+              VOLUME_MOUNTS+=(-v "${HOME}/.ssh:/root/.host_ssh:ro")
+          fi
+
+          # Forward active SSH agent socket if present
+          if [ -n "${SSH_AUTH_SOCK}" ] && [ -S "${SSH_AUTH_SOCK}" ]; then
+              VOLUME_MOUNTS+=(-v "${SSH_AUTH_SOCK}:/tmp/ssh-agent-sock:ro")
+              ENV_VARS+=(-e "SSH_AUTH_SOCK=/tmp/ssh-agent-sock")
+          fi
+
+          # Forward SSHPASS if set
+          if [ -n "${SSHPASS}" ]; then
+              ENV_VARS+=(-e "SSHPASS=${SSHPASS}")
+          fi
+
+          # Mount current working directory to /work
+          VOLUME_MOUNTS+=(-v "${PWD}:/work:rw" -w "/work")
+
+          # Handle invocations as legacy-scp or legacy-sftp
+          CMD_PREFIX=()
+          case "$CALL_NAME" in
+              legacy-scp|podman-scp)
+                  CMD_PREFIX=("scp")
+                  ;;
+              legacy-sftp|podman-sftp)
+                  CMD_PREFIX=("sftp")
+                  ;;
+              legacy-keyscan)
+                  CMD_PREFIX=("ssh-keyscan")
+                  ;;
+          esac
+
+          exec podman run --rm ${TTY_FLAGS} \
+              --network host \
+              "${VOLUME_MOUNTS[@]}" \
+              "${ENV_VARS[@]}" \
+              "${IMAGE_NAME}" \
+              "${CMD_PREFIX[@]}" \
+              "$@"
+
+    - name: Create symlink at repository root (legacy-ssh)
+      ansible.builtin.file:
+        src: "scripts/legacy-ssh"
+        dest: "{{ repo_dir }}/legacy-ssh"
+        state: link
+        force: true
+
+    - name: Install wrapper script to user local bin (~/.local/bin/legacy-ssh)
+      ansible.builtin.copy:
+        src: "{{ repo_dir }}/scripts/legacy-ssh"
+        dest: "{{ wrapper_script_path }}"
+        mode: "0755"
+        remote_src: true
+
+    - name: Create helper symlinks for legacy-scp and legacy-sftp in ~/.local/bin
+      ansible.builtin.file:
+        src: "{{ wrapper_script_path }}"
+        dest: "{{ user_bin_dir }}/{{ item }}"
+        state: link
+        force: true
+      loop:
+        - "legacy-scp"
+        - "legacy-sftp"
+
+    # --------------------------------------------------------------------------
+    # 7. Optional: Execute Ad-Hoc Target Host Connection
+    # --------------------------------------------------------------------------
+    - name: Test connection to specified target host
+      when: target_host | length > 0
+      block:
+        - name: Check for password in ~/.servers.csv if not provided
+          when: target_password | length == 0
+          ansible.builtin.set_fact:
+            discovered_password: >-
+              {{ (lookup('ansible.builtin.file', lookup('env', 'HOME') ~ '/.servers.csv', errors='ignore')
+                  | regex_findall('^[^,\n]+,' ~ (target_host | regex_escape) ~ ',[^,\n]+,([^,\n]+)', multiline=True)
+                  | default([''])
+                 )[0] }}
+
+        - name: Determine effective SSH password
+          ansible.builtin.set_fact:
+            effective_ssh_password: "{{ target_password | default(discovered_password | default(''), true) }}"
+
+        - name: Run legacy SSH command against target host
+          ansible.builtin.command: >-
+            {{ repo_dir }}/scripts/legacy-ssh
+            -p {{ target_port }}
+            {{ ssh_extra_args }}
+            {{ target_user }}@{{ target_host }}
+            {{ ssh_command }}
+          environment:
+            SSHPASS: "{{ effective_ssh_password }}"
+          register: legacy_target_run
+          changed_when: false
+
+        - name: Display target host response
+          ansible.builtin.debug:
+            msg:
+              - "Target Host: {{ target_host }}"
+              - "Exit Code: {{ legacy_target_run.rc }}"
+              - "Output: {{ legacy_target_run.stdout_lines }}"

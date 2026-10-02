@@ -1,0 +1,28 @@
+# ==============================================================================
+# Legacy OpenSSH Client Configuration
+# Enables obsolete ciphers, MACs, KEX, and hostkeys for ancient Linux hosts
+# ==============================================================================
+
+Host *
+    # Host Key Algorithms (support RSA with SHA-1, DSA, ECDSA, Ed25519)
+    HostKeyAlgorithms +ssh-rsa,ssh-dss,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
+
+    # Public Key Algorithms for authentication
+    PubkeyAcceptedKeyTypes +ssh-rsa,ssh-dss,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
+    PubkeyAcceptedAlgorithms +ssh-rsa,ssh-dss,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519
+
+    # Key Exchange (KEX) algorithms (support Diffie-Hellman Group 1 SHA-1, etc.)
+    KexAlgorithms +diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1,diffie-hellman-group-exchange-sha256,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,curve25519-sha256,curve25519-sha256@libssh.org
+
+    # Symmetric Ciphers (support 3DES, CBC modes: aes128-cbc, aes256-cbc, etc.)
+    Ciphers +aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com
+
+    # Message Authentication Codes (MACs, support MD5 and SHA1)
+    MACs +hmac-sha1,hmac-sha1-96,hmac-md5,hmac-md5-96,hmac-sha2-256,hmac-sha2-512,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-64-etm@openssh.com,umac-128-etm@openssh.com
+
+    # Connection parameters
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    TCPKeepAlive yes
+    StrictHostKeyChecking accept-new
+    SendEnv LANG LC_*

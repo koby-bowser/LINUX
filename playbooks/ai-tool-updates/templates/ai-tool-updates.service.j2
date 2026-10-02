@@ -1,0 +1,17 @@
+[Unit]
+Description=Update Antigravity, Claude Code, Codex CLI and OpenCode
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory={{ ai_updates_install_dir }}
+Environment=ANSIBLE_CONFIG={{ ai_updates_install_dir }}/ansible.cfg
+Environment=ANSIBLE_HOME=/var/lib/ai-tool-updates/ansible
+StateDirectory=ai-tool-updates
+ExecStart=/usr/bin/flock --nonblock /run/lock/ai-tool-updates.lock /usr/bin/ansible-playbook -i localhost, {{ ai_updates_install_dir }}/update-ai-tools.yml -e @{{ ai_updates_install_dir }}/settings.json
+TimeoutStartSec=90min
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ai-tool-updates
