@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+To https://github.com/koby-bowser/LINUX.git
+   58f8b03..4b37e03  Baba-Koby -> Baba-Koby
+
