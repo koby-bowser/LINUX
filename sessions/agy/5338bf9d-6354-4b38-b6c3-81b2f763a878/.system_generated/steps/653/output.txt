@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+/etc/nginx/conf.d/13-gpevvg.sfrcaraibe.fr.conf.bak:1:upstream imap_backend {
+/etc/nginx/conf.d/13-gpevvg.sfrcaraibe.fr.conf.bak:33:        proxy_pass                         imap_backend;
+/etc/nginx/conf.d/13-gpevvg.sfrcaraibe.fr.conf.bakup:9:        proxy_pass $name;
+/etc/nginx/conf.d/13-gpevvg.sfrcaraibe.fr.conf.bakup:27:    upstream server_name1 {
+/etc/nginx/conf.d/13-gpevvg.sfrcaraibe.fr.conf.bakup:31:    #upstream server_name2 {
+/etc/nginx/conf.d/13-gpevvg.sfrcaraibe.fr.conf.bakup:35:    #upstream default-server {
+

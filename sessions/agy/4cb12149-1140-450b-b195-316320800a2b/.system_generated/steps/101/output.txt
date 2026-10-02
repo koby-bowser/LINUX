@@ -1,0 +1,44 @@
+The search for ""mcp-excalidraw-server" "Claude Desktop"" returned the following summary:
+`mcp-excalidraw-server` is an **MCP (Model Context Protocol) server** designed to integrate Excalidraw's diagramming capabilities directly into AI agents, such as those running in **Claude Desktop**, Cursor, or other MCP-compatible clients[1][2][3].
+
+### What it does
+Unlike basic integrations that might only generate a static image, `mcp-excalidraw-server` provides a **persistent, interactive workbench** for AI agents[4][5][6]. It allows Claude to[1][6]:
+*   **Create and Modify:** Programmatically create, edit, update, or delete elements on an Excalidraw canvas[3][5].
+*   **Persistent Workflow:** Maintains the canvas state, allowing for iterative refinement of diagrams rather than one-off generations[7][6].
+*   **Advanced Control:** Offers tools for layout management, element-level control, screenshotting (so the AI can "see" what it has drawn), and file export[1][3][5].
+
+### How to use it with Claude Desktop
+To use it with Claude Desktop, you typically configure the server in your `claude_desktop_config.json` file[8][9].
+
+1.  **Configuration:** You add the server to your configuration file, pointing to the local installation of the MCP server[8][9]. A typical configuration entry looks like this:
+    ```json
+    "mcpServers": {
+      "excalidraw": {
+        "command": "node",
+        "args": ["/absolute/path/to/your/excalidraw-mcp/dist/index.js"]
+      }
+    }
+    ```
+2.  **Usage:** Once configured and Claude Desktop is restarted, Claude will have access to the Excalidraw tools[9][10]. You can then prompt Claude in natural language to "create an architecture diagram," "visualize this code," or "draw a flowchart," and it will use the MCP tools to interact with the canvas[2][11][10].
+
+### Important Distinction
+There are different versions of Excalidraw MCP servers available:
+*   **`mcp-excalidraw-server` (e.g., by yctimlin):** This is the version often cited for power users and coding agents, focusing on persistent, multi-tool, agentic workflows[1][7][6].
+*   **Official/Other versions:** There are other implementations (including an official Excalidraw+ MCP) that may offer different features, such as simpler "one-shot" diagram generation or integration with Excalidraw's cloud services[12][13][6].
+
+If you are looking for a robust, local-first experience where an AI agent can "work" alongside you on a diagram, the community-maintained `mcp-excalidraw` packages are generally the recommended path[1][7].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGU0wmYaoo465FS-4ML2CvIZMq3zRmpfIsK5OlbN4BVWcINGWGfl6sPQzZgYFNdExwOdSplDMF746jUf4MYGnYkx2aNMuENr65V1uo8UCE5Dk6-CspRt1SiFn_8mPzJk70=)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFn3E2WA1cnSdfUSAWl00DpnLdCCiOhBy3mix2c7zdjFivUaSKSPwWPRVHebFP-VEdsoZKG5grsxPHTzP9HXzmJxIzqSyInSKf2SuTP2mO0UvKXobXatrW7SMEbCQOyJQOL6zp4py5A6Mc4VVW9I3OEOHTKtClD)
+[3] [mcpagentsmarket.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHcA_BhgbbN1_sXlSpHM-RBerUNacikHHxfW_ZQqsItaICW8wAQEkj8-C7cEg0QydmMehsvgKfUKyMRxhvrrwQ1dXxsB3sqJ7XopUkgvRwIJrKfX-WRGZnN4cEYA8jH6jLZ13qU)
+[4] [skywork.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFJ7pFw0ZRIZHQQfWazKcSetiM3ZHpkFBwLF5zBFjU8_Azej6Xs74rLIbizfbftG-arfSVHKYbgohNCHS_xX7_XuR4YG1g59TSr5gWF0NU8_VV7NG0kCDK0JswCaXshO-RtiDjh9r0UKDb2kGHqwdbgR43kdS7KMpyRHtDTdTKA8jFftGqI1sy6)
+[5] [mcpservers.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHmFshqp0fLUzxNR-NsiYO1TwKHbBPGNBWO9rmbHgrDhiWeInyXi3XfGhrhGVKqUY8jzHlfAChBgTVdeS6F9M5ncB5_70MbZX6fdeLz0QMq52dfIc0N7pvb2QEVOjNqMDZEV3Nf8Rgm7nIOOiQ=)
+[6] [mcp.so](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGI7A8PAYcbvfm7GCh0xBAa3-DLn0dIPNNNyw2W6hOD1AUflsSsQaC1a_Cy02a4pWC1e3XayahJngaZfkTsS6_YCSCYY0szXj3bujEjvZgThrKmZao0M5h5Qsai)
+[7] [hysenlabs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHnV8KOz9lalV3DUvJXiXyD9u5G_4PnY7CHC1KBOzfZvPxQjCye9BQDLOK3IjPptw6oUuCpqsRmuBhcc-weh6DQTwT_ufi254goWLRgsjlAbWh81FJUB-vOvmWLkeLPWpmtww0-oB5d7E0G0QndnDc=)
+[8] [lobehub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUv9ViManHUHQpVwYqbq7ZWsJ51tLmIJ_VA40oRC-rN96a2zr8Ktn0I_YnpBI4hsxjWaQKVXHTu_Mqjk7zhAicWSKR7gyRlU9gBnyxtzN42258JdSxKshfA-dZ1SCZDNAl3wAtw2A9Gh_mAg==)
+[9] [skywork.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFEaonIbETLEPUSJaZs1taCXoNTEIaQA-kb4QUqz4-OmeixcWmzIiPYcX_nwVXAuc5I112nWnbwXMSwSN6yKD_hFtX5UKW8O3MA1HL6-sRUpyGu9zb--HnfU4DwmL7NLbweUvb0jy3mH5ceJW2bwVEO8gP4dSbAjAeRRJINihUzdPik9K5TK6mn3g==)
+[10] [rajeevpentyala.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsNazd5-3F6q72fzjbI8pxebwe1Z65oUUNTXINraQEQsDYosjAxCwsC_pWMgkzBDxan1cXsUwAnlJWk4czdXhR468wJ5Y1anHrsXvhwtTuELtw0E5MdFHkPri54dgIn7BKIczuAXn0Otaic5LYFuRgvJuF5S-D-cEnA1p7SfXGZ12EvUSq-auFLzJ8T3i4QjvmCBGYcmvt3g==)
+[11] [wordpress.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFZPFoc27cerQgLsXwF1W-zRZuLfWKTNJyZ-WjkNXyHnyIuuDlCf1BU--MWUbInYYBDnViwmkqp_l-1A9t73cOWm_fK-2A_Gl6h_ra7U8q7lSJiTjbEv61Z7aea2oX8fnr8HdsTPQOcxzfHFqYdVWKDghug9XCl34ly3U6izvW0fXOhD2Fs0zIl9eUSnkngkYbhGFrv8Glvo_8j0TZrUYLdKgbcZg==)
+[12] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFndeYBoLGuGAwAJXMwnrS_gO6ER_zZ0SvyIhVCVsUkpsv1NynueVABPwPXdb58L8SwWBNFlAz0UV4DBVn5pWpuusrZX4SXiBwWJcL8_BO-VCEDAFwFWVqdZgI=)
+[13] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGSLUsVUfJUFabgQJ6TycE7-8QQsYUtRGntcEBx-tULPjGiy3cd68aWOBt6fkPvcpJy7io-c5h9ii_Rsiwx6FGu96n84BcE928cBdQ3cFAAIW_Md2V7GK3O9sNT1IPQz6Ro)

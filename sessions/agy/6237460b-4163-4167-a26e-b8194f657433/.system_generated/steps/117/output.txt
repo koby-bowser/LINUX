@@ -1,0 +1,46 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== Testing https://172.30.198.50:9443/centreon-map/ ===
+HTTP/1.1 401 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+=== Testing https://172.30.198.50:9443/centreon-map-server/ ===
+HTTP/1.1 404 
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 431
+Date: Thu, 10 Sep 2026 07:56:49 GMT
+=== Testing https://172.30.198.50:9443/map/ ===
+HTTP/1.1 404 
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 431
+Date: Thu, 10 Sep 2026 07:56:49 GMT
+=== Testing https://172.30.198.50:9443/centreon/ ===
+HTTP/1.1 404 
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 431
+Date: Thu, 10 Sep 2026 07:56:49 GMT
+=== Testing https://172.30.198.50:9443/map-server/ ===
+HTTP/1.1 404 
+Content-Type: text/html;charset=utf-8
+Content-Language: en
+Content-Length: 431
+Date: Thu, 10 Sep 2026 07:56:49 GMT
+

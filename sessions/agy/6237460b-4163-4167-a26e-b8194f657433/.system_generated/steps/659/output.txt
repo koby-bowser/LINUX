@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 200 
+server: nginx
+date: Thu, 10 Sep 2026 13:26:10 GMT
+content-type: application/json
+content-length: 961
+cache-control: public, max-age=0, no-cache
+replay-nonce: hLhE95RiX5P8UVq9sUF6rKlmydvw5xuW3KFnksdnY7H8luUlivE
+x-frame-options: DENY
+strict-transport-security: max-age=604800
+
+

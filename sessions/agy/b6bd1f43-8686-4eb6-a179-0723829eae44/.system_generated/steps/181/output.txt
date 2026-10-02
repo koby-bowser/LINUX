@@ -1,0 +1,24 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/files/certbot-hooks/pdns-auth-hook.sh. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -15,6 +15,8 @@
+   ZONE="sfrcaraibe.fr"
+ elif [[ "${CERTBOT_DOMAIN}" =~ only\.fr$ ]]; then
+   ZONE="only.fr"
++elif [[ "${CERTBOT_DOMAIN}" =~ 3gppnetwork\.org$ ]]; then
++  ZONE="mnc002.mcc340.pub.3gppnetwork.org"
+ else
+   ZONE="${CERTBOT_DOMAIN}"
+ fi
+@@ -26,6 +26,9 @@
+ fi
+ 
+ PDNS_HOST="${PDNS_DNS_HOST:-172.30.198.162}"
++if [ "${PDNS_HOST}" = "dnsp-mst.example.lan" ] || [ -z "${PDNS_HOST}" ]; then
++  PDNS_HOST="172.30.198.162"
++fi
+ SSH_USER="superuser"
+ SSH_PORT="30"
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

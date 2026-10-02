@@ -1,0 +1,5 @@
+{
+  "summary":  "Complete final report for Centreon Map integration. Details the DNS-01 Let's Encrypt certificate issuance via passwordless SSH to th2-dnsp-mst1, the deployment of dedicated TLS certificates and independent Nginx vhost on th2-revproxyp-fe1, and end-to-end strict TLS validation from th2-centprop-be1.",
+  "updatedAt":  "2026-09-10T13:39:29.505415251Z",
+  "userFacing":  true
+}

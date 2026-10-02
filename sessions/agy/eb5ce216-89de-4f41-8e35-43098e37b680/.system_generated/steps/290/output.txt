@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+debug1: compat_banner: match: OpenSSH_10.0p2 Debian-7+deb13u4 pat OpenSSH* compat 0x04000000
+

@@ -1,0 +1,134 @@
+The following changes were made by the replace_file_content tool to: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/centreon-map-chain-report.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -47,28 +47,104 @@
+ 
+ ---
+ 
+-## 3. End-to-End Verification Results
+-
+-```mermaid
+-flowchart LR
+-    Central["th2-centprop-be1\n(172.30.198.49)\nCentreon Central PHP"] -->|"HTTPS :9443\n(Strict TLS Verified)"| RevProxy["th2-revproxyp-fe1\n(172.30.198.33)\nNginx Proxy"]
+-    ExtUser["External Browser\n(map.extranetclient...)"] -->|"HTTPS :9443\n(Valid Public Cert)"| RevProxy
+-    RevProxy -->|"HTTPS :9443 (TLS)\nproxy_ssl_verify off"| Map["th2-centprop-map\n(172.30.198.50)\nTomcat Engine"]
+-```
+-
+-| Source / Target | Test Command | Result | Status |
+-| :--- | :--- | :--- | :---: |
+-| **Local Machine $\rightarrow$ Port 9443** | `openssl s_client -connect 172.30.198.33:9443` | `CN=map.extranetclient.outremer-telecom.fr`, Issuer `Let's Encrypt (YE2)` | **VERIFIED** |
+-| **Local Machine $\rightarrow$ Port 9443** | `curl -sS -I https://map.extranetclient...:9443/` | `HTTP/2 301` $\rightarrow$ `location: .../centreon-map/` (Strict TLS OK, no `-k`) | **VERIFIED** |
+-| **Central Backend (`.49`) $\rightarrow$ Reverse Proxy** | `curl -sS -I https://map.extranetclient...:9443/` | `HTTP/2 301` (Strict TLS OK, no `-k`, `/etc/hosts` routing OK) | **VERIFIED** |
+-| **Central Backend (`.49`) $\rightarrow$ Centreon Map** | `curl -sS -I https://map.extranetclient...:9443/centreon-map/` | `HTTP/2 400/401` (Centreon Map application response reached) | **VERIFIED** |
+-
+----
+-
+-## 4. Final Verification in the Centreon Web UI
+-
+-You can now return to the Centreon Web Interface:
+-1. Navigate to: **`Administration > Extensions > Options`**.
+-2. Under the Map server settings, click **"Test connection to server"**.
+-3. Because the certificate is now natively trusted by PHP cURL with an exact SAN match for `map.extranetclient.outremer-telecom.fr`, the test will succeed with a green status.
++---
++
++## 3. Root Cause Analysis of the Previous Failure
++
++When clicking **"Test connection to server"**, two distinct mechanisms were blocking the chain:
++
++### A. The Nginx Duplicate Host Header (Tomcat 400 Bad Request)
++* **Discovery**: Tomcat (Spring Boot Actuator) complies strictly with **RFC 7230 / RFC 9112 Section 5.4**:
++  > *"A server MUST respond with a 400 (Bad Request) status code to any request message that contains more than one Host header field."*
++* **Nginx Behavior**: In Nginx, specifying multiple `proxy_set_header` directives with the same header name in the same block does **not** override; it sends **multiple duplicate headers**.
++* **The Culprit**: `03-map...conf` included `nginxconfig.io/proxy.conf` (which set `proxy_set_header Host $host;`) AND also explicitly set `proxy_set_header Host $http_host;`.
++* **The Result**: Nginx was forwarding:
++  ```http
++  Host: map.extranetclient.outremer-telecom.fr
++  Host: map.extranetclient.outremer-telecom.fr:9443
++  ```
++  Tomcat immediately aborted the connection with `400 Bad Request`.
++
++### B. Missing CORS Headers (Browser AJAX Block)
++* In [`listOptions.js`](file:///usr/share/centreon/www/modules/centreon-map4-web-client/views/options/listOptions.js#L266):
++  ```javascript
++  function testServerAddressNg() {
++    const urlServerNg = jQuery('input[name="server_address_ng"]').val();
++    jQuery.ajax({
++      type : 'GET',
++      url : `${urlServerNg}/centreon-map/api/latest/actuator/health`
++    });
++  }
++  ```
++* The test button is triggered directly by the **client web browser** from origin `https://extranetclient...` (port 443) targeting port 9443.
++* Modern browsers strictly block cross-origin requests unless the target server returns `Access-Control-Allow-Origin`.
++
++---
++
++## 4. Remediation Applied on `th2-revproxyp-fe1`
++
++The configuration [`/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf`](file:///etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf) has been upgraded:
++
++1. **Clean Header Proxification**:
++   * Removed `nginxconfig.io/proxy.conf` include to eliminate all duplicate header injection.
++   * Defined clean, RFC-compliant singular proxy headers:
++     ```nginx
++     proxy_set_header Host              $http_host;
++     proxy_set_header X-Real-IP         $remote_addr;
++     proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
++     proxy_set_header X-Forwarded-Proto https;
++     proxy_set_header X-Forwarded-Ssl   on;
++     proxy_set_header X-Forwarded-Host  $host;
++     proxy_set_header X-Forwarded-Port  9443;
++     ```
++
++2. **Full CORS Support Added**:
++   ```nginx
++   add_header 'Access-Control-Allow-Origin' '*' always;
++   add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
++   add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
++   add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range' always;
++
++   if ($request_method = 'OPTIONS') {
++       add_header 'Access-Control-Allow-Origin' '*' always;
++       add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
++       add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
++       add_header 'Access-Control-Max-Age' 1728000;
++       add_header 'Content-Type' 'text/plain; charset=utf-8';
++       add_header 'Content-Length' 0;
++       return 204;
++   }
++   ```
++
++3. **Validation & Reload**:
++   * `nginx -t`: **Syntax OK, test successful**.
++   * Recharged seamlessly via `systemctl reload nginx`.
++
++---
++
++## 5. End-to-End Verification Results
++
++| Source / Client | Target URL | HTTP Status | Response Payload | CORS Header | Status |
++| :--- | :--- | :---: | :---: | :---: | :---: |
++| **Local Machine (via Nginx FE1)** | `https://map...:9443/.../actuator/health` | **200 OK** | `{"status":"UP"}` | `Access-Control-Allow-Origin: *` | <span style="color:green;font-weight:bold;">PASSED</span> |
++| **Local Machine (OPTIONS Preflight)** | `https://map...:9443/.../actuator/health` | **204 No Content** | `Empty` | `Access-Control-Allow-Methods` | <span style="color:green;font-weight:bold;">PASSED</span> |
++| **Central Backend (`.49`)** | `https://map...:9443/.../actuator/health` | **200 OK** | `{"status":"UP"}` | `Access-Control-Allow-Origin: *` | <span style="color:green;font-weight:bold;">PASSED</span> |
++
++---
++
++## 6. Testing Instructions for Internal Corporate Workstations
++
++Depending on where you access Centreon Web from:
++
++* **From an External / WAN / 4G connection**:
++  Resolution goes to `109.62.64.18:9443` across the WAN firewall. Click **"Test connection to server"**; it will connect directly and turn green.
++
++* **From an Internal Corporate Workstation (LAN/VPN)**:
++  Internal PCs cannot reach the corporate public IP `109.62.64.18` because the firewall does not support Hairpin NAT.
++  To test from your workstation, add this entry to your local `hosts` file:
++  ```text
++  172.30.198.33 map.extranetclient.outremer-telecom.fr
++  ```
++  *(Linux/macOS: `/etc/hosts`, Windows: `C:\Windows\System32\drivers\etc\hosts`)*
++  Then reload Centreon Web and click **"Test connection to server"**.
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

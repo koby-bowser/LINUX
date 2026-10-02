@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+[defaults]
+inventory = inventories
+roles_path = roles
+host_key_checking = False
+retry_files_enabled = False
+stdout_callback = yaml
+timeout = 30
+forks = 10
+
+[ssh_connection]
+pipelining = True
+total 28
+drwxrwxr-x  7 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 10 koby koby 4096 Aug 13 17:10 ..
+drwxrwxr-x  3 koby koby 4096 Jun 24 18:45 common
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 corp
+drwxrwxr-x  4 koby koby 4096 Sep  8 16:40 dev
+drwxrwxr-x  4 koby koby 4096 Sep  8 16:40 prod
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 val
+

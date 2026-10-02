@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+_a63ad4210a013c3a458d9ce41fdbf15e.app.smartwifi		CNAME 		_cabe591dfe7bd07ea52ddb2ff54efe0f.djqtsrsxkq.acm-validations.aws.
+
+; Private
+$ORIGIN private.sfrcaraibe.fr.
+trp-wextp-aife1			A	172.30.230.109
+portal.smartwifi.alabs		CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+dm-portal.smartwifi.alabs	CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+logs.smartwifi.alabs		CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+monit.smartwifi.alabs		CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+iam.smartwifi.alabs		CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+;sblb.smartwifi.alabs		CNAME	k8s-smeshdm-xeacsdev-25ae819a0b-cfe3808045648ac2.elb.eu-west-3.amazonaws.com.
+sblb.smartwifi.alabs		CNAME 	omt-l2l-l4-internal-alb-72d227a2f50dee4f.elb.eu-west-3.amazonaws.com.
+systemapi.smartwifi.alabs	CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+api.eligibilite			CNAME	trp-wextp-aife1
+_acme-challenge.geo	60	TXT	"TEST_VAL_123"
+

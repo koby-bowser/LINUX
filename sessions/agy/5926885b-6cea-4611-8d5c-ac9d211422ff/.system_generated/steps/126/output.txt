@@ -1,0 +1,29 @@
+
+The command exited with code 0.
+Output:
+import requests, json, sys
+
+TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDAwY2I0LWEzY2YtNDIyYS1hMjQ5LWVkMzA2NzEwZDdjZiIsImV4cGlyZXNBdCI6IjIwMjYtMTItMDhUMTA6NDU6MjcuNzkzWiIsInR5cGUiOiJzZXNzaW9uIiwic2VydmljZSI6ImF6dXJlIiwiaWF0IjoxNzg4ODY0MzI3fQ.tQTTmIeOP_H2i-10PROwjV-c_snixZFU5pG6CpKXXCk'
+BASE_URL = 'https://wiki.corp.intranet.local'
+COLLECTION_ID = 'bda1a3da-cc3d-4c5d-92d1-d831dfbe2eae'  # Infra
+PARENT_DOC_ID = 'fadb8718-bb7a-4349-b22f-4fdc83051340'  # 3. Procédures & Runbooks
+ATTACHMENT_ID = 'dc8d6163-d4e8-40f4-b668-d5db3226b72a'
+
+title = "Procédure — Décommissionnement de serveurs et équipements d'infrastructure"
+
+text = f"""| VERSION | AUTEUR | REVISION | PARTAGER |
+|---------|--------|----------|----------|
+| 1.0 | Amit SAMY | Équipe Infra Linux / Exploite Sécurité / NOC BO | Infra Linux, Exploite Sécurité, NOC BO, CAB Committee |
+
+---
+
+### Fiche Métadonnées
+
+* **Statut** : Validé / Officiel
+* **Date d'effet** : 24 septembre 2026
+* **Classification** : Document Interne Outremer Telecom
+* **Périmètre d'application** : Machines virtuelles (VMware vSphere), serveurs physiques bare-metal, appliances matérielles et services applicatifs hébergés sur l'ensemble des environnements (PROD, PREPROD, DEV, LAB) et datacenters (TH2, Martinique, Guadeloupe, Guyane, Réunion, Mayotte).
+
+---
+
+

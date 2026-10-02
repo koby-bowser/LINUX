@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+root@172.16.92.241: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+koby@172.16.92.241: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+done testing
+

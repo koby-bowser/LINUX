@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+commit 5234b5e0776800718cc594c38a497619072311aa
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Fri Oct 2 11:40:29 2026 +0400
+
+    Add AI tools update
+
+ .gitignore                                         |   3 +
+ README.md                                          |  78 ++++
+ containers/legacy-ssh/Containerfile                |  27 ++
+ containers/legacy-ssh/entrypoint.sh                |  52 +++
+ containers/legacy-ssh/ssh_config                   |  28 ++
+ legacy-ssh                                         |   1 +
+ legacy-ssh-podman.yml                              |   1 +
+ lvm-diagram.txt                                    |  50 +++
+ .../ai-tool-updates/schedule-ai-tool-updates.yml   |  99 +++++
+ playbooks/ai-tool-updates/tasks/update-ai-cli.yml  |  53 +++
+ .../templates/ai-tool-updates.service.j2           |  17 +
+ .../templates/ai-tool-updates.timer.j2             |  11 +
+ playbooks/ai-tool-updates/update-ai-tools.yml      |  60 +++
+ playbooks/legacy-ssh-podman.yml                    | 432 +++++++++++++++++++++
+ scripts/legacy-ssh                                 |  62 +++
+ tests/test_ai_tool_updates.py                      |  94 +++++
+ 16 files changed, 1068 insertions(+)
+

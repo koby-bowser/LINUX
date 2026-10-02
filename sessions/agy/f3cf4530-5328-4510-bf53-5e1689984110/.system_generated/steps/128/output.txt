@@ -1,0 +1,46 @@
+
+The command exited with code 0.
+Output:
+RC: 0
+STDOUT:
+ ---
+# SECRETS EN CLAIR — NE PAS COMMITTER (couvert par .gitignore *.SECRETS-PLAINTEXT.yml).
+# Source du fichier ansible-vault scripts/acme/gitlab_api_vault.yml.
+#
+# Chiffrer puis committer la version chiffrée :
+#   ansible-vault encrypt \
+#     --output scripts/acme/gitlab_api_vault.yml \
+#     scripts/acme/gitlab_api_vault.SECRETS-PLAINTEXT.yml
+# (même mot de passe vault que les autres *_vault.yml — clé Vault Password id 2,
+#  déjà attachée au template Semaphore 53 « Issue LE cert (public) - PROD »)
+#
+# Relire le token après coup :
+#   ansible-vault view scripts/acme/gitlab_api_vault.yml
+#
+# ── Ce que c'est ────────────────────────────────────────────────────────────────
+# Personal Access Token GitLab (gitsi.intranet.local) utilisé par
+# playbooks/issue-le-cert.yml pour COMMITTER lui-même le bundle TLS émis dans
+# files/tls/<fqdn>/ sur la branche main, via l'API REST v4 — ce qui supprime le
+# copier-coller manuel des blocs base64 depuis les logs Semaphore.
+#
+# Le clone git du runner Semaphore est en lecture seule ; ce token est un canal
+# INDÉPENDANT de ce clone (même principe que playbooks/generate-idemia-csr.yml,
+# qui committe déjà par API depuis un runner).
+#
+# ── Prérequis du token ──────────────────────────────────────────────────────────
+#   - scope        : api
+#   - rôle projet  : Developer minimum sur le projet 144
+#                    (omt/infra/management/infra-management-system), suffisant pour
+#                    pousser sur main tant que main n'est pas une branche protégée
+#                    interdisant le push direct ; sinon Maintainer.
+#   - durée de vie : GitLab impose une expiration. La noter dans KeePass et prévoir
+#                    le renouvellement — un token expiré fait échouer le commit
+#                    (le playbook retombe alors sur l'affichage base64 manuel).
+#
+# ⚠ Utiliser un PAT DÉDIÉ à ce flux, pas celui de l'environnement Semaphore
+#   « IDEMIA secrets » (id 5) : celui-là est stocké EN CLAIR dans l'environnement
+#   Semaphore, donc lisible par tout membre du projet via l'API. À rotater et
+#   déplacer vers ce même mécanisme vault dans un second temps.
+gitlab_api_token: "glpat-bJhtM1mxe4DO_w1JCwDulW86MQp1OjMH.01.0w17fprot"
+
+

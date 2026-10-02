@@ -1,0 +1,26 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 200 
+server: nginx
+date: Tue, 22 Sep 2026 14:44:29 GMT
+content-type: text/html; charset=utf-8
+content-length: 14522
+vary: Accept-Encoding
+content-security-policy: base-uri 'none';default-src 'self';style-src 'self' 'unsafe-inline';script-src https://wiki.corp.intranet.local wiki.corp.intranet.local/static/ 'nonce-668d95c11a530ccba5ba615850a1944e';media-src * data: blob:;img-src * data: blob:;frame-src * data:;worker-src 'self';object-src https://wiki.corp.intranet.local 'self';connect-src *
+x-dns-prefetch-control: on
+expect-ct: max-age=0
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=15552000; includeSubDomains
+x-download-options: noopen
+x-content-type-options: nosniff
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+x-xss-protection: 0
+vary: Accept-Encoding
+set-cookie: __Host-csrfToken=28142ff79ae22826926cb6992ed3eeab.bd348399e9648c921c2b6269a54c828aa361acaf76329e6fc8ca93e1fce8f072; path=/; samesite=lax; secure
+timing-allow-origin: https://wiki.corp.intranet.local
+cache-control: no-cache, must-revalidate
+expires: -1
+
+

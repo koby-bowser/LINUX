@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+{
+  "Status": 0,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "epdg.epc.mnc002.mcc340.pub.3gppnetwork.org.",
+      "type": 1
+    }
+  ],
+  "Answer": [
+    {
+      "name": "epdg.epc.mnc002.mcc340.pub.3gppnetwork.org.",
+      "type": 1,
+      "TTL": 3600,
+      "data": "217.175.160.71"
+    }
+  ],
+  "Comment": "Response from 217.175.160.10."
+}
+

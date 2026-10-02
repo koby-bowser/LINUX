@@ -1,0 +1,18 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+uid=1000(superuser) gid=1000(superuser) groups=1000(superuser),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),109(netdev),998(SSH_Users)
+trp-wextp-fe3
+exit: 0
+

@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+
+; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.68.rc1.el6 <<>> @localhost _acme-challenge.geo.sfrcaraibe.fr ANY
+; (3 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 41625
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;_acme-challenge.geo.sfrcaraibe.fr. IN	ANY
+
+;; AUTHORITY SECTION:
+sfrcaraibe.fr.		180	IN	SOA	ns1.outremer-telecom.fr. noc.resot.net. 2026100205 43200 7200 2419200 10800
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Fri Oct  2 08:21:46 2026
+;; MSG SIZE  rcvd: 121
+
+

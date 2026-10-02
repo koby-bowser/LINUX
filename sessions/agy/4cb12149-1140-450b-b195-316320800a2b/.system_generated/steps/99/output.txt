@@ -1,0 +1,43 @@
+The search for "site:github.com/yctimlin/mcp_excalidraw "mcpServers"" returned the following summary:
+The GitHub repository `yctimlin/mcp_excalidraw` provides an MCP (Model Context Protocol) server and agent skill designed to allow AI agents to interact with Excalidraw, enabling them to programmatically create, edit, and export diagrams with real-time canvas synchronization[1][2].
+
+### Configuration for `mcpServers`
+To use this MCP server with clients like Claude Desktop or Cursor, you need to add the appropriate configuration to your MCP configuration file (e.g., `claude_desktop_config.json` or `.cursor/mcp.json`)[3][4][5].
+
+While configuration can vary based on whether you are running it locally or via `npx`, here is the standard format often referenced for this repository[3][4][5]:
+
+```json
+{
+  "mcpServers": {
+    "mcp_excalidraw": {
+      "command": "npx",
+      "args": ["-y", "excalidraw-mcp"]
+    }
+  }
+}
+```
+
+**Notes on Configuration:**
+*   **Local Paths:** If you have cloned the repository and are running it from a local directory, you should point to the compiled `index.js` file[5][6]:
+    ```json
+    {
+      "mcpServers": {
+        "excalidraw": {
+          "command": "node",
+          "args": ["/absolute/path/to/mcp_excalidraw/dist/index.js"]
+        }
+      }
+    }
+    ```
+*   **Environment Variables:** Depending on your setup, you may need to specify environment variables like `EXPRESS_SERVER_URL` to point to the canvas server[4][5].
+
+For the most accurate instructions, please check the **README.md** file directly in the [yctimlin/mcp_excalidraw GitHub repository](https://github.com/yctimlin/mcp_excalidraw)[7], as command arguments or server names can sometimes change.
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE300B5vJUnCYrdNeM4OY_i5utgx5taJX9yNwI81OTZDRUVPnkpcbvjBlFbph3HwGUbuq1JqbX-ZEWHXm38vS7KXCDjbdn_mZs5TW4UPOfsweoT0sGDtxtLBoTjL4xiwhc=)
+[2] [mcp.so](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGKFWeUO8C3unlSdVEVoRTQaykGRMzIZgA_xtRt9_YJTW6PY6pmmmbN-9NPaZKk1mfee4Wu9PouPZsXhObc1JZ4wgGcqdDhJbEzVVkLUov8AopMLBoSE65qL55i)
+[3] [lobehub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGS9_xmklgEaGynuGSEjWdEfEe8SkB_oyBcRms4biL24XxtG_rjY4z46ndgC4bg7FqK2h8x8l3ZxDMgd_8xYFn9cg-1GkgsvxEJSyhHdgvSU8bHxpXxL8mY_Nia9LsEpWx3bOxR4w==)
+[4] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE300B5vJUnCYrdNeM4OY_i5utgx5taJX9yNwI81OTZDRUVPnkpcbvjBlFbph3HwGUbuq1JqbX-ZEWHXm38vS7KXCDjbdn_mZs5TW4UPOfsweoT0sGDtxtLBoTjL4xiwhc=)
+[5] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQuWQzWxDSyUVQGh4TTd_aqS_O7JeLAI24_yAIcXWdWlvXjvnFXP8C99CZGtLGPJMoHDDjBEPBrxdTnYvfUyokKFbWe8gIZWDLkgYoikRbNO8uSANnpbatKOvoccvWtQ3dKFLEfXlTZ2Xi5RqYuOJiwGJb2cPm)
+[6] [lobehub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8K77zDmz7id2PjSUwLE2pyzR1Yc5RdEiDPumqvf8cLJ6lFKIZKeni9Rt_pL6d-8-5BHAsXf7INdj06t2Wc86xlnMxKi_vmMLM510-IZq6DA6l_ilYPVw8wAfLjPa6zaJUPJ8cNJGgiZZnrg==)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE300B5vJUnCYrdNeM4OY_i5utgx5taJX9yNwI81OTZDRUVPnkpcbvjBlFbph3HwGUbuq1JqbX-ZEWHXm38vS7KXCDjbdn_mZs5TW4UPOfsweoT0sGDtxtLBoTjL4xiwhc=)

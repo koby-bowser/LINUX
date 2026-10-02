@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+{
+  "Status": 0,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "geo.sfrcaraibe.fr.",
+      "type": 255
+    }
+  ],
+  "Answer": [
+    {
+      "name": "geo.sfrcaraibe.fr.",
+      "type": 5,
+      "TTL": 180,
+      "data": "gbs-frontweb-01.sfrcaraibe.fr."
+    }
+  ],
+  "Comment": "Response from ns2.outremer-telecom.fr.(109.62.64.4)."
+}
+

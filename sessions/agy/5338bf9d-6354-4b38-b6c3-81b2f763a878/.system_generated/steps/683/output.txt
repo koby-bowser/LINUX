@@ -1,0 +1,47 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== HOSTNAME ===
+trp-wextp-be1
+=== PHP CLI ===
+/usr/bin/php
+PHP 8.4.15 (cli) (built: Nov 20 2025 19:02:10) (NTS)
+Copyright (c) The PHP Group
+=== PHP SERVICES / FPM POOLS ===
+  php7.4-fpm.service loaded active running The PHP 7.4 FastCGI Process Manager
+  php8.2-fpm.service loaded active running The PHP 8.2 FastCGI Process Manager
+=== PROXYSQL ===
+/usr/bin/proxysql
+● proxysql.service - High Performance Advanced Proxy for MySQL
+     Loaded: loaded (/lib/systemd/system/proxysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Wed 2026-02-11 01:32:36 UTC; 7 months 9 days ago
+   Main PID: 1093642
+      Tasks: 39 (limit: 11891)
+=== ROOT DIRECTORIES / WEBROOTS ===
+total 641788
+drwxrwxrwx 47 www-data www-data      4096 Jun 18 21:21 .
+drwxr-xr-x 13 root     root           164 Mar  1  2022 ..
+drwxr-xr-x  5 www-data www-data        59 Sep 21 14:09 api.eligibilite.intranet.local
+drwxr-xr-x  5 www-data www-data        59 Sep 21 14:09 api.eligibilite.private.sfrcaraibe.fr
+drwxr-xr-x 11 www-data www-data      4096 Nov  8  2025 assistance.redcaraibe.fr
+drwxrwxrwx  3 www-data www-data      4096 Jan 31  2026 backup
+-rw-------  1 www-data www-data       657 Jul 20 13:27 .bash_history
+drwxr-x---  2 www-data www-data         6 Apr 12  2022 btransfer
+drwxr-xr-x  5 www-data www-data      4096 Jun  9 08:07 business.sfrcaraibe.fr
+drwxr-xr-x  3 www-data www-data        22 Oct 15  2025 .cache
+drwxr-xr-x  6 www-data www-data        99 Aug 20 14:25 catalogues.sfrcaraibe.fr
+drwxrwxrwx  7 root     root           108 Feb  5  2025 cgrcore
+drwxr-xr-x  7 www-data www-data      4096 Jul 27  2025 commande.redcaraibe.fr
+drwxr-xr-x  3 www-data www-data        22 Oct 15  2025 .config
+

@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+
+Passed: 0 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'production'.
+

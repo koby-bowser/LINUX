@@ -1,0 +1,44 @@
+
+The command exited with code 0.
+Output:
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: andesite.only.fr
+    Serial Number: 2ce1e4bc976b5749ac80704b848202d18cd2
+    Key Type: ECDSA
+    Domains: andesite.only.fr
+    Expiry Date: 2026-12-02 12:32:18+00:00 (INVALID: TEST_CERT)
+    Certificate Path: /etc/letsencrypt/live/andesite.only.fr/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/andesite.only.fr/privkey.pem
+  Certificate Name: diamond.only.fr
+    Serial Number: 2c3fedad72156244297a9eb1709ef7a72e03
+    Key Type: ECDSA
+    Domains: diamond.only.fr
+    Expiry Date: 2026-12-02 13:54:13+00:00 (INVALID: TEST_CERT)
+    Certificate Path: /etc/letsencrypt/live/diamond.only.fr/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/diamond.only.fr/privkey.pem
+  Certificate Name: emerald.only.fr
+    Serial Number: 2c3c2330ef042de19bd420830507ccb03460
+    Key Type: ECDSA
+    Domains: emerald.only.fr
+    Expiry Date: 2026-12-02 12:54:29+00:00 (INVALID: TEST_CERT)
+    Certificate Path: /etc/letsencrypt/live/emerald.only.fr/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/emerald.only.fr/privkey.pem
+  Certificate Name: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+    Serial Number: 6483559744659abc3b417002d5d14063f77
+    Key Type: ECDSA
+    Domains: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+    Expiry Date: 2026-12-27 10:34:50+00:00 (VALID: 86 days)
+    Certificate Path: /etc/letsencrypt/live/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org/privkey.pem
+  Certificate Name: map.extranetclient.outremer-telecom.fr
+    Serial Number: 54e33fb31a0b6ee4c5c9c752f04ebfca86c
+    Key Type: ECDSA
+    Domains: map.extranetclient.outremer-telecom.fr
+    Expiry Date: 2026-12-09 12:29:57+00:00 (VALID: 68 days)
+    Certificate Path: /etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+

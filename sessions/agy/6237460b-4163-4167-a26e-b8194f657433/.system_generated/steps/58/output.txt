@@ -1,0 +1,22 @@
+
+The command exited with code 0.
+Output:
+    },
+    {
+      "title": "th2-revproxyp-fe1",
+      "group": "OMT_PFS.SYSTEME.ALL/GPE/Linux",
+      "ips": [
+        "172.30.198.33"
+      ],
+      "primary_ip": "172.30.198.33",
+      "username": "superuser",
+      "password": "8&#JMl1Mwe0GyN",
+      "port": 30,
+      "protocol": "ssh",
+      "url": "ssh30://172.30.198.33",
+      "notes": "Port 30 ssh\nroot / 8&#JMl1Mwe0GyN",
+      "custom_fields": {}
+    },
+    {
+      "title": "th2-bcki-sec1",
+

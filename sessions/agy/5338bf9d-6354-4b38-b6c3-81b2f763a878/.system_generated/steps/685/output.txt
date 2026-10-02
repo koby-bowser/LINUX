@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== PROXYSQL PORTS ===
+=== PROXYSQL VERSION ===
+ProxySQL version 2.7.3-12-g50b7f85, codename Truls
+=== PROXYSQL CONF FILE ===
+-rw-r----- 1 root proxysql 13725 Mar  2  2022 /etc/proxysql.cnf
+-rw-r----- 1 root proxysql  6332 Sep 30  2021 /etc/proxysql.cnf.ori
+

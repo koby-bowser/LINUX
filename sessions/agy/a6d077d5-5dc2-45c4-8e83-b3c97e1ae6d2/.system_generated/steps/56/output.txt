@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+[Baba-Koby 06e661b] docs: add ethical hacking and penetration testing roadmap
+ 1 file changed, 153 insertions(+)
+ create mode 100644 ETHICAL_HACKING_ROADMAP.md
+

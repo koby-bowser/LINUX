@@ -1,0 +1,95 @@
+
+The command exited with code 1.
+Output:
+..[main (root-commit) 1862d89] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+F
+======================================================================
+FAIL: test_sync_execution_and_filtering (__main__.SyncAiSessionsTest.test_sync_execution_and_filtering)
+Test isolated session sync: directory creation, filtering, and index generation.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/koby/LINUX/tests/test_sync_ai_sessions.py", line 110, in test_sync_execution_and_filtering
+    self.assertEqual(res.returncode, 0, res.stdout + res.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : 
+PLAY [Synchronize AI CLI sessions (Antigravity, Claude Code, Codex) and push to GitHub] ***
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Valider l'utilisateur exécutant] *****************************************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Trouver le dossier personnel de l'utilisateur] ***************************
+ok: [localhost]
+
+TASK [Découvrir la racine du dépôt git] ****************************************
+ok: [localhost]
+
+TASK [Définir les variables de chemin] *****************************************
+ok: [localhost]
+
+TASK [Définir les chemins sources et destinations des sessions] ****************
+ok: [localhost]
+
+TASK [Créer l'arborescence cible pour les sessions] ****************************
+changed: [localhost] => (item=/tmp/ai-sessions-test-w6tmob_k/LINUX/sessions)
+changed: [localhost] => (item=/tmp/ai-sessions-test-w6tmob_k/LINUX/sessions/agy)
+changed: [localhost] => (item=/tmp/ai-sessions-test-w6tmob_k/LINUX/sessions/claude)
+changed: [localhost] => (item=/tmp/ai-sessions-test-w6tmob_k/LINUX/sessions/codex)
+
+TASK [Créer le lien symbolique ai-sessions -> sessions] ************************
+changed: [localhost]
+
+TASK [Déployer le fichier .gitignore protecteur dans sessions/] ****************
+changed: [localhost]
+
+TASK [Déployer le fichier README.md de documentation dans sessions/] ***********
+changed: [localhost]
+
+TASK [Vérifier la présence des répertoires et fichiers sources] ****************
+ok: [localhost] => (item={'key': 'agy_brain', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.gemini/antigravity-cli/brain'})
+ok: [localhost] => (item={'key': 'agy_history', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.gemini/antigravity-cli/history.jsonl'})
+ok: [localhost] => (item={'key': 'agy_summaries', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.gemini/antigravity-cli/conversation_summaries.db'})
+ok: [localhost] => (item={'key': 'claude_projects', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.claude/projects'})
+ok: [localhost] => (item={'key': 'claude_history', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.claude/history.jsonl'})
+ok: [localhost] => (item={'key': 'codex_sessions', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.codex/sessions'})
+ok: [localhost] => (item={'key': 'codex_index', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.codex/session_index.jsonl'})
+ok: [localhost] => (item={'key': 'codex_history', 'path': '/tmp/ai-sessions-test-w6tmob_k/home/.codex/history.jsonl'})
+
+TASK [Convertir les vérifications sources en dictionnaire] *********************
+ok: [localhost]
+
+TASK [Synchroniser les sessions Antigravity CLI (brain)] ***********************
+changed: [localhost]
+
+TASK [Copier l'historique prompt d'Antigravity CLI (history.jsonl)] ************
+changed: [localhost]
+
+TASK [Générer l'index des sessions Antigravity CLI (session_index.jsonl)] ******
+[ERROR]: Task failed: Module failed: non-zero return code
+Origin: /tmp/ai-sessions-test-w6tmob_k/LINUX/playbooks/sync-ai-sessions.yml:196:7
+
+194       when: src_exists.agy_history
+195
+196     - name: Générer l'index des sessions Antigravity CLI (session_index.jsonl)
+          ^ column 7
+
+fatal: [localhost]: FAILED! => {"changed": false, "cmd": ["python3", "-c", " import sqlite3, json, sys src, dst = sys.argv[1], sys.argv[2] conn = sqlite3.connect(src) rows = conn.execute('SELECT conversation_id, title, last_modified_time FROM conversation_summaries ORDER BY last_modified_time DESC').fetchall() with open(dst, 'w', encoding='utf-8') as f:\n    for r in rows:\n        f.write(json.dumps({'id': r[0], 'thread_name': r[1], 'updated_at': str(r[2])}) + '\\n')\n", "/tmp/ai-sessions-test-w6tmob_k/home/.gemini/antigravity-cli/conversation_summaries.db", "/tmp/ai-sessions-test-w6tmob_k/LINUX/sessions/agy/session_index.jsonl"], "delta": "0:00:00.018242", "end": "2026-10-02 15:16:24.876429", "msg": "non-zero return code", "rc": 1, "start": "2026-10-02 15:16:24.858187", "stderr": "  File \"<string>\", line 1\n    import sqlite3, json, sys src, dst = sys.argv[1], sys.argv[2] conn = sqlite3.connect(src) rows = conn.execute('SELECT conversation_id, title, last_modified_time FROM conversation_summaries ORDER BY last_modified_time DESC').fetchall() with open(dst, 'w', encoding='utf-8') as f:\nIndentationError: unexpected indent", "stderr_lines": ["  File \"<string>\", line 1", "    import sqlite3, json, sys src, dst = sys.argv[1], sys.argv[2] conn = sqlite3.connect(src) rows = conn.execute('SELECT conversation_id, title, last_modified_time FROM conversation_summaries ORDER BY last_modified_time DESC').fetchall() with open(dst, 'w', encoding='utf-8') as f:", "IndentationError: unexpected indent"], "stdout": "", "stdout_lines": []}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=14   changed=6    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Host 'localhost' is using the discovered Python interpreter at '/usr/bin/python3.13', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.19/reference_appendices/interpreter_discovery.html for more information.
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.593s
+
+FAILED (failures=1)
+

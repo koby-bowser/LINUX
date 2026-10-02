@@ -1,0 +1,38 @@
+
+The command exited with code 0.
+Output:
+inventories/:
+total 28
+drwxrwxr-x  7 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 10 koby koby 4096 Aug 13 17:10 ..
+drwxrwxr-x  3 koby koby 4096 Jun 24 18:45 common
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 corp
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 dev
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 prod
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 val
+
+inventories/dev:
+total 20
+drwxrwxr-x 4 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 7 koby koby 4096 Aug 11 13:41 ..
+drwxrwxr-x 2 koby koby 4096 Aug 11 13:41 group_vars
+-rw-rw-r-- 1 koby koby 2695 Aug 11 13:41 hosts.yml
+drwxrwxr-x 5 koby koby 4096 Jun 24 18:45 host_vars
+
+inventories/prod:
+total 28
+drwxrwxr-x 4 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 7 koby koby 4096 Aug 11 13:41 ..
+drwxrwxr-x 2 koby koby 4096 Aug 11 13:41 group_vars
+-rw-rw-r-- 1 koby koby 8651 Aug 11 13:41 hosts.yml
+drwxrwxr-x 7 koby koby 4096 Aug 11 13:41 host_vars
+
+inventories/val:
+total 20
+drwxrwxr-x 4 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 7 koby koby 4096 Aug 11 13:41 ..
+drwxrwxr-x 2 koby koby 4096 Aug 11 13:41 group_vars
+-rw-rw-r-- 1 koby koby 1128 Aug 11 13:41 hosts.yml
+-rw-rw-r-- 1 koby koby    0 Jun 24 18:45 hosts.ymlm
+drwxrwxr-x 3 koby koby 4096 Jun 24 18:45 host_vars
+

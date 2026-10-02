@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+    server_name         extranetclient.outremer-telecom.fr;
+    ssl_certificate     /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/privkey.pem;
+    server_name extranetclient.outremer-telecom.fr;
+    listen              9443 ssl http2 reuseport;
+    server_name         map.extranetclient.outremer-telecom.fr 109.62.64.18;
+    ssl_certificate     /etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/privkey.pem;
+

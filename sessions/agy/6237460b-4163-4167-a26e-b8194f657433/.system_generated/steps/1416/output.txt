@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+10.6.201.254 dev enp0s31f6 lladdr 00:1c:7f:c6:f5:ef REACHABLE 
+10.6.201.11 dev enp0s31f6 lladdr 98:ee:cb:f5:f2:50 STALE 
+10.6.201.252 dev enp0s31f6 lladdr 00:1c:7f:c6:f5:ef STALE 
+10.6.201.42 dev enp0s31f6 lladdr 98:ee:cb:f5:f2:70 STALE 
+

@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)Counting objects:  22% (2/9)Counting objects:  33% (3/9)Counting objects:  44% (4/9)Counting objects:  55% (5/9)Counting objects:  66% (6/9)Counting objects:  77% (7/9)Counting objects:  88% (8/9)Counting objects: 100% (9/9)Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects:  20% (1/5)Compressing objects:  40% (2/5)Compressing objects:  60% (3/5)Compressing objects:  80% (4/5)Compressing objects: 100% (5/5)Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)Writing objects:  40% (2/5)Writing objects:  60% (3/5)Writing objects:  80% (4/5)Writing objects: 100% (5/5)Writing objects: 100% (5/5), 606 bytes | 606.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: To create a merge request for feat/onboard-mtq-mailsrvp-dev, visit:        
+remote:   https://gitsi.intranet.local/omt/infra/management/infra-management-system/-/merge_requests/new?merge_request%5Bsource_branch%5D=feat%2Fonboard-mtq-mailsrvp-dev        
+remote: 
+To https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+ * [new branch]      feat/onboard-mtq-mailsrvp-dev -> feat/onboard-mtq-mailsrvp-dev
+branch 'feat/onboard-mtq-mailsrvp-dev' set up to track 'origin/feat/onboard-mtq-mailsrvp-dev'.
+

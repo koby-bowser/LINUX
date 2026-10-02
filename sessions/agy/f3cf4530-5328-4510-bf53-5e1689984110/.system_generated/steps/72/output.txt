@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+total 44
+drwxrwxr-x 2 koby koby  4096 Aug 11 13:41 .
+drwxrwxr-x 3 koby koby  4096 Jun 24 18:45 ..
+-rwxrwxr-x 1 koby koby  4430 Aug 11 13:41 certbot-pdns-hook.sh
+-rw-rw-r-- 1 koby koby 10463 Aug 11 13:41 gitlab_api_vault.yml
+-rw-rw-r-- 1 koby koby  4631 Aug 11 13:41 pdns_api_vault.yml
+-rw-rw-r-- 1 koby koby  6375 Aug 11 13:41 README.md
+

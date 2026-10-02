@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+[
+  {
+    "name": "outremer-telecom.fr",
+    "type": 6,
+    "TTL": 3600,
+    "data": "th2-dnsp-mst1.outremer-telecom.fr. noc.resot.net. 2026091005 10800 3600 604800 3600"
+  }
+]
+

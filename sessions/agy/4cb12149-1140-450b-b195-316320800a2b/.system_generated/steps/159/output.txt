@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+uid=1000(koby) gid=1000(koby) groups=1000(koby),65534(nogroup)
+

@@ -1,0 +1,31 @@
+Task: eb5ce216-89de-4f41-8e35-43098e37b680/task-268
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/eb5ce216-89de-4f41-8e35-43098e37b680/.system_generated/tasks/task-268.log
+Log output:
+<truncated 22 lines>
+oes not exist on control machine] *******************
+skipping: [localhost]
+
+PLAY [Copy file to remote /tmp directory] **************************************
+
+TASK [Copy file to remote /tmp directory] **************************************
+ok: [172.30.39.153]
+
+TASK [Report file transfer summary] ********************************************
+ok: [172.30.39.153] => {
+    "msg": [
+        "Host: 172.30.39.153",
+        "Destination: /tmp/ansible-test-payload.txt",
+        "State: OK (file already identical in /tmp)",
+        "Checksum: 89876262ecfe9713d4d6f926df6d3236c8ff3efc"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+172.30.39.153              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
+
+[SUCCESS] Transfer completed successfully to /tmp on 172.30.39.153!
+
+Last progress: 1s ago

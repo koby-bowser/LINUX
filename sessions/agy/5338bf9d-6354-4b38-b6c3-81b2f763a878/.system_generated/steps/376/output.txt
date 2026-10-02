@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+commit 81767ed9c0ad1e2561d032e360766bcfd037354f (HEAD -> main, origin/main, origin/HEAD)
+Merge: 17d17cb 6af7b6e
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Tue Sep 8 13:09:45 2026 +0000
+
+    Merge branch 'le-cert/onetask.outremer-telecom.fr-20260908130934' into 'main'
+    
+    feat(le): bundle TLS onetask.outremer-telecom.fr
+    
+    See merge request omt/infra/management/infra-management-system!269
+

@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 8
+    print(f"- {d.get(\"title\")} (ID: {d.get(\"id\")}, Published: {d.get(\"publishedAt\") is not None})")
+                      ^
+SyntaxError: unexpected character after line continuation character
+

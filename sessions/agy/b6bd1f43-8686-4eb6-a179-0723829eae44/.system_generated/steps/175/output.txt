@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+obtain, install, and renew certificates:
+    certonly        Obtain or renew a certificate, but do not install it
+    renew           Renew all previously obtained certificates that are near
+  --dry-run         Test "renew" or "certonly" without saving any certificates
+   subcommands or plugins (certonly, renew, install, register, nginx,
+

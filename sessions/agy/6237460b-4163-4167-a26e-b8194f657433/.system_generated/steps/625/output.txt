@@ -1,0 +1,6 @@
+{"name":"ns1-zonefile-auth-hook.sh", "sizeBytes":"3538"}
+{"name":"ns1-zonefile-cleanup-hook.sh", "sizeBytes":"870"}
+{"name":"pdns-auth-hook.sh", "sizeBytes":"1553"}
+{"name":"pdns-cleanup-hook.sh", "sizeBytes":"828"}
+
+Summary: This directory contains 0 subdirectories and 4 files.

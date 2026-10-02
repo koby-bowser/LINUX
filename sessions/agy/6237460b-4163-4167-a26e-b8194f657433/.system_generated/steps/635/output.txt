@@ -1,0 +1,33 @@
+
+The command exited with code 0.
+Output:
+Zone: outremer-telecom.fr, Label: _acme-challenge.map.extranetclient
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Current records for _acme-challenge.map.extranetclient.outremer-telecom.fr IN TXT will be replaced
+New rrset:
+_acme-challenge.map.extranetclient.outremer-telecom.fr. 60 IN TXT "dry-run-test-token"
+SOA serial for zone outremer-telecom.fr set to 2026091005
+"dry-run-test-token"
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+SOA serial for zone outremer-telecom.fr set to 2026091006
+

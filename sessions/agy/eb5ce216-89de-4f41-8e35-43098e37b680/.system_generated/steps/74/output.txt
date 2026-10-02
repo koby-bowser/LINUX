@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+active
+ollama      2534  0.0  0.1 2084680 38516 ?       Ssl  10:15   0:00 /usr/local/bin/ollama serve
+

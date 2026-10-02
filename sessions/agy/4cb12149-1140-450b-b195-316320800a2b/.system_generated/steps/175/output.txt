@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+drwxrwxr-x 5 koby koby 4096 Sep 10 10:49 /home/koby/.npm/_cacache/content-v2/sha512/72
+

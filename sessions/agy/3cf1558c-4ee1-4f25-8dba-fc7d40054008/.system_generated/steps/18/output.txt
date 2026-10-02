@@ -1,0 +1,25 @@
+
+Encountered error in step execution: context canceled
+Output:
+<truncated 645 lines>
+/home/koby/LINUX/inventory/server_pool.json:1177:        "172.16.92.241"
+/home/koby/LINUX/inventory/server_pool.json:1179:      "primary_ip": "172.16.92.241",
+/home/koby/LINUX/inventory/server_pool.json:1184:      "url": "ssh://172.16.92.241",
+/home/koby/LINUX/inventory/server_pool.json:1187:        "IP": "172.16.92.241"
+/home/koby/LINUX/inventory/server_pool.json:4102:        "172.16.92.241"
+/home/koby/LINUX/inventory/server_pool.json:4104:      "primary_ip": "172.16.92.241",
+/home/koby/LINUX/inventory/server_pool.json:4109:      "url": "ssh://172.16.92.241",
+/home/koby/LINUX/inventory/server_pool.json:4112:        "IP": "172.16.92.241"
+/home/koby/LINUX/inventory/server_pool.json:44345:        "172.16.92.241"
+/home/koby/LINUX/inventory/server_pool.json:44347:      "primary_ip": "172.16.92.241",
+/home/koby/LINUX/inventory/server_pool.json:44352:      "url": "ssh://172.16.92.241",
+/home/koby/LINUX/inventory/server_pool.json:44355:        "IP": "172.16.92.241"
+/home/koby/LINUX/inventory/server_pool.yml:745:          ansible_host: 172.16.92.241
+/home/koby/LINUX/inventory/server_pool.yml:752:          - 172.16.92.241
+/home/koby/LINUX/inventory/server_pool.yml:2610:          ansible_host: 172.16.92.241
+/home/koby/LINUX/inventory/server_pool.yml:2617:          - 172.16.92.241
+/home/koby/LINUX/inventory/server_pool.yml:27609:          ansible_host: 172.16.92.241
+/home/koby/LINUX/inventory/server_pool.yml:27616:          - 172.16.92.241
+/home/koby/.local/share/fish/fish_history:2687:- cmd: ssh -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa root@172.16.92.241
+/home/koby/.local/share/fish/fish_history:6357:- cmd: ssh -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa admin@172.16.92.241
+

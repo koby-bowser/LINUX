@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+NAME: mediawikiToken
+  RAW VAL: 
+  ENC PREFIX: b'v11\x15'
+NAME: mediawikiUserID
+  RAW VAL: 
+  ENC PREFIX: b'v11\x15'
+NAME: mediawikiUserName
+  RAW VAL: 
+  ENC PREFIX: b'v11\x15'
+

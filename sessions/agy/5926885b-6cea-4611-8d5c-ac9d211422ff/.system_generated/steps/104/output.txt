@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 302 
+server: nginx
+date: Thu, 24 Sep 2026 10:28:33 GMT
+content-type: text/html; charset=utf-8
+content-length: 367
+content-security-policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+x-dns-prefetch-control: off
+expect-ct: max-age=0
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=15552000; includeSubDomains
+x-download-options: noopen
+x-content-type-options: nosniff
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+x-xss-protection: 0
+vary: Accept-Encoding
+cache-control: max-age=300, immutable
+location: https://wiki.corp.intranet.local/api/files.get?sig=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ1cGxvYWRzLzY2ZDAwY2I0LWEzY2YtNDIyYS1hMjQ5LWVkMzA2NzEwZDdjZi9jZDY1OTY5Ni00MWVhLTQ3NjktOTRkOC0zNjlhYTUyZjg3MTcvRGVjb21fd29ya2Zsb3cucG5nIiwidHlwZSI6ImF0dGFjaG1lbnQiLCJpYXQiOjE3OTAyNDU2NTAsImV4cCI6MTc5MDI0NTk1MH0.gH8JFz5vfUojWilVZn8Mj1EPR7GVzRCKE09iUmk-gKw
+
+

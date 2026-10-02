@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+---
+# community.crypto et community.general sont pré-installées dans le runner CORP.
+# Pour mettre à jour manuellement :
+#   docker exec -it th2-ansic-runner1 \
+#     /opt/semaphore/apps/ansible/11.1.0/venv/bin/ansible-galaxy collection install \
+#     community.crypto community.general --force
+collections: []
+

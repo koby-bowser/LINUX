@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+sudo: a password is required
+

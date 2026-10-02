@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.local/share/pi-node/current/bin/node
+/home/koby/.local/share/pi-node/current/bin/npm
+/home/koby/.local/share/pi-node/current/bin/npx
+/usr/bin/python3
+/usr/bin/pip
+/home/koby/.local/bin/uv
+v22.23.2
+10.9.8
+

@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+uid=5001(spui-runner) gid=5001(spui-runner) groups=5001(spui-runner),990(SSH_Users)
+total 8
+-rw-r--r-- 1 root      root      103 Jul 30 11:52 spui-runner
+-rw------- 1 superuser superuser 100 Sep  3 11:25 superuser
+

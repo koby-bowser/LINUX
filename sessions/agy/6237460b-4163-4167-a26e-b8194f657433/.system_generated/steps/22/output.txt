@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+fatal: not a git repository (or any of the parent directories): .git
+

@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+-rwxrwxr-x. 1 admin admin 4131 Sep  4 08:01 /home/admin/acme-zone-update.sh
+

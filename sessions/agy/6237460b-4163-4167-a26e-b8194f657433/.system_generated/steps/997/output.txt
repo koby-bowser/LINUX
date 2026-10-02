@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+{'title': 'th2-centprop-be1', 'group': 'OMT_PFS.SYSTEME.ALL/TH2/linux', 'ips': ['172.30.198.49'], 'primary_ip': '172.30.198.49', 'username': 'superuser', 'password': 'RBsHPuPtf56n11U75oQX', 'port': 30, 'protocol': 'ssh', 'url': 'ssh:30//172.30.198.49', 'notes': '', 'custom_fields': {}}
+

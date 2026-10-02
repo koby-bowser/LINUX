@@ -1,0 +1,7 @@
+
+The command exited with code 4.
+Output:
+
+PLAY [Déployer la clé publique locale et sécuriser l'accès SSH par clé] ********
+[ERROR]: Attempting to decrypt but no vault secrets found.
+

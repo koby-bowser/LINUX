@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+gbs-webcgr-01.intranet.local.
+10.92.74.1
+

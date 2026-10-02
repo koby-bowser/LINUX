@@ -1,0 +1,25 @@
+# Sockets, verrous et PIDs d'exécution
+*.sock
+*.socket
+*.lock
+*.pid
+
+# Fichiers temporaires SQLite WAL / SHM
+*.db-shm
+*.db-wal
+*.db-journal
+
+# Clés privées, certificats, secrets et jetons d'authentification
+*.key
+*.pem
+*credential*
+*secret*
+auth.json
+.env
+
+# Fichiers transitoires et caches
+.remember/tmp/
+.remember/capture-alive.d/
+__pycache__/
+*.pyc
+.DS_Store

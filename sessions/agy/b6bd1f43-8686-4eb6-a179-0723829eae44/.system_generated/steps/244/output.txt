@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+sfrcaraibe.fr	/var/named/sfrcaraibe.fr
+

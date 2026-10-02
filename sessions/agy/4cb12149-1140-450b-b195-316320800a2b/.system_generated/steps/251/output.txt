@@ -1,0 +1,45 @@
+
+The command exited with code 0.
+Output:
+Total Collections: 13
+
+- Welcome:
+    ID: 91e1fde1-7d0a-4c5c-8be7-6c9ba160da49
+    Permission: read | createDocument: False | updateDocument: False
+- Reunions:
+    ID: 88b3687a-4dde-4109-a4f7-4568a5f09ee4
+    Permission: read_write | createDocument: True | updateDocument: True
+- SECU:
+    ID: f05ee197-da24-4eca-8374-f8347cbb639d
+    Permission: read | createDocument: False | updateDocument: False
+- NSS:
+    ID: b6a2acda-907d-4a64-af09-6f0466ac5432
+    Permission: read | createDocument: False | updateDocument: False
+- Cybersécurité:
+    ID: 0388ce8b-ea74-486b-9eeb-412fa0838493
+    Permission: read | createDocument: False | updateDocument: False
+- BSS:
+    ID: d56975f8-da17-47f1-8e26-9ac9d964f8e3
+    Permission: read | createDocument: False | updateDocument: False
+- Infra:
+    ID: bda1a3da-cc3d-4c5d-92d1-d831dfbe2eae
+    Permission: read_write | createDocument: True | updateDocument: True
+- NOC:
+    ID: 120257b7-bcc6-499a-8b52-19b50941f0c4
+    Permission: read | createDocument: False | updateDocument: False
+- SI:
+    ID: d38e51be-63e3-4091-82f1-b2c5f4cc502c
+    Permission: read | createDocument: False | updateDocument: False
+- BE FTTx:
+    ID: 8741b399-aa7a-44c4-97b6-c7090b7a4558
+    Permission: read | createDocument: False | updateDocument: False
+- Bureautique:
+    ID: dc06b18d-cb53-40ff-834f-e0f3855f38b7
+    Permission: read | createDocument: False | updateDocument: False
+- Test_RAG:
+    ID: a18d1aba-f621-430f-9a37-4a723d38e16c
+    Permission: read_write | createDocument: True | updateDocument: True
+- Projets:
+    ID: 03d7f507-0722-46bb-ab83-474b42ba6a1c
+    Permission: read_write | createDocument: True | updateDocument: True
+

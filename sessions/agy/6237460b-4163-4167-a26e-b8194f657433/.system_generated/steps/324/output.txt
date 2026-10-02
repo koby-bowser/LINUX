@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+[sudo] password for superuser: Error: Could not process rule: No such file or directory
+add rule ip my_nat output ip daddr 109.62.64.18 tcp dport 9443 dnat to 172.30.198.33:9443
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=== Testing curl ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+curl: (28) Connection timed out after 3001 milliseconds
+

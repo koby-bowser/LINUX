@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+total 180
+drwxrwxr-x  2 koby koby  4096 Aug 11 13:41 .
+drwxrwxr-x 10 koby koby  4096 Aug 13 17:10 ..
+-rw-rw-r--  1 koby koby 11484 Jun 24 18:45 batch-retractation-prod.md
+-rw-rw-r--  1 koby koby  7714 Aug 11 13:41 batch-selfcarebusiness-dev-status.md
+-rw-rw-r--  1 koby koby 28727 Aug 11 13:41 certs-publics-semaphore.md
+-rw-rw-r--  1 koby koby 13836 Aug 11 13:41 mep-bascule-sfruxui-prod.md
+-rw-rw-r--  1 koby koby  9459 Aug 11 13:41 mep-bascule-vhost.md
+-rw-rw-r--  1 koby koby 10230 Aug 11 13:41 mep-webapp-doccli-prod.md
+-rw-rw-r--  1 koby koby  4631 Aug 11 13:41 monitoring-architecture.md
+-rw-rw-r--  1 koby koby  5430 Aug 11 13:41 provisionnement-vsphere-wikic.md
+-rw-rw-r--  1 koby koby  9462 Aug 11 13:41 retractation-app.md
+-rw-rw-r--  1 koby koby 14571 Jun 24 18:45 retractation-web-prod.md
+-rw-rw-r--  1 koby koby  9141 Aug 11 13:41 semaphore-runner-install.md
+-rw-rw-r--  1 koby koby 14456 Aug 11 13:41 tp-emission-cert-drive-otc.md
+-rw-rw-r--  1 koby koby  6992 Aug 11 13:41 workflow-equipe.md
+

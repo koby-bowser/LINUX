@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+  remotes/origin/feat/corp-pki-token-vault
+

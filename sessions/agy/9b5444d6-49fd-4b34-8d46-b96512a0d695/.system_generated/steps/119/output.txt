@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+@all:
+  |--@ungrouped:
+  |--@control_node:
+  |  |--localhost
+
+playbook: playbooks/00-smoke-test.yml
+

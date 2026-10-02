@@ -1,0 +1,17 @@
+
+The command exited with code 2.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+bash: -c: line 36: syntax error near unexpected token `)'
+bash: -c: line 36: `            m = re.search(r\":(\d+)\s+.*users:\(\(\"([^\"]+)\"", line)'
+

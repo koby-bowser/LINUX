@@ -1,0 +1,7 @@
+
+The command exited with code 127.
+Output:
+bash: ip: command not found
+bash: ip: command not found
+Connection to 172.16.92.241 closed.
+

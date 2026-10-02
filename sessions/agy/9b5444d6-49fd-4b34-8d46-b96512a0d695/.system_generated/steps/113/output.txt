@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+Usage: kssh [-u <USER>] <SERVER_NAME_OR_IP> [SSH_OPTIONS / REMOTE_COMMAND]
+Examples: kssh mtq-mailsrvp-01
+          kssh -u superuser trp-wextp-fe1
+          kssh trp-wextp-fe1 uptime
+          kssh 172.30.231.177
+

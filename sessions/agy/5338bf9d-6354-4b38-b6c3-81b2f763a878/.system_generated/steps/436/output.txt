@@ -1,0 +1,6 @@
+{"File":"/home/koby/LINUX/playbooks/issue-deploy-certs.yml","LineNumber":4,"LineContent":"# le serveur qui héberge chaque domaine (nginx/apache), avec reload"}
+{"File":"/home/koby/LINUX/playbooks/issue-deploy-certs.yml","LineNumber":36,"LineContent":"#     -e adhoc_webserver=nginx -e adhoc_service_name=nginx \\"}
+{"File":"/home/koby/LINUX/playbooks/issue-deploy-certs.yml","LineNumber":37,"LineContent":"#     -e adhoc_cert_dest_dir=/etc/nginx/ssl/nouveau.only.fr"}
+{"File":"/home/koby/LINUX/playbooks/issue-deploy-certs.yml","LineNumber":260,"LineContent":"            'webserver': adhoc_webserver | default('nginx'),"}
+{"File":"/home/koby/LINUX/playbooks/issue-deploy-certs.yml","LineNumber":261,"LineContent":"            'service_name': adhoc_service_name | default('nginx'),"}
+{"File":"/home/koby/LINUX/playbooks/issue-deploy-certs.yml","LineNumber":262,"LineContent":"            'cert_dest_dir': adhoc_cert_dest_dir | default('/etc/nginx/ssl/' + cert_domain),"}

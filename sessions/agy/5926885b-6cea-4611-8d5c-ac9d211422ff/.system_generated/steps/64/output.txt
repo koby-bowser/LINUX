@@ -1,0 +1,40 @@
+
+The command exited with code 0.
+Output:
+#!/bin/bash
+
+FICHIER="$HOME/.servers.csv"
+
+if [ -z "$1" ]; then
+    echo "🍄 Usage : sssh nom_du_serveur"
+    exit 1
+fi
+
+NOM_CIBLE="$1"
+
+while IFS=',' read -r nom ip utilisateur mdp port legacy; do
+    [ "$nom" = "nom" ] && continue
+
+    if [ "$nom" = "$NOM_CIBLE" ]; then
+        echo "🏰 Connexion à $nom ($ip) sur le port $port..."
+
+        if [ "$legacy" = "yes" ]; then
+            echo "🕹️  Mode legacy activé (vieux château NES détecté !)"
+            sshpass -p "$mdp" ssh -tt -p "$port" \
+                -o StrictHostKeyChecking=no \
+                -o HostKeyAlgorithms=+ssh-rsa \
+                -o PubkeyAcceptedAlgorithms=+ssh-rsa \
+                -o KexAlgorithms=+diffie-hellman-group1-sha1 \
+                "$utilisateur@$ip" < /dev/tty
+        else
+            sshpass -p "$mdp" ssh -tt -p "$port" \
+                -o StrictHostKeyChecking=no \
+                "$utilisateur@$ip" < /dev/tty
+        fi
+        exit 0
+    fi
+done < "$FICHIER"
+
+echo "❌ Serveur '$NOM_CIBLE' introuvable dans la carte du royaume 🗺️"
+exit 1
+

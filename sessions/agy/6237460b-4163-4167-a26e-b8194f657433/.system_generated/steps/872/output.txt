@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+nc: connect to 109.62.64.18 port 9443 (tcp) timed out: Operation now in progress
+Connection to public VIP failed
+

@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+HTTPError: 400 {"ok":false,"error":"validation_error","status":400,"message":"name: Invalid input: expected string, received undefined"}
+

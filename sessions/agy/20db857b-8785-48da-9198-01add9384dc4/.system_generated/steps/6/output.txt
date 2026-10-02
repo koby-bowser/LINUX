@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 55
+    print(f"=== Session {i}: {s[\"id\"]} ===")
+                                 ^
+SyntaxError: unexpected character after line continuation character
+

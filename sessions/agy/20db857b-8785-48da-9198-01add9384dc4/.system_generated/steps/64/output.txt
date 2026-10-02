@@ -1,0 +1,5 @@
+Found 4 results
+docs/provisionnement-vsphere-wikic.md
+playbooks/provision-vsphere-vms.yml
+roles/vsphere_vm
+vsphere-requirements.yml

@@ -1,0 +1,40 @@
+The search for ""AUTHENTICATION_BACKENDS" "netbox" site:github.com/netbox-community/netbox" returned the following summary:
+In NetBox, the `AUTHENTICATION_BACKENDS` setting is a Django configuration list that determines the order and methods used to authenticate users[1][2]. Because NetBox is built on Django, it utilizes Django's authentication system, where each backend in this list is checked sequentially until one succeeds[2][3].
+
+### Common Configuration Patterns
+*   **Default Behavior:** By default, NetBox uses a combination of local database authentication and remote user handling[1].
+    ```python
+    AUTHENTICATION_BACKENDS = [
+        'netbox.authentication.RemoteUserBackend',
+        'netbox.authentication.ObjectPermissionBackend',
+    ]
+    ```
+*   **Integrating LDAP:** When adding LDAP support (typically via `django_auth_ldap`), the LDAP backend is usually prepended to the list to ensure it is checked before falling back to local credentials[4][3].
+    ```python
+    AUTHENTICATION_BACKENDS = [
+        'django_auth_ldap.backend.LDAPBackend',
+        'django.contrib.auth.backends.ModelBackend',
+    ]
+    ```
+*   **Integrating SSO (OAuth/OIDC):** For Single Sign-On providers (like Keycloak, Azure AD, or GitHub), you typically add the specific backend from `social_core` or `drf_social_oauth2`[5][6][7].
+    ```python
+    AUTHENTICATION_BACKENDS = [
+        'social_core.backends.azuread.AzureADOAuth2',
+        'django.contrib.auth.backends.ModelBackend',
+    ]
+    ```
+
+### Key Considerations
+*   **Sequential Processing:** Django processes these backends in the order defined[3]. If you want to prioritize external authentication (like LDAP or SSO) while keeping local accounts as a fallback, ensure the external backend is listed before `django.contrib.auth.backends.ModelBackend`[3].
+*   **Permissions:** Note that `netbox.authentication.ObjectPermissionBackend` is essential for NetBox’s internal permission system and is typically required even when using external authentication backends[1].
+*   **Required User Accounts:** Regardless of the authentication backend used, a corresponding user record must generally exist in the NetBox database for the user to be granted access and permissions[8][2]. You can pre-provision these via the REST API or the built-in CSV import tool[8].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF2meCfmQ4FGUb-OXpQAbOHdlfnN38pl6-RIS0QkshmTMqzK9KhoUZ3wA3y3gdM7X09CHscTlbj_E-l350A6O4-ZA60sbpfHSqt4eG4S9sjqt7XEp7rd7l68dKR4Lqc5d7lYc6UNPmlOSfIe2M=)
+[2] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH5KTmgExyacirNzk6ZHJX5l-8B4YP6w-0_lTFhvfPfYBsf2vx0m2J_6ZZc-U7r-6JOwzgPHt-L0raKPwgWGU6_tf2rhuu7TXeDEflSLUIUigbcqM2UtZKE6BX4DOAV7hx7Bc9uRdnwQy_uFcg=)
+[3] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGEgfF8oGKdB6QISP-8OnXh29vLeDqmRNIQXQFDSmiRhddVDlzLc67-Z0dxJq3IyUZwo_qmFu1NZMidf5aVUfFEqCQRWfgSKwK8jEi318SscsCi8Xtcrou7V48y-RpFT8mS91zlXJWk8Q3QyrTa2YMODzY=)
+[4] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFsMeXWNRX0OCydVjhD_npuL_1An7gU2JBnDxS9cbcz13UnsZqjr48a6lah03WQn633sWN5GD7v6RUozL8RnSvYT69olQM6qSS9qXBGxeLM4_5os9hzi-Qv3_CCzo06-UMV046glXuwz_vMuyKaa21Ci8wKqR379oI=)
+[5] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGqC_I_1YOPC6h8LfufKIU2dgzb2sk7OmSPNkQwB0YwIoKx0fdRVILPhqDZRhoYPyBZUru_VVOZ-_JjN2EjmvKn9I5NYBwiwClZGf1CodnnTDZ51mUehSLW68Vq9-5We8YswaINoA8VJPzWG2A0lhssPbU=)
+[6] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHHGaQj3WkqokecT5us8fUe2LgEz2EDlQiDN7TP0YluOj4CRvF2etoEduGXrA5sgJFq8qSGVyeosZ-cH4KTM8Au1toytBqOucwtUY_k3yfpCwgOOjwSj7KpHPMv0Y3ZuQIP9bpREsktglbrdJsxBzRui1DkkhgPGuMXMaHS)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH0AnC8hMqyh_wQK574w-lYQqCoj5zuQpVYWVDFSl3LtfNMea7oh6kfAVe3DzwJjTmAjW1tLXNRBdBx6g0EO0O2uLyGScmfIGqIfeXc3Kkto_ygOe1abpyxI_crLSQnJGftdxUwHU82wKnm2nOBFm7avNc=)
+[8] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH-sNeVFa1Nqerk6NfMtaUUdxPliTzsYirP2zUzbUN2uUXXEkJh9fblrdZ-Rfx1MzxFN3K-DaYyAob6Xv763trOCEOqNTu95hjs0LN-NNR5HaiZUJXCkconcNBWTvDkG-xqccwJmbmU8LN2VbAXNBJvtdg=)

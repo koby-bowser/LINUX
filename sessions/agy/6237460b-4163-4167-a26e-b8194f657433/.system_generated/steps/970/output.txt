@@ -1,0 +1,37 @@
+Task: 6237460b-4163-4167-a26e-b8194f657433/task-968
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-968.log
+Log output:
+<truncated 45 lines>
+
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /centreon-map/api/latest/actuator/health HTTP/1.1
+> Host: 172.30.198.50:9443
+> User-Agent: curl/7.74.0
+> Accept: */*
+> 
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [4584 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 
+< Vary: Origin
+< Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 0
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+< X-Frame-Options: DENY
+< Content-Type: application/vnd.spring-boot.actuator.v3+json
+< Transfer-Encoding: chunked
+< Date: Thu, 10 Sep 2026 14:13:12 GMT
+< 
+{ [20 bytes data]
+100    15    0    1{"status":"UP"}5    0     0    555      0 --:--:-- --:--:-- --:--:--   555
+* Connection #0 to host 172.30.198.50 left intact
+
+Last progress: 0s ago

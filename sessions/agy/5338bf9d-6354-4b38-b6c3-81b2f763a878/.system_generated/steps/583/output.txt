@@ -1,0 +1,20 @@
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":44459,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":44461,"LineContent":"      \"primary_ip\": \"172.30.230.97\","}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":44466,"LineContent":"      \"url\": \"ssh30://172.30.230.97\","}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":44469,"LineContent":"        \"IP\": \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":44571,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":44581,"LineContent":"        \"IP\": \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47387,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47389,"LineContent":"      \"primary_ip\": \"172.30.230.97\","}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47394,"LineContent":"      \"url\": \"ssh30://172.30.230.97\","}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47397,"LineContent":"        \"IP\": \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47736,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47738,"LineContent":"      \"primary_ip\": \"172.30.230.97\","}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47743,"LineContent":"      \"url\": \"ssh30://172.30.230.97\","}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47746,"LineContent":"        \"IP\": \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47863,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47873,"LineContent":"        \"IP\": \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47971,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":47981,"LineContent":"        \"IP\": \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":48278,"LineContent":"        \"172.30.230.97\""}
+{"File":"/home/koby/LINUX/inventory/server_pool.json","LineNumber":48288,"LineContent":"        \"IP\": \"172.30.230.97\""}

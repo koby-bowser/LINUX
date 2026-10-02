@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+Written: /home/koby/.claude/agents/koby-bowser-nginx.md (10745 bytes)
+Written: /home/koby/.gemini/config/skills/koby-bowser-nginx/SKILL.md (10548 bytes)
+

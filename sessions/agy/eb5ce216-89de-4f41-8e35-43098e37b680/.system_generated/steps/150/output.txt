@@ -1,0 +1,21 @@
+
+The command exited with code 2.
+Output:
+WARNING  Listing 3 violation(s) that are fatal
+run-once[task]: Using run_once may behave differently if strategy is set to free.
+playbooks/copy-to-tmp.yml:16 Task/Handler: Validate that src_file parameter is provided
+
+run-once[task]: Using run_once may behave differently if strategy is set to free.
+playbooks/copy-to-tmp.yml:25 Task/Handler: Verify source file exists on control machine (Debian Trixie)
+
+run-once[task]: Using run_once may behave differently if strategy is set to free.
+playbooks/copy-to-tmp.yml:32 Task/Handler: Fail if source file does not exist on control machine
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+# Rule Violation Summary
+
+  3 run-once profile:production tags:idiom
+
+Failed: 3 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'production'. Rating: 5/5 star
+

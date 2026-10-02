@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+Usage:
+    copy-to-remote.sh [OPTIONS] <REMOTE_HOST> <FILE_PATH>
+
+Description:
+    1. Checks if 'koby-bowser-ansible' is present on <REMOTE_HOST> with passwordless SSH.
+    2. If missing, connects via admin user to create 'koby-bowser-ansible', install
+       your Debian Trixie ed25519 pubkey, and configure passwordless sudo.
+    3. Executes '/home/koby/.ansible/playbooks/copy-to-tmp.yml' to copy <FILE_PATH> to /tmp on <REMOTE_HOST>.
+
+Arguments:
+    <REMOTE_HOST>          Target hostname or IP address
+    <FILE_PATH>            Local file to copy into remote /tmp
+
+Options:
+    -p, --port <PORT>      SSH port (default: 22)
+    -a, --admin <USER>     Admin/bootstrap user if 'koby-bowser-ansible' needs creation (default: root)
+    -k, --pubkey <PATH>    Path to SSH public key (default: /home/koby/.ssh/id_ed25519.pub)
+    -i, --privkey <PATH>   Path to SSH private key (default: /home/koby/.ssh/id_ed25519)
+    -h, --help             Show this help message
+
+Examples:
+    copy-to-remote.sh 192.168.1.50 /home/koby/sample.txt
+    copy-to-remote.sh -p 30 -a admin srv-prod.lan /home/koby/config.tar.gz
+

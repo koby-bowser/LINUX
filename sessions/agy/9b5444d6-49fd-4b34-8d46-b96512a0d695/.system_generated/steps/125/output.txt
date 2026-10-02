@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+total 52
+drwxrwxr-x 2 koby koby  4096 Sep 17 11:05 .
+drwxrwxr-x 8 koby koby  4096 Sep 17 11:05 ..
+-rwxrwxr-x 1 koby koby 11948 Sep 17 11:06 build_kdbx_pool.py
+-rwxrwxr-x 1 koby koby  9412 Sep  9 16:31 copy-to-remote.sh
+-rwxrwxr-x 1 koby koby  4970 Sep 17 11:07 kssh
+-rwxrwxr-x 1 koby koby  6140 Sep 17 11:07 kssh.py
+-rwxrwxr-x 1 koby koby  3102 Sep  9 18:35 search-servers.sh
+

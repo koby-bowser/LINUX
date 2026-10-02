@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+subject=C=FR, ST=France, L=Paris, O=Outremer Telecom, OU=Inge Sys, CN=*.argos.cgr.intranet.local
+issuer=C=FR, ST=France, L=Paris, O=Outremer Telecom, OU=OMT CA, CN=OMT Services CA
+notBefore=Sep 26 18:36:46 2024 GMT
+notAfter=May 13 18:36:46 2028 GMT
+X509v3 Subject Alternative Name: 
+    DNS:*.argos.cgr.intranet.local
+

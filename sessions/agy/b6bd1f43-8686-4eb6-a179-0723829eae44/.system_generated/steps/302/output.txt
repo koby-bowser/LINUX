@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+ns1.outremer-telecom.fr. noc.resot.net. 2026100202 43200 7200 2419200 10800
+

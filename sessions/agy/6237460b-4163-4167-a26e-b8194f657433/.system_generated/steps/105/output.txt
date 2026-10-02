@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+      "url": "ssh30://172.30.215.11",
+      "notes": "root / -{Xu:XIzukb|75(^<pTM|UX\\:",
+      "custom_fields": {}
+    },
+    {
+      "title": "th2-centprop-be1",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2/linux",
+      "ips": [
+        "172.30.198.49"
+      ],
+      "primary_ip": "172.30.198.49",
+      "username": "superuser",
+      "password": "RBsHPuPtf56n11U75oQX",
+      "port": 30,
+      "protocol": "ssh",
+      "url": "ssh:30//172.30.198.49",
+

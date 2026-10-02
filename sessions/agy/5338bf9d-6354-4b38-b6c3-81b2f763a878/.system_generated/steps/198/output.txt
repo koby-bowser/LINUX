@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+[feat/onboard-mtq-mailsrvp-dev c764d4f] feat(inventory): add mtq-mailsrvp-01 to dev inventory
+ 1 file changed, 9 insertions(+)
+

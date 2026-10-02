@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+cat: /proc/152169/wchan: No such file or directory
+

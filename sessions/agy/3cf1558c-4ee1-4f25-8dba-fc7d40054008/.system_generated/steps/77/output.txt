@@ -1,0 +1,65 @@
+
+The command exited with code 0.
+Output:
+[sudo] password for admin:         GatewayPorts no
+        X11Forwarding no
+        MaxAuthTries 4
+        ChrootDirectory /opt/sftproot/recla
+
+Match Group reclaim
+        ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+        AllowTcpForwarding no
+        GatewayPorts no
+        X11Forwarding no
+        MaxAuthTries 4
+        ChrootDirectory /opt/sftproot/recla
+
+Match Group pflau
+        ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+        AllowTcpForwarding no
+        GatewayPorts no
+        X11Forwarding no
+        MaxAuthTries 4
+        ChrootDirectory /opt/sftproot/pflau
+
+#Match Group ftth
+#	ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+#        AllowTcpForwarding no
+#        GatewayPorts no
+#        X11Forwarding no
+#        MaxAuthTries 4
+#        ChrootDirectory /opt/sftproot/ftth_omt
+
+#Match Group topo-users
+#	ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+#	AllowTcpForwarding no
+#	GatewayPorts no
+#        X11Forwarding no
+#        MaxAuthTries 4
+#        ChrootDirectory /opt/sftproot/topo/%u
+
+Match Group ssrtemp
+        ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+        AllowTcpForwarding no
+        GatewayPorts no
+        X11Forwarding no
+        MaxAuthTries 4
+        ChrootDirectory /opt/ftptemp/
+
+Match User siddata
+        ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+        AllowTcpForwarding no
+        GatewayPorts no
+        X11Forwarding no
+        MaxAuthTries 4
+        ChrootDirectory /opt/sftproot/siddata
+
+Match User decisionnel_netezza
+        ForceCommand internal-sftp -u 0007 -f AUTH -l VERBOSE
+        AllowTcpForwarding no
+        GatewayPorts no
+        X11Forwarding no
+        MaxAuthTries 4
+        ChrootDirectory /opt/sftproot
+Connection to 172.16.92.241 closed.
+

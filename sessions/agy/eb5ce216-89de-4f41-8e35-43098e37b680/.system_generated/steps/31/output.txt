@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+total 60
+drwxr-xr-x 15 koby koby 4096 Sep  8 10:50 .
+drwxr-xr-x  3 koby koby 4096 Sep  8 10:50 ..
+drwxr-xr-x  9 koby koby 4096 Sep  8 10:50 vmware-installer
+drwxr-xr-x  4 koby koby 4096 Sep  8 10:50 vmware-network-editor
+drwxr-xr-x  4 koby koby 4096 Sep  8 10:50 vmware-network-editor-ui
+drwxr-xr-x  8 koby koby 4096 Sep  8 10:50 vmware-other-apps
+drwxr-xr-x  6 koby koby 4096 Sep  8 10:50 vmware-ovftool
+drwxr-xr-x  3 koby koby 4096 Sep  8 10:50 vmware-player-setup
+drwxr-xr-x  3 koby koby 4096 Sep  8 10:50 vmware-tools-windows
+drwxr-xr-x  7 koby koby 4096 Sep  8 10:50 vmware-usbarbitrator
+drwxr-xr-x  7 koby koby 4096 Sep  8 10:50 vmware-vix-core
+drwxr-xr-x  4 koby koby 4096 Sep  8 10:50 vmware-vix-lib-Workstation1700
+drwxr-xr-x 11 koby koby 4096 Sep  8 10:50 vmware-vmx
+drwxr-xr-x  5 koby koby 4096 Sep  8 10:50 vmware-vprobe
+drwxr-xr-x  9 koby koby 4096 Sep  8 10:50 vmware-workstation
+

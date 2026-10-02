@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+0 3 * * 0 { echo "=== $(date -Iseconds) ==="; /home/koby/.claude/scripts/session_archive.sh --apply; } >> /home/koby/.claude/scripts/session_archive.log 2>&1
+17 6 * * * { echo "=== $(date -Iseconds) ==="; /home/koby/.claude/scripts/update_agent.sh; } >> /home/koby/.claude/scripts/update_agent.log 2>&1
+

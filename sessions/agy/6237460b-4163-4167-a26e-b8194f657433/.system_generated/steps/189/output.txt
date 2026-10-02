@@ -1,0 +1,5 @@
+
+The command exited with code 2.
+Output:
+bash: -c: line 26: unexpected EOF while looking for matching `''
+

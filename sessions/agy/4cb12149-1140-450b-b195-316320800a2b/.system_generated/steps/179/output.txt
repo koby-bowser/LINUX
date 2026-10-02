@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.npm/_cacache/index-v5/58/48
+/home/koby/.npm/_cacache/index-v5/dc/7e
+/home/koby/.npm/_cacache/index-v5/a2/e3
+/home/koby/.npm/_cacache/index-v5/6c/78
+/home/koby/.npm/_cacache/index-v5/4a/11
+/home/koby/.npm/_cacache/index-v5/ac/5b
+/home/koby/.npm/_cacache/index-v5/93/3b
+/home/koby/.npm/_cacache/index-v5/4f/0d
+/home/koby/.npm/_cacache/index-v5/9e/d1
+/home/koby/.npm/_cacache/index-v5/15/42
+/home/koby/.npm/_cacache/index-v5/d1/ef
+/home/koby/.npm/_cacache/index-v5/8d/22
+/home/koby/.npm/_cacache/index-v5/e1/a2
+/home/koby/.npm/_cacache/index-v5/36/6a
+/home/koby/.npm/_cacache/index-v5/36/40
+/home/koby/.npm/_cacache/index-v5/e9/30
+/home/koby/.npm/_cacache/index-v5/46/29
+

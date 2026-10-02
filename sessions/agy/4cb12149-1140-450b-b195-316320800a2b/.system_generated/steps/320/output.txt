@@ -1,0 +1,48 @@
+
+The command exited with code 0.
+Output:
+TITLE: LLD - OMTDS BT BDO
+COLLECTION: 03d7f507-0722-46bb-ab83-474b42ba6a1c
+PARENT ID: None
+TEXT (first 1500 chars):
+## Description
+
+Proposition commercial pour repondre a la demande d’un client pour un hebergement de 6 machines virtuelles sur un environnement Kubernetes
+
+## Schéma n1 (physique)
+
+VRF B2B dedie a ce client
+
+Fournir un VPN au client
+
+Fournir un VPN au admins OMT
+
+Cloudflare - qui fait l’installation, a preciser a qui appartient le compte et a qui fait la config Cloudflare
+
+## Schéma n3 (paquet)
+
+!!<Parcours des données et adressage logique, organisation des réseaux>!!
+
+## Schéma n4 (transport)
+
+ ![](/api/attachments.redirect?id=b7ae0376-57cc-4c19-a606-242b7d9d5fff "source=diagrams.net =650x571")
+
+
+## Schéma fonctionnel
+
+!!<Étapes ou unités servant à décrire le fonctionnement logique de l'application, parcours utilisateur, parcours des données, organisation des couches applicatives, etc...>!!
+
+## Matrice de Câblage
+
+N/A
+
+| Équipement A | Port A | Type Connexion | Port B | Équipement B |
+|--------------|--------|----------------|--------|--------------|
+|              |        |                |        |              |
+
+## Matrice de Flux
+
+| **Nom source** | **CIDR (si existant)** | **VLAN**\*\*(si existant)\*\* | **Nom destination** | **CIDR destination**\*\*(si existant)\*\* | **VLAN**\*\*(si existant)\*\* | **port** | **service** | **commentaire** |
+|------------|--------------------|-----------------------|-----------------|-----------------------------------|-----------------------|------|---------|-------------|
+| cloudflare |                    |                       | 
+

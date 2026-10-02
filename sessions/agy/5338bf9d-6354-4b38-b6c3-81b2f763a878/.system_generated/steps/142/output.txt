@@ -1,0 +1,31 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+POSTCONF_NOT_IN_PATH
+● postfix.service - Postfix Mail Transport Agent (main/default instance)
+     Loaded: loaded (/usr/lib/systemd/system/postfix.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-08-12 06:25:16 UTC; 3 weeks 5 days ago
+ Invocation: ff5eacfdae3542239e74f67a3f907cf5
+       Docs: man:postfix(1)
+   Main PID: 1522183
+      Tasks: 4 (limit: 4606)
+     Memory: 4.5M (peak: 13M)
+        CPU: 27.480s
+     CGroup: /system.slice/postfix.service
+             ├─1522183 /usr/lib/postfix/sbin/master -w
+             ├─1774276 qmgr -l -t unix -u
+             ├─1774317 tlsmgr -l -t unix -u -c
+             └─2814733 pickup -l -t unix -u -c
+
+

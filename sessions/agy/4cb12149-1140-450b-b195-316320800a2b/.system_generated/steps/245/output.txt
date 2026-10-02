@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 18
+    print(f"Total Collections: {len(res.get(\"data\", []))}\n")
+                                             ^
+SyntaxError: unexpected character after line continuation character
+

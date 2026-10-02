@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+http_proxy="http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128"
+https_proxy="http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128"
+HTTP_PROXY="http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128"
+HTTPS_PROXY="http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128"
+no_proxy=".intranet.local,localhost,127.0.0.0/8,::1,outremer-telecom.fr,.outremer-telecom.fr"
+NO_PROXY=".intranet.local,localhost,127.0.0.0/8,::1,outremer-telecom.fr,.outremer-telecom.fr"
+

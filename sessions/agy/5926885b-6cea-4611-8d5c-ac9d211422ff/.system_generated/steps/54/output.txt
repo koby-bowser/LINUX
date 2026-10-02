@@ -1,0 +1,4 @@
+
+The command exited with code 0.
+Output:
+{"ok":false,"error":"authentication_required","status":401,"message":"Authentication required"}

@@ -1,0 +1,34 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Decommission search results: 1
+Uprocs — gbs-batch-06 /doc/uprocs-gbs-batch-06-UsfN8V0BeN
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Décommissionnement search results: 23
+Migration qmail → Postfix/Dovecot — Outremer Telecom /doc/migration-qmail-postfixdovecot-outremer-telecom-3eiPEr1MHO
+Wiki Corp PMP /doc/wiki-corp-pmp-NePylTUUU1
+Migration intranet.local — Tâches et chronologie /doc/migration-intranetlocal-taches-et-chronologie-wxYHthW54o
+Tâches et dépendances — Migration intranet.local /doc/taches-et-dependances-migration-intranetlocal-RuswdJa9LP
+cgr-informix-database /doc/cgr-informix-database-3FDrwMZaVI
+cgr.net.omt /doc/cgrnetomt-loTB7mqRaj
+Migration th2-dnsintra-01 → th2-dnsc-res1 /doc/migration-th2-dnsintra-01-th2-dnsc-res1-rEplgygG3q
+claude-squad /doc/claude-squad-QXuMTo4a2N
+Domaine AI /doc/domaine-ai-Hr99msIHwV
+20250909 - CR Incident Majeur - TT_00006088_2025_971_ICM2_SUSPICION IG_TX ET RX APPEL KO_GUADELOUPE /doc/20250909-cr-incident-majeur-tt_00006088_2025_971_icm2_suspicion-ig_tx-et-rx-appel-ko_guadeloupe-csXMXjZaCr
+sinapse-agent /doc/sinapse-agent-x894SCVsZD
+oms.services.sdm /doc/omsservicessdm-x3a6Bigdc9
+oms.services.vms /doc/omsservicesvms-rkJoDaZJ6F
+oms.services.dhcp /doc/omsservicesdhcp-9NdKME6P1k
+Certificats TLS expirés — api.eligibilite / one.eligibilite (PROD) /doc/certificats-tls-expires-apieligibilite-oneeligibilite-prod-6Hi2VRcUnJ
+Uprocs — gbs-batchs-03 /doc/uprocs-gbs-batchs-03-1daqCftlrJ
+Dollar Universe /doc/dollar-universe-v6ouK9jCV8
+oms.common /doc/omscommon-E0DA7wV1As
+20250611_CR incident Majeur_TT_000077982025 92_ICM1-GBS-CGR-01-Cpu is Critical-LENTEURS CGR /doc/20250611_cr-incident-majeur_tt_000077982025-92_icm1-gbs-cgr-01-cpu-is-critical-lenteurs-cgr-uHRxPCivTJ
+202512609_CR incident Majeur_TT_000066202025_ ICM1_Réception de mail Dégradé /doc/202512609_cr-incident-majeur_tt_000066202025_-icm1_reception-de-mail-degrade-mfhvBeQ4HF
+202512609_CR incident Majeur_TT_000066202025_ ICM1_Réception de mail Dégradé /doc/202512609_cr-incident-majeur_tt_000066202025_-icm1_reception-de-mail-degrade-QKlbWFhmJM
+sirene-extractor /doc/sirene-extractor-09Dr3BTucT
+NEWJobs périodiques /doc/newjobs-periodiques-pGHX8hhrqj
+

@@ -1,0 +1,71 @@
+
+The command exited with code 0.
+Output:
+total 692
+drwx------ 41 koby koby   4096 Sep 24 11:53 .
+drwxr-xr-x  3 root root   4096 May 22 19:39 ..
+drwxrwxr-x  7 koby koby   4096 Sep 17 11:13 .ansible
+-rw-rw-r--  1 koby koby 306732 Sep 17 10:55 ansible_backup_20260917_105548.tar.gz
+-rw-rw-r--  1 koby koby  25067 Sep 22 18:42 architecture.excalidraw
+-rw-------  1 koby koby    540 Dec 24  2025 .bash_history
+-rw-r--r--  1 koby koby    220 Dec 24  2025 .bash_logout
+-rw-r--r--  1 koby koby   3846 Sep  7 12:02 .bashrc
+-rw-rw-r--  1 koby koby  12337 Aug 14 10:31 boot_sequence.txt
+drwx------ 45 koby koby   4096 Sep 22 18:03 .cache
+drwxrwxr-x 28 koby koby   4096 Sep 24 14:19 .claude
+-rw-------  1 koby koby  86180 Sep 22 19:14 .claude.json
+drwx------ 41 koby koby   4096 Sep 22 18:22 .config
+drwxr-xr-x  2 koby koby   4096 Dec 24  2025 Desktop
+drwxr-xr-x 10 koby koby   4096 Aug 12 13:28 Documents
+drwxr-xr-x  4 koby koby   4096 Sep 24 14:21 Downloads
+-rw-r--r--  1 koby koby   5290 Dec 24  2025 .face
+lrwxrwxrwx  1 koby koby      5 Dec 24  2025 .face.icon -> .face
+drwx------ 14 koby koby   4096 Aug 14 12:10 .factory
+drwxrwxr-x  7 koby koby   4096 Sep  7 18:23 .gemini
+-rw-rw-r--  1 koby koby   6209 Aug 17 13:54 generate_ansible_playbook.py
+-rw-rw-r--  1 koby koby     90 Sep 17 11:44 .gitconfig
+-rw-------  1 koby koby    179 Sep 24 11:53 .git-credentials
+drwx------  3 koby koby   4096 Jun  8 17:05 .gnupg
+drwxrwxr-x 25 koby koby   4096 May  4 12:26 .gruvbox
+drwxrwxr-x 11 koby koby   4096 Sep 16 12:20 infra-management-system
+-rw-rw-r--  1 koby koby    402 Sep 22 18:25 .isag.cfg
+drwxrwxr-x  5 koby koby   4096 Dec 26  2025 .java
+drwxrwxr-x 10 koby koby   4096 Aug 27 12:11 .kimi-code
+-rwxrwxr-x  1 koby koby   1062 Apr 15 03:25 .koby.sh
+drwxrwxr-x  9 koby koby   4096 Sep 24 11:53 LINUX
+drwx------  6 koby koby   4096 Jul 10 18:32 .local
+drwx------  6 koby koby   4096 May  5 11:14 .mozilla
+drwxr-xr-x  2 koby koby   4096 Dec 24  2025 Music
+drwxrwxr-x 29 koby koby   4096 Aug 13 10:47 node_modules
+drwxrwxr-x  6 koby koby   4096 Sep 22 18:25 .npm
+-rw-------  1 koby koby    206 Aug 14 11:59 .npmrc
+drwx------  3 koby koby   4096 Apr  7 10:22 .nv
+drwxr-xr-x  2 koby koby   4096 Aug 20 11:23 .ollama
+-rw-rw-r--  1 koby koby      0 Aug 24 12:14 OMT_Proxy_CA.pem
+drwxrwxr-x  4 koby koby   4096 Aug 12 18:25 .opencode
+-rw-rw-r--  1 koby koby     72 Apr 14 18:46 .ophcrackrc
+-rw-rw-r--  1 koby koby     66 Aug 13 10:47 package.json
+-rw-rw-r--  1 koby koby  13817 Aug 13 10:47 package-lock.json
+drwxrwxr-x  3 koby koby   4096 Aug 20 19:10 .pi
+drwxrwxr-x  9 koby koby   4096 Aug 20 19:01 pi
+drwxr-xr-x  4 koby koby   4096 May  4 11:47 Pictures
+drwx------  3 koby koby   4096 Jan 28  2026 .pki
+-rw-r--r--  1 koby koby    952 Sep  7 12:02 .profile
+drwxr-xr-x  2 koby koby   4096 Dec 24  2025 Public
+drwxrwxr-x  2 koby koby   4096 Aug 17 13:37 __pycache__
+drwx------  5 koby koby   4096 Sep 24 10:47 .remember
+-rwxrwxr-x  1 koby koby   6570 Aug 25 11:53 rhcsa_agent.py
+-rw-------  1 koby koby    189 Jun 24 15:04 .servers.csv
+drwxrwxr-x  3 koby koby   4096 Apr 20 14:43 .shutter
+drwx------  2 koby koby   4096 Sep 10 18:57 .ssh
+drwxrwxr-x  5 koby koby   4096 Dec 26  2025 sshviz
+-rw-r--r--  1 koby koby      0 Dec 24  2025 .sudo_as_admin_successful
+drwxrwxr-x  2 koby koby   4096 Apr 14 18:49 .swt
+drwxr-xr-x  2 koby koby   4096 Dec 24  2025 Templates
+drwxrwxr-x  8 koby koby   4096 Sep 23 12:43 vault-admin-sys
+drwxr-xr-x  2 koby koby   4096 Dec 24  2025 Videos
+drwxr-xr-x  2 koby koby   4096 Sep 24 10:49 .vmware
+drwxrwxr-x  3 koby koby   4096 Sep  8 11:17 vmware
+-rw-rw-r--  1 koby koby    225 Jul  6 16:46 .wget-hsts
+-rw-------  1 koby koby    104 Dec 30  2025 .Xauthority
+

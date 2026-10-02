@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+ls: cannot access 'tasks': No such file or directory
+ls: cannot access 'defaults': No such file or directory
+ls: cannot access 'templates': No such file or directory
+roles/alertmanager_server/:
+total 24
+drwxrwxr-x  6 koby koby 4096 Sep 24 11:07 .
+drwxrwxr-x 49 koby koby 4096 Sep 24 11:07 ..
+drwxrwxr-x  2 koby koby 4096 Sep 24 11:07 defaults
+drwxrwxr-x  2 koby koby 4096 Sep 24 11:07 meta
+drwxrwxr-x  2 koby koby 4096 Sep 24 11:07 tasks
+drwxrwxr-x  2 koby koby 4096 Sep 24 11:07 templates
+

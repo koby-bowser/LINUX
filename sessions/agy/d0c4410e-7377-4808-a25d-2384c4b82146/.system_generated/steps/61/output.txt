@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+75b3027 Merge branch 'feat/deploy-alertmanager-si-psp-alerting' into 'main'
+7aeedd8 Merge branch 'feat/migrate-scrape-configs-th2-promp-scrp1' into 'main'
+840717c Phase 3 playbook: use keactrl stop + auto-relaunch, not reload
+playbooks/fix-kea-reconnect-params-fe1-fe3.yml
+bea2ce9 Fix post-deploy check: target kea-ctrl-agent.log, not a stork-named file
+playbooks/check-kea-reconnect-post-deploy.yml
+633b4d5 Automate Phase 3 (Kea reconnect params) + add post-deploy check
+playbooks/check-kea-reconnect-post-deploy.yml
+playbooks/fix-kea-reconnect-params-fe1-fe3.yml
+

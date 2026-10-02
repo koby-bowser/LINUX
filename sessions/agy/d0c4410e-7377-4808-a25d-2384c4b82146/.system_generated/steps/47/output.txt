@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+total 1112
+-rw-rw-r-- 1 koby koby  3639 Sep 25 14:33 check-kea-mysql-blocks-fe1-fe3.yml
+-rw-rw-r-- 1 koby koby  4990 Sep 25 14:33 check-kea-reconnect-post-deploy.yml
+-rw-rw-r-- 1 koby koby  2612 Sep 25 14:33 check-kea-version-and-ha-config-all-fe.yml
+-rw-rw-r-- 1 koby koby  3281 Sep 25 14:33 check-proxysql-cluster-membership-all-fe.yml
+-rw-rw-r-- 1 koby koby  3118 Sep 25 14:33 check-proxysql-pool-status-all-fe.yml
+-rw-rw-r-- 1 koby koby  2856 Sep 25 14:33 check-vrrp-keepalived-status-all-fe.yml
+-rw-rw-r-- 1 koby koby   879 Sep 25 14:33 deploy-alertmanager-si.yml
+-rw-rw-r-- 1 koby koby   873 Sep 25 14:33 deploy-prometheus-agent-th2-promp-scrp1.yml
+-rw-rw-r-- 1 koby koby 10491 Sep 25 14:33 fix-kea-reconnect-params-fe1-fe3.yml
+

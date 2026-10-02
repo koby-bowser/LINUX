@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+{
+  "Status": 3,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "_acme-challenge.geo.sfrcaraibe.fr.",
+      "type": 16
+    }
+  ],
+  "Authority": [
+    {
+      "name": "sfrcaraibe.fr.",
+      "type": 6,
+      "TTL": 180,
+      "data": "ns1.outremer-telecom.fr. noc.resot.net. 2026100202 43200 7200 2419200 10800"
+    }
+  ],
+  "Comment": "Response from ns1.outremer-telecom.fr.(217.175.160.55)."
+}
+

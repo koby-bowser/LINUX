@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+=== [Search Results for 'trp-wextp-fe1': 3 match(es)] ===
+
+  [1] trp-wextp-fe1 - Copy [SSH]
+      IP(s)    : 172.30.230.97 (Port: 30)
+      User     : superuser
+      Password : q8R#vK3n!p2T$zF6
+      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin
+
+  [2] trp-wextp-fe1 [SSH]
+      IP(s)    : 172.30.230.97 (Port: 30)
+      User     : superuser
+      Password : n7$Rk8!FvZq2@Yp4#B6tLm9%
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [3] trp-wextp-fe1 [SSH]
+      IP(s)    : 172.30.230.97 (Port: 30)
+      User     : root
+      Password : `F3n@9xW!z2Q#s7L%r8J`
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+

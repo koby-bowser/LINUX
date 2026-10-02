@@ -1,0 +1,10 @@
+
+The command exited with code 1.
+Output:
+Archived and active journals take up 80M in the file system.
+1.2G	/var/cache/apt
+104M	/var/log
+56K	/var/tmp
+2.9G	/home/koby/.cache
+16K	/home/koby/.local/share/Trash
+

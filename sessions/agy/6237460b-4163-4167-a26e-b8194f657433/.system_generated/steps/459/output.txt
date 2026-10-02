@@ -1,0 +1,13 @@
+Found 12 results
+inventory/server_pool.yml
+playbooks/00-smoke-test.yml
+playbooks/bootstrap-koby-bowser.yml
+playbooks/copy-to-tmp.yml
+playbooks/deploy-ssh-key.yml
+playbooks/group_vars/all/certificates.yml
+playbooks/group_vars/all/vault.yml
+playbooks/issue-deploy-certs.yml
+playbooks/kdbx-pool.yml
+playbooks/search-servers.yml
+playbooks/tasks/deploy_and_reload_cert.yml
+playbooks/tasks/issue_and_queue_cert.yml

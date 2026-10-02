@@ -1,0 +1,142 @@
+
+The command exited with code 1.
+Output:
+..[main (root-commit) c65281f] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+F
+======================================================================
+FAIL: test_sync_execution_and_filtering (__main__.SyncAiSessionsTest.test_sync_execution_and_filtering)
+Test isolated session sync: directory creation, filtering, and index generation.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/koby/LINUX/tests/test_sync_ai_sessions.py", line 114, in test_sync_execution_and_filtering
+    self.assertEqual(res.returncode, 0, res.stdout + res.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : 
+PLAY [Synchronize AI CLI sessions (Antigravity, Claude Code, Codex) and push to GitHub] ***
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Valider l'utilisateur exécutant] *****************************************
+ok: [localhost] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Trouver le dossier personnel de l'utilisateur] ***************************
+ok: [localhost]
+
+TASK [Découvrir la racine du dépôt git] ****************************************
+ok: [localhost]
+
+TASK [Définir les variables de chemin] *****************************************
+ok: [localhost]
+
+TASK [Définir les chemins sources et destinations des sessions] ****************
+ok: [localhost]
+
+TASK [Créer l'arborescence cible pour les sessions] ****************************
+changed: [localhost] => (item=/tmp/ai-sessions-test-o9ge8d08/LINUX/sessions)
+changed: [localhost] => (item=/tmp/ai-sessions-test-o9ge8d08/LINUX/sessions/agy)
+changed: [localhost] => (item=/tmp/ai-sessions-test-o9ge8d08/LINUX/sessions/claude)
+changed: [localhost] => (item=/tmp/ai-sessions-test-o9ge8d08/LINUX/sessions/codex)
+
+TASK [Créer le lien symbolique ai-sessions -> sessions] ************************
+changed: [localhost]
+
+TASK [Déployer le fichier .gitignore protecteur dans sessions/] ****************
+changed: [localhost]
+
+TASK [Déployer le fichier README.md de documentation dans sessions/] ***********
+changed: [localhost]
+
+TASK [Vérifier la présence des répertoires et fichiers sources] ****************
+ok: [localhost] => (item={'key': 'agy_brain', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.gemini/antigravity-cli/brain'})
+ok: [localhost] => (item={'key': 'agy_history', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.gemini/antigravity-cli/history.jsonl'})
+ok: [localhost] => (item={'key': 'agy_summaries', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.gemini/antigravity-cli/conversation_summaries.db'})
+ok: [localhost] => (item={'key': 'claude_projects', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.claude/projects'})
+ok: [localhost] => (item={'key': 'claude_history', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.claude/history.jsonl'})
+ok: [localhost] => (item={'key': 'codex_sessions', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.codex/sessions'})
+ok: [localhost] => (item={'key': 'codex_index', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.codex/session_index.jsonl'})
+ok: [localhost] => (item={'key': 'codex_history', 'path': '/tmp/ai-sessions-test-o9ge8d08/home/.codex/history.jsonl'})
+
+TASK [Convertir les vérifications sources en dictionnaire] *********************
+ok: [localhost]
+
+TASK [Synchroniser les sessions Antigravity CLI (brain)] ***********************
+changed: [localhost]
+
+TASK [Copier l'historique prompt d'Antigravity CLI (history.jsonl)] ************
+changed: [localhost]
+
+TASK [Générer l'index des sessions Antigravity CLI (session_index.jsonl)] ******
+ok: [localhost]
+
+TASK [Synchroniser les sessions Claude Code (projects)] ************************
+changed: [localhost]
+
+TASK [Copier l'historique prompt de Claude Code (history.jsonl)] ***************
+changed: [localhost]
+
+TASK [Synchroniser les sessions Codex CLI (sessions)] **************************
+changed: [localhost]
+
+TASK [Copier l'index des sessions de Codex CLI (session_index.jsonl)] **********
+changed: [localhost]
+
+TASK [Copier l'historique prompt de Codex CLI (history.jsonl)] *****************
+changed: [localhost]
+
+TASK [Détecter la branche active git] ******************************************
+ok: [localhost]
+
+TASK [Déterminer la branche git cible] *****************************************
+ok: [localhost]
+
+TASK [Vérifier les modifications non commitées dans sessions/] *****************
+ok: [localhost]
+
+TASK [Indexer (git add) les sessions] ******************************************
+changed: [localhost]
+
+TASK [Créer le commit git pour les sessions] ***********************************
+changed: [localhost]
+
+TASK [Pousser (git push) les sessions vers GitHub] *****************************
+[ERROR]: Task failed: Conditional result (True) was derived from value of type 'str' at "<CLI option '-e'>". Conditionals must have a boolean result.
+
+Task failed.
+Origin: /tmp/ai-sessions-test-o9ge8d08/LINUX/playbooks/sync-ai-sessions.yml:294:7
+
+292       register: _git_commit_res
+293
+294     - name: Pousser (git push) les sessions vers GitHub
+          ^ column 7
+
+<<< caused by >>>
+
+Conditional result (True) was derived from value of type 'str' at "<CLI option '-e'>". Conditionals must have a boolean result.
+Origin: /tmp/ai-sessions-test-o9ge8d08/LINUX/playbooks/sync-ai-sessions.yml:299:11
+
+297       when:
+298         - not ansible_check_mode
+299         - git_push
+              ^ column 11
+
+Broken conditionals can be temporarily allowed with the `ALLOW_BROKEN_CONDITIONALS` configuration option.
+
+fatal: [localhost]: FAILED! => {"changed": false, "msg": "Task failed: Conditional result (True) was derived from value of type 'str' at \"<CLI option '-e'>\". Conditionals must have a boolean result."}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=25   changed=13   unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+[WARNING]: Host 'localhost' is using the discovered Python interpreter at '/usr/bin/python3.13', but future installation of another Python interpreter could cause a different interpreter to be discovered. See https://docs.ansible.com/ansible-core/2.19/reference_appendices/interpreter_discovery.html for more information.
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 9.051s
+
+FAILED (failures=1)
+

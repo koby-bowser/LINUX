@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+In brain: 16
+In convs: 16
+In brain but not convs: set()
+In convs but not brain: set()
+

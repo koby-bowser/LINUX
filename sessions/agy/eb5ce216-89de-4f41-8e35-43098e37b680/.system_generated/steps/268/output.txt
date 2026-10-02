@@ -1,0 +1,49 @@
+
+The command exited with code 0.
+Output:
+=== [Pre-flight Diagnostics] ===
+  Source File  : /home/koby/ansible-test-payload.txt (86 bytes)
+  Public Key   : /home/koby/.ssh/id_ed25519.pub (koby@debian-trixie)
+  Target Host  : 172.30.39.153 (Port: 30)
+  Target User  : koby-bowser-ansible
+
+=== [Step 1: Check Target User 'koby-bowser-ansible'] ===
+[OK] User 'koby-bowser-ansible' is present with active passwordless SSH login.
+
+=== [Step 2: Executing Ansible Playbook] ===
+Running: ansible-playbook -i "172.30.39.153," playbooks/copy-to-tmp.yml -u koby-bowser-ansible -e "src_file=/home/koby/ansible-test-payload.txt"
+
+
+PLAY [Validate local source file] **********************************************
+
+TASK [Validate that src_file parameter is provided] ****************************
+skipping: [localhost]
+
+TASK [Verify source file exists on control machine] ****************************
+ok: [localhost]
+
+TASK [Fail if source file does not exist on control machine] *******************
+skipping: [localhost]
+
+PLAY [Copy file to remote /tmp directory] **************************************
+
+TASK [Copy file to remote /tmp directory] **************************************
+ok: [172.30.39.153]
+
+TASK [Report file transfer summary] ********************************************
+ok: [172.30.39.153] => {
+    "msg": [
+        "Host: 172.30.39.153",
+        "Destination: /tmp/ansible-test-payload.txt",
+        "State: OK (file already identical in /tmp)",
+        "Checksum: 89876262ecfe9713d4d6f926df6d3236c8ff3efc"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+172.30.39.153              : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
+
+[SUCCESS] Transfer completed successfully to /tmp on 172.30.39.153!
+

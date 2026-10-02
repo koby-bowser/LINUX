@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+Total documents in Projets: 100
+- MEP - LLD : Comment creer un nouveau projet (bbb07f1e-d89f-4659-ab71-e4be455a9ce7)
+- LLD - OMTDS BT BDO (a253fe19-2c4b-40eb-a201-f46f84292620)
+- LLD - OMTDS IOT (966c434f-448e-43db-bcf3-c95b7fe49719)
+- [Template] LLD (efee7d46-9dc0-40ba-88a1-83c8c58c642b)
+

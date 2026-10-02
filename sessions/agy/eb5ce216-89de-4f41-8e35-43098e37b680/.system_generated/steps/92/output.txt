@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+Filesystem                   Size  Used Avail Use% Mounted on
+/dev/mapper/trixie--vg-root  452G  117G  312G  28% /
+/dev/nvme0n1p2               944M  268M  611M  31% /boot
+1.1G	/home/koby/.cache/mozilla
+1.1G	/home/koby/.cache/BraveSoftware
+390M	/home/koby/.cache/uv
+119M	/home/koby/.cache/node-gyp
+29M	/home/koby/.cache/pip
+28M	/home/koby/.cache/gnome-software
+17M	/home/koby/.cache/nvidia
+15M	/home/koby/.cache/tracker3
+7.8M	/home/koby/.cache/antigravity
+6.8M	/home/koby/.cache/claude-cli-nodejs
+

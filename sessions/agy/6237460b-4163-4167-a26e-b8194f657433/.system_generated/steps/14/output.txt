@@ -1,0 +1,3 @@
+{"File":"/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/app.md","LineNumber":26,"LineContent":"    trigger specialized agent behaviors or launch dedicated subagents. Each"}
+{"File":"/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/cli.md","LineNumber":7,"LineContent":"-   **CLI Features \u0026 Subagents**: `https://antigravity.google/docs/cli/features`"}
+{"File":"/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/SKILL.md","LineNumber":22,"LineContent":"        and the HTML Auxiliary Pane (Subagents, Background Tasks, Artifacts,"}

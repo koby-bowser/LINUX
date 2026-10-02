@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+add-record ZONE NAME TYPE [ttl] content
+             [content..]           Add one or more records to ZONE
+clear-zone ZONE                    Clear all records of a zone, but keep everything else
+delete-rrset ZONE NAME TYPE        Delete named RRSET from zone
+export-zone-ds ZONE                Export to stdout all KSK DS records for ZONE
+hash-zone-record ZONE RNAME        Calculate the NSEC3 hash for RNAME in ZONE
+replace-rrset ZONE NAME TYPE [ttl] Replace named RRSET from zone
+                                   Note - this will replace all metadata records of KIND!
+raw-lua-from-content TYPE CONTENT  Display record contents in a form suitable for dnsdist's `SpoofRawAction`
+

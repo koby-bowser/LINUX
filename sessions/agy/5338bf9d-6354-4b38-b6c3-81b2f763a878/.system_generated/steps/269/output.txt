@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 913,
+  "template_id": 10,
+  "project_id": 1,
+  "status": "success",
+  "playbook": "playbooks/check-distro-kernel.yml",
+  "user_id": 6,
+  "created": "2026-09-07T12:57:59.185837Z",
+  "start": "2026-09-07T12:58:03.880665Z",
+  "end": "2026-09-07T12:58:07.22677Z",
+  "message": "Audit distro and kernel on DEV hosts",
+  "commit_hash": "7a97cb8c1c1da760d80b758dacdc64f2f5b8b789",
+  "commit_message": "Merge branch 'feat/recon-distro-kernel-audit' into 'main'",
+  "limit": "",
+  "tpl_playbook": "playbooks/ping.yml",
+  "tpl_alias": "Check Infra - Connexion Test",
+  "tpl_app": "ansible",
+  "user_name": "a.samy"
+}
+

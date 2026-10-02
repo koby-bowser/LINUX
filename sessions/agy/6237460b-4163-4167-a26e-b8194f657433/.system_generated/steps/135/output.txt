@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+=== NS 172.16.6.2 ===
+=== NS 172.16.75.250 ===
+=== NS 172.30.198.162 ===
+

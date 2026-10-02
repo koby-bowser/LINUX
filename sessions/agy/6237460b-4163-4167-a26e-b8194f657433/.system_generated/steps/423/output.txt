@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+<truncated 18 lines>
+/usr/share/centreon/www/modules/centreon-map4-web-client/locale/messages.pot:524:msgid "MAP Engine server address"
+/usr/share/centreon/www/modules/centreon-map4-web-client/views/options/listOptions.php:51:$form->addElement('text', 'server_address_ng', _('MAP Engine server address'), ['size' => 30]);
+

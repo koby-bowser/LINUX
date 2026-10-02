@@ -1,0 +1,49 @@
+
+The command exited with code 0.
+Output:
+total 588
+drwxrwxr-x 29 koby koby   4096 Oct  2 11:04 .
+drwx------ 43 koby koby   4096 Oct  2 11:43 ..
+drwxrwxr-x  2 koby koby   4096 Sep 10 11:27 agents
+drwxrwxr-x  2 koby koby   4096 Oct  2 11:04 backups
+drwx------  2 koby koby   4096 Aug 27 11:19 bridge-spawn
+drwxrwxr-x  3 koby koby   4096 Sep 15 10:57 cache
+drwx------  2 koby koby   4096 Sep 29 18:41 .cc-writes
+drwxrwxr-x  3 koby koby   4096 Sep  2 14:05 .claude
+-r--r--r--  1 koby koby  77571 Oct  2 11:04 .config.json
+-rw-------  1 koby koby  11536 Oct  2 11:03 .credentials.json
+drwx------  4 koby koby   4096 Sep  2 11:59 daemon
+-rw-rw-r--  1 koby koby     13 Sep  1 16:19 daemon-auth-cooldown
+-rw-rw-r--  1 koby koby     48 Sep  1 16:19 daemon-auth-status.json
+-rw-rw-r--  1 koby koby    395 Sep  1 13:07 daemon.lock
+-rw-rw-r--  1 koby koby   5639 Sep  1 19:23 daemon.log
+-rw-rw-r--  1 koby koby    110 Sep  1 13:07 daemon.status.json
+drwxrwxr-x  2 koby koby   4096 Apr  8 10:51 debug
+drwxrwxr-x  2 koby koby   4096 Feb 20  2026 downloads
+drwxrwxr-x 13 koby koby   4096 Sep 28 15:01 file-history
+-rw-------  1 koby koby 318993 Sep 29 19:10 history.jsonl
+drwxrwxr-x  2 koby koby   4096 Sep 22 18:52 hooks
+drwxrwxr-x  5 koby koby   4096 Sep 21 12:14 jobs
+-rw-rw-r--  1 koby koby     24 Sep 30 15:08 .last-cleanup
+-rw-rw-r--  1 koby koby    161 Sep 10 10:49 .last-update-result.json
+-rw-rw-r--  1 koby koby    150 Oct  2 11:03 mcp-needs-auth-cache.json
+drwxrwxr-x  2 koby koby   4096 Aug 31 15:24 output-styles
+drwxrwxr-x  2 koby koby   4096 Sep 28 18:54 paste-cache
+drwxrwxr-x  7 koby koby   4096 Oct  2 11:03 plugins
+drwxrwxr-x 10 koby koby   4096 Sep 29 18:32 projects
+drwx------  4 koby koby   4096 Sep  2 14:01 .remember
+drwxrwxr-x  2 koby koby   4096 Aug 19 19:13 scripts
+drwx------  3 koby koby  12288 Sep 29 18:42 security
+drwx------  2 koby koby   4096 Sep 23 11:48 seed-admin
+drwxrwxr-x 41 koby koby   4096 Sep 29 18:42 session-env
+drwx------  2 koby koby   4096 Oct  2 11:03 sessions
+-rw-rw-r--  1 koby koby   6969 Sep 29 18:41 settings.json
+-rw-rw-r--  1 koby koby    741 Sep 23 15:33 settings.local.json
+drwxrwxr-x  2 koby koby   4096 Sep 29 18:43 shell-snapshots
+drwxrwxr-x  3 koby koby   4096 Sep 17 10:42 skills
+drwx------  2 koby koby   4096 Oct  1 10:56 state
+-rw-------  1 koby koby   5946 Aug 26 15:39 stats-cache.json
+-rw-rw-r--  1 koby koby    708 Aug 11 17:21 statusline-command.sh
+drwxrwxr-x  2 koby koby   4096 Sep 25 18:27 telemetry
+drwxrwxr-x  2 koby koby   4096 Aug 19 10:54 themes
+

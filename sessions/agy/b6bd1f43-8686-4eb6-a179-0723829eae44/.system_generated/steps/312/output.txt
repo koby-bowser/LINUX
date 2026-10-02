@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+zone sfrcaraibe.fr/IN: loaded serial 2026100201
+OK
+

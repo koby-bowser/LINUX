@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+ M .gitignore
+ M ansible.cfg
+ M playbooks/deploy-ssh-key.yml
+?? copy-to-remote.sh
+?? playbooks/bootstrap-koby-bowser.yml
+?? playbooks/copy-to-tmp.yml
+?? playbooks/kdbx-pool.yml
+?? playbooks/search-servers.yml
+?? scripts/
+?? search-servers.sh
+?? tmp/
+?? typescript
+

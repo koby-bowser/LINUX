@@ -1,0 +1,33 @@
+Task: 6237460b-4163-4167-a26e-b8194f657433/task-1060
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-1060.log
+Log output:
+<truncated 86 lines>
+sted_certificate /etc/certs/OMT/CA/STAR_outremer-telecom.fr/DigiCertCA.crt;
+
+    # security
+    include             nginxconfig.io/security.conf;
+
+    # logging (nouveaux fichiers dédiés — pour ne pas polluer les logs du :443)
+    access_log          /var/log/nginx/extranetclient.outremer-telecom.fr-9443-access.log;
+    error_log           /var/log/nginx/extranetclient.outremer-telecom.fr-9443-error.log warn;
+
+    # reverse proxy vers Map
+    location / {
+        proxy_pass http://172.30.198.50;
+        #proxy_ssl_verify off;
+        #proxy_set_header Host $host; 
+        include    nginxconfig.io/proxy.conf;
+        proxy_set_header X-Forwarded-Proto  https;
+        proxy_set_header X-Forwarded-Ssl    on;
+        #proxy_set_header X-Forwarded-Port   9443;
+        proxy_redirect http:// https://;
+        proxy_headers_hash_max_size   1024;
+        proxy_headers_hash_bucket_size 128;
+    }
+
+    # additional config
+    include nginxconfig.io/general.conf;
+}
+
+Last progress: 3s ago

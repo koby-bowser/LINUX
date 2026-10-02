@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Status: 200 OK: True
+Created doc id: 1ecf02bb-a080-465b-966b-f9243fe80fe5 url: /doc/test-doc-verification-2biyURHMMT
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Cleaned up test doc: {'success': True, 'status': 200, 'ok': True}
+

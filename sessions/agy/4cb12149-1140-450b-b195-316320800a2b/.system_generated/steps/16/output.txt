@@ -1,0 +1,34 @@
+
+The command exited with code 0.
+Output:
+interactive-drawerinteractive-drawer
+Interactive Excalidraw MCP server with built-in viewerInteractive Excalidraw MCP server with built-in viewer
+Version 0.5.0 published 2026-03-15 by suzuran_lily
+Maintainers: suzuran_lily
+https://npm.im/interactive-drawer
+
+excalidraw-mcpexcalidraw-mcp
+MCP server for ExcalidrawMCP server for Excalidraw
+Version 1.0.0 published 2025-05-12 by yctimlin
+Maintainers: yctimlin
+Keywords: mcp excalidraw model-context-protocol ai drawing
+https://npm.im/excalidraw-mcp
+
+excalidraw-mcp-serverexcalidraw-mcp-server
+Security-hardened MCP server for Excalidraw with API key auth, rate limiting, and real-time canvas syncSecurity-hardened MCP server for Excalidraw with API key auth, rate limiting, and real-time canvas sync
+Version 2.0.0 published 2026-02-08 by debu-sinha
+Maintainers: debu-sinha
+Keywords: excalidraw mcp model-context-protocol diagramming security websocket real-time
+https://npm.im/excalidraw-mcp-server
+
+excalidraw-mcp-sentinelexcalidraw-mcp-sentinel
+Hardened, self-hosted Excalidraw MCP server with SQLite persistence, multi-tenancy, auto-sync, security middleware, and 369 testsHardened, self-hosted Excalidraw MCP server with SQLite persistence, multi-tenancy, auto-sync, security middleware, and 369 tests
+Version 1.2.1 published 2026-07-11 by new.blacc
+Maintainers: new.blacc
+Keywords: mcp mcp-server excalidraw model-context-protocol ai drawing diagrams canvas real-time websocket visualization sqlite multi-tenancy self-hosted local
+https://npm.im/excalidraw-mcp-sentinel
+
+@cmd8/excalidraw-mcp@cmd8/excalidraw-mcp
+Model Context Protocol server for Excalidraw diagrams.Model Context Protocol server for Excalidraw diagrams.
+Version 1.2.0 published 2025-11-29 by GitHub Actions
+

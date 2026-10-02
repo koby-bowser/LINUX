@@ -1,0 +1,272 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+{
+  "host": "trp-wextp-be6",
+  "php_cli": "PHP 8.2.30 (cli) (built: Dec 18 2025 23:12:21) (NTS)",
+  "fpm_services": [
+    "php7.4-fpm.service",
+    "php8.2-fpm.service",
+    "php8.3-fpm.service"
+  ],
+  "php_ports": [
+    "17400",
+    "18200",
+    "18202",
+    "18203",
+    "18205",
+    "18206",
+    "18207",
+    "18208",
+    "27400",
+    "28202",
+    "28204",
+    "37400"
+  ],
+  "proxysql": {
+    "service": "active",
+    "version": "ProxySQL version 2.7.3-12-g50b7f85, codename Truls",
+    "config_exists": true,
+    "ports": [
+      "6032",
+      "6033",
+      "6080"
+    ]
+  },
+  "webroots": [
+    {
+      "name": "api.selfcarebusiness.sfrcaraibe.fr",
+      "path": "/var/www/api.selfcarebusiness.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "assistance.sfrcaraibe.fr",
+      "path": "/var/www/assistance.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "assistance.sfrcaraibe.fr.ng",
+      "path": "/var/www/assistance.sfrcaraibe.fr.ng",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "backup",
+      "path": "/var/www/backup",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "business.sfrcaraibe.fr",
+      "path": "/var/www/business.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "config",
+      "path": "/var/www/config",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "demo.api.selfcarebusiness.sfrcaraibe.fr",
+      "path": "/var/www/demo.api.selfcarebusiness.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "doccli.sfrcaraibe.fr",
+      "path": "/var/www/doccli.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "eligibilite-api",
+      "path": "/var/www/eligibilite-api",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "espaceclient-lapostemobile.sfrcaraibe.fr",
+      "path": "/var/www/espaceclient-lapostemobile.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "espaceclient.api.sfrcaraibe.fr",
+      "path": "/var/www/espaceclient.api.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "espaceclient.sfrcaraibe.fr",
+      "path": "/var/www/espaceclient.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "espaceclientbusiness.sfrcaraibe.fr",
+      "path": "/var/www/espaceclientbusiness.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "geoloc.api.sfrcaraibe.fr",
+      "path": "/var/www/geoloc.api.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "geoloc.sfrcaraibe.fr",
+      "path": "/var/www/geoloc.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "html",
+      "path": "/var/www/html",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "maintenance",
+      "path": "/var/www/maintenance",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "pay-uxui.redcaraibe.fr",
+      "path": "/var/www/pay-uxui.redcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "pay.sfrcaraibe.fr",
+      "path": "/var/www/pay.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "pay.sfrcaraibe.fr_old",
+      "path": "/var/www/pay.sfrcaraibe.fr_old",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "pay.uxui.sfrcaraibe.fr",
+      "path": "/var/www/pay.uxui.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "recrutement.omtds.mu",
+      "path": "/var/www/recrutement.omtds.mu",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "recrutement.sfrcaraibe.fr",
+      "path": "/var/www/recrutement.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "resiliation.lapostemobile.sfrcaraibe.fr",
+      "path": "/var/www/resiliation.lapostemobile.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "resiliation.redcaraibe.fr",
+      "path": "/var/www/resiliation.redcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "resiliation.sfrcaraibe.fr",
+      "path": "/var/www/resiliation.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "retractation.lapostemobile.sfrcaraibe.fr",
+      "path": "/var/www/retractation.lapostemobile.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "retractation.redcaraibe.fr",
+      "path": "/var/www/retractation.redcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "retractation.sfrcaraibe.fr",
+      "path": "/var/www/retractation.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "spin",
+      "path": "/var/www/spin",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "transfer",
+      "path": "/var/www/transfer",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "trash",
+      "path": "/var/www/trash",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "uxui.redcaraibe.fr",
+      "path": "/var/www/uxui.redcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "uxui.sfrcaraibe.fr",
+      "path": "/var/www/uxui.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "webapp.sfrcaraibe.fr",
+      "path": "/var/www/webapp.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "www.redcaraibe.fr",
+      "path": "/var/www/www.redcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    },
+    {
+      "name": "www.sfrcaraibe.fr",
+      "path": "/var/www/www.sfrcaraibe.fr",
+      "is_symlink": false,
+      "target": null
+    }
+  ]
+}
+

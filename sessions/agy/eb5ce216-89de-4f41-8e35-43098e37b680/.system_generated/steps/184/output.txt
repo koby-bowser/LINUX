@@ -1,0 +1,67 @@
+
+The command exited with code 2.
+Output:
+
+PLAY [Validate local source file] **********************************************
+
+TASK [Validate that src_file parameter is provided] ****************************
+skipping: [127.0.0.1]
+
+TASK [Verify source file exists on control machine] ****************************
+ok: [127.0.0.1]
+
+TASK [Fail if source file does not exist on control machine] *******************
+skipping: [127.0.0.1]
+
+PLAY [Copy file to remote /tmp directory] **************************************
+
+TASK [Copy file to remote /tmp directory] **************************************
+changed: [127.0.0.1]
+
+TASK [Report file transfer summary] ********************************************
+[ERROR]: Task failed: Finalization of task args for 'ansible.builtin.debug' failed: Error while resolving value for 'msg': object of type 'dict' has no attribute 'dest'
+
+Task failed.
+Origin: /home/koby/.ansible/playbooks/copy-to-tmp.yml:40:7
+
+38       register: copy_result
+39
+40     - name: Report file transfer summary
+         ^ column 7
+
+<<< caused by >>>
+
+Finalization of task args for 'ansible.builtin.debug' failed.
+Origin: /home/koby/.ansible/playbooks/copy-to-tmp.yml:41:7
+
+39
+40     - name: Report file transfer summary
+41       ansible.builtin.debug:
+         ^ column 7
+
+<<< caused by >>>
+
+Error while resolving value for 'msg'.
+Origin: /home/koby/.ansible/playbooks/copy-to-tmp.yml:43:11
+
+41       ansible.builtin.debug:
+42         msg:
+43           - "Host: {{ inventory_hostname }}"
+             ^ column 11
+
+<<< caused by >>>
+
+object of type 'dict' has no attribute 'dest'
+Origin: /home/koby/.ansible/playbooks/copy-to-tmp.yml:44:13
+
+42         msg:
+43           - "Host: {{ inventory_hostname }}"
+44           - "Destination: {{ copy_result.dest }}"
+               ^ column 13
+
+fatal: [127.0.0.1]: FAILED! => {"msg": "Task failed: Finalization of task args for 'ansible.builtin.debug' failed: Error while resolving value for 'msg': object of type 'dict' has no attribute 'dest'"}
+
+PLAY RECAP *********************************************************************
+127.0.0.1                  : ok=2    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+
+

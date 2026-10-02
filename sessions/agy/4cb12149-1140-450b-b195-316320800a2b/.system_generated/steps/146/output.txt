@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+total 0
+drwxrwxrwx  3 koby   koby     80 Sep 22 18:18 .
+drwxrwxrwt 27 nobody nogroup 840 Sep 22 18:18 ..
+drwxrwxrwx  2 koby   koby     60 Sep 22 18:18 _logs
+-rw-rw-rw-  1 koby   koby      0 Sep 22 18:18 _update-notifier-last-checked
+

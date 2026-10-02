@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+81767ed (origin/main, origin/HEAD) Merge branch 'le-cert/onetask.outremer-telecom.fr-20260908130934' into 'main'
+6af7b6e feat(le): bundle TLS onetask.outremer-telecom.fr (émis automatiquement via Semaphore)
+17d17cb Merge branch 'feat/le-issue-onetask-target' into 'main'
+168d293 (origin/feat/le-issue-onetask-target) feat(le): ajout cible onetask.outremer-telecom.fr
+

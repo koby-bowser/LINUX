@@ -1,0 +1,26 @@
+The following changes were made by the replace_file_content tool to: /home/koby/.gemini/config/mcp_config.json. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -9,6 +9,20 @@
+         "REQUESTS_CA_BUNDLE": "/etc/ssl/certs/ca-certificates.crt",
+         "SSL_CERT_FILE": "/etc/ssl/certs/ca-certificates.crt"
+       }
++    },
++    "drawio": {
++      "command": "/home/koby/.local/share/pi-node/current/bin/npx",
++      "args": [
++        "-y",
++        "@drawio/mcp"
++      ]
++    },
++    "excalidraw": {
++      "command": "/home/koby/.local/share/pi-node/current/bin/npx",
++      "args": [
++        "-y",
++        "mcp-excalidraw-server"
++      ]
+     }
+   }
+ }
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

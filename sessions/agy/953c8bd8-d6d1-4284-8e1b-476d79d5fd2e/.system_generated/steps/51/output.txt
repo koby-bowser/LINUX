@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 302 
+server: nginx/1.16.1
+date: Wed, 16 Sep 2026 15:19:06 GMT
+content-type: text/html; charset=UTF-8
+location: https://fibre.argos.cgr.intranet.local/fh_auth.php
+x-powered-by: PHP/7.3.27
+set-cookie: PHPSESSID=f7dln5hdmcjbo8n732atoci21h; path=/
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+cache-control: no-store, no-cache, must-revalidate
+pragma: no-cache
+
+

@@ -1,0 +1,41 @@
+
+The command exited with code 0.
+Output:
+TITLE: LLD - OMTDS IOT
+TEXT (first 2000 chars):
+## Description
+
+<Quel est la raison d'être du projet ? A quoi cela va-t-il servir ? Quelles améliorations ce projet va-t-il apporter ? Quels problèmes va-t-il résoudre ?>
+
+## Schéma n1 (physique)
+
+<Schéma nécessaire si l'infrastructure à déployer comporte des équipements physiques>
+
+## Schéma n3 (paquet)
+
+<Parcours des données et adressage logique, organisation des réseaux>
+
+## Schéma n4 (transport)
+
+<Connexion de bout en bout, connectabilité et identifications des flux>
+
+## Schéma fonctionnel
+
+<Étapes ou unités servant à décrire le fonctionnement logique de l'application, parcours utilisateur, parcours des données, organisation des couches applicatives, etc...>
+
+## Matrice de Câblage
+
+<Les ports peuvent ne pas être connus a l'heure de l'écriture du PMP, ne pas les renseigner dans ce cas>
+
+| Équipement A | Port A | Type Connexion | Port B | Équipement B |
+|--------------|--------|----------------|--------|--------------|
+|              |        |                |        |              |
+
+## Matrice de Flux
+
+| **Nom source** | **CIDR (si existant)** | **VLAN**\*\*(si existant)\*\* | **Nom destination** | **CIDR destination**\*\*(si existant)\*\* | **VLAN**\*\*(si existant)\*\* | **port** | **service** | **commentaire** |
+|------------|--------------------|-----------------------|-----------------|-----------------------------------|-----------------------|------|---------|-------------|
+| IOT        |                    |                       | th2-azrc-osr3 (172.30.216.97) |                                   |                       | 109\.62.64.14 | TCP 9999UDP 10007 | OHCID / SIA DC 09 |
+|            |                    |                       | th2-azrc-osr4 (172.30.216.98) |                                   |                       | 109\.62.64.28 | TCP 9999UDP 10007 | OHCID / SIA DC 09 |
+| Tunnel VPN |                    |                       | OMT Maurice     |                                   |                       | 109\.62.64.100 |         |           
+

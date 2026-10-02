@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+-rw-rw-r-- 1 koby koby 15365 Sep 25 14:09 playbooks/reclaim-space.yml
+lrwxrwxrwx 1 koby koby    27 Sep 25 14:09 reclaim-space.yml -> playbooks/reclaim-space.yml
+

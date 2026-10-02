@@ -1,0 +1,49 @@
+
+The command exited with code 0.
+Output:
+#!/usr/bin/env bash
+# ==============================================================================
+# Script: copy-to-remote.sh
+# Purpose: Ensures 'koby-bowser-ansible' user exists on remote host with
+#          passwordless SSH (Debian Trixie ed25519 pubkey) and passwordless sudo,
+#          then runs playbooks/copy-to-tmp.yml to copy specified file to /tmp.
+# Workspace: ~/.ansible
+# ==============================================================================
+
+set -eo pipefail
+
+# ANSI Colors (Ubuntu terminal standard)
+C_RESET="\033[0m"
+C_RED="\033[0;31m"
+C_GREEN="\033[0;32m"
+C_YELLOW="\033[0;33m"
+C_BLUE="\033[0;34m"
+C_BOLD="\033[1m"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ANSIBLE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+PLAYBOOK="${ANSIBLE_DIR}/playbooks/copy-to-tmp.yml"
+
+TARGET_USER="koby-bowser-ansible"
+PUBKEY_PATH="${HOME}/.ssh/id_ed25519.pub"
+PRIVKEY_PATH="${HOME}/.ssh/id_ed25519"
+SSH_PORT="22"
+ADMIN_USER="root"
+
+usage() {
+    echo -e "$Usage_Text" ; cat << 'USAGE'
+${C_BOLD}Usage:${C_RESET}
+    $(basename "$0") [OPTIONS] <REMOTE_HOST> <FILE_PATH>
+
+${C_BOLD}Description:${C_RESET}
+    1. Checks if '${TARGET_USER}' is present on <REMOTE_HOST> with passwordless SSH.
+    2. If missing, connects via admin user to create '${TARGET_USER}', install
+       your Debian Trixie ed25519 pubkey, and configure passwordless sudo.
+    3. Executes '${PLAYBOOK}' to copy <FILE_PATH> to /tmp on <REMOTE_HOST>.
+
+${C_BOLD}Arguments:${C_RESET}
+    <REMOTE_HOST>          Target hostname or IP address
+    <FILE_PATH>            Local file to copy into remote /tmp
+
+${C_BOLD}Options:${C_RESET}
+

@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+---
+# Collection requise par le provisionnement vSphere (playbooks/provision-vsphere-vms.yml),
+# exécuté DEPUIS LE POSTE (venv WSL) — PAS sur le runner Semaphore.
+#
+# Nom volontairement NON standard (pas « requirements.yml ») pour que le runner
+# Semaphore ne tente pas de l'auto-installer à chaque run
+# (cf. mémoire « Semaphore galaxy install pitfalls »).
+#
+# Installer manuellement dans le venv :
+#   ansible-galaxy collection install -r vsphere-requirements.yml
+#   pip install pyvmomi        # dépendance Python de community.vmware
+collections:
+  - name: community.vmware
+

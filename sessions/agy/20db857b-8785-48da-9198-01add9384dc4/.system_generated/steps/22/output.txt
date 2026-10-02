@@ -1,0 +1,47 @@
+
+The command exited with code 0.
+Output:
+=== Git Status in infra-management-system ===
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit (use -u to show untracked files)
+  feat/le-issue-postfix-target 410220f [origin/feat/le-issue-postfix-target] feat(le): ajout cible postfix.outremer-telecom.fr
+* main                         81767ed [origin/main] Merge branch 'le-cert/onetask.outremer-telecom.fr-20260908130934' into 'main'
+origin	https://gitsi.intranet.local/omt/infra/management/infra-management-system.git (fetch)
+origin	https://gitsi.intranet.local/omt/infra/management/infra-management-system.git (push)
+81767ed (HEAD -> main, origin/main, origin/HEAD) Merge branch 'le-cert/onetask.outremer-telecom.fr-20260908130934' into 'main'
+6af7b6e feat(le): bundle TLS onetask.outremer-telecom.fr (émis automatiquement via Semaphore)
+17d17cb Merge branch 'feat/le-issue-onetask-target' into 'main'
+168d293 (origin/feat/le-issue-onetask-target) feat(le): ajout cible onetask.outremer-telecom.fr
+be8b832 Merge branch 'feat/move-mtq-mailsrvp-to-prod' into 'main'
+=== Directory tree structure ===
+total 84
+drwxrwxr-x 10 koby koby  4096 Aug 13 17:10 .
+drwx------ 39 koby koby  4096 Sep 16 11:53 ..
+-rw-rw-r--  1 koby koby  4161 Aug 13 17:10 AGENTS.md
+-rw-rw-r--  1 koby koby   202 Jun 24 18:45 ansible.cfg
+drwxrwxr-x  4 koby koby  4096 Sep  2 15:18 .claude
+-rw-rw-r--  1 koby koby  2824 Aug 11 13:41 CLAUDE.md
+drwxrwxr-x  2 koby koby  4096 Aug 11 13:41 docs
+drwxrwxr-x  4 koby koby  4096 Aug 11 13:41 files
+drwxrwxr-x  8 koby koby  4096 Sep 16 12:18 .git
+-rw-rw-r--  1 koby koby   438 Aug 11 13:41 .gitignore
+-rw-rw-r--  1 koby koby  1025 Jun 24 18:45 .gitlab-ci.yml
+drwxrwxr-x  7 koby koby  4096 Aug 11 13:41 inventories
+drwxrwxr-x  6 koby koby 12288 Sep  9 11:41 playbooks
+-rw-rw-r--  1 koby koby  1833 Aug 11 13:41 README.md
+-rw-rw-r--  1 koby koby   315 Aug 11 13:41 requirements.yml
+drwxrwxr-x 48 koby koby  4096 Aug 11 13:41 roles
+drwxrwxr-x  3 koby koby  4096 Jun 24 18:45 scripts
+-rw-rw-r--  1 koby koby   588 Aug 11 13:41 vsphere-requirements.yml
+=== Inventories ===
+total 28
+drwxrwxr-x  7 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 10 koby koby 4096 Aug 13 17:10 ..
+drwxrwxr-x  3 koby koby 4096 Jun 24 18:45 common
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 corp
+drwxrwxr-x  4 koby koby 4096 Sep  8 16:40 dev
+drwxrwxr-x  4 koby koby 4096 Sep  8 16:40 prod
+drwxrwxr-x  4 koby koby 4096 Aug 11 13:41 val
+

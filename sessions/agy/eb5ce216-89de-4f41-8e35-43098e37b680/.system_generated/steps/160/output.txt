@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+total 12
+drwxrwxr-x 3 koby koby 4096 Sep  3 16:45 .
+drwxrwxr-x 6 koby koby 4096 Sep  9 16:05 ..
+drwxrwxr-x 2 koby koby 4096 Sep  4 12:00 all
+

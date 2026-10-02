@@ -1,0 +1,10 @@
+You have 1 background task(s) currently running:
+{
+  "taskId":  "6237460b-4163-4167-a26e-b8194f657433/task-427",
+  "toolName":  "run_command",
+  "toolSummary":  "Check references to server_address_ng",
+  "description":  "~/.ansible/kssh -u superuser 172.30.198.49 '\ngrep -rn \"server_address_ng\" /usr/share/centreon/www/modules/centreon-map4-web-client/ 2>/dev/null\n'",
+  "startTime":  "2026-09-10T12:42:21.708587889Z",
+  "stepIndex":  427,
+  "logUri":  "file:///home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-427.log"
+}

@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+808477d (origin/feat/deploy-alertmanager-si-psp-alerting) Deploie l'alerting PSP sur th2-grafac-si1 (phase 5 migration SI)
+840717c Phase 3 playbook: use keactrl stop + auto-relaunch, not reload
+

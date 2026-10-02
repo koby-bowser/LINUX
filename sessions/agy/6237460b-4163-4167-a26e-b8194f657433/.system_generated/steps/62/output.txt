@@ -1,0 +1,44 @@
+
+The command exited with code 0.
+Output:
+#!/usr/bin/env python3
+"""
+kssh: Smart SSH connector using the KeePass server pool.
+Resolves hostname/IP, port, user, key, and password automatically.
+"""
+
+import sys
+import os
+import json
+import subprocess
+
+POOL_JSON = os.path.expanduser("~/.ansible/inventory/server_pool.json")
+PRIV_KEY = os.path.expanduser("~/.ssh/id_ed25519")
+
+def main():
+    args = sys.argv[1:]
+    if not args or '-h' in args or '--help' in args:
+        print("\033[1mUsage:\033[0m kssh [-u <USER>] <SERVER_NAME_OR_IP> [SSH_OPTIONS / REMOTE_COMMAND]")
+        print("Examples: kssh mtq-mailsrvp-01")
+        print("          kssh -u superuser trp-wextp-fe1")
+        print("          kssh trp-wextp-fe1 uptime")
+        print("          kssh 172.30.231.177")
+        sys.exit(0)
+
+    if not os.path.isfile(POOL_JSON):
+        print(f"\033[0;31m[ERROR] Server pool not found at {POOL_JSON}.\033[0m")
+        print("Run: ansible-playbook ~/.ansible/playbooks/kdbx-pool.yml -e 'action=sync' to build it.")
+        sys.exit(1)
+
+    preferred_user = None
+    if '-u' in args:
+        idx = args.index('-u')
+        if idx + 1 < len(args):
+            preferred_user = args[idx + 1]
+            args = args[:idx] + args[idx + 2:]
+    elif '--user' in args:
+        idx = args.index('--user')
+        if idx + 1 < len(args):
+            preferred_user = args[idx + 1]
+            args = args[:idx] + args[idx + 2:]
+

@@ -1,0 +1,48 @@
+
+The command exited with code 0.
+Output:
+/timeshift/snapshots:
+total 28
+drwxr-xr-x 7 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+drwxr-xr-x 3 root root 4096 Sep  3 12:00 2026-09-03_12-00-02
+drwxr-xr-x 3 root root 4096 Sep  4 12:00 2026-09-04_12-00-01
+drwxr-xr-x 3 root root 4096 Sep  7 12:00 2026-09-07_12-00-01
+drwxr-xr-x 3 root root 4096 Sep  8 12:00 2026-09-08_12-00-01
+drwxr-xr-x 3 root root 4096 Sep  9 12:00 2026-09-09_12-00-01
+
+/timeshift/snapshots-boot:
+total 8
+drwxr-xr-x 2 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+
+/timeshift/snapshots-daily:
+total 8
+drwxr-xr-x 2 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+lrwxrwxrwx 1 root root   32 Sep  9 12:00 2026-09-03_12-00-02 -> ../snapshots/2026-09-03_12-00-02
+lrwxrwxrwx 1 root root   32 Sep  9 12:00 2026-09-04_12-00-01 -> ../snapshots/2026-09-04_12-00-01
+lrwxrwxrwx 1 root root   32 Sep  9 12:00 2026-09-07_12-00-01 -> ../snapshots/2026-09-07_12-00-01
+lrwxrwxrwx 1 root root   32 Sep  9 12:00 2026-09-08_12-00-01 -> ../snapshots/2026-09-08_12-00-01
+lrwxrwxrwx 1 root root   32 Sep  9 12:00 2026-09-09_12-00-01 -> ../snapshots/2026-09-09_12-00-01
+
+/timeshift/snapshots-hourly:
+total 8
+drwxr-xr-x 2 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+
+/timeshift/snapshots-monthly:
+total 8
+drwxr-xr-x 2 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+
+/timeshift/snapshots-ondemand:
+total 8
+drwxr-xr-x 2 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+
+/timeshift/snapshots-weekly:
+total 8
+drwxr-xr-x 2 root root 4096 Sep  9 12:00 .
+drwxr-xr-x 9 root root 4096 Sep  9 12:00 ..
+

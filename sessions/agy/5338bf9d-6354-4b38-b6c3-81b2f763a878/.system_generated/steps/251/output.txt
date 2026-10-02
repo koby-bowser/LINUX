@@ -1,0 +1,18 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 1,
+  "project_id": 1,
+  "inventory_id": 2,
+  "repository_id": 1,
+  "environment_id": 1,
+  "name": "Ping semaphoreui.com",
+  "playbook": "ping.yml",
+  "arguments": "[\"ansible_ssh_extra_args='-o StrictHostKeyChecking=no'\"]",
+  "description": "Pings the website to provide a real-world example of using Semaphore.",
+  "view_id": 3,
+  "app": "ansible",
+  "tasks": 0
+}
+

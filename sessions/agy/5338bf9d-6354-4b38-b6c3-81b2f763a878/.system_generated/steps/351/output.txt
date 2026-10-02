@@ -1,0 +1,63 @@
+
+The command exited with code 0.
+Output:
+Task 915 added to queue
+Started: 915
+Run TaskRunner with template: Check Linux Distro and Kernel - PROD (recon)
+
+Preparing: 915
+Cloning Repository https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+Cloning into 'repository_1_template_131'...
+Get current commit hash
+Get current commit message
+cloning inventory repository
+Cloning Repository https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+Cloning into 'repository_1_template_131_inventory_3'...
+No /tmp/semaphore/project_1/repository_1_template_131/playbooks/collections/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_131/playbooks/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_131/collections/requirements.yml file found. Skip galaxy install process.
+
+Skipping install, no requirements found
+No /tmp/semaphore/project_1/repository_1_template_131/playbooks/roles/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_131/playbooks/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_131/roles/requirements.yml file found. Skip galaxy install process.
+
+Skipping install, no requirements found
+
+PLAY [Infra Management - Check Linux Distribution and Kernel Version] **********
+
+TASK [Gather distribution, kernel, and system facts] ***************************
+ok: [mtq-mailsrvp-01]
+
+TASK [Display Host OS and Kernel Information] **********************************
+ok: [mtq-mailsrvp-01] => 
+  msg:
+  - ================ System Information ================
+  - 'Host               : mtq-mailsrvp-01'
+  - 'Hostname           : mtq-mailsrvp-01'
+  - 'OS Family          : Debian'
+  - 'Distribution       : Debian 13.6 (trixie)'
+  - 'Kernel Version     : 6.12.95+deb13-amd64'
+  - 'Architecture       : x86_64'
+  - 'Status             : ONLINE'
+  - =====================================================
+
+TASK [Display Summary Table of All Infrastructure Nodes] ***********************
+ok: [mtq-mailsrvp-01 -> localhost] => 
+  msg: |-
+    ----------------------------------------------------------------------------------------------------------------------------------
+    HOST                     | STATUS       | DISTRIBUTION                           | KERNEL
+    ----------------------------------------------------------------------------------------------------------------------------------
+    mtq-mailsrvp-01          | ONLINE       | Debian 13.6 (trixie)                   | 6.12.95+deb13-amd64
+    ----------------------------------------------------------------------------------------------------------------------------------
+    Summary: Total: 1 | Online: 1 | Unreachable: 0 | Failed: 0
+    ----------------------------------------------------------------------------------------------------------------------------------
+
+PLAY RECAP *********************************************************************
+mtq-mailsrvp-01            : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+

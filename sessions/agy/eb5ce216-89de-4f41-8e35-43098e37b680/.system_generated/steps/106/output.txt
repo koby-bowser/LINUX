@@ -1,0 +1,6 @@
+
+The command exited with code 1.
+Output:
+du: cannot read directory '/var/cache/apt/archives/partial': Permission denied
+1.1G	/var/cache/apt/archives
+

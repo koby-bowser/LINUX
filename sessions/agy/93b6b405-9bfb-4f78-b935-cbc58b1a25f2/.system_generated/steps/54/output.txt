@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+16M	/home/koby/.claude/projects/-home-koby
+3.6M	/home/koby/.claude/projects/-home-koby--ansible
+1.1M	/home/koby/.claude/projects/-home-koby--claude
+1.3M	/home/koby/.claude/projects/-home-koby--config-fish
+1.5M	/home/koby/.claude/projects/-home-koby-infra-management-system
+16K	/home/koby/.claude/projects/-home-koby-pi
+8.0K	/home/koby/.claude/projects/-tmp
+

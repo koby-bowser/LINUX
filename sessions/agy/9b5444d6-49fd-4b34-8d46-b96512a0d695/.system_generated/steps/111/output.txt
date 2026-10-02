@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+lrwxrwxrwx 1 koby koby 32 Sep 17 11:07 /home/koby/.local/bin/kssh -> /home/koby/LINUX/scripts/kssh.py
+

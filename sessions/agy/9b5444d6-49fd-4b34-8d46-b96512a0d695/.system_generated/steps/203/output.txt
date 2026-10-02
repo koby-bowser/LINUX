@@ -1,0 +1,122 @@
+
+The command exited with code 0.
+Output:
+==> /home/koby/LINUX/playbooks/00-smoke-test.yml <==
+---
+# Playbook de validation : confirme que le nœud de contrôle fonctionne
+# (collecte des facts + affichage de quelques infos système de base).
+- name: Validation du nœud de contrôle Ansible
+  hosts: control_node
+  gather_facts: true
+
+  tasks:
+    - name: Afficher la distribution et la version détectées
+      ansible.builtin.debug:
+        msg: >-
+          {{ ansible_distribution }} {{ ansible_distribution_version }}
+          ({{ ansible_distribution_release }}) — kernel {{ ansible_kernel }}
+
+    - name: Vérifier l'espace disque disponible sur /
+
+==> /home/koby/LINUX/playbooks/bootstrap-koby-bowser.yml <==
+---
+- name: Bootstrap koby-bowser-ansible user with passwordless SSH & sudo
+  hosts: all
+  gather_facts: true
+  become: true
+  become_method: ansible.builtin.sudo
+  vars:
+    target_user: "koby-bowser-ansible"
+    local_pubkey_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+
+  tasks:
+    - name: Verify local public key exists
+      ansible.builtin.stat:
+        path: "{{ local_pubkey_path }}"
+
+==> /home/koby/LINUX/playbooks/copy-to-tmp.yml <==
+---
+- name: Validate local source file
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Validate that src_file parameter is provided
+      ansible.builtin.fail:
+        msg: >-
+          Missing required variable 'src_file'.
+          Usage: ansible-playbook playbooks/copy-to-tmp.yml -e "src_file=/path/to/file"
+      when: src_file is not defined or src_file | length == 0
+
+    - name: Verify source file exists on control machine
+      ansible.builtin.stat:
+
+==> /home/koby/LINUX/playbooks/deploy-ssh-key.yml <==
+---
+# Déploie la clé publique SSH locale sur un hôte distant, active/vérifie
+# l'authentification par clé, et corrige la configuration côté serveur.
+#
+# Modèle de connexion attendu (calqué sur l'usage manuel réel) :
+#   - connexion SSH initiale en tant qu'utilisateur non-root (ex. superuser)
+#   - élévation root via sudo, AVEC LE MÊME mot de passe que la connexion SSH
+#     (ex. "sudo -i" côté humain). Ansible reproduit ça avec `become: true` +
+#     `ansible_become_password` : chaque tâche marquée become s'exécute via
+#     sudo non-interactif — résultat identique à un "sudo -i" manuel, sans
+#     shell interactif.
+#
+# Usage :
+#   ansible-playbook -i "<host>," playbooks/deploy-ssh-key.yml -e @/chemin/vars.yml
+#
+
+==> /home/koby/LINUX/playbooks/issue-deploy-certs.yml <==
+---
+# Émet/renouvelle des certificats Let's Encrypt par challenge DNS-01 pour les
+# domaines listés dans group_vars/all/certificates.yml, puis les déploie sur
+# le serveur qui héberge chaque domaine (nginx/apache), avec reload
+# UNIQUEMENT si le certificat a réellement changé (comparaison de numéro de
+# série avant/après émission — pas de coupure de service inutile).
+#
+# Deux backends DNS supportés (un par domaine, voir certificates.yml) :
+#   - rfc2136  : ns1 (BIND), via le plugin officiel certbot-dns-rfc2136
+#   - powerdns : dnsp-mst (PowerDNS), via l'API REST + hooks certbot --manual
+#                (pas de plugin apt/pip fiable disponible pour PowerDNS —
+#                l'API REST officielle est plus stable qu'un plugin tiers)
+#
+# Prérequis avant le premier run :
+#   1. Remplir group_vars/all/certificates.yml (domaine -> backend/hôte cible)
+
+==> /home/koby/LINUX/playbooks/kdbx-pool.yml <==
+---
+- name: KeePass Server Pool Manager & Search
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    default_db_path: "{{ lookup('env', 'HOME') }}/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx"
+    fallback_db_path: "{{ lookup('env', 'HOME') }}/Downloads/OMT_PFS.SYSTEME.ALL.kdbx"
+    kdbx_path: "{{ kdbx_file | default(default_db_path if default_db_stat.stat.exists else fallback_db_path) }}"
+    pool_json_path: "{{ playbook_dir }}/../inventory/server_pool.json"
+    pool_yaml_path: "{{ playbook_dir }}/../inventory/server_pool.yml"
+    parser_script: "{{ playbook_dir }}/../scripts/build_kdbx_pool.py"
+    target_search: "{{ search | default(term | default('')) }}"
+
+  tasks:
+
+==> /home/koby/LINUX/playbooks/search-servers.yml <==
+---
+- name: KeePass Server Pool Manager & Search
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    default_db_path: "{{ lookup('env', 'HOME') }}/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx"
+    fallback_db_path: "{{ lookup('env', 'HOME') }}/Downloads/OMT_PFS.SYSTEME.ALL.kdbx"
+    kdbx_path: "{{ kdbx_file | default(default_db_path if default_db_stat.stat.exists else fallback_db_path) }}"
+    pool_json_path: "{{ playbook_dir }}/../inventory/server_pool.json"
+    pool_yaml_path: "{{ playbook_dir }}/../inventory/server_pool.yml"
+    parser_script: "{{ playbook_dir }}/../scripts/build_kdbx_pool.py"
+    target_search: "{{ search | default(term | default('')) }}"
+
+  tasks:
+

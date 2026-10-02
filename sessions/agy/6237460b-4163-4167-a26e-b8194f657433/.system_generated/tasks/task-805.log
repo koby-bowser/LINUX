@@ -1,0 +1,25 @@
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+HTTP/2 400 
+server: nginx
+date: Thu, 10 Sep 2026 13:38:04 GMT
+content-type: text/html;charset=utf-8
+content-length: 435
+content-language: en
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+

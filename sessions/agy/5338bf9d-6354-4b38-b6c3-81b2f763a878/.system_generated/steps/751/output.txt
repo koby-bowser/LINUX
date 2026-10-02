@@ -1,0 +1,19 @@
+
+The command exited with code 1.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Traceback (most recent call last):
+  File "<string>", line 57, in <module>
+  File "<string>", line 5, in parse_nginx_file
+PermissionError: [Errno 13] Permission denied: '/etc/nginx/sites-enabled/02-commande.sfrcaraibe.fr.conf'
+

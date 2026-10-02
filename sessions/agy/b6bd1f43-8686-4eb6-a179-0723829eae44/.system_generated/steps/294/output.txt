@@ -1,0 +1,28 @@
+
+The command exited with code 0.
+Output:
+-rw-r-----.  1 named named   467 Oct 22  2024 cc.sfrcaraibe.fr
+-rw-r-----.  1 named named   319 Dec  5  2016 red-by-sfrcaraibe.com
+-rw-r-----.  1 named named   318 Dec  5  2016 redbysfrcaraibe.com
+-rw-r-----.  1 named named  1581 May  2  2019 red-by-sfrcaraibe.fr
+-rw-r-----.  1 named named   318 Dec  5  2016 redbysfrcaraibe.fr
+-rw-r-----.  1 named named   318 Dec  5  2016 red-by-sfrcaraibes.com
+-rw-r-----.  1 named named   318 Dec  5  2016 redbysfrcaraibes.com
+-rw-r-----.  1 named named   318 Dec  5  2016 red-by-sfrcaraibes.fr
+-rw-r-----.  1 named named   318 Dec  5  2016 redbysfrcaraibes.fr
+-rw-r-----.  1 named named  2965 Aug  6 16:52 sfrcaraibe.com
+-rw-r-----.  1 named named  1864 Mar 22  2023 sfrcaraibe.com_20230321
+-rw-r--r--.  1 root  root  12707 Oct  2 08:10 sfrcaraibe.fr
+-rw-r-----.  1 root  root  12777 Oct  2 08:06 sfrcaraibe.fr.bak.20261002080625
+-rw-r--r--.  1 root  root  12777 Oct  2 08:10 sfrcaraibe.fr.bak.20261002081014
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibe.gf
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibe.gp
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibe.mq
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibe.net
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibes.com
+-rw-r-----.  1 named named   520 Dec  9  2015 sfrcaraibes.fr
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibes.gf
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibes.gp
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibes.mq
+-rw-r-----.  1 named named   373 Apr  3  2015 sfrcaraibes.net
+

@@ -1,0 +1,68 @@
+
+The command exited with code 0.
+Output:
+Task 914 added to queue
+Started: 914
+Run TaskRunner with template: Check Linux Distro and Kernel - DEV
+
+Preparing: 914
+Cloning Repository https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+Cloning into 'repository_1_template_130'...
+Get current commit hash
+Get current commit message
+cloning inventory repository
+Cloning Repository https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+Cloning into 'repository_1_template_130_inventory_2'...
+No /tmp/semaphore/project_1/repository_1_template_130/playbooks/collections/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_130/playbooks/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_130/collections/requirements.yml file found. Skip galaxy install process.
+
+Skipping install, no requirements found
+No /tmp/semaphore/project_1/repository_1_template_130/playbooks/roles/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_130/playbooks/requirements.yml file found. Skip galaxy install process.
+
+No /tmp/semaphore/project_1/repository_1_template_130/roles/requirements.yml file found. Skip galaxy install process.
+
+Skipping install, no requirements found
+
+PLAY [Infra Management - Check Linux Distribution and Kernel Version] **********
+
+TASK [Gather distribution, kernel, and system facts] ***************************
+fatal: [mtq-mailsrvp-01]: UNREACHABLE! => changed=false 
+  msg: |-
+    Data could not be sent to remote host "172.30.39.153". Make sure this host can be reached over ssh: ssh: connect to host 172.30.39.153 port 30: Operation timed out
+  unreachable: true
+...ignoring
+
+TASK [Display Host OS and Kernel Information] **********************************
+ok: [mtq-mailsrvp-01] => 
+  msg:
+  - ================ System Information ================
+  - 'Host               : mtq-mailsrvp-01'
+  - 'Hostname           : N/A'
+  - 'OS Family          : N/A'
+  - 'Distribution       : N/A'
+  - 'Kernel Version     : N/A'
+  - 'Architecture       : N/A'
+  - 'Status             : UNREACHABLE'
+  - 'Error              : Data could not be sent to remote host "172.30.39.153". Make sure this host can be reached over ssh: ssh: connect to host 172.30.39.153 port 30: Operation timed out'
+  - =====================================================
+
+TASK [Display Summary Table of All Infrastructure Nodes] ***********************
+ok: [mtq-mailsrvp-01 -> localhost] => 
+  msg: |-
+    ----------------------------------------------------------------------------------------------------------------------------------
+    HOST                     | STATUS       | DISTRIBUTION                           | KERNEL
+    ----------------------------------------------------------------------------------------------------------------------------------
+    mtq-mailsrvp-01          | UNREACHABLE  | N/A (unreachable)                      | N/A
+    ----------------------------------------------------------------------------------------------------------------------------------
+    Summary: Total: 1 | Online: 0 | Unreachable: 1 | Failed: 0
+    ----------------------------------------------------------------------------------------------------------------------------------
+
+PLAY RECAP *********************************************************************
+mtq-mailsrvp-01            : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+
+

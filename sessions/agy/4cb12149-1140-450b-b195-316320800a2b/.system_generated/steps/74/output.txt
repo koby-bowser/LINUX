@@ -1,0 +1,22 @@
+The search for "site:github.com/yctimlin/mcp_excalidraw "Antigravity"" returned the following summary:
+The project **`yctimlin/mcp_excalidraw`** is a popular Model Context Protocol (MCP) server and agent skill that provides AI agents with a programmatic, persistent, and interactive Excalidraw canvas[1][2].
+
+While your search query mentioned **"Antigravity"**, it refers to **Google Antigravity**, an agent-first IDE[3][4]. The `mcp_excalidraw` project is frequently discussed in the context of configuring it as an MCP server within the Antigravity IDE to allow AI agents to manage architecture diagrams, UI components, and other visual tasks directly within the editor[3][5].
+
+### Key Details
+*   **Purpose:** Unlike standard Excalidraw integrations that generate a static diagram once, `mcp_excalidraw` provides a live, persistent canvas[6][2]. It allows agents to perform element-level CRUD operations (create, read, update, delete), use layout tools, and see the canvas via screenshots[6][7][8].
+*   **Integration with Antigravity:** Users configure the MCP server in their Antigravity settings to give the IDE's agent access to the Excalidraw toolkit[3][5]. This enables a seamless workflow where the agent can create and refine diagrams without leaving the development environment[3][8].
+*   **Functionality:** It includes a canvas server (web UI) and an MCP server that exposes 26+ tools for programmatic control over the Excalidraw canvas[1][6][9].
+*   **Documentation:** You can find the repository at [github.com/yctimlin/mcp_excalidraw](https://github.com/yctimlin/mcp_excalidraw)[1]. It is widely documented in articles discussing AI-first engineering workflows using tools like Antigravity, Claude Code, and Cursor[3][6][10].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcDd0fy30MjdkH43GUzQm0CUKWLt9dN7JN-EgQEUWAmNFvYQ_U7eG2TSnV5P1cR1uNR8EhBJhygdwTrCxxeNE8Us2rxx1wYzBoDvMskiuOwOtHtAAWNTiUCLsmdJb3Ng==)
+[2] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFcDd0fy30MjdkH43GUzQm0CUKWLt9dN7JN-EgQEUWAmNFvYQ_U7eG2TSnV5P1cR1uNR8EhBJhygdwTrCxxeNE8Us2rxx1wYzBoDvMskiuOwOtHtAAWNTiUCLsmdJb3Ng==)
+[3] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG5juKY7J4816KFCzHHJc6JUyleYAg-_kQxX_xAeEUOHeHY0Rt-rs8tZvewzVubmcI5VKWJ3i5gVq4or8ZICzbEDfY18Z1GJ6qFAj-QAa1UCd8GGEKVzt2uROPpLg5KTQHmUMuQnDN8DAj-V_CqC3ScvfuK4ZCRTLJ9tcn3cSsidsw5zlION892IG5m1ExYdCG3TglDpPadD_fnKWhc-w0ZNWY=)
+[4] [nimbalyst.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQExBuSkeh7hGyId3UYMX2HG4BtaJO3L_h1ZdPOdlhVL1YUrk57r4fFhYH8vKxRQaXoOzk_CqsCi_JgVlcgxTFanbglytZLUv_wNTS5MSUhDLA==)
+[5] [dev.to](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHYn6uHQjXpWM1DTW3R4pqdRejSVl0lqbr2EmA33Py1epSpbYqqhlALTT4F76yr9bkIpRnsS-8UY4chUkAQW7Ys8g6HPmEE8oAa48QgtjFeHt6DKLQFIf47iTtqZUHH4dEebIJu_LHcrmLJUeFqJXF9scgZxORHPFAb34L_HB4_GuJrWK2elNId9-wD3yjlJZhEOu22gEMcFICWG93r8uyM7IaL4pZkEg==)
+[6] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHv7VOdL2mBlDeNLXTC1AsZlAhk3Pysx81LH6eJ7p9u9rIZs3E2lHVio_DRzFl38Jl2zYa6eMTNEuzUv-zN4Om3seRSn5euC2MpPTvvNBIKYNg-UjiGItD3uM3PoRg02PTGGYx2pLzd_XPiCz2MzDSgd2YAC1w=)
+[7] [hysenlabs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGBJQ66O7_1a6W9b2X2AoYCcjDvoQZZqBgg51e20FeVTQE7LuFMJWE98crLQdaRIB2j1GP1Dd476biCtL3ZO99w6QR3B-KgPTJbRNbffNB-Ob3bfSXnNe6dWN_NiAQ2B4ECKdiMtVn058_B4QYIXw==)
+[8] [getclaudeskills.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG7yWPQzKiRioh5AV6kjc3u9-TEWXjLG6hc1M6-Kgej-GxPqqBfK3lsSi3sS0Kzxo59NHSiBjWRGcdToFWpdNVtG6BgDx-FmmdYjBuGGc3DdoMaP8nMsfOgi92gihTYPXzw15pxTrmd9O4uEI3FrCEPIa34pI1FFw==)
+[9] [lobehub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHgOs0ItOh3CkeekRyVWZVwmZiIhheIuEUtUSzgiBkJ5f-4shsGLtAWsndw5zDlivICl_FBdVOtHEhQ-ISwAquPiWYancYlVOSyhxU4scw4CsjP-o3geMGvHJ-wKQaBYq4VOVYJ)
+[10] [explainx.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFFlrq-TwTRwupjK46T07zzTo-tDAKuVST_fwajnm7RPr3EXQKEajhZHWfrYu9l66mv1wDJ7q4SrZ3rwZAAooCJao7ZuuwBTS3aEy5PHqqSnV7DTqHnBy95qMbwdHgP3tN-Zf2CLTAaVC1Naz1-aG0BdKDy3crfoT8=)

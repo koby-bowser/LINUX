@@ -1,0 +1,21 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+total 28
+drwxr-xr-x  2 root root  295 Sep 10 12:25 .
+drwxr-xr-x 10 root root 4096 Aug 19 05:12 ..
+-rw-r-----  1 root root  832 Sep 27  2022 01-revproxy-extranetclient.conf
+-rwxr-x---  1 root root 3067 Sep 10 10:06 02-extranetclient.outremer-telecom.fr.conf
+-rwxr-x---  1 root root 1250 Sep 16  2025 02-extranetclient.outremer-telecom.fr.conf.bak
+-rwxr-x---  1 root root 3600 Aug 10 11:02 02-extranetclient.outremer-telecom.fr.conf.bak.2026-09-10_083706
+-rwxr-x---  1 root root 3674 Sep 10 08:37 02-extranetclient.outremer-telecom.fr.conf.bak_test
+-rw-r--r--  1 root root 2412 May 29  2021 default

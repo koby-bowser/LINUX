@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+HTTP/1.1 200 Connection established
+HTTP/1.1 301 Moved Permanently
+Location: https://outlook.cloud.microsoft/mail/
+HTTP/1.1 417 Expectation Failed
+

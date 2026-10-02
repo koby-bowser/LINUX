@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+SUCCESS, templateId is now: ca2700fd-8b55-4348-936f-8c02aaf0065d
+

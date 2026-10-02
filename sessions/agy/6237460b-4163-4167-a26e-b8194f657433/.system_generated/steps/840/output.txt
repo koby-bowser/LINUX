@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+<truncated 16 lines>
+/usr/share/centreon/www/modules/centreon-map4-web-client/locale/messages.pot:990:msgid "Test connection to server"
+

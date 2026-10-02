@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+zone mnc002.mcc340.pub.3gppnetwork.org/IN: loaded serial 2026020401
+OK
+

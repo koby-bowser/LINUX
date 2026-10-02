@@ -1,0 +1,37 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+	chain input {
+        type filter hook input priority filter; policy drop;
+        ct state { established, related } accept;
+        ct state invalid drop;
+        icmp type echo-request accept;
+        iifname "lo" accept;
+        tcp dport { 30, 80, 443 } accept;
+        udp dport 161 accept;
+        log prefix "[nftables] Inbound Denied: " counter drop;
+    }
+    chain forward {
+        type filter hook forward priority 0; policy drop;
+    }
+    chain output {
+        type filter hook output priority 0; policy accept;
+    }
+}
+

@@ -1,0 +1,22 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+/etc/certs/OMT/CA/:
+total 20
+drwxr-x--- 3 root root  145 Jun 10  2022 .
+drwxr-x--- 3 root root   16 Jan 24  2022 ..
+-rw-r----- 1 root root 3700 Jan 24  2022 identity-ca.crt
+-rw-r----- 1 root root 3692 Jan 24  2022 network-ca.crt
+-rw-r----- 1 root root 3693 Jan 24  2022 proxy-ca.crt
+-rw-r----- 1 root root 3457 Jan 24  2022 root-ca.crt
+-rw-r----- 1 root root 3700 Jan 24  2022 services-ca.crt
+drwxr-xr-x 3 root root  220 Jan 31  2024 STAR_outremer-telecom.fr

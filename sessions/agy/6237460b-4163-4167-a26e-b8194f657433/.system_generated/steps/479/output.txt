@@ -1,0 +1,3 @@
+Found 2 results
+playbooks/group_vars/all/vault.yml
+playbooks/group_vars/all/vault.yml.example

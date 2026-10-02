@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+/home/koby/Downloads/OMT_PFS.SYSTEME.ALL.kdbx
+/home/koby/Documents/keePassXC/Database.kdbx
+/home/koby/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx
+/usr/bin/keepassxc-cli
+pykeepass not installed
+

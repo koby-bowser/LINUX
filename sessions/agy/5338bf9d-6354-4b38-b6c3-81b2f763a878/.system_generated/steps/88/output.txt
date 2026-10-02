@@ -1,0 +1,102 @@
+
+The command exited with code 0.
+Output:
+[
+  {
+    "id": 90,
+    "project_id": 1,
+    "inventory_id": 3,
+    "repository_id": 1,
+    "environment_id": 1,
+    "name": "Add ProxySQL user espaceclient_prod - wm2mp",
+    "playbook": "playbooks/add-proxysql-user-wm2mp-espaceclient-prod.yml",
+    "description": "Ajoute espaceclient_prod dans la ProxySQL PARTAGÉE wm2mp (trp-wm2mp-be2, HG1, déjà éprouvée par retractation_prod), rôle proxysql_user (additif, jamais proxysql_install). Healthcheck e2e intégré. git_branch=feature tant que la MR d'onboarding PROD n'est pas mergée.",
+    "vaults": [
+      {
+        "id": 35,
+        "project_id": 1,
+        "template_id": 90,
+        "vault_key_id": 2,
+        "type": "password"
+      }
+    ],
+    "last_task": {
+      "id": 590,
+      "template_id": 90,
+      "project_id": 1,
+      "status": "success",
+      "playbook": "",
+      "environment": "{\"config_env\": \"prod\"}",
+      "user_id": 2,
+      "created": "2026-07-28T12:10:53.667169Z",
+      "start": "2026-07-28T12:11:00.327219Z",
+      "end": "2026-07-28T12:11:06.706038Z",
+      "message": "PROD 4/4 : ajout espaceclient_prod dans ProxySQL partagée wm2mp + healthcheck e2e",
+      "commit_hash": "b542a69880ad24bd3c4ad948aab3b29851ec42a1",
+      "commit_message": "fix(batch-selfcarebusiness): renew expired sury GPG key on trp-wm2mp-be2",
+      "limit": "",
+      "tpl_playbook": "playbooks/add-proxysql-user-wm2mp-espaceclient-prod.yml",
+      "tpl_alias": "Add ProxySQL user espaceclient_prod - wm2mp",
+      "tpl_app": "ansible",
+      "user_name": "l.rangon"
+    },
+    "git_branch": "feat/onboard-batch-selfcarebusiness-biz-prod",
+    "survey_vars": [
+      {
+        "name": "config_env",
+        "title": "Environnement (vault)",
+        "required": true,
+        "type": "string",
+        "description": "Env dont on charge le secret BDD.",
+        "default_value": "prod"
+      }
+    ],
+    "app": "ansible",
+    "tasks": 1
+  },
+  {
+    "id": 94,
+    "project_id": 1,
+    "inventory_id": 5,
+    "repository_id": 1,
+    "environment_id": 8,
+    "name": "Apply do-ip6:no forwarders DNS - CORP",
+    "playbook": "playbooks/apply-dns-forwarders-disable-ipv6.yml",
+    "description": "Applique do-ip6: no sur th2-dnsc-fwd1/fwd2 (réduction bruit logs IPv6) - approuvé par l'utilisateur le 28/07/2026",
+    "last_task": {
+      "id": 604,
+      "template_id": 94,
+      "project_id": 1,
+      "status": "success",
+      "playbook": "",
+      "user_id": 2,
+      "created": "2026-07-28T21:50:41.323906Z",
+      "start": "2026-07-28T21:50:43.389437Z",
+      "end": "2026-07-28T21:50:47.360085Z",
+      "message": "Application do-ip6:no - approuvé par l'utilisateur",
+      "commit_hash": "6a1b45317c3a5ec02e7e5b8fdab2b688636c37f7",
+      "commit_message": "Ajoute playbook d'application do-ip6:no sur les forwarders DNS (réduction bruit logs)",
+      "limit": "",
+      "tpl_playbook": "playbooks/apply-dns-forwarders-disable-ipv6.yml",
+      "tpl_alias": "Apply do-ip6:no forwarders DNS - CORP",
+      "tpl_app": "ansible",
+      "user_name": "l.rangon"
+    },
+    "git_branch": "feat/check-dns-forwarders-logs",
+    "app": "ansible",
+    "tasks": 1
+  },
+  {
+    "id": 5,
+    "project_id": 1,
+    "repository_id": 1,
+    "environment_id": 1,
+    "name": "Apply infrastructure (OpenTofu)",
+    "playbook": "",
+    "build_template_id": 2,
+    "view_id": 1,
+    "app": "tofu",
+    "tasks": 0
+  }
+]
+

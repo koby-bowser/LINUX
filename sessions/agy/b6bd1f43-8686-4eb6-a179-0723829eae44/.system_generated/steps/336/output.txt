@@ -1,0 +1,19 @@
+
+The command exited with code 1.
+Output:
+--- /var/named/sfrcaraibe.fr.bak.20261002081427	2026-10-02 08:14:27.411161355 +0000
++++ /var/named/sfrcaraibe.fr.bak.20261002082004	2026-10-02 08:20:04.928160956 +0000
+@@ -1,6 +1,6 @@
+ $TTL 180
+ @       IN SOA  ns1.outremer-telecom.fr. noc.resot.net. (
+-			2026100202 ; serial
++			2026100203 ; serial
+ 			12H        ; refresh
+ 			2H         ; retry
+ 			4W         ; expire
+@@ -273,3 +273,4 @@
+ sblb.smartwifi.alabs		CNAME 	omt-l2l-l4-internal-alb-72d227a2f50dee4f.elb.eu-west-3.amazonaws.com.
+ systemapi.smartwifi.alabs	CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+ api.eligibilite			CNAME	trp-wextp-aife1
++_acme-challenge.geo	60	TXT	"aPxOW-jkGHIwoTsqXlZbEjY3atV-0Wva18oJXh5igBk"
+

@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+SUCCESS: Created draft document: "Antigravity API Write Verification" (ID: ac5a8794-e98f-4e1f-8dbc-84df36bd7185)
+Warning: Cleanup failed: {'ok': False, 'error': 'authorization_error', 'status': 403, 'message': 'Authorization error'}
+

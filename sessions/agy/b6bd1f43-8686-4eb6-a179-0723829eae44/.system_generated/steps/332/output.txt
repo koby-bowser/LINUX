@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+ls: cannot access /var/named/sfrcaraibe.fr.bak.*: No such file or directory
+

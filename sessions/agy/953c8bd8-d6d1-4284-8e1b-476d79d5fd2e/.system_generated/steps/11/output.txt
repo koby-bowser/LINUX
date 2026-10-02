@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-dbm1/retractation.yml:15:# + 10.92.74.130 : serveur PHP admin (accès direct à la base, hors ProxySQL). Flux 22
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-dbm1/retractation.yml:20:     + ['172.30.231.194', '10.92.74.130'] }}
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-dbm1/retractation-lpm.yml:14:# + 10.92.74.130 : serveur PHP admin (accès direct à la base, hors ProxySQL). Flux 22
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-dbm1/retractation-lpm.yml:19:     + ['172.30.231.194', '10.92.74.130'] }}
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-dbm1/retractation-red.yml:14:# + 10.92.74.130 : serveur PHP admin (accès direct à la base, hors ProxySQL). Flux 22
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-dbm1/retractation-red.yml:19:     + ['172.30.231.194', '10.92.74.130'] }}
+/home/koby/infra-management-system/docs/retractation-web-prod.md:52:| Grants MariaDB du user | les **8 IP** backends (`172.30.230.113/114/115/118/119/120/121/122`) + ProxySQL partagé wm2mp `172.30.231.194` + **serveur PHP admin `10.92.74.130`** (accès direct, hors ProxySQL) |
+/home/koby/infra-management-system/docs/retractation-web-prod.md:172:  + wm2mp + **PHP admin `10.92.74.130`** ; ProxySQL locale HG10 sur les 8 backends ; healthcheck e2e OK.
+/home/koby/infra-management-system/docs/retractation-web-prod.md:177:- ⚠ **Serveur PHP admin `10.92.74.130`** : grant BDD posé (23 juin) ; **flux firewall
+/home/koby/infra-management-system/docs/retractation-web-prod.md:178:  `10.92.74.130 → trp-wextp-dbm1:3306` à ouvrir** pour l'exploiter (demande en cours).
+/home/koby/infra-management-system/docs/retractation-web-prod.md:194:| 2026-06-23 | Grant **`retractation_prod@10.92.74.130`** (serveur PHP admin, add-only) | tpl 41 #222 ; MR !37 |
+

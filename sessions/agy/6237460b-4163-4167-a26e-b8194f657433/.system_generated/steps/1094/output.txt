@@ -1,0 +1,6 @@
+
+The command exited with code 1.
+Output:
+Connection to 109.62.64.27 443 port [tcp/https] succeeded!
+nc: connect to 109.62.64.18 port 9443 (tcp) timed out: Operation now in progress
+

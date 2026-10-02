@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/inventories/corp/host_vars
+/home/koby/infra-management-system/inventories/corp/group_vars
+/home/koby/infra-management-system/inventories/val/host_vars
+/home/koby/infra-management-system/inventories/val/group_vars
+/home/koby/infra-management-system/inventories/dev/host_vars
+/home/koby/infra-management-system/inventories/dev/group_vars
+/home/koby/infra-management-system/inventories/prod/host_vars
+/home/koby/infra-management-system/inventories/prod/group_vars
+/home/koby/infra-management-system/inventories/common/group_vars
+/home/koby/infra-management-system/playbooks/vars
+

@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+c764d4f0f010fd36f95f8672bf1ae6109c2c754a	refs/heads/feat/onboard-mtq-mailsrvp-dev
+

@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+172.30.250.113  wiki.corp.intranet.local
+

@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+sudo: sorry, you must have a tty to run sudo
+

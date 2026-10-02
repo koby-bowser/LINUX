@@ -1,0 +1,9 @@
+
+The command exited with code 1.
+Output:
+Traceback (most recent call last):
+  File "/tmp/create_outline_doc.py", line 392, in <module>
+    res = requests.post(f'{BASE_URL}/api/documents.create', headers=headers, json=payload, verify=False)
+                                                                    ^^^^^^^
+NameError: name 'headers' is not defined
+

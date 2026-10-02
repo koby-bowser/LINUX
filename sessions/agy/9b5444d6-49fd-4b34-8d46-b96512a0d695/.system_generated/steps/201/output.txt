@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+total 16
+drwxrwxr-x 2 koby koby 4096 Sep 17 11:04 .
+drwxrwxr-x 6 koby koby 4096 Sep 17 11:05 ..
+-rw-rw-r-- 1 koby koby 1499 Sep 17 11:04 deploy_and_reload_cert.yml
+-rw-rw-r-- 1 koby koby 2223 Sep 17 11:04 issue_and_queue_cert.yml
+

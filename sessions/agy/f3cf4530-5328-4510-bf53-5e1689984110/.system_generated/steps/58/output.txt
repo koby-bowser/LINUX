@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/playbooks/generate-idemia-csr.yml:125:        gl_token: "{{ gitlab_api_token }}"
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:22:#   gl_token           : PAT GitLab (scope api ; Maintainer minimum si gl_auto_merge)
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:67:      PRIVATE-TOKEN: "{{ gl_token }}"
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:137:          PRIVATE-TOKEN: "{{ gl_token }}"
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:165:          PRIVATE-TOKEN: "{{ gl_token }}"
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:199:          PRIVATE-TOKEN: "{{ gl_token }}"
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:224:          PRIVATE-TOKEN: "{{ gl_token }}"
+

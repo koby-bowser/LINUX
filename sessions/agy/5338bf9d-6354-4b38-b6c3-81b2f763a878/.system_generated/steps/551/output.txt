@@ -1,0 +1,4 @@
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":33,"LineContent":"    trp-wextp-fe1:"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":152,"LineContent":"        # cf. host_vars/trp-wextp-fe1/api-selfcare.yml). Cible de"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":186,"LineContent":"        trp-wextp-fe1:"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":204,"LineContent":"        trp-wextp-fe1:"}

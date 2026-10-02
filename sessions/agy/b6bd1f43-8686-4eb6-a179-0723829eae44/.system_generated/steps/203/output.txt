@@ -1,0 +1,100 @@
+
+The command exited with code 0.
+Output:
+
+PLAY [Émettre/renouveler les certificats Let's Encrypt (DNS-01) et les installer] ***
+
+TASK [Installer certbot, le plugin RFC2136, et les outils nécessaires aux hooks] ***
+ok: [localhost]
+
+TASK [S'assurer que le répertoire des identifiants/hooks certbot existe (700)] ***
+ok: [localhost]
+
+TASK [Déployer le fichier d'identifiants RFC2136 (ns1/BIND)] *******************
+skipping: [localhost]
+
+TASK [Déployer les hooks manuels PowerDNS (auth/cleanup)] **********************
+changed: [localhost] => (item=pdns-auth-hook.sh)
+changed: [localhost] => (item=pdns-cleanup-hook.sh)
+
+TASK [Déployer les hooks manuels ns1/BIND (édition de zone via SSH)] ***********
+skipping: [localhost] => (item=ns1-zonefile-auth-hook.sh) 
+skipping: [localhost] => (item=ns1-zonefile-cleanup-hook.sh) 
+skipping: [localhost]
+
+TASK [Déployer le script distant d'édition de zone sur ns1] ********************
+skipping: [localhost]
+
+TASK [Rendre le script distant exécutable sur ns1] *****************************
+skipping: [localhost]
+
+TASK [Déployer le script de découverte de zone sur ns1 (mode ad-hoc)] **********
+skipping: [localhost]
+
+TASK [Rendre le script de découverte de zone exécutable sur ns1] ***************
+skipping: [localhost]
+
+TASK [Provisionner le ~/.ssh de root avec la clé et l'alias ns1 (pour les hooks certbot)] ***
+skipping: [localhost] => (item={'src': '/home/koby/.ssh/id_rsa', 'dest': '/root/.ssh/id_rsa', 'mode': '0600'}) 
+skipping: [localhost] => (item={'src': '/home/koby/.ssh/id_rsa.pub', 'dest': '/root/.ssh/id_rsa.pub', 'mode': '0644'}) 
+skipping: [localhost]
+
+TASK [S'assurer que le ~/.ssh de root a les bonnes permissions de répertoire] ***
+skipping: [localhost]
+
+TASK [Ajouter l'alias ns1 au ~/.ssh/config de root, s'il n'y est pas déjà] *****
+skipping: [localhost]
+
+TASK [[ad-hoc] Découvrir la zone ns1 hébergeant] *******************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Échouer si aucune zone ns1 ne contient] *************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Extraire zone/fichier depuis la sortie de find-zone.sh] *********
+skipping: [localhost]
+
+TASK [[ad-hoc] Construire l'entrée de certificat pour] *************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Zone découverte pour] *******************************************
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend rfc2136 (ns1/BIND)] *********
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend powerdns (dnsp-mst)] ********
+included: /home/koby/LINUX/playbooks/tasks/issue_and_queue_cert.yml for localhost => (item={'domain': 'epdg.epc.mnc002.mcc340.pub.3gppnetwork.org', 'extra_sans': [], 'dns_backend': 'powerdns', 'target_host': 'CHANGEME', 'webserver': 'nginx', 'service_name': 'nginx', 'cert_dest_dir': '/etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org'})
+
+TASK [[epdg.epc.mnc002.mcc340.pub.3gppnetwork.org] Relever le numéro de série actuel (avant émission), si le certificat existe déjà] ***
+ok: [localhost]
+
+TASK [[epdg.epc.mnc002.mcc340.pub.3gppnetwork.org] certbot certonly] ***********
+changed: [localhost]
+
+TASK [[epdg.epc.mnc002.mcc340.pub.3gppnetwork.org] Relever le numéro de série (après émission)] ***
+ok: [localhost]
+
+TASK [[epdg.epc.mnc002.mcc340.pub.3gppnetwork.org] Ajouter à la file de déploiement] ***
+ok: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend ssh_zonefile (ns1/BIND, édition manuelle)] ***
+skipping: [localhost]
+
+TASK [Résumé des certificats traités] ******************************************
+ok: [localhost] => {
+    "certs_deploy_queue": [
+        {
+            "cert_dest_dir": "/etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org",
+            "changed": true,
+            "domain": "epdg.epc.mnc002.mcc340.pub.3gppnetwork.org",
+            "service_name": "nginx",
+            "target_host": "CHANGEME"
+        }
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=9    changed=2    unreachable=0    failed=0    skipped=16   rescued=0    ignored=0   
+
+

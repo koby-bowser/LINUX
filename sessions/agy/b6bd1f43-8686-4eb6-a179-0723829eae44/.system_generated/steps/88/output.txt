@@ -1,0 +1,14 @@
+Task: b6bd1f43-8686-4eb6-a179-0723829eae44/task-86
+Status: RUNNING
+Log: /home/koby/.gemini/antigravity-cli/brain/b6bd1f43-8686-4eb6-a179-0723829eae44/.system_generated/tasks/task-86.log
+Log output:
+<truncated 459 lines>
+/home/koby/infra-management-system/inventories/corp/group_vars/all/bootstrap_debian.yml:27:# th2-dnsc-res1 : serveur PowerDNS distinct du master public th2-dnsp-mst1
+/home/koby/infra-management-system/inventories/prod/group_vars/all.yml:47:# master public th2-dnsp-mst1 (zones publiques, cf. scripts/acme/).
+/home/koby/infra-management-system/scripts/acme/README.md:6:(`th2-dnsp-mst1`). Aucun port entrant requis.
+/home/koby/infra-management-system/scripts/acme/README.md:16:| `retractation.redcaraibe.fr` | `redcaraibe.fr` | PowerDNS `th2-dnsp-mst1` | TXT direct sur PowerDNS |
+/home/koby/infra-management-system/scripts/acme/README.md:34:## Prérequis PowerDNS (une seule fois, sur `th2-dnsp-mst1`)
+/home/koby/infra-management-system/scripts/acme/README.md:60:# Clé API PowerDNS (master th2-dnsp-mst1) — stockée chiffrée ansible-vault dans
+/home/koby/infra-management-system/scripts/acme/README.md:69:> master `th2-dnsp-mst1`, avec un `default-soa-edit-api` actif (serial date-based) :
+
+Last progress: 0s ago

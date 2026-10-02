@@ -1,0 +1,40 @@
+
+The command exited with code 0.
+Output:
+          ansible_host: 172.30.246.12
+          ansible_user: root
+          ansible_password: Uv&TmA$_V*&KIkX8VNNg
+          kdbx_password: Uv&TmA$_V*&KIkX8VNNg
+          ansible_port: 30
+          kdbx_title: trp-wextd-jks1
+          kdbx_group: OMT_PFS.SYSTEME.ALL/TRP/linux/TOOLC/root
+          kdbx_ips:
+          - 172.30.246.12
+          - 172.30.230.100
+          kdbx_protocol: ssh
+        trp-wintc-fe1:
+          ansible_host: 172.30.250.113
+          ansible_user: superuser
+          ansible_password: V4t!9sQzN#2wL8Xp
+          kdbx_password: V4t!9sQzN#2wL8Xp
+          kdbx_title: trp-wintc-fe1
+          kdbx_group: OMT_PFS.SYSTEME.ALL/TRP/linux/WINTC
+          kdbx_ips:
+          - 172.30.250.113
+          kdbx_protocol: ssh
+        trp-wintc-be1:
+          ansible_host: 172.30.250.129
+          ansible_user: superuser
+          ansible_password: q8XVOJCjrEFnGsrrM5uD
+          kdbx_password: q8XVOJCjrEFnGsrrM5uD
+          kdbx_title: trp-wintc-be1
+          kdbx_group: OMT_PFS.SYSTEME.ALL/TRP/linux/WINTC
+          kdbx_ips:
+          - 172.30.250.129
+          kdbx_protocol: ssh
+        trp-wintc-dbm1:
+          ansible_host: 72.30.250.105
+          ansible_user: superuser
+          ansible_password: YSG7Sh5z7MWAxmkOSzrU
+          kdbx_password: YSG7Sh5z7MWAxmkOSzrU
+

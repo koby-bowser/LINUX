@@ -1,0 +1,123 @@
+
+The command exited with code 0.
+Output:
+
+PLAY [KeePass Server Pool Manager & Search] ************************************
+
+TASK [Check default KeePass DB existence] **************************************
+ok: [localhost]
+
+TASK [Check server pool cache existence] ***************************************
+ok: [localhost]
+
+TASK [Determine if pool synchronization is required] ***************************
+ok: [localhost]
+
+TASK [Prompt for KeePass database password if pool needs sync] *****************
+skipping: [localhost]
+
+TASK [Set resolved KeePass password] *******************************************
+skipping: [localhost]
+
+TASK [Synchronize server pool from KeePass database] ***************************
+skipping: [localhost]
+
+TASK [Display synchronization summary] *****************************************
+skipping: [localhost]
+
+TASK [Search server pool for query] ********************************************
+ok: [localhost]
+
+TASK [Display search results] **************************************************
+ok: [localhost] => {
+    "msg": [
+        "=== [Search Results for 'trp-wextp-fe': 12 match(es)] ===",
+        "",
+        "  [1] trp-wextp-fe2 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.98 (Port: 30)",
+        "      User     : superuser",
+        "      Password : iBjD2J5J!m%1=GZ2hSxn",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [2] trp-wextp-fe2 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.98 (Port: 30)",
+        "      User     : root",
+        "      Password : O>dX[yp5Fa,f&@R;V{5L",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [3] trp-wextp-fe2 [SSH]",
+        "      IP(s)    : 172.30.230.98 (Port: 30)",
+        "      User     : superuser",
+        "      Password : passwd",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [4] trp-wextp-fe3 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.99, 172.30.230.98 (Port: 30)",
+        "      User     : superuser",
+        "      Password : :^7O,>03'''1Y%%i`fhk",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [5] trp-wextp-fe3 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.99 (Port: 30)",
+        "      User     : root",
+        "      Password : O>dX[yp5Fa,f&@R;V{5L",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [6] trp-wextp-fe1 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.97 (Port: 30)",
+        "      User     : superuser",
+        "      Password : q8R#vK3n!p2T$zF6",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [7] trp-wextp-fe2 [SSH]",
+        "      IP(s)    : 172.30.230.98 (Port: 30)",
+        "      User     : superuser",
+        "      Password : G7x!v9Pq#r2Zt4$Lm8wQy5",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [8] trp-wextp-fe3 [SSH]",
+        "      IP(s)    : 172.30.230.99, 172.30.230.98 (Port: 30)",
+        "      User     : superuser",
+        "      Password : n9G$3vTq!zR8@pLf2#xHm7&bW1sY0uF",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "      Notes    : Old PWD: PY:7'1Ivu(%*IrxWm_cEtZY<d",
+        "",
+        "  [9] trp-wextp-fe1 [SSH]",
+        "      IP(s)    : 172.30.230.97 (Port: 30)",
+        "      User     : superuser",
+        "      Password : n7$Rk8!FvZq2@Yp4#B6tLm9%",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [10] trp-wextp-fe2 [SSH]",
+        "      IP(s)    : 172.30.230.98 (Port: 30)",
+        "      User     : root",
+        "      Password : K3m#R8t!p5Vq9$zN2yLx7@",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [11] trp-wextp-fe1 [SSH]",
+        "      IP(s)    : 172.30.230.97 (Port: 30)",
+        "      User     : root",
+        "      Password : `F3n@9xW!z2Q#s7L%r8J`",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [12] trp-wextp-fe3 [SSH]",
+        "      IP(s)    : 172.30.230.99 (Port: 30)",
+        "      User     : root",
+        "      Password : O>dX[yp5Fa,f&@R;V{5L",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root"
+    ]
+}
+
+TASK [Read pool metadata] ******************************************************
+skipping: [localhost]
+
+TASK [Parse pool metadata] *****************************************************
+skipping: [localhost]
+
+TASK [Display pool summary and usage guide] ************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+
+

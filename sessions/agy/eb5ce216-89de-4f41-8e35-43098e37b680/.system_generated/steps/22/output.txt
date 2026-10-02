@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+-rwxrwxr-x 1 koby koby 366828204 Sep  8 10:45 '/home/koby/Documents/VMware Workstation Pro/VMware-Workstation-Full-26H1u1-25688693.x86_64.bundle'
+

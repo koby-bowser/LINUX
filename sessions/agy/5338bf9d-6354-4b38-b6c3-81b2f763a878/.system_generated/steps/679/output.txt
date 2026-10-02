@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP superuser 'G7v!r9Qp#2Lm8Zt4'
+OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root root 'tR3$kB6w@1Xc9Nf5'
+

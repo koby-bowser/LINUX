@@ -1,0 +1,141 @@
+
+The command exited with code 0.
+Output:
+|Roundcube
+|A définir
+|
+|LDAP
+|A définir
+|
+|389
+|ldap
+|
+|-
+|Postfix
+|A définir
+|
+|PMG
+|A définir
+|
+|25
+|smtp
+|
+|-
+|Postfix
+|A définir
+|
+|Dovecote
+|A définir
+|
+|24
+|lmtp
+|
+|}
+
+==Intervenants==
+
+===Internes===
+{| class="wikitable"
+| colspan="2" |'''Organisateurs'''
+| colspan="10" |'''Intervenant  TECH'''
+| colspan="4" |'''Intervenant  Non-TECH'''
+|-
+|CDP
+|Architecte
+|SYS Win
+|SYS Lin
+|SECU
+|DATA
+|NSS
+|BSS
+|NOC
+|BO
+|HDT
+|DEV
+|Compta
+|Service Client
+|Market/Com
+|Vente
+|-
+|Amit
+|Amit
+|
+|Amit
+|Nilesh
+|
+|
+|
+|
+|Moorshid
+|
+|Amit
+|
+|
+|
+|
+|}
+
+===Externes===
+==Liste des taches==
+{| class="wikitable"
+!#
+!intitulé
+!description
+!executant
+!#dépendance
+|-
+|1.
+|Création VM
+|
+|Amit
+|
+|-
+|2.
+|Installations OS
+|
+|Amit
+|
+|-
+|3.
+|Installations Applicatifs
+|
+|Amit
+|
+|-
+|4.
+|Ouverture flux
+|
+|Nilesh
+|
+|-
+|5.
+|Test de connectivité 
+|
+|Amit
+|Ouverture flux
+|-
+|6.
+|Test d’envoi et reception mails
+|
+|Amit
+|Test de connectivité 
+|-
+|7.
+|Migrations des BALs
+|
+|Amit
+|
+|}
+
+==Contraintes Temporelles==
+<Lister les dates clefs du projet, dates incompressibles, jalon obligatoires (a corréler avec la liste des taches), date d'intervention fournisseur figées, etc..., un diagramme est preferable>
+
+==Condition de réussite==
+
+*Migrations des BALs vers la nouvelle plateforme
+*Integration avec PMG
+*Configuration des client messageries comme Outlook
+
+==Annexes==
+Informations complémentaires ou contraintes connues a l'initialisation du projet
+[[Catégorie: PMP]]

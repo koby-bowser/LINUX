@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+total 4.4M
+-rw-r-----  1 root              root            997K Sep  1 00:06 lynis.log
+drwxr-x---  4 root              root            720K Sep  9 13:00 recap
+-rw-r-----  1 root              adm             510K Sep  9 11:26 rkhunter.log
+-rw-r-----  1 root              adm             510K Sep  3 10:35 rkhunter.log.1
+-rw-rw-r--  1 root              utmp            286K Jul 10 11:56 lastlog
+-rw-r--r--  1 root              root            204K Sep  9 11:21 dpkg.log
+-rw-rw-r--  1 root              utmp            160K Sep  9 11:16 wtmp
+-rw-r-----  1 root              root            152K Sep  1 00:06 lynis-report.dat
+-rw-r--r--  1 root              root            136K Aug 31 11:03 dpkg.log.1
+-rw-r--r-- 1 root        root  919 Jul 31 10:51 /var/log/alternatives.log.2.gz
+-rw-r--r-- 1 root        root  338 Jun 29 10:13 /var/log/alternatives.log.3.gz
+-rw-r--r-- 1 root        root  526 Jun  1 10:32 /var/log/alternatives.log.4.gz
+-rw-r--r-- 1 root        root 3.4K Apr 30 10:53 /var/log/alternatives.log.5.gz
+-rw-r--r-- 1 root        root  904 Mar 30 11:09 /var/log/alternatives.log.6.gz
+-rw-r--r-- 1 root        root  303 Feb 26  2026 /var/log/alternatives.log.7.gz
+-rw-r--r-- 1 root        root 1.3K Jan 28  2026 /var/log/alternatives.log.8.gz
+-rw-r--r-- 1 root        root 5.2K Dec 29  2025 /var/log/alternatives.log.9.gz
+-rw-r----- 1 root        adm   479 Aug 26 10:30 /var/log/apache2/error.log.10.gz
+-rw-r----- 1 root        adm   433 Aug 25 11:17 /var/log/apache2/error.log.11.gz
+

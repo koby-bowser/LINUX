@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+Status: 200
+Body: {"status":"UP"}
+

@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+Updating be8b832..81767ed
+Fast-forward
+ ...etask.outremer-telecom.fr_certificate_chain.pem | 81 ++++++++++++++++++++++
+ .../onetask.outremer-telecom.fr_private_key.pem    | 18 +++++
+ playbooks/issue-le-cert.yml                        |  7 ++
+ 3 files changed, 106 insertions(+)
+ create mode 100644 files/tls/onetask.outremer-telecom.fr/onetask.outremer-telecom.fr_certificate_chain.pem
+ create mode 100644 files/tls/onetask.outremer-telecom.fr/onetask.outremer-telecom.fr_private_key.pem
+

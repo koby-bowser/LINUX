@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+ENCRYPTION SUCCESS
+VERIFICATION SUCCESS: New token verified inside vault!
+

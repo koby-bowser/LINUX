@@ -1,0 +1,30 @@
+
+The command exited with code 0.
+Output:
+total 36
+drwxrwxr-x  7 koby koby 4096 Sep 17 11:13 .
+drwx------ 40 koby koby 4096 Sep 17 15:36 ..
+drwxrwxr-x  3 koby koby 4096 Sep  4 17:30 .claude
+drwx------  2 koby koby 4096 Sep  9 16:46 cp
+drwx------  2 koby koby 4096 Sep 16 12:20 galaxy_cache
+drwx------  4 koby koby 4096 Sep  4 17:31 .remember
+drwx------  2 koby koby 4096 Sep 17 11:10 tmp
+-rw-r--r--  1 root root 6943 Sep  4 15:58 typescript
+=== LINUX ===
+total 48
+drwxrwxr-x  8 koby koby 4096 Sep 17 11:05 .
+drwx------ 40 koby koby 4096 Sep 17 15:36 ..
+-rw-rw-r--  1 koby koby  285 Sep  9 16:08 ansible.cfg
+lrwxrwxrwx  1 koby koby   25 Sep 17 11:05 copy-to-remote.sh -> scripts/copy-to-remote.sh
+drwxrwxr-x  8 koby koby 4096 Sep 17 12:08 .git
+-rw-rw-r--  1 koby koby  343 Sep  9 18:39 .gitignore
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:10 host_vars
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:05 inventory
+lrwxrwxrwx  1 koby koby   15 Sep 17 11:05 kssh -> scripts/kssh.py
+drwxrwxr-x  6 koby koby 4096 Sep 17 11:05 playbooks
+-rw-rw-r--  1 koby koby    7 Sep 17 10:46 README.md
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:10 roles
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:05 scripts
+lrwxrwxrwx  1 koby koby   25 Sep 17 11:05 search-servers.sh -> scripts/search-servers.sh
+-rw-------  1 koby koby    5 Sep  9 16:08 .vault_pass
+

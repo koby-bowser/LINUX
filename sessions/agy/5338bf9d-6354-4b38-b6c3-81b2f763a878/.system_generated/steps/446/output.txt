@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+uid=5002(koby-bowser-ansible) gid=5002(koby-bowser-ansible) groups=5002(koby-bowser-ansible),27(sudo),990(SSH_Users)
+

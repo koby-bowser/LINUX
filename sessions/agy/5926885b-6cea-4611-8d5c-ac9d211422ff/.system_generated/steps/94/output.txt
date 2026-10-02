@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+{"data":{"mode":"post","uploadUrl":"/api/files.create","form":{"Cache-Control":"max-age=31557600","Content-Type":"image/png","key":"uploads/66d00cb4-a3cf-422a-a249-ed306710d7cf/8fbbcbcf-6e49-4f90-8807-2153e10f956a/test.png","acl":"private","maxUploadSize":"20971520","contentType":"image/png","sig":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ1cGxvYWRzLzY2ZDAwY2I0LWEzY2YtNDIyYS1hMjQ5LWVkMzA2NzEwZDdjZi84ZmJiY2JjZi02ZTQ5LTRmOTAtODgwNy0yMTUzZTEwZjk1NmEvdGVzdC5wbmciLCJ0eXBlIjoiYXR0YWNobWVudC11cGxvYWQiLCJpYXQiOjE3OTAyNDU2MDIsImV4cCI6MTc5MDI0OTIwMn0._aWYuYhFW7ZvDpF2CdlowKyeRh4kW3Nj5WlGvCAGekY","_csrf":""},"attachment":{"userId":"66d00cb4-a3cf-422a-a249-ed306710d7cf","documentId":null,"contentType":"image/png","name":"test.png","id":"8fbbcbcf-6e49-4f90-8807-2153e10f956a","url":"/api/attachments.redirect?id=8fbbcbcf-6e49-4f90-8807-2153e10f956a","size":"1234"}},"status":200,"ok":true}
+

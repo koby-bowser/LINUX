@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+total 24
+drwx------ 2 root root 4096 Sep 10 17:26 .
+drwx------ 3 root root 4096 Sep  3 17:12 ..
+-rwx------ 1 root root 3538 Sep  3 18:51 ns1-zonefile-auth-hook.sh
+-rwx------ 1 root root  870 Sep  3 17:18 ns1-zonefile-cleanup-hook.sh
+-rwx------ 1 root root 2377 Sep 10 17:26 pdns-auth-hook.sh
+-rwx------ 1 root root 1074 Sep 10 17:26 pdns-cleanup-hook.sh
+

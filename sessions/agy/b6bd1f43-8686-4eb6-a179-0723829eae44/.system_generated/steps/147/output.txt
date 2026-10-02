@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+_acme-challenge.redcaraibe.fr	3600	IN	TXT	"WKm4O_-8yqdmMjxCwE2GnNZVxpdmlY59t7TLDGJ_zYE"
+

@@ -1,0 +1,5 @@
+
+Encountered error in step execution: context canceled
+Output:
+=== [Synchronizing Server Pool from KeePass] ===
+Enter KeePass Master Password: 

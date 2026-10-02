@@ -1,0 +1,23 @@
+
+The command exited with code 1.
+Output:
+Argument(s) de position manquant(s).
+
+Utilisation keepassxc-cli export [options] database
+Exporte au format indiqué le contenu de la base de données vers la sortie standard.
+
+Options :
+  -q, --quiet                    Silence password prompt and other secondary
+                                 outputs.
+  -k, --key-file <path>          Key file of the database.
+  --no-password                  Deactivate password key for the database.
+  -y, --yubikey <slot[:serial]>  Yubikey slot and optional serial used to
+                                 access the database (e.g., 1:7370001).
+  -f, --format <xml|csv|html>    Format to use when exporting. Available
+                                 choices are 'xml', 'csv' or 'html'. Defaults to
+                                 'xml'.
+  -h, --help                     Display this help.
+
+Arguments :
+  database                       Chemin de la base de données.
+

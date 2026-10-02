@@ -1,0 +1,104 @@
+
+The command exited with code 0.
+Output:
+==Description==
+L'architecture actuelle de '''Qmail''' est très complexe et le nombre de resources utilisé est assez énorme en terme de serveurs déployés. 
+ 
+[[Fichier:Old Architecture.png|alt=|bordure|gauche|679x679px]]
+<div style="clear: both;"></div>
+
+
+'''<u>Solutions proposées:</u>'''
+
+*'''Postfix''': Agit en tant qu’agent de transfert de courrier (MTA) pour acheminer et livrer les emails.
+*'''Dovecot''': Sert d’agent de distribution de courrier (MDA) et de serveur IMAP/POP3 pour gérer la récupération des emails.
+*'''Roundcube''' : Fournit une interface client de messagerie web pour que les utilisateurs accèdent à leurs emails.
+*'''LDAP''': Sauvegarde les informations des utilisateurs et les données d’authentification.
+*'''Base de données (MySQL/MariaDB/PostgreSQL)''': Stocke les métadonnées des emails, les paramètres de Roundcube et d’autres données nécessaires.
+
+
+'''<u>Cas d'utilisation (scénarios):</u>'''
+
+#Authentification des utilisateurs :
+#*Les utilisateurs s’authentifient via Roundcube, qui interroge le serveur LDAP pour les identifiants.
+#Envoi d’emails :
+#*Les utilisateurs envoient des emails via Roundcube.
+#*Roundcube transfère l’email à Postfix.
+#*Postfix achemine l’email vers le serveur de messagerie du destinataire.
+#Récupération des emails:
+#*Les utilisateurs accèdent à leurs emails via Roundcube.
+#*Roundcube communique avec Dovecot pour récupérer les emails.
+#*Dovecot récupère les emails du stockage de courrier et les fournit à Roundcube.
+#Stockage des données:
+#*Les informations des utilisateurs et les détails d’authentification sont stockés dans LDAP.
+#*Les métadonnées des emails et les paramètres de Roundcube sont stockés dans la base de données.<br />
+
+==Schéma n1 (physique)==
+<Pas de schéma nécessaire car l'infrastructure à déployer ne comporte pas des équipements physiques>
+
+==Schéma n3 (paquet)==
+<Parcours des données et adressage logique, organisation des réseaux>
+
+==Schéma n4 (transport)==
+[[Fichier:Flux_mail.jpg|alt=]]<br />
+==Schéma fonctionnel==
+
+
+[[Fichier:Functional Schema.png|alt=|975x975px]]
+
+==Matrice de Flux==
+{| class="wikitable"
+|'''Nom  source'''
+|'''CIDR (si existant)'''
+|'''VLAN'''
+'''(si existant)'''
+|'''Nom  destination'''
+|'''CIDR  destination'''
+'''(si existant)'''
+|'''VLAN'''
+'''(si existant)'''
+|'''port'''
+|'''service'''
+|'''commentaire'''
+|-
+|External users
+|
+|
+|trp-wextp-fe1
+|172.30.230.97 + IP publique
+|
+|443
+|https
+|
+|-
+|Roundcube
+|A définir
+|
+|Postfix
+|A définir
+|
+|587
+|smtp
+|
+|-
+|Roundcube
+|A définir
+|
+|Dovecote
+|A définir
+|
+|143
+|imap/pop3
+|
+|-
+|Roundcube
+|A définir
+|
+|MariaDB
+|A définir
+|
+|3306
+|mariadb / proxysql
+|
+|-
+

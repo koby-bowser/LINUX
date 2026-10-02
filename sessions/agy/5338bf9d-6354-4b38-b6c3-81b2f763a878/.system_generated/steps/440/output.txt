@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+[{'vhost_listen': '*:80', 'domains': ['example.com', 'www.example.com'], 'ssl_certificate': None, 'ssl_key': None}, {'vhost_listen': '*:443', 'domains': ['secure.example.com', 'mail.example.com', 'webmail.example.com'], 'ssl_certificate': '/etc/ssl/certs/apache-cert.pem', 'ssl_key': '/etc/ssl/private/apache-key.pem'}]
+

@@ -1,0 +1,24 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/sync-ai-sessions.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -196,15 +196,9 @@
+     - name: Générer l'index des sessions Antigravity CLI (session_index.jsonl)
+       ansible.builtin.command:
+         cmd: >-
+-          python3 -c "
+-          import sqlite3, json, sys
+-          src, dst = sys.argv[1], sys.argv[2]
+-          conn = sqlite3.connect(src)
+-          rows = conn.execute('SELECT conversation_id, title, last_modified_time FROM conversation_summaries ORDER BY last_modified_time DESC').fetchall()
+-          with open(dst, 'w', encoding='utf-8') as f:
+-              for r in rows:
+-                  f.write(json.dumps({'id': r[0], 'thread_name': r[1], 'updated_at': str(r[2])}) + '\n')
+-          " "{{ agy_src }}/conversation_summaries.db" "{{ agy_dest }}/session_index.jsonl"
++          python3 "{{ repo_root }}/scripts/export_session_index.py"
++          "{{ agy_src }}/conversation_summaries.db"
++          "{{ agy_dest }}/session_index.jsonl"
+       when: src_exists.agy_summaries and not ansible_check_mode
+       changed_when: false
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

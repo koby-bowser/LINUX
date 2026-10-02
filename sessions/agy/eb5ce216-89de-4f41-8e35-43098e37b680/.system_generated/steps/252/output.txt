@@ -1,0 +1,24 @@
+Task: eb5ce216-89de-4f41-8e35-43098e37b680/task-250
+Status: RUNNING
+Log: /home/koby/.gemini/antigravity-cli/brain/eb5ce216-89de-4f41-8e35-43098e37b680/.system_generated/tasks/task-250.log
+Log output:
+<truncated 11 lines>
+#########################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Creating system user 'koby-bowser-ansible'...
+Adding 'koby-bowser-ansible' to required SSH AllowGroup 'SSH_Users'...
+Configuring passwordless sudo in /etc/sudoers.d/koby-bowser-ansible...
+Centralized AuthorizedKeysFile detected: /etc/ssh/authorized_keys/koby-bowser-ansible
+Remote bootstrap completed successfully.
+
+=== [Verifying Passwordless SSH Connection] ===
+
+Last progress: 0s ago

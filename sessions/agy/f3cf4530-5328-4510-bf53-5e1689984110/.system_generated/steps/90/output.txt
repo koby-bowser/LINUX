@@ -1,0 +1,107 @@
+
+The command exited with code 0.
+Output:
+commit 6348354f949f9393ef587b34e70b0a51b740d05e
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Thu Aug 6 14:11:11 2026 -0400
+
+    Read the certificate issuer without the openssl binary
+    
+    Run #816 failed on the pre-commit issuer check: the Semaphore runner
+    image ships no openssl CLI ("[Errno 2] No such file or directory:
+    b'openssl'"). The rescue path behaved as designed — it fell back to
+    the base64 dump, so nothing was lost and no certificate was
+    re-issued.
+    
+    Read the issuer with the cryptography library instead, which is a
+    dependency of ansible-core for vault and is already used by
+    generate-idemia-csr.yml. Verified against the real chain: it returns
+    the leaf's issuer (CN=YE2,O=Let's Encrypt,C=US) and the STAGING guard
+    still trips correctly on a staging issuer.
+    
+    Also carries the vault re-encrypted with the real PAT: the version
+    merged earlier still held the placeholder, which would have failed
+    the API call with a 401.
+    
+    Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+
+ scripts/acme/gitlab_api_vault.yml | 257 +++++++++++++++++++-------------------
+ 1 file changed, 129 insertions(+), 128 deletions(-)
+
+commit e97f3d2989ff20dbf77e9832ac5f2d14bcb69da6
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Thu Aug 6 13:42:27 2026 -0400
+
+    Add the vault-encrypted GitLab PAT used by the automatic bundle commit
+    
+    Consumed by playbooks/tasks/commit-le-bundle-gitlab.yml. Encrypted
+    with vault id 2, already attached to Semaphore template 53, so no
+    Semaphore change is needed.
+    
+    Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+
+ scripts/acme/gitlab_api_vault.yml | 129 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 129 insertions(+)
+
+commit f1e64ac7464afad93b9c3b05d50e49bc3568d527
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Mon Aug 3 21:20:54 2026 -0400
+
+    feat(le-cert): support multi-SAN par target (doccli + doccli.api)
+    
+    doccli.api.sfrcaraibe.fr est servi par le meme bloc nginx et le meme cert
+    que doccli.sfrcaraibe.fr (vhost_extra_server_names), mais le cert LE
+    n'avait qu'un seul SAN -> NET::ERR_CERT_COMMON_NAME_INVALID constate le
+    03/08 juste apres la bascule live.
+    
+    issue-le-cert.yml supporte desormais extra_domains par target (-d
+    multiples). certbot-pdns-hook.sh accepte PDNS_TXT_NAME_MAP (JSON
+    domaine->TXT) pour eviter que deux challenges DNS-01 dans la meme
+    invocation certbot ne s'ecrasent. Aucun changement pour les targets a un
+    seul fqdn.
+    
+    Reste a poser manuellement sur ns1 : CNAME
+    _acme-challenge.doccli.api.sfrcaraibe.fr -> _acme-doccli-api.redcaraibe.fr,
+    puis reemission staging/reelle du cert doccli (template 53) et redeploy
+    du bundle (template 38).
+
+ scripts/acme/certbot-pdns-hook.sh | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+commit 98c40b5ae3c3fb3251dfbd5fb56fa04aa480634e
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Fri Jul 10 07:08:49 2026 -0400
+
+    chore(vault): rekey les 6 derniers fichiers pleine-page (group_vars prod + pdns_api_vault)
+    
+    Etape 2/5 de la rotation : 5 group_vars prod (proxysql_wm2mp, retractation
+    define/lpm/red, selfcare_php_config) + scripts/acme/pdns_api_vault.yml,
+    verifie (nouveau mdp seul dechiffre). Restent les 3 fichiers ProxySQL
+    inline (bloc vault dans YAML mixte) et la bascule de la cle Semaphore
+    Vault Password (id 2).
+
+ scripts/acme/pdns_api_vault.yml | 114 ++++++++++++++++++++--------------------
+ 1 file changed, 57 insertions(+), 57 deletions(-)
+
+commit a4dbb359eeb71cbdc6d6b05a4b7a91b1babed4d1
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Wed Jul 1 08:53:56 2026 -0400
+
+    fix(acme): borner les timeouts curl du hook PowerDNS
+    
+    Le curl PATCH vers l'API PowerDNS n'avait aucun --connect-timeout ni
+    --max-time. Constate en run reel (issue-le-cert #273) : une connexion
+    qui ne repond pas fait attendre curl ~134s (retries SYN par defaut du
+    noyau) avant d'echouer avec "Could not connect to server", donnant
+    l'impression d'un run bloque alors que certbot attendait sagement.
+    
+    Ajoute PDNS_CURL_CONNECT_TIMEOUT (defaut 10s) et PDNS_CURL_MAX_TIME
+    (defaut 20s), configurables. Echec net et rapide au lieu d'un blocage
+    silencieux — sans impact sur le flux existant (poste manuel comme
+    runner Semaphore) quand la connexion aboutit normalement.
+    
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+ scripts/acme/certbot-pdns-hook.sh | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+

@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+subject=C = MQ, L = Fort-De-France, O = Outremer Telecom SAS, CN = *.outremer-telecom.fr
+notBefore=Jan 26 00:00:00 2024 GMT
+notAfter=Feb 25 23:59:59 2025 GMT
+

@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+109.62.64.1
+217.175.160.10
+

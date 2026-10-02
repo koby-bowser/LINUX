@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+Total in Projets: 25
+- Plan de Management Projet AGATHA (e17ebb7d-f90e-440d-8392-86eaed7416e5)
+- Agentic RAG (7c634586-2a25-4e3c-b55f-cb800b0277da)
+- Outils trouble ticketing 2026 (8846f339-ddae-4e19-b09f-82c812950d17)
+- MEP - LLD : Comment creer un nouveau projet (bbb07f1e-d89f-4659-ab71-e4be455a9ce7)
+- [Template] MEP - Checklist (432c03ff-7219-4cdd-8f2a-7f1e1f7f2861)
+- KITSUNE (bb550f88-a4aa-47c8-96d5-97273f5515bc)
+- KITSUNE (7b83ac06-2e4c-42fe-b610-3eee855887cf)
+- LLD - OMTDS BT BDO (a253fe19-2c4b-40eb-a201-f46f84292620)
+- SADIRAH (97d7b6ce-057c-493b-ac31-b6dee46c53fd)
+- MAIA (b0dda2cb-f3aa-43a1-a97f-af7c352527a2)
+

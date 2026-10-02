@@ -1,0 +1,28 @@
+Task: 6237460b-4163-4167-a26e-b8194f657433/task-1336
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-1336.log
+Log output:
+<truncated 52 lines>
+  proxy_set_header X-Forwarded-Host  $host;
+        proxy_set_header X-Forwarded-Port  9443;
+
+        # Timeouts
+        proxy_connect_timeout      60s;
+        proxy_send_timeout         60s;
+        proxy_read_timeout         60s;
+
+        # CORS is natively handled by Tomcat (dynamic origin reflection with credentials)
+        proxy_redirect             http:// https://;
+        proxy_headers_hash_max_size   1024;
+        proxy_headers_hash_bucket_size 128;
+    }
+
+    # additional config
+    include nginxconfig.io/general.conf;
+}
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+Last progress: 2s ago

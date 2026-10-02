@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+Total templates: 5
+- ANO-FTTH-yyyy-nnn (ID: 53103e51-7382-4e58-b7ae-c90e965b37d5, Collection: 8741b399-aa7a-44c4-97b6-c7090b7a4558)
+- [Template] MEP - DAT (ID: 680aa417-5a2b-4afc-bd18-d00e87e7371e, Collection: 03d7f507-0722-46bb-ab83-474b42ba6a1c)
+- [Template] MEP - Checklist (ID: ef5067ef-5a84-4849-95ac-bae5d4495036, Collection: 03d7f507-0722-46bb-ab83-474b42ba6a1c)
+- Template CR ICM (ID: 10fc7a68-2006-41cc-a496-374fa40095f3, Collection: 120257b7-bcc6-499a-8b52-19b50941f0c4)
+- [Template] LLD (ID: ca2700fd-8b55-4348-936f-8c02aaf0065d, Collection: 03d7f507-0722-46bb-ab83-474b42ba6a1c)
+

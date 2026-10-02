@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+/home/koby/vmware:
+total 4.0K
+drwxrwxr-x 3 koby koby 4.0K Sep  8 16:08 Koby-Bowser-RHEL10
+
+/home/koby/vmware/Koby-Bowser-RHEL10:
+total 7.9G
+-rw------- 1 koby koby 2.7G Sep  8 16:08 Koby-Bowser-RHEL10-s005.vmdk
+-rw------- 1 koby koby 2.2G Sep  8 16:08 Koby-Bowser-RHEL10-s002.vmdk
+-rw------- 1 koby koby 1.3G Sep  8 16:08 Koby-Bowser-RHEL10-s003.vmdk
+-rw------- 1 koby koby 1.1G Sep  8 16:08 Koby-Bowser-RHEL10-s004.vmdk
+-rw------- 1 koby koby 626M Sep  8 16:08 Koby-Bowser-RHEL10-s001.vmdk
+-rw-r--r-- 1 koby koby 373K Sep  8 16:08 vmware.log
+-rw------- 1 koby koby 265K Sep  8 16:08 Koby-Bowser-RHEL10.nvram
+-rw------- 1 koby koby 128K Sep  8 16:08 Koby-Bowser-RHEL10-s006.vmdk
+-rw-r----- 1 koby koby  62K Sep  8 16:08 mksSandbox.log
+-rw-rw-r-- 1 koby koby 7.8K Sep  8 16:08 Koby-Bowser-RHEL10.scoreboard
+drwxrwxr-x 2 koby koby 4.0K Sep  8 11:17 mksSandbox
+-rwxr-xr-x 1 koby koby 3.8K Sep  8 16:08 Koby-Bowser-RHEL10.vmx
+-rw------- 1 koby koby  773 Sep  8 11:27 Koby-Bowser-RHEL10.vmdk
+-rw-r--r-- 1 koby koby  273 Sep  8 11:17 Koby-Bowser-RHEL10.vmxf
+

@@ -1,0 +1,45 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+upstream PHP_PAY82 { 
+    server trp-wextp-be1:28210; 
+    #server trp-wextp-be2:28210; 
+    #server trp-wextp-be3:28210; 
+    keepalive 32; 
+}
+
+upstream PHP_PAYREDUXUI82 {
+    server trp-wextp-be1:28210;
+    server trp-wextp-be2:28210;
+    server trp-wextp-be3:28210;
+    keepalive 32;
+}
+
+upstream REDUXUIPROD82 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be1:28200 max_fails=3 fail_timeout=30s;
+    server trp-wextp-be2:28200 max_fails=3 fail_timeout=30s;
+    server trp-wextp-be3:28200 max_fails=3 fail_timeout=30s;
+    #server trp-wextp-be4:28200 max_fails=3 fail_timeout=30s;
+    #server trp-wextp-be5:28200 max_fails=3 fail_timeout=30s;
+}
+
+
+upstream REDPROD74 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be1:27400 max_fails=3 fail_timeout=30s;
+    #server trp-wextp-be2:27400 max_fails=3 fail_timeout=30s;
+

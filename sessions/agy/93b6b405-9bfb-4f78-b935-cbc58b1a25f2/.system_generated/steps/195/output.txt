@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+..[main (root-commit) d990972] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+.
+----------------------------------------------------------------------
+Ran 3 tests in 9.299s
+
+OK
+

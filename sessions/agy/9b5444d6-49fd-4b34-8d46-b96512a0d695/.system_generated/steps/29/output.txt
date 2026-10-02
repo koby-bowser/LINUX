@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+total 16
+drwxrwxr-x  3 koby koby 4096 Sep 17 10:46 .
+drwx------ 40 koby koby 4096 Sep 17 10:46 ..
+drwxrwxr-x  8 koby koby 4096 Sep 17 10:46 .git
+-rw-rw-r--  1 koby koby    7 Sep 17 10:46 README.md
+

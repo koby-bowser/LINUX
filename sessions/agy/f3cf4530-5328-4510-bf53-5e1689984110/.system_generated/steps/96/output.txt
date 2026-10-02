@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+total 44
+drwxrwxr-x  8 koby koby 4096 Sep 23 12:43 .
+drwx------ 41 koby koby 4096 Sep 25 14:09 ..
+drwxrwxr-x  2 koby koby 4096 Sep 22 18:58 Archive
+-rw-rw-r--  1 koby koby 2302 Sep 22 18:58 Handoff-actuel.md
+-rw-rw-r--  1 koby koby  598 Sep 22 18:58 Home.md
+drwxrwxr-x  2 koby koby 4096 Sep 23 12:37 .obsidian
+drwxrwxr-x  2 koby koby 4096 Sep 22 18:29 Projets
+drwxrwxr-x  2 koby koby 4096 Sep 22 18:29 Serveurs
+drwxrwxr-x  3 koby koby 4096 Sep 24 18:24 Sessions
+-rw-rw-r--  1 koby koby 2126 Sep 24 18:24 Sessions.md
+drwxrwxr-x  3 koby koby 4096 Sep 23 12:43 Ultron
+

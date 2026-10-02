@@ -1,0 +1,1 @@
+Encountered error in step execution: Failed to fetch document content at https://mcp.excalidraw.com: failed to get URL https://mcp.excalidraw.com: status code 405

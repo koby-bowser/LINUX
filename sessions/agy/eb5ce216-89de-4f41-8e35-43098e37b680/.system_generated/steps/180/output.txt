@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+[defaults]
+inventory = inventory/hosts.ini
+roles_path = roles
+retry_files_enabled = False
+host_key_checking = True
+interpreter_python = auto_silent
+stdout_callback = default
+
+[callback_default]
+result_format = yaml
+
+[ssh_connection]
+pipelining = True
+

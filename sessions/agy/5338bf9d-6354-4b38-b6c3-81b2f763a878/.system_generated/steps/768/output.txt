@@ -1,0 +1,2 @@
+Created file file:///home/koby/LINUX/playbooks/audit-wextp-topology.yml with requested content.
+If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.

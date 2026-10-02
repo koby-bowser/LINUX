@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+10.92.74.1 via 10.6.201.254 dev enp0s31f6 src 10.6.201.54 uid 1000 
+    cache 
+

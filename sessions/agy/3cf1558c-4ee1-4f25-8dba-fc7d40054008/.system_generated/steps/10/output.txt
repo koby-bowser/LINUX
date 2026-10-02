@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+172.16.92.241   gbs-ftpx-01.intranet.local
+

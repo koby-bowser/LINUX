@@ -1,0 +1,42 @@
+
+The command exited with code 0.
+Output:
+Merge made by the 'ort' strategy.
+ .gitignore                                         |  10 +
+ ansible.cfg                                        |  13 +
+ inventory/hosts.ini                                |  15 +
+ playbooks/00-smoke-test.yml                        |  17 ++
+ playbooks/deploy-ssh-key.yml                       | 177 +++++++++++
+ .../files/certbot-hooks/ns1-zonefile-auth-hook.sh  |  76 +++++
+ .../certbot-hooks/ns1-zonefile-cleanup-hook.sh     |  22 ++
+ playbooks/files/certbot-hooks/pdns-auth-hook.sh    |  73 +++++
+ playbooks/files/certbot-hooks/pdns-cleanup-hook.sh |  32 ++
+ playbooks/files/ns1-hooks/acme-zone-update.sh      | 109 +++++++
+ playbooks/files/ns1-hooks/find-zone.sh             |  43 +++
+ playbooks/group_vars/all/certificates.yml          |  53 ++++
+ playbooks/group_vars/all/vault.yml                 |  77 +++++
+ playbooks/group_vars/all/vault.yml.example         |  32 ++
+ playbooks/issue-deploy-certs.yml                   | 330 +++++++++++++++++++++
+ playbooks/tasks/deploy_and_reload_cert.yml         |  38 +++
+ playbooks/tasks/issue_and_queue_cert.yml           |  50 ++++
+ playbooks/templates/rfc2136-credentials.ini.j2     |   5 +
+ 18 files changed, 1172 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 ansible.cfg
+ create mode 100644 inventory/hosts.ini
+ create mode 100644 playbooks/00-smoke-test.yml
+ create mode 100644 playbooks/deploy-ssh-key.yml
+ create mode 100755 playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh
+ create mode 100755 playbooks/files/certbot-hooks/ns1-zonefile-cleanup-hook.sh
+ create mode 100755 playbooks/files/certbot-hooks/pdns-auth-hook.sh
+ create mode 100755 playbooks/files/certbot-hooks/pdns-cleanup-hook.sh
+ create mode 100755 playbooks/files/ns1-hooks/acme-zone-update.sh
+ create mode 100755 playbooks/files/ns1-hooks/find-zone.sh
+ create mode 100644 playbooks/group_vars/all/certificates.yml
+ create mode 100644 playbooks/group_vars/all/vault.yml
+ create mode 100644 playbooks/group_vars/all/vault.yml.example
+ create mode 100644 playbooks/issue-deploy-certs.yml
+ create mode 100644 playbooks/tasks/deploy_and_reload_cert.yml
+ create mode 100644 playbooks/tasks/issue_and_queue_cert.yml
+ create mode 100644 playbooks/templates/rfc2136-credentials.ini.j2
+

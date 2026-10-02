@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+nom,ip,utilisateur,mdp,port.legacy
+e1n1,172.30.227.2,root,puffin,22,no
+mtq-raddbftth-02,10.2.41.235,root,8!Wf9a4F<z,22,no
+mau-wextp-fe1,172.30.166.97,superuser,9u%t]y|gzT!(*|"\,)t'N2,30,no
+

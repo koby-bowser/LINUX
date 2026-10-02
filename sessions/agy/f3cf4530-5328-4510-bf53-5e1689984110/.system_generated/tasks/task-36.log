@@ -1,0 +1,125 @@
+
+PLAY [Reclaim Disk Space on Debian Trixie & Ubuntu Resolute Raccoon] ***********
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Safety guard — Restrict exclusively to Debian Trixie and Ubuntu Resolute Raccoon] ***
+ok: [localhost]
+
+TASK [Identify workstation profile] ********************************************
+ok: [localhost]
+
+TASK [Record initial disk space on /] ******************************************
+ok: [localhost]
+
+TASK [Display workstation profile and initial storage status] ******************
+ok: [localhost] => {
+    "msg": [
+        "Target Host        : localhost",
+        "Workstation Profile: Debian 13 Trixie PC",
+        "Kernel             : 6.12.107+deb13-amd64",
+        "Pre-cleanup Free   : 349.42 GB of 451.02 GB (22.5% used)"
+    ]
+}
+
+TASK [Clean APT package archives (/var/cache/apt/archives)] ********************
+changed: [localhost]
+
+TASK [Autoremove unneeded packages and purge residual configs] *****************
+ok: [localhost]
+
+TASK [Identify inactive old Linux kernels and headers (Debian & Ubuntu)] *******
+skipping: [localhost]
+
+TASK [Purge detected old Linux kernel packages] ********************************
+skipping: [localhost]
+
+TASK [Check for snap daemon (primarily Ubuntu)] ********************************
+skipping: [localhost]
+
+TASK [Set snap revision retention limit] ***************************************
+skipping: [localhost]
+
+TASK [Remove disabled and obsolete snap revisions] *****************************
+skipping: [localhost]
+
+TASK [Check for Flatpak (primarily Debian Trixie)] *****************************
+skipping: [localhost]
+
+TASK [Uninstall unused Flatpak runtimes and extensions] ************************
+skipping: [localhost]
+
+TASK [Check for journalctl] ****************************************************
+skipping: [localhost]
+
+TASK [Vacuum systemd journal logs] *********************************************
+skipping: [localhost]
+
+TASK [Find crash reports in /var/crash] ****************************************
+[WARNING]: Skipped '/var/crash' path due to this access issue: '/var/crash' is not a directory
+ok: [localhost]
+
+TASK [Remove crash reports in /var/crash] **************************************
+skipping: [localhost]
+
+TASK [Clean web browser caches (Firefox Snap, Native/ESR Firefox, Brave, Chrome, Chromium)] ***
+ok: [localhost] => (item=/home/koby/snap/firefox/common/.cache)
+changed: [localhost] => (item=/home/koby/.cache/mozilla/firefox)
+changed: [localhost] => (item=/home/koby/.cache/BraveSoftware/Brave-Browser/Default/Cache)
+changed: [localhost] => (item=/home/koby/.cache/BraveSoftware/Brave-Browser/Default/Code Cache)
+ok: [localhost] => (item=/home/koby/.cache/google-chrome/Default/Cache)
+ok: [localhost] => (item=/home/koby/.cache/google-chrome/Default/Code Cache)
+ok: [localhost] => (item=/home/koby/.cache/chromium/Default/Cache)
+ok: [localhost] => (item=/home/koby/.cache/chromium/Default/Code Cache)
+
+TASK [Clean user desktop thumbnail cache] **************************************
+changed: [localhost]
+
+TASK [Empty user desktop trash] ************************************************
+changed: [localhost] => (item=/home/koby/.local/share/Trash/files)
+changed: [localhost] => (item=/home/koby/.local/share/Trash/info)
+
+TASK [Prune old Claude CLI binary versions] ************************************
+skipping: [localhost]
+
+TASK [Clean NPM cache directory] ***********************************************
+changed: [localhost]
+
+TASK [Check for Podman] ********************************************************
+skipping: [localhost]
+
+TASK [Prune unused rootless Podman images and containers] **********************
+skipping: [localhost]
+
+TASK [Check for Docker] ********************************************************
+skipping: [localhost]
+
+TASK [Prune unused Docker images and containers] *******************************
+skipping: [localhost]
+
+TASK [Refresh filesystem facts] ************************************************
+ok: [localhost]
+
+TASK [Calculate final disk space statistics] ***********************************
+ok: [localhost]
+
+TASK [Display disk reclamation report] *****************************************
+ok: [localhost] => {
+    "msg": [
+        "================ DISK CLEANUP REPORT ================",
+        "Target Host        : localhost",
+        "Workstation        : Debian 13 Trixie PC",
+        "Mount Point        : /",
+        "Total Capacity     : 451.02 GB",
+        "Available Before   : 349.42 GB",
+        "Available After    : 351.07 GB",
+        "Reclaimed Space    : 1686.51 MB (1.647 GB)",
+        "Final Utilization  : 22.200000000000003% used",
+        "======================================================"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=15   changed=5    unreachable=0    failed=0    skipped=15   rescued=0    ignored=0   
+

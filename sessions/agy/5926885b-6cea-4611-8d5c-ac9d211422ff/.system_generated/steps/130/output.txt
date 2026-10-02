@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+SUCCESS!
+Document ID: 5f8fa602-47fd-4bb9-bb6f-51ae2a9c2071
+Document Title: Procédure — Décommissionnement de serveurs et équipements d'infrastructure
+Document URL: https://wiki.corp.intranet.local/doc/procedure-decommissionnement-de-serveurs-et-equipements-dinfrastructure-k6YXn9BANa
+

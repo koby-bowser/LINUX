@@ -1,0 +1,57 @@
+The search for ""https://mcp.excalidraw.com" config json" returned the following summary:
+To configure an MCP client for Excalidraw, the exact JSON configuration depends on whether you are using the **Excalidraw+** (official workspace) MCP or the **open-source** MCP server[1][2][3].
+
+### 1. Excalidraw+ MCP (Official)
+If you are using Excalidraw+ with an API key, use the following configuration[2][3]. You must replace `<API_KEY>` with your actual API key from your Excalidraw+ workspace settings[4][3].
+
+**Configuration JSON:**
+```json
+{
+  "mcpServers": {
+    "excalidraw": {
+      "type": "http",
+      "url": "https://api.excalidraw.com/api/v1/mcp",
+      "headers": {
+        "Authorization": "Bearer <API_KEY>"
+      }
+    }
+  }
+}
+```
+*This configuration is commonly used in `claude_desktop_config.json`, Cursor MCP settings, or `.vscode/mcp.json`[3].*
+
+---
+
+### 2. Open-Source / Local MCP Servers
+If you are using the open-source community versions (such as `excalidraw-mcp` or `mcp-excalidraw`), the configuration typically points to a local process or a hosted URL[5][6][7].
+
+*   **For local execution (Node.js):**
+    ```json
+    {
+      "mcpServers": {
+        "excalidraw": {
+          "command": "node",
+          "args": ["/path/to/your/excalidraw-mcp/dist/index.js"]
+        }
+      }
+    }
+    ```
+
+*   **For the hosted remote server:**
+    Some versions provide a hosted endpoint (e.g., `https://excalidraw-mcp-app.vercel.app/mcp`) which may not require an API key[6][8].
+
+### How to Apply
+*   **Claude Desktop:** Add the JSON block above to your `claude_desktop_config.json` file (found in `~/Library/Application Support/Claude/` on macOS or `%APPDATA%\Claude\` on Windows).
+*   **Cursor / Other IDEs:** Navigate to the MCP settings menu in the IDE's configuration and add the server using the JSON structure appropriate for that client[3].
+
+**Note:** Always ensure your MCP client supports **Streamable HTTP** if you are connecting to the Excalidraw+ API[4][3].
+
+Sources:
+[1] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6FH-Ge_fnJ3EFJiB4H7z82gw7RxMSD9YDcfz_hCwOz8Pb697jLSyDbS2caBPKqDFWUmMJ22VBWZ68mRo02k0haIyRooyUpyFF_zvJuCIoecU3QlUez7PO0bo=)
+[2] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF6FH-Ge_fnJ3EFJiB4H7z82gw7RxMSD9YDcfz_hCwOz8Pb697jLSyDbS2caBPKqDFWUmMJ22VBWZ68mRo02k0haIyRooyUpyFF_zvJuCIoecU3QlUez7PO0bo=)
+[3] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_Ce_7B2xM0_NfCMHChp8U08mB6TQznbC4RQvA1q5SYnjaFzSg-pSsKz4-5hZSvDo1zDjiPon13VrxgwUuOcXEQX9f1Y9rZiLMzOOg8lbEVEeOf-1nJ2UkDHK27vR3P5k3AWVB5X7cjd_5)
+[4] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF_Ce_7B2xM0_NfCMHChp8U08mB6TQznbC4RQvA1q5SYnjaFzSg-pSsKz4-5hZSvDo1zDjiPon13VrxgwUuOcXEQX9f1Y9rZiLMzOOg8lbEVEeOf-1nJ2UkDHK27vR3P5k3AWVB5X7cjd_5)
+[5] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGsPtk8xJOQ7osAOv6o_NAy4vkwS88PEKoNLIKBRxvZr7QAQlMmkrKLAnJJb3HRRb81vQJP_9mjC0FAe530_mGzvg8YDWPdiTxzJu5TpV9W_tSthfHW2Olc3RIjWLK-DYXpSQ==)
+[6] [mcpservers.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQ6eoulbkkhHBK3CE7jGMbrLAHm1NY5IsnVuKHsNLN_jZXTLxtXP-Ja3UTYKLl1-CG0uOfUo6Srjgf_bf_O4g9JwoHYQfqf_osVKQOTykaoh0OqjdwpAUUnePRJQOa5rRR0mb3LH_ZNfbXeIDSkVqPATui)
+[7] [explainx.ai](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGDHvHCZ-vCaqRwZ4SwYyQMXzBWeo6kYF6SAxL2B91jbGqT7deEhxmXI61eTA66PfLE7g_WatUKNlBeO0XIBS7i6GzSH3GMY3oS0bY72k3ocA00PesyXX7QfZy5iQsIQUP9ryMh0mQtJVxbnJoSLUDhAqOtDSILndIR)
+[8] [daily.dev](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGaBYOH3-uzi0prz5240UX_6qNK-QBHlMTN3jIAIsjcj-8IUomjthlWWwzq2K4r6M1PuCH4wm7bd_BtQsqsUegrHmLepd3DMKi98LHfqu1ajQN9qSsWBPgL8IhWR9EdJMFLnGoKvDfHSGfBx8tzeCd7g_qSjeMyQCcAHzJMYh-iW4aKGokAuLk4lrp2Yldv)

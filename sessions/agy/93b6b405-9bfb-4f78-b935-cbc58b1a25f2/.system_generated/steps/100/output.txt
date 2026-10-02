@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+/usr/bin/rsync
+rsync  version 3.5.0  protocol version 32
+

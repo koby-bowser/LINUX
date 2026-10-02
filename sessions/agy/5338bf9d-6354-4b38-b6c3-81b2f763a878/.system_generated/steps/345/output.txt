@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 131,
+  "project_id": 1,
+  "inventory_id": 3,
+  "repository_id": 1,
+  "environment_id": 1,
+  "name": "Check Linux Distro and Kernel - PROD (recon)",
+  "playbook": "playbooks/check-distro-kernel.yml",
+  "description": "Audit read-only OS and kernel facts across PROD hosts (strictly read-only).",
+  "app": "ansible",
+  "tasks": 0,
+  "task_params": {
+    "allow_override_limit": true
+  }
+}
+

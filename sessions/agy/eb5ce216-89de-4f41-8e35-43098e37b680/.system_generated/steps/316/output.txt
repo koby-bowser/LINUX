@@ -1,0 +1,44 @@
+
+The command exited with code 0.
+Output:
+Utilisation : keepassxc-cli [options] command
+KeePassXC command line interface.
+
+Commandes proposées :
+add                 Ajouter une nouvelle entrée à la base de données.
+analyze             Analyser la robustesse et les problèmes des mots de passe.
+attachment-export   Exporter un fichier joint d’une entrée.
+attachment-import   Importe un fichier joint dans une entrée.
+attachment-rm       Supprimer un fichier joint d’une entrée.
+clip                Copier l’attribut d’une entrée dans le presse-papiers.
+close               Fermer la base de données ouverte actuellement.
+db-create           Créer un nouvelle base de données.
+db-edit             Éditer une base de données
+db-info             Afficher les renseignements d’une base de données.
+diceware            Créer une nouvelle phrase de passe générée avec la méthode du lancer de dés.
+edit                Modifier une entrée.
+estimate            Estimer l’entropie d’un mot de passe.
+export              Exporte au format indiqué le contenu de la base de données vers la sortie standard.
+generate            Générer un nouveau mot de passe aléatoire.
+help                Afficher l’aide de la commande.
+import              Importer le contenu d’une base de données XML.
+ls                  Lister les entrées de la base de données.
+merge               Fusionner deux bases de données.
+mkdir               Ajoute un nouveau groupe à la base de données.
+mv                  Déplace une entrée vers un nouveau groupe.
+open                Ouvre une base de données.
+rm                  Remove an entry from the database.
+rmdir               Removes a group from a database.
+search              Trouver des entrées rapidement.
+show                Afficher les renseignements d’une entrée.
+
+
+Options :
+  --debug-info   Affiche les renseignements de débogage.
+  -h, --help     Displays help on commandline options.
+  --help-all     Displays help including Qt specific options.
+  -v, --version  Afficher les informations de version.
+
+Arguments :
+  command        Nom de la commande à exécuter.
+

@@ -1,0 +1,80 @@
+
+The command exited with code 0.
+Output:
+@all:
+  |--@ungrouped:
+  |  |--trp-wm2mp-be1
+  |  |--trp-wextp-stat1
+  |  |--trp-wintp-fe1
+  |--@databases:
+  |  |--@mariadb:
+  |  |  |--trp-wextp-dbm1
+  |  |  |--trp-wextp-dbm2
+  |  |  |--trp-wextp-dbm3
+  |--@proxysql:
+  |  |--trp-wextp-be1
+  |--@backends:
+  |  |--@selfcare_php:
+  |  |  |--trp-wextp-be6
+  |  |  |--trp-wextp-be7
+  |  |  |--trp-wextp-be8
+  |  |  |--trp-wextp-be9
+  |  |  |--trp-wextp-be10
+  |  |--@retractation_red_php:
+  |  |  |--trp-wextp-be1
+  |  |  |--trp-wextp-be2
+  |  |  |--trp-wextp-be3
+  |  |--@proxysql_local:
+  |  |  |--trp-wextp-be1
+  |  |  |--trp-wextp-be2
+  |  |  |--trp-wextp-be3
+  |  |  |--trp-wextp-be6
+  |  |  |--trp-wextp-be7
+  |  |  |--trp-wextp-be8
+  |  |  |--trp-wextp-be9
+  |  |  |--trp-wextp-be10
+  |  |--trp-wextp-be1
+  |  |--trp-wextp-be2
+  |  |--trp-wextp-be3
+  |  |--trp-wextp-be4
+  |  |--trp-wextp-be5
+  |  |--trp-wextp-be6
+  |  |--trp-wextp-be7
+  |  |--trp-wextp-be8
+  |  |--trp-wextp-be9
+  |  |--trp-wextp-be10
+  |--@frontaux:
+  |  |--trp-wextp-fe1
+  |  |--trp-wextp-fe2
+  |--@wextp:
+  |  |--trp-wextp-be1
+  |  |--trp-wextp-be2
+  |  |--trp-wextp-be3
+  |  |--trp-wextp-be4
+  |  |--trp-wextp-be5
+  |  |--trp-wextp-be6
+  |  |--trp-wextp-be7
+  |  |--trp-wextp-be8
+  |  |--trp-wextp-be9
+  |  |--trp-wextp-be10
+  |  |--trp-wextp-fe1
+  |  |--trp-wextp-fe2
+  |  |--trp-wextp-afe1
+  |  |--trp-wextp-dbm1
+  |  |--trp-wextp-dbm2
+  |  |--trp-wextp-dbm3
+  |--@batch_retractation_php:
+  |  |--trp-wm2mp-be2
+  |--@batch_selfcarebusiness_php:
+  |  |--trp-wm2mp-be2
+  |--@proxysql_wm2mp:
+  |  |--trp-wm2mp-be2
+  |--@wm2mp:
+  |  |--trp-wm2mp-fe1
+  |  |--trp-wm2mp-be2
+  |--@efalia_compose:
+  |  |--trp-efaliap-cmp1
+  |  |--trp-efaliap-cmp2
+  |--@mail_servers:
+  |  |--mtq-mailsrvp-01
+

@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+=== Ping 109.62.64.18 ===
+PING 109.62.64.18 (109.62.64.18) 56(84) bytes of data.
+
+--- 109.62.64.18 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1021ms
+
+
+=== Ping 172.62.64.18 ===
+PING 172.62.64.18 (172.62.64.18) 56(84) bytes of data.
+
+--- 172.62.64.18 ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1006ms
+
+
+=== nc to 109.62.64.18:9443 ===
+nc: connect to 109.62.64.18 port 9443 (tcp) timed out: Operation now in progress
+
+=== nc to 172.62.64.18:9443 ===
+nc: connect to 172.62.64.18 port 9443 (tcp) timed out: Operation now in progress
+

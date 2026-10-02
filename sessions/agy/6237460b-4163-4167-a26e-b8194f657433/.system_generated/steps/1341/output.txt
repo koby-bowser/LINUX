@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 200 
+server: nginx
+date: Thu, 10 Sep 2026 14:57:39 GMT
+content-type: application/vnd.spring-boot.actuator.v3+json
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+access-control-allow-origin: https://centreonpro.intranet.local
+access-control-allow-credentials: true
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+strict-transport-security: max-age=31536000 ; includeSubDomains
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+{"status":"UP"}

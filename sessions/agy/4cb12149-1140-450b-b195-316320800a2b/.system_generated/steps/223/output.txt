@@ -1,0 +1,7 @@
+Canvas cleared.
+
+{
+  "success": true,
+  "message": "Cleared 0 elements",
+  "count": 0
+}

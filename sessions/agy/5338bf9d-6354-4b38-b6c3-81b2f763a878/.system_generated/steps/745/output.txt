@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Upstreams found: 15
+SFRPROD74 -> ['trp-wextp-be6:17400', 'trp-wextp-be7:17400', 'trp-wextp-be8:17400', 'trp-wextp-be9:17400', 'trp-wextp-be10:17400']
+SFRPROD74-DEBUG -> ['trp-wextp-be10:17400']
+SFRBIZPROD74 -> ['trp-wextp-be6:17400']
+SFRBIZPROD74-NOREDIS -> ['trp-wextp-be6:37400']
+SFRDEV74 -> ['trp-wextp-be11:17400']
+

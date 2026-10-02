@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.npm/_npx/56d755bf05e5ecee/node_modules/@drawio/mcp/package.json
+

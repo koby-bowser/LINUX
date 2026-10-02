@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+commit be8b832f17113c9100c00b1d64118e93af5bfff9 (HEAD -> main, origin/main, origin/HEAD)
+Merge: 4b69e15 b6f5e4b
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Tue Sep 8 12:38:59 2026 +0000
+
+    Merge branch 'feat/move-mtq-mailsrvp-to-prod' into 'main'
+    
+    feat(inventory): move mtq-mailsrvp-01 to prod inventory
+    
+    See merge request omt/infra/management/infra-management-system!267
+

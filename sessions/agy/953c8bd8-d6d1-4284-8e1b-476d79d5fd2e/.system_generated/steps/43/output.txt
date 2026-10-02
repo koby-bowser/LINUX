@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:306:  en réalité servi par `gbs-frontweb-02` (Apache 2.4.6 RHEL legacy, `/etc/httpd`) et non par
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:329:   constaté sur `gbs-frontweb-02`.
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:342:   sur `gbs-frontweb-02`) — chemin à confirmer au cas par cas, propre à chaque hôte legacy.
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:351:   `gbs-frontweb-02`, le wrapper `apachectl -k graceful` est **rejeté** (« Passing arguments to
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:365:> repo : l'hypothèse initiale peut être fausse (cas `trp-wextp-fe3` vs `gbs-frontweb-02` ci-dessus).
+/home/koby/infra-management-system/docs/tp-emission-cert-drive-otc.md:16:> séparée validée par Loïc) — `drive.outremer-telecom.fr` est en fait servi par `gbs-frontweb-02`
+/home/koby/infra-management-system/roles/sftp_mapping_dual_user/defaults/main.yml:5:  # cgr@gbs-cgr-02 (clé existante, confirmée par Loïc le 2026-07-24) — home /home/cgr/.ssh/id_ed25519
+/home/koby/infra-management-system/roles/sftp_mapping_dual_user/defaults/main.yml:6:  - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKk58Ir86Qlm2K4cUo9IwzIHrRmlf7S8xMtb6WZ2E+ml root@gbs-cgr-02"
+/home/koby/infra-management-system/roles/sftp_mapping_dual_user/defaults/main.yml:7:  # cgr@gbs-cgr-01 : pas encore de clé sur cet hôte au 2026-07-24 (à générer, cf. échange avec Loïc) — à ajouter ici une fois créée.
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:118:        # repo — même famille que gbs-frontweb-02/drive.outremer-telecom.fr).
+/home/koby/infra-management-system/playbooks/check-cgrcore-api-db-driver.yml:1:# Vérification READ-ONLY : le flux réseau vers Informix (gbs-cgr-vip01.intranet.local:9100)
+

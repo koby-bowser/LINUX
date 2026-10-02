@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+Total in Infra: 25
+- Procédure d'extension du stockage de sauvegarde /backup sur trp-bcki-sys1 (MergerFS) (dcde5b76-b423-4f53-8ab0-71e94a36db69)
+- CR — Incident Kea_Log_Age_Status GPE fe2 (ProxySQL SHUNNED) — 2026-09-18 (270bbbbf-fd5c-4fec-ac75-684ad3023e01)
+- Supervision SNMP des pools DHCPv4 (OLT) (894278a1-647c-4e1b-a810-b5f6467a287b)
+- Inventaire OLT supervisés (Kea) (fb78e3d8-e45c-4ea2-9741-7d55cbf83e58)
+- Monitoring (cd46d2fe-c389-4063-9062-82ab85d41c4c)
+- Netbackup Restore VM (1972725b-1d15-4846-abb8-cae73ec0ffee)
+- Comment ajouter une entrée DNS dans TH2-DNSINTRA-01 (2bc6b087-9423-4081-8411-b7e165524179)
+- CR Intervention - Diagnostic Livebox INIT / Saturation Pool IPv4 DHCP (f28f1cdb-6a14-4589-84e0-05e6dff6f7cc)
+- CR MEP DHCP Kea/Galera Single-Writer — GPE/GUY — 2026-09-08 (2988f8a9-d883-4ffc-8fcf-aa4ed5b4623a)
+- Architecture (34b74b9d-5226-4ef8-9a7a-4292fa1153bb)
+

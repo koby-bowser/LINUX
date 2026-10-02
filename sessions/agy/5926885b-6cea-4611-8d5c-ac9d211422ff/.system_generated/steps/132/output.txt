@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+attachments.create response: {'data': {'mode': 'post', 'uploadUrl': '/api/files.create', 'form': {'Cache-Control': 'max-age=31557600', 'Content-Type': 'image/png', 'key': 'uploads/66d00cb4-a3cf-422a-a249-ed306710d7cf/3a1ba144-3a07-4d4f-b1a3-5451d4d57fbd/Decom_workflow.png', 'acl': 'private', 'maxUploadSize': '20971520', 'contentType': 'image/png', 'sig': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ1cGxvYWRzLzY2ZDAwY2I0LWEzY2YtNDIyYS1hMjQ5LWVkMzA2NzEwZDdjZi8zYTFiYTE0NC0zYTA3LTRkNGYtYjFhMy01NDUxZDRkNTdmYmQvRGVjb21fd29ya2Zsb3cucG5nIiwidHlwZSI6ImF0dGFjaG1lbnQtdXBsb2FkIiwiaWF0IjoxNzkwMjQ5MTQ2LCJleHAiOjE3OTAyNTI3NDZ9.9NEpmJHFSVqcLZPWiptHb1L2LbkYEmrFVY_npdVrn_0', '_csrf': ''}, 'attachment': {'userId': '66d00cb4-a3cf-422a-a249-ed306710d7cf', 'documentId': '5f8fa602-47fd-4bb9-bb6f-51ae2a9c2071', 'contentType': 'image/png', 'name': 'Decom_workflow.png', 'id': '3a1ba144-3a07-4d4f-b1a3-5451d4d57fbd', 'url': '/api/attachments.redirect?id=3a1ba144-3a07-4d4f-b1a3-5451d4d57fbd', 'size': '487004'}}, 'status': 200, 'ok': True}
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+upload status: 200 {"success":true,"status":200,"ok":true}
+New attachment ID bound to doc: 3a1ba144-3a07-4d4f-b1a3-5451d4d57fbd
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Updated doc with new attachment ID: True
+

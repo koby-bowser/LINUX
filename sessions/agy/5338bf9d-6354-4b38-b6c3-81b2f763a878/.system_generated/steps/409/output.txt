@@ -1,0 +1,26 @@
+
+The command exited with code 0.
+Output:
+=== playbooks/00-smoke-test.yml ===
+[WARNING]: Could not match supplied host pattern, ignoring: control_node
+
+playbook: playbooks/00-smoke-test.yml
+=== playbooks/bootstrap-koby-bowser.yml ===
+
+playbook: playbooks/bootstrap-koby-bowser.yml
+=== playbooks/copy-to-tmp.yml ===
+
+playbook: playbooks/copy-to-tmp.yml
+=== playbooks/deploy-ssh-key.yml ===
+
+playbook: playbooks/deploy-ssh-key.yml
+=== playbooks/issue-deploy-certs.yml ===
+
+playbook: playbooks/issue-deploy-certs.yml
+=== playbooks/kdbx-pool.yml ===
+
+playbook: playbooks/kdbx-pool.yml
+=== playbooks/search-servers.yml ===
+
+playbook: playbooks/search-servers.yml
+

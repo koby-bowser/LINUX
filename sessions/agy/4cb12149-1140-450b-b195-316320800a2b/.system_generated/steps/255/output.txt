@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+Total documents in Test_RAG: 7
+- Page de test RAG (ID: 1c0b7ab7-2e79-49d8-8a78-324656734ac4, Published: True)
+- Résumé — Protocole SAV FTTH v2.1 (règles de gestion) (ID: 8b442856-280c-4def-b263-06523d3625bf, Published: True)
+- draft-t7-coupleur-sature (ID: f5929f86-b627-49d3-a8b4-09e64ad247a8, Published: True)
+- Page avec doc (ID: 2c4b4a85-8316-4e7c-98ee-94de4ab4bffc, Published: True)
+- T7 coupleur saturé (ID: 80a37083-9d03-4d50-8c0f-78a853113acd, Published: True)
+

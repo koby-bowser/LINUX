@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+
+playbook: playbooks/bootstrap-koby-bowser.yml
+
+playbook: playbooks/copy-to-tmp.yml
+

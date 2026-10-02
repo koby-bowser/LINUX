@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+
+playbook: /home/koby/LINUX/playbooks/sync-ai-sessions.yml
+

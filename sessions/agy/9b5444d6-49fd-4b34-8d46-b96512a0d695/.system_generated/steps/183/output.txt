@@ -1,0 +1,5 @@
+
+The command exited with code 128.
+Output:
+fatal: could not read Username for 'https://github.com': terminal prompts disabled
+

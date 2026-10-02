@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+#127.0.1.1   th2-centprop-be1.infra.intranet.local  th2-centprop-be1
+172.30.198.49	th2-centprop-be1.infra.intranet.local	th2-centprop-be1
+172.30.198.57	th2-centprop-db1.infra.intranet.local	th2-centprop-db1
+172.30.166.49   mau-centprop-pol1.infra.intranet.local  mau-centprop-pol1
+172.30.38.49    mtq-centprop-pol1.infra.intranet.local  mtq-centprop-pol1
+#127.0.0.1 extranetclient.outremer-telecom.fr
+#172.30.198.33 extranetclient.outremer-telecom.fr
+

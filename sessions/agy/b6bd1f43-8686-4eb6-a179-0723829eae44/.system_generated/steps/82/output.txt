@@ -1,0 +1,12 @@
+
+The command exited with code 9.
+Output:
+;; communications error to 217.175.160.10#53: connection refused
+;; communications error to 217.175.160.10#53: connection refused
+;; communications error to 217.175.160.10#53: connection refused
+;; no servers could be reached
+;; communications error to 109.62.64.1#53: connection refused
+;; communications error to 109.62.64.1#53: connection refused
+;; communications error to 109.62.64.1#53: connection refused
+;; no servers could be reached
+

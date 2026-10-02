@@ -1,0 +1,52 @@
+The following changes were made by the replace_file_content tool to: /home/koby/.ansible/.remember/remember.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -20,4 +20,46 @@
+ - Whenever user asks to SSH to a server, automatically run `kssh <server>` or query `~/.ansible/inventory/server_pool.json` via `build_kdbx_pool.py`.
+ - Auto-extracts IP, port (e.g. 30), user, key (`~/.ssh/id_ed25519`), and password.
+ - Attempts passwordless key (`koby-bowser-ansible` or target user) first; falls back to `sshpass` using the database password.
++
++---
++
++## Centreon Map Architecture & Reverse Proxy Standard Operating Procedure
++
++### 1. Topology & IP Mapping
++* **Central Web / PHP Backend**: `th2-centprop-be1` (`172.30.198.49:30`)
++* **Map Engine (Tomcat Spring Boot)**: `th2-centprop-map1` (`172.30.198.50:9443` HTTPS)
++* **Reverse Proxy**: `th2-revproxyp-fe1` (`172.30.198.33:30` internal DMZ, `109.62.64.18` public VIP)
++* **PowerDNS Master**: `th2-dnsp-mst1` (`172.30.198.162:30`, user `superuser`, passwordless SSH + sudo `pdnsutil`)
++* **Public Domain**: `map.extranetclient.outremer-telecom.fr:9443`
++* **Internal Web UI**: `https://centreonpro.intranet.local/centreon/`
++
++### 2. Passwordless DNS-01 Challenge Workflow
++* To generate or renew Let's Encrypt certificates for `*.outremer-telecom.fr`:
++  - Run certbot with manual DNS hooks ([`pdns-auth-hook.sh`](file:///home/koby/.ansible/playbooks/files/certbot-hooks/pdns-auth-hook.sh) & [`pdns-cleanup-hook.sh`](file:///home/koby/.ansible/playbooks/files/certbot-hooks/pdns-cleanup-hook.sh)).
++  - Hooks connect directly to `superuser@172.30.198.162:30` via `id_ed25519` key and execute `sudo pdnsutil replace-rrset` / `increase-serial`.
++  - No external APIs or credentials required.
++  - Certificate deployed to `/etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/` on `th2-revproxyp-fe1`.
++
++### 3. Nginx Reverse Proxy Rules (Port 9443 on `th2-revproxyp-fe1`)
++* **Vhost location**: `/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf`
++* **Avoid the RFC 7230 Duplicate Host Trap**:
++  - In Nginx, multiple `proxy_set_header` directives with the same name in the same block do NOT overwrite each other; they send duplicate HTTP header fields.
++  - DO NOT include `nginxconfig.io/proxy.conf` inside `location /` if custom `proxy_set_header Host ...` is also defined.
++  - Sending duplicate `Host:` headers causes Apache Tomcat to immediately reject requests with `400 Bad Request`.
++* **CORS Handling**:
++  - Tomcat Spring Boot Actuator handles CORS natively and dynamically reflects the requesting origin (e.g. `https://centreonpro.intranet.local` or `https://extranetclient.outremer-telecom.fr`) with `Access-Control-Allow-Credentials: true`.
++  - DO NOT inject manual `add_header 'Access-Control-Allow-Origin' '*'` in Nginx, as browsers strictly reject duplicate CORS origins and reject `*` when credentials are true.
++
++### 4. Workstation & Forward Proxy Environment (Debian Trixie)
++* Corporate forward proxy runs on Squid (`172.16.75.9:3128`).
++* Corporate firewall drops traffic from internal LAN (`10.x.x.x`) to public VIPs (no Hairpin NAT).
++* Internal workstations accessing `map.extranetclient.outremer-telecom.fr` MUST:
++  1. Map `172.30.198.33 map.extranetclient.outremer-telecom.fr` in `/etc/hosts`.
++  2. Add `outremer-telecom.fr, .outremer-telecom.fr` to `no_proxy` / `NO_PROXY` in `/etc/environment` and GNOME `ignore-hosts` (`gsettings`).
++  3. This bypasses Squid for local domains while keeping `apt update` (Debian mirrors) 100% operational through the proxy.
++
++### 5. Centreon Web Settings (Administration > Extensions > Options)
++* **MAP Engine server address**: `https://map.extranetclient.outremer-telecom.fr:9443`
++* **MAP server address as seen by Central**: `https://th2-centprop-map1.prod.intranet.local:9443` (or `https://map.extranetclient.outremer-telecom.fr:9443`)
++* **MAP Engine server**: `Yes`
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+Saisissez un mot de passe pour chiffrer la base de données (facultatif) :
+Confirmer le mot de passe :
+Erreur : Les mots de passe ne correspondent pas.
+Échec de définition du mot de passe de la base de données.
+

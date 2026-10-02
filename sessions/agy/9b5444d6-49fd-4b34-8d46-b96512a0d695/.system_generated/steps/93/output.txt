@@ -1,0 +1,18 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/kdbx-pool.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -7,9 +7,9 @@
+     default_db_path: "{{ lookup('env', 'HOME') }}/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx"
+     fallback_db_path: "{{ lookup('env', 'HOME') }}/Downloads/OMT_PFS.SYSTEME.ALL.kdbx"
+     kdbx_path: "{{ kdbx_file | default(default_db_path if default_db_stat.stat.exists else fallback_db_path) }}"
+-    pool_json_path: "{{ lookup('env', 'HOME') }}/.ansible/inventory/server_pool.json"
+-    pool_yaml_path: "{{ lookup('env', 'HOME') }}/.ansible/inventory/server_pool.yml"
+-    parser_script: "{{ lookup('env', 'HOME') }}/.ansible/scripts/build_kdbx_pool.py"
++    pool_json_path: "{{ playbook_dir }}/../inventory/server_pool.json"
++    pool_yaml_path: "{{ playbook_dir }}/../inventory/server_pool.yml"
++    parser_script: "{{ playbook_dir }}/../scripts/build_kdbx_pool.py"
+     target_search: "{{ search | default(term | default('')) }}"
+ 
+   tasks:
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

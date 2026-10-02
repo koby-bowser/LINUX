@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+iam.smartwifi.alabs		CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+;sblb.smartwifi.alabs		CNAME	k8s-smeshdm-xeacsdev-25ae819a0b-cfe3808045648ac2.elb.eu-west-3.amazonaws.com.
+sblb.smartwifi.alabs		CNAME 	omt-l2l-l4-internal-alb-72d227a2f50dee4f.elb.eu-west-3.amazonaws.com.
+systemapi.smartwifi.alabs	CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+api.eligibilite			CNAME	trp-wextp-aife1
+

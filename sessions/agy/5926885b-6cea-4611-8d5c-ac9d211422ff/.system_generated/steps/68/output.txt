@@ -1,0 +1,291 @@
+
+The command exited with code 0.
+Output:
+<truncated 1 lines>
+    },
+    "bi1-0a547255a2d33b51": {
+      "data": {
+        "cedar_lagoon": {
+          "claude-fable": true,
+          "claude-mythos": true
+        },
+        "cedar_basin": "2027-08-31"
+      },
+      "at": 1789455431490,
+      "entrypoint": "sdk-cli",
+      "model": "claude-haiku-4-5-20251001",
+      "org": "7c992592-51c3-479f-bfcd-4ad44871c4c2"
+    },
+    "bi1-a3309561ce783ffa": {
+      "data": {
+        "cedar_lagoon": {
+          "claude-fable": true,
+          "claude-mythos": true
+        },
+        "cedar_basin": "2027-08-31"
+      },
+      "at": 1789455430709,
+      "entrypoint": "cli",
+      "model": "claude-sonnet-5",
+      "org": "7c992592-51c3-479f-bfcd-4ad44871c4c2"
+    },
+    "bi1-1a4833473017759b": {
+      "data": {
+        "cedar_lagoon": {
+          "claude-fable": true,
+          "claude-mythos": true
+        },
+        "cedar_basin": "2027-08-31"
+      },
+      "at": 1789371817237,
+      "entrypoint": "sdk-cli",
+      "model": "claude-haiku-4-5-20251001",
+      "org": "7c992592-51c3-479f-bfcd-4ad44871c4c2"
+    },
+    "bi1-ef434d3989e1e804": {
+      "data": {
+        "cedar_lagoon": {
+          "claude-fable": true,
+          "claude-mythos": true
+        },
+        "cedar_basin": "2027-08-31"
+      },
+      "at": 1789371816953,
+      "entrypoint": "cli",
+      "model": "claude-sonnet-5",
+      "org": "7c992592-51c3-479f-bfcd-4ad44871c4c2"
+    },
+    "bi1-d06e99f2157c47a1": {
+      "data": {
+        "cedar_lagoon": {
+          "claude-fable": true,
+          "claude-mythos": true
+        },
+        "cedar_basin": "2027-08-31"
+      },
+      "at": 1789112792718,
+      "entrypoint": "sdk-cli",
+      "model": "claude-haiku-4-5-20251001",
+      "org": "7c992592-51c3-479f-bfcd-4ad44871c4c2"
+    },
+    "bi1-76f9681abbff32d6": {
+      "data": {
+        "cedar_lagoon": {
+          "claude-fable": true,
+          "claude-mythos": true
+        },
+        "cedar_basin": "2027-08-31"
+      },
+      "at": 1789112792157,
+      "entrypoint": "cli",
+      "model": "claude-sonnet-5",
+      "org": "7c992592-51c3-479f-bfcd-4ad44871c4c2"
+    }
+  },
+  "additionalModelOptionsCache": [
+    {
+      "value": "claude-fable-5-1[1m]",
+      "label": "Fable",
+      "description": "Fable 5.1 · Most capable for your hardest and longest-running tasks"
+    }
+  ],
+  "additionalModelCostsCache": {},
+  "modelAccessCache": [],
+  "orgModelDefaultCache": null,
+  "autoCompactWindowsCache": null,
+  "cachedUsageUtilization": {
+    "fetchedAtMs": 1790089284770,
+    "accountUuid": "7a487e2e-f630-47b5-b980-dbf86e886b00",
+    "utilization": {
+      "five_hour": {
+        "utilization": 20,
+        "resets_at": "2026-09-22T19:09:59.634082+00:00",
+        "limit_dollars": null,
+        "used_dollars": null,
+        "remaining_dollars": null,
+        "locked_reason": null
+      },
+      "seven_day": {
+        "utilization": 7,
+        "resets_at": "2026-09-27T10:59:59.634107+00:00",
+        "limit_dollars": null,
+        "used_dollars": null,
+        "remaining_dollars": null,
+        "locked_reason": null
+      },
+      "seven_day_oauth_apps": null,
+      "seven_day_opus": null,
+      "seven_day_sonnet": null,
+      "seven_day_cowork": null,
+      "seven_day_omelette": null,
+      "tangelo": null,
+      "iguana_necktie": null,
+      "omelette_promotional": null,
+      "nimbus_quill": {
+        "utilization": 0,
+        "resets_at": null,
+        "limit_dollars": null,
+        "used_dollars": null,
+        "remaining_dollars": null,
+        "locked_reason": null
+      },
+      "cinder_cove": null,
+      "copper_kite": null,
+      "harbor_lantern": null,
+      "wattle_ember": null,
+      "amber_ladder": null,
+      "juniper_tide": null,
+      "cedar_ember": null,
+      "amber_gauge": null,
+      "extra_usage": {
+        "is_enabled": true,
+        "monthly_limit": null,
+        "used_credits": 115,
+        "utilization": null,
+        "currency": "USD",
+        "decimal_places": 2,
+        "disabled_reason": null,
+        "user_disabled": false,
+        "spend_limit_reached": false,
+        "credits_ever_enabled": true,
+        "daily": null,
+        "weekly": null
+      },
+      "limits": [
+        {
+          "kind": "session",
+          "group": "session",
+          "percent": 20,
+          "severity": "normal",
+          "resets_at": "2026-09-22T19:09:59.634082+00:00",
+          "scope": null,
+          "is_active": true
+        },
+        {
+          "kind": "weekly_all",
+          "group": "weekly",
+          "percent": 7,
+          "severity": "normal",
+          "resets_at": "2026-09-27T10:59:59.634107+00:00",
+          "scope": null,
+          "is_active": false
+        }
+      ],
+      "spend": {
+        "used": {
+          "amount_minor": 115,
+          "currency": "USD",
+          "exponent": 2
+        },
+        "limit": null,
+        "percent": 0,
+        "severity": "normal",
+        "enabled": true,
+        "disabled_reason": null,
+        "cap": null,
+        "balance": null,
+        "auto_reload": null,
+        "disclaimer": "Usage credits cover you when you hit your plan limits. [Learn more](https://support.claude.com/articles/12429409)",
+        "can_purchase_credits": false,
+        "can_toggle": false
+      },
+      "member_dashboard_available": false,
+      "seven_day_breakdown": {
+        "as_of": "2026-09-22T14:59:52.086714+00:00",
+        "window_started_at": "2026-09-20T10:59:59.634107+00:00",
+        "rows": [
+          {
+            "key": "claude_code",
+            "display_name": "Claude Code",
+            "percent": 100
+          },
+          {
+            "key": "chat",
+            "display_name": "Chats",
+            "percent": 0
+          },
+          {
+            "key": "cowork",
+            "display_name": "Cowork",
+            "percent": 0
+          },
+          {
+            "key": "other",
+            "display_name": "Other",
+            "percent": 0
+          }
+        ]
+      }
+    }
+  },
+  "additionalModelOptionsAnsweredAt": 1790086915854,
+  "hasSeenAutoModeOutsideReadPrompt": true,
+  "mcpServers": {
+    "semaphore": {
+      "type": "stdio",
+      "command": "semaphore-mcp",
+      "args": [],
+      "env": {
+        "SEMAPHORE_URL": "https://semaphore.corp.intranet.local",
+        "SEMAPHORE_API_TOKEN": "idjmlcr2-4355we8ydcffidc-cwd99k0cmo86v2zwju=",
+        "REQUESTS_CA_BUNDLE": "/etc/ssl/certs/ca-certificates.crt",
+        "SSL_CERT_FILE": "/etc/ssl/certs/ca-certificates.crt"
+      }
+    }
+  },
+  "diffSidebarOpen": false,
+  "hasUsedBackslashReturn": true,
+  "cachedArtifactRoster": {
+    "accountUuid": "7a487e2e-f630-47b5-b980-dbf86e886b00",
+    "organizationUuid": "7c992592-51c3-479f-bfcd-4ad44871c4c2",
+    "version": "0.2.52",
+    "capabilities": [
+      "artifact",
+      "assets",
+      "comments",
+      "db",
+      "downloads",
+      "mcp",
+      "permissions",
+      "room",
+      "sample",
+      "self",
+      "user"
+    ],
+    "fetchedAt": 1790086489484
+  },
+  "mcpNeedsAuthNoticed": [
+    "plugin:linear:linear",
+    "plugin:nimble:nimble",
+    "plugin:engineering:slack",
+    "plugin:engineering:asana",
+    "plugin:engineering:atlassian",
+    "plugin:engineering:notion",
+    "plugin:engineering:github",
+    "plugin:engineering:pagerduty",
+    "plugin:engineering:datadog",
+    "plugin:productivity:monday",
+    "plugin:productivity:clickup",
+    "plugin:marketing:canva",
+    "plugin:marketing:figma",
+    "plugin:marketing:hubspot",
+    "plugin:marketing:amplitude",
+    "plugin:marketing:amplitude-eu",
+    "plugin:marketing:ahrefs",
+    "plugin:marketing:similarweb",
+    "plugin:marketing:klaviyo",
+    "plugin:marketing:supermetrics",
+    "plugin:enterprise-search:guru",
+    "plugin:design:intercom",
+    "plugin:finance:bigquery",
+    "plugin:legal:box",
+    "plugin:legal:egnyte",
+    "plugin:legal:docusign"
+  ],
+  "tipsHistoryByCommand": {
+    "ide": {
+      "tipId": "ide-upsell-external-terminal",
+      "numStartups": 242
+    }
+  }
+}

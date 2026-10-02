@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pyVmomi; print('pyVmomi version:', pyVmomi.__version__)
+    ^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pyVmomi'
+pyVmomi not installed
+

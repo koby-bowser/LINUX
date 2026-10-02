@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+total 248
+drwxr-xr-x 3 koby koby   4096 Sep 16 12:08 .
+drwxr-xr-x 4 koby koby   4096 Sep 16 12:08 ..
+drwxr-xr-x 4 koby koby   4096 Sep 16 12:08 chunks
+-rw-r--r-- 1 koby koby 117603 Sep 16 12:32 transcript_full.jsonl
+-rw-r--r-- 1 koby koby 111300 Sep 16 12:32 transcript.jsonl
+

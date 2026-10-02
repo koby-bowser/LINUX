@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+scheme=http, netloc=172.16.75.9%3a3128, username=a.samy, has_password=True
+scheme=https, netloc=gitsi.intranet.local, username=a.samy, has_password=True
+

@@ -1,0 +1,38 @@
+
+The command exited with code 0.
+Output:
+/home/koby/LINUX/playbooks:
+total 180
+drwxrwxr-x  7 koby koby  4096 Oct  2 11:42 .
+drwxrwxr-x 11 koby koby  4096 Oct  2 11:42 ..
+-rw-rw-r--  1 koby koby   667 Sep 17 11:04 00-smoke-test.yml
+drwxrwxr-x  4 koby koby  4096 Oct  2 11:42 ai-tool-updates
+-rw-rw-r--  1 koby koby 19815 Sep 17 16:00 audit-web-certs.yml
+-rw-r--r--  1 koby koby 21460 Sep 21 19:06 audit-wextp-topology.yml
+-rw-rw-r--  1 koby koby  4525 Sep  9 16:33 bootstrap-koby-bowser.yml
+-rw-rw-r--  1 koby koby  9499 Sep 24 11:53 check-kea.yml
+-rw-rw-r--  1 koby koby  2442 Sep 17 16:00 check-nginx.yml
+-rw-rw-r--  1 koby koby  1670 Sep  9 16:08 copy-to-tmp.yml
+-rw-rw-r--  1 koby koby  8145 Sep  4 12:25 deploy-ssh-key.yml
+drwxrwxr-x  4 koby koby  4096 Sep 17 11:04 files
+drwxrwxr-x  3 koby koby  4096 Sep 17 11:04 group_vars
+-rw-rw-r--  1 koby koby 14340 Sep 17 11:04 issue-deploy-certs.yml
+-rw-rw-r--  1 koby koby  4136 Sep 17 11:05 kdbx-pool.yml
+-rw-rw-r--  1 koby koby 17337 Oct  2 11:42 legacy-ssh-podman.yml
+-rw-rw-r--  1 koby koby  6888 Sep 24 11:53 patch-single-writer-fe.yml
+-rw-rw-r--  1 koby koby 15365 Sep 25 14:09 reclaim-space.yml
+lrwxrwxrwx  1 koby koby    13 Sep 17 11:05 search-servers.yml -> kdbx-pool.yml
+drwxrwxr-x  2 koby koby  4096 Sep 17 11:04 tasks
+drwxrwxr-x  2 koby koby  4096 Sep 17 11:04 templates
+
+/home/koby/LINUX/scripts:
+total 56
+drwxrwxr-x  2 koby koby  4096 Oct  2 11:42 .
+drwxrwxr-x 11 koby koby  4096 Oct  2 11:42 ..
+-rwxrwxr-x  1 koby koby 11948 Sep 17 11:06 build_kdbx_pool.py
+-rwxrwxr-x  1 koby koby  9412 Sep  9 16:31 copy-to-remote.sh
+-rwxrwxr-x  1 koby koby  4970 Sep 17 11:07 kssh
+-rwxrwxr-x  1 koby koby  6140 Sep 17 11:07 kssh.py
+-rwxrwxr-x  1 koby koby  1495 Oct  2 11:42 legacy-ssh
+-rwxrwxr-x  1 koby koby  3102 Sep  9 18:35 search-servers.sh
+

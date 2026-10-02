@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+[master 928d43c] feat(certbot): update DNS-01 hooks for passwordless PowerDNS master challenge injection
+ 2 files changed, 88 insertions(+), 40 deletions(-)
+

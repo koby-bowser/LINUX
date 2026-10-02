@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+chmod: cannot access '/root/.secrets/certbot/pdns-*.sh': No such file or directory
+

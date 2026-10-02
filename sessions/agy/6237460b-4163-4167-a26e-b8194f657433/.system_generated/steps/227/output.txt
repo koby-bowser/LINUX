@@ -1,0 +1,45 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   162  100   162    0     0  10800      0 --:--:-- --:--:-- --:-HTTP/2 301 
+server: nginx
+date: Thu, 10 Sep 2026 08:53:00 GMT
+content-type: text/html
+content-length: 162
+location: https://map.extranetclient.outremer-telecom.fr:9443/centreon-map/
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+HTTP/2 401 
+server: nginx
+date: Thu, 10 Sep 2026 08:53:00 GMT
+content-type: application/json;charset=ISO-8859-1
+content-length: 80
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+-:-- 11571
+100    80  100    80    0     0   2758      0 --:--:-- --:--:-- --:--:--  2758
+

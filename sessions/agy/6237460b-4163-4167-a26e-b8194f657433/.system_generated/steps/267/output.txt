@@ -1,0 +1,58 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== 1. Performing Live Test Request ===
+HTTP/2 301 
+server: nginx
+date: Thu, 10 Sep 2026 09:00:24 GMT
+content-type: text/html
+content-length: 162
+location: https://map.extranetclient.outremer-telecom.fr:9443/centreon-map/
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+HTTP/2 401 
+server: nginx
+date: Thu, 10 Sep 2026 09:00:24 GMT
+content-type: application/json;charset=ISO-8859-1
+content-length: 80
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+strict-transport-security: max-age=31536000 ; includeSubDomains
+x-frame-options: DENY
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+=== 2. Real-time Nginx Access Log (/var/log/nginx/extranetclient.outremer-telecom.fr-9443-access.log) ===
+172.30.198.33 - - [10/Sep/2026:08:53:00 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:53:00 +0000] "GET /centreon-map/ HTTP/2.0" 401 80 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:09:00:24 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:09:00:24 +0000] "GET /centreon-map/ HTTP/2.0" 401 80 "-" "curl/7.74.0"
+

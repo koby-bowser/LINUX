@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+TITLE: MEP - LLD : Comment creer un nouveau projet
+TEXT SNIPPET:
+![Creer un nouveau document sous Projets](/api/attachments.redirect?id=db5712bc-cf87-43a4-a37e-3327de4ac25d " =1900x624")
+
+
+\
+ ![Le nommer selon le projet et choisir le Template correspondant](/api/attachments.redirect?id=f34e5793-c1b5-4b20-95c0-31977da2931d " =1900x624")
+

@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 22
+    print(f"  ip={entry[\"ip\"]} user={entry[\"user\"]} group={entry[\"group\"]} pwd={entry[\"password\"]}")
+                         ^
+SyntaxError: unexpected character after line continuation character
+

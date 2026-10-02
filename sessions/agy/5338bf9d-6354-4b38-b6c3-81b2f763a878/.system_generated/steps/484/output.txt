@@ -1,0 +1,18 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/audit-web-certs.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -358,8 +358,8 @@
+           {% set wa = hv.web_audit | default({}) %}
+           {% if wa.any_active | default(false) %}
+           {% for v in wa.vhosts | default([]) %}
+-          {% set c_stat = (v.cert_info.status if (v.cert_info is defined and v.cert_info.exists) else ('No TLS' if not v.ssl_certificate else 'FILE NOT FOUND')) %}
+-          {{ '%-20s' | format(h) }} | {{ '%-8s' | format(v.webserver) }} | {{ '%-35s' | format(v.domains | join(', ') | truncate(35, True, '...')) }} | {{ '%-12s' | format(v.ports | join(',') | truncate(12, True, '...')) }} | {{ '%-38s' | format(v.ssl_certificate | default('None') | truncate(38, True, '...')) }} | {{ '%-24s' | format(c_stat | truncate(24, True, '...')) }}
++          {% set c_stat = (v.cert_info.status if (v.cert_info and v.cert_info.exists) else ('No TLS' if not v.ssl_certificate else 'FILE NOT FOUND')) %}
++          {{ '%-20s' | format(h) }} | {{ '%-8s' | format(v.webserver) }} | {{ '%-35s' | format((v.domains | default([]) | join(', ')) | truncate(35, True, '...')) }} | {{ '%-12s' | format((v.ports | default([]) | join(',')) | truncate(12, True, '...')) }} | {{ '%-38s' | format((v.ssl_certificate or 'None') | truncate(38, True, '...')) }} | {{ '%-24s' | format(c_stat | truncate(24, True, '...')) }}
+           {% endfor %}
+           {% else %}
+           {{ '%-20s' | format(h) }} | {{ '%-8s' | format('N/A') }} | {{ '%-35s' | format('No active web server') }} | {{ '%-12s' | format('N/A') }} | {{ '%-38s' | format('None') }} | {{ '%-24s' | format('INACTIVE / NO SERVICE') }}
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.
+
+We did our best to apply changes despite some inaccuracies. Double check if the edit applied is what you intended.

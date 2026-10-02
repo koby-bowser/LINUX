@@ -1,0 +1,7 @@
+
+The command exited with code 1.
+Output:
+Saisissez un mot de passe pour chiffrer la base de données (facultatif) :
+Confirmer le mot de passe :
+Impossible de créer l’entrée dont le chemin est Servers/SRV01.
+

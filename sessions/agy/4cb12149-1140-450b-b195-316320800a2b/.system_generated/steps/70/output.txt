@@ -1,0 +1,31 @@
+The search for ""mcp-excalidraw-server" "Antigravity"" returned the following summary:
+`mcp-excalidraw-server` is a tool that provides AI agents with a persistent, programmatic interface to interact with an **Excalidraw** canvas[1][2]. It allows agents to create, refine, and export diagrams directly within their development workflow[1][3].
+
+**Antigravity** (Google’s agent-first IDE) is one of the AI clients that supports this server[4][5].
+
+### Key Features of `mcp-excalidraw-server`
+*   **Programmatic Control:** Unlike simple "prompt-to-diagram" tools, this server provides 26 tools for element-level manipulation (CRUD operations), including aligning, grouping, and distributing elements[6][2].
+*   **Stateful Canvas:** It maintains a persistent canvas that AI agents can "see" via screenshots and "draw" on iteratively to fix layouts or update details[1][2].
+*   **Integration:** It supports multiple interfaces, including:
+    *   **Agent Skill + CLI:** Recommended for coding agents (e.g., Claude Code, Cursor, Antigravity) for zero-config setups[1][7].
+    *   **MCP Server:** Exposes tools over `stdio` for any Model Context Protocol-compliant client[1][2].
+    *   **REST API:** Available for custom frameworks or LangChain[1][8].
+
+### Usage with Antigravity
+Antigravity, being an agent-first IDE, treats MCP servers as integral tools for its workflows[5]. By connecting `mcp-excalidraw-server` to Antigravity, developers can ask the agent to "draw the architecture of this service," and the agent will produce an editable Excalidraw diagram, iterate on it based on your feedback, and save the resulting file directly into the repository[7][5].
+
+**Configuration:**
+To use it in Antigravity, you typically add the server to your MCP configuration file (e.g., `mcp_config.json`) or via the IDE's settings menu under "Installed MCP Servers"[9][10]. The command is generally `npx -y mcp-excalidraw-server`[7][11].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXBi5Wm4hNGvtxZWCjYecj8d-hcd6ph-w2bEwH4Yz9L-lUV6qs1VxVxd8bcLUJcg21fhHL73YegpXynFzH64xFz5hzjFXDgR1H-d2IlE4OOP0wPQOYlkcarDaNSgg6PsQ=)
+[2] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF-5WVl0M4LLBCRZdUB_QPquY8sg83k_o3c6XhKc6owsh_Qr0cM4aldQ69QC54qCLAWEeD69nOGNk0IxxQmOXTWZVnb_PgMzsW2HW3bW7-yF4pffMd2LXxdeFT--1TA8vcHumIX-lyGr2m_Fq1zaRmyADZjiWxT)
+[3] [mcpagentsmarket.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFICtsijw7_7gRYBoA40ND2AW57dVp4HjVksD9sxcCxCqGqLw0RDoP60UT4j1Kfct0Lv8isND7Sphqbbup3F3UIIYqPs1JwdI7u2WmzwP-Szduc5obKV3tv4OgfJ8usv-ZMrIJQ)
+[4] [mcpagentsmarket.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFICtsijw7_7gRYBoA40ND2AW57dVp4HjVksD9sxcCxCqGqLw0RDoP60UT4j1Kfct0Lv8isND7Sphqbbup3F3UIIYqPs1JwdI7u2WmzwP-Szduc5obKV3tv4OgfJ8usv-ZMrIJQ)
+[5] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEQUhJxW20WQueBp4WElq5qEe-MZaN4ZIU32vV-Ca-8Ullh7qHR9N76zccBcdbHl_uPvBW9PK56vCUbSYFPNgLC75izPGaZP-2KCCFhfK6jd2CZmlqZRaKu4N3FOpusWRD6l2alxT5aXdCzdkKQgWeGbFAJKf5TWhTvvAeLye6Q3D0I7PVA9CJ1gX-rEaZn0yl_bzGB5uVEoIIGv4RC8KKqvLxO)
+[6] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF-5WVl0M4LLBCRZdUB_QPquY8sg83k_o3c6XhKc6owsh_Qr0cM4aldQ69QC54qCLAWEeD69nOGNk0IxxQmOXTWZVnb_PgMzsW2HW3bW7-yF4pffMd2LXxdeFT--1TA8vcHumIX-lyGr2m_Fq1zaRmyADZjiWxT)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXBi5Wm4hNGvtxZWCjYecj8d-hcd6ph-w2bEwH4Yz9L-lUV6qs1VxVxd8bcLUJcg21fhHL73YegpXynFzH64xFz5hzjFXDgR1H-d2IlE4OOP0wPQOYlkcarDaNSgg6PsQ=)
+[8] [getclaudeskills.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE0TOdDwa8hWVg7UmPtE7Uhz2lyLQVWb1J3hanInqyBQQ9zr9d6R8X1Anu2qsF50LXMn1cp9K6bRPn7czrtqAOiZq58PbLgHTh0bY4JCWdBLy7byLZqibndUzHZguLC4gUpIEi6YQnY-qmvvAkHald6F1Tswrffe5s=)
+[9] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE5ql9n98FKaD3NcJnPJkBkup6_X92eX32jtG5dejNA6slx7e0D8skgCwMQ4kwTokuZ218NQHUFpNJDOyUWjIKew-12uWISFtqwiq8T0QiMQ0GnVLXG_l8r2W8z8hSw7_56aRtmOmCH9Q6-Zhx0EM7OqYethyqSUiP__gmeJZSKj8x6AO3kCh-MG8ZA7fobUtFE1LSt2HCH9cbbj4uvVMwCvha-zlg=)
+[10] [antigravity.google](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrzT2p-BegZpfXt4zZrUAk7fu-HOiFpG_VCEV5Z5Y_veqWwkiFt2DtHeBxtqvUGMRCOPR7KNkETGZHT_pP0JNxrzgZ_1CSQQO15trzrgrWshmOYOiMF8idKF8NREGJ)
+[11] [wordpress.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGF5rmReHtTLgGyUFgUkslGVGjTKFWHmxnyYZGsJixQgVr1T4qlAHnTcHcIlNWqBzdeQCwt31j3_fqyK0b7K0jLvAD-dpD7vQQkpDxaOv5CxJqMm0sj21XQyy_7RiyFZxvRlgfYgwoJhUMWBNwOsrIcYvMid-HIpvhjKFb5u6GYJ2Rc50Y5kdHGBRcC0eOFCDCrGTtM7CRVImObHmkV1KPPY1kJdw==)

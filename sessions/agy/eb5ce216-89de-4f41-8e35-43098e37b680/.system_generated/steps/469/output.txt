@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+# Handoff
+
+## State
+I tried deploying `~/.ssh/id_ed25519.pub` (koby@debian-trixie) to `172.30.249.209` (root, port 22) via `playbooks/deploy-ssh-key.yml`. SSH auth + vault decrypt both worked, but the play fails at "Gathering Facts": `/usr/bin/python3` doesn't exist on that host. User explicitly said **do not install anything on 172.30.249.209**, so I stopped. No changes were made on the target; no `changed` tasks ran.
+
+## Next
+1. Diagnose the remote host with `-m raw` (no Python needed): `cat /etc/os-release; which python3 python; ls /usr/bin/python*` — I proposed this command but user stopped before running it.
+2. If Python exists at a non-standard path: set `ansible_python_interpreter` in the vars file, no install needed.
+3. If Python is genuinely absent: this blocks any non-raw Ansible module against this host — will need user's explicit OK before any install, or an install-free path (e.g. `raw` + manual `authorized_keys` append via shell heredoc).
+
+## Context
+- `playbooks/deploy-ssh-key.yml` has an uncommitted local change: `become_method: sudo` → `become_method: ansible.builtin.sudo`. Left as-is, not committed.
+- `playbooks/group_vars/all/vault.yml` (DNS/certs secrets) auto-loads for ANY playbook targeting `all`, including unrelated ones like this SSH-key playbook — known gotcha, requires `--vault-password-file` even when the playbook itself uses no vault vars. Vault password: "koby".
+- Bash sandbox blocks outbound SSH to non-whitelisted hosts; user had to run the ansible-playbook command themselves via `!` prefix (auto-mode classifier blocks `dangerouslyDisableSandbox` for this even from me).
+- Ran into a separate local bug: `ansible-playbook` errors with "requires blocking IO on stdin/stdout/stderr" in this shell — worked around with `script -qec "..." /dev/null` to allocate a pty.
+- 172.30.249.209 has no inventory entry (ad hoc `-i "172.30.249.209,"` used); not documented anywhere else — its OS/purpose is unknown to me.
+

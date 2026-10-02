@@ -1,0 +1,59 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== Access Log 9443 ===
+172.30.198.33 - - [10/Sep/2026:07:55:31 +0000] "GET / HTTP/2.0" 502 150 "-" "curl/7.74.0"
+156.225.1.91 - - [10/Sep/2026:08:10:21 +0000] "GET / HTTP/2.0" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+156.225.1.91 - - [10/Sep/2026:08:10:27 +0000] "GET / HTTP/2.0" 502 552 "-" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+172.30.198.33 - - [10/Sep/2026:08:37:22 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:37:22 +0000] "GET /centreon-map/ HTTP/2.0" 400 435 "-" "curl/7.74.0"
+
+=== Test with HTTP/1.1 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   435  100   435    0     0HTTP/1.1 400 
+Server: nginx
+Date: Thu, 10 Sep 2026 08:38:06 GMT
+Content-Type: text/html;charset=utf-8
+Content-Length: 435
+Connection: keep-alive
+Content-Language: en
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer-when-downgrade
+Content-Security-Policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+Permissions-Policy: interest-cohort=()
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+<!doctype html><html lang="en"><head><title>HTTP Status 400 – Bad Request</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400 – Bad Request</h1></body></html>
+=== Test with HTTP/2 ===
+  22894      0 --:--:-- --:--:-- --:--:-- 22894
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   435  100   435    0     0  21750      0 --:--:-- --:--:-- --:--:-- 21750
+HTTP/2 400 
+server: nginx
+date: Thu, 10 Sep 2026 08:38:06 GMT
+content-type: text/html;charset=utf-8
+content-length: 435
+content-language: en
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+<!doctype html><html lang="en"><head><title>HTTP Status 400 – Bad Request</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400 – Bad Request</h1></body></html>

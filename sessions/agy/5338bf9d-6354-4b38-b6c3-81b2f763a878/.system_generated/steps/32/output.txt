@@ -1,0 +1,18 @@
+{"name":".claude", "isDir":true}
+{"name":".git", "isDir":true}
+{"name":".gitignore", "sizeBytes":"438"}
+{"name":".gitlab-ci.yml", "sizeBytes":"1025"}
+{"name":"AGENTS.md", "sizeBytes":"4161"}
+{"name":"CLAUDE.md", "sizeBytes":"2824"}
+{"name":"README.md", "sizeBytes":"1833"}
+{"name":"ansible.cfg", "sizeBytes":"202"}
+{"name":"docs", "isDir":true}
+{"name":"files", "isDir":true}
+{"name":"inventories", "isDir":true}
+{"name":"playbooks", "isDir":true}
+{"name":"requirements.yml", "sizeBytes":"315"}
+{"name":"roles", "isDir":true}
+{"name":"scripts", "isDir":true}
+{"name":"vsphere-requirements.yml", "sizeBytes":"588"}
+
+Summary: This directory contains 8 subdirectories and 8 files.

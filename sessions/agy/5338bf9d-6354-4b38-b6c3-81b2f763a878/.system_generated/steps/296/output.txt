@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+Switched to a new branch 'feat/move-mtq-mailsrvp-to-prod'
+

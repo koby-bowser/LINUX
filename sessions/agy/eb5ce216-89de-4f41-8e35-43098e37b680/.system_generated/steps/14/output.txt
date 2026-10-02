@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+koby adm cdrom floppy sudo audio dip video plugdev users netdev scanner bluetooth lpadmin ollama
+

@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+Wikitech cookies count: 3
+wikitech.intranet.local mediawikiToken / 83
+wikitech.intranet.local mediawikiUserID / 51
+wikitech.intranet.local mediawikiUserName / 51
+

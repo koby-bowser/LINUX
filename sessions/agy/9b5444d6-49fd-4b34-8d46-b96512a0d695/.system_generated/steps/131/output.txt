@@ -1,0 +1,28 @@
+
+The command exited with code 0.
+Output:
+On branch Baba-Koby
+Your branch is ahead of 'origin/Baba-Koby' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   .gitignore
+	modified:   ansible.cfg
+	new file:   copy-to-remote.sh
+	new file:   host_vars/.gitkeep
+	new file:   kssh
+	new file:   playbooks/bootstrap-koby-bowser.yml
+	new file:   playbooks/copy-to-tmp.yml
+	modified:   playbooks/deploy-ssh-key.yml
+	new file:   playbooks/kdbx-pool.yml
+	new file:   playbooks/search-servers.yml
+	new file:   roles/.gitkeep
+	new file:   scripts/build_kdbx_pool.py
+	new file:   scripts/copy-to-remote.sh
+	new file:   scripts/kssh
+	new file:   scripts/kssh.py
+	new file:   scripts/search-servers.sh
+	new file:   search-servers.sh
+
+

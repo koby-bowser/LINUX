@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+commit 7a97cb8c1c1da760d80b758dacdc64f2f5b8b789 (HEAD -> main, origin/main, origin/HEAD)
+Merge: 70b1e5d 0f47f6f
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Mon Sep 7 12:49:23 2026 +0000
+
+    Merge branch 'feat/recon-distro-kernel-audit' into 'main'
+    
+    feat(recon): add distro and kernel version audit playbook
+    
+    See merge request omt/infra/management/infra-management-system!265
+

@@ -1,0 +1,28 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+drwxr-xr-x 11 www-data www-data 4096 Nov  8  2025 /var/www/assistance.redcaraibe.fr
+drwxr-xr-x  7 www-data www-data 4096 Jul 27  2025 /var/www/commande.redcaraibe.fr
+drwxr-xr-x 22 www-data www-data 4096 Sep 17 15:49 /var/www/espaceclient.redcaraibe.fr
+drwxr-xr-x 12 www-data www-data 4096 Jul 21  2025 /var/www/pay.redcaraibe-bounique.fr
+drwxr-xr-x 14 www-data www-data 4096 Jul 21  2025 /var/www/pay.redcaraibe.fr
+drwxr-xr-x 13 www-data www-data 4096 Jun 10 09:17 /var/www/pay-uxui.redcaraibe.fr
+drwxr-xr-x  8 www-data www-data  155 Jun 26 01:05 /var/www/resiliation.redcaraibe.fr
+drwxr-xr-x  7 www-data www-data  128 Jun 18 21:20 /var/www/retractation.lapostemobile.sfrcaraibe.fr
+drwxr-xr-x  7 www-data www-data  128 Jun 18 21:20 /var/www/retractation.redcaraibe.fr
+drwxr-xr-x  7 www-data www-data  128 Jun 18 21:20 /var/www/retractation.redcaraibe.fr
+drwxr-xr-x  7 www-data www-data  128 Jun 18 21:20 /var/www/retractation.sfrcaraibe.fr
+drwxr-xr-x  6 www-data www-data 4096 Sep 20 02:16 /var/www/uxui.redcaraibe.fr
+drwxr-xr-x  5 www-data www-data 4096 Nov  4  2025 /var/www/www.redcaraibe.fr
+

@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+On branch Baba-Koby
+Your branch is up to date with 'origin/Baba-Koby'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	playbooks/audit-web-certs.yml
+
+nothing added to commit but untracked files present (use "git add" to track)
+

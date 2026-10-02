@@ -1,0 +1,256 @@
+
+The command exited with code 0.
+Output:
+<truncated 305 lines>
+      Password : V9k!3qTz#Fp7XwBd
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [52] trp-wextp-be2 [SSH]
+      IP(s)    : 172.30.230.114 (Port: 30)
+      User     : superuser
+      Password : g7P#v9ZqR4!tB2yK
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [53] trp-wextp-be3 [SSH]
+      IP(s)    : 172.30.230.115 (Port: 30)
+      User     : superuser
+      Password : Nf!5sV2@jH7cR0yM
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [54] trp-wextp-be8 [SSH]
+      IP(s)    : 172.30.230.120 (Port: 30)
+      User     : superuser
+      Password : 92GLku4FKjUyh5bP
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [55] trp-wextp-be5 [SSH]
+      IP(s)    : 172.30.230.117 (Port: 30)
+      User     : superuser
+      Password : mT4!qC9^rZ1&dW6p
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [56] trp-wextp-be10 [SSH]
+      IP(s)    : 172.30.230.122 (Port: 30)
+      User     : superuser
+      Password : V7p!rQ2sXz#9gL4w
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [57] trp-wextp-be7 [SSH]
+      IP(s)    : 172.30.230.119 (Port: 30)
+      User     : superuser
+      Password : qK6&nB3!tR9^fV1z
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [58] trp-wextp-be4 [SSH]
+      IP(s)    : 172.30.230.116 (Port: 30)
+      User     : superuser
+      Password : bR9&zG3!tF6uH2cQ
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [59] trp-wextp-be9 [SSH]
+      IP(s)    : 172.30.230.121 (Port: 30)
+      User     : superuser
+      Password : A4h^dE9yP!rL6uX2
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [60] trp-wextp-afe1 [SSH]
+      IP(s)    : 172.30.230.100, 172.30.230.98 (Port: 30)
+      User     : superuser
+      Password : nh>up=1]mb:`5jz.mt/08=5xj
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+      Notes    : root / root2026
+
+  [61] trp-wextp-aife1 [SSH]
+      IP(s)    : 172.30.230.109, 172.30.230.98 (Port: 30)
+      User     : superuser
+      Password : :^7O,>03'''1Y%%i`fhk
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [62] trp-wextp-fe3 [SSH]
+      IP(s)    : 172.30.230.99, 172.30.230.98 (Port: 30)
+      User     : superuser
+      Password : n9G$3vTq!zR8@pLf2#xHm7&bW1sY0uF
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+      Notes    : Old PWD: PY:7'1Ivu(%*IrxWm_cEtZY<d
+
+  [63] trp-wextp-rfe1 [SSH]
+      IP(s)    : 172.30.230.108, 172.30.230.98 (Port: 30)
+      User     : superuser
+      Password : :^7O,>03'''1Y%%i`fhk
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [64] trp-wextp-be11 [SSH]
+      IP(s)    : 172.30.230.123 (Port: 30)
+      User     : superuser
+      Password : }`ig_+i}6[Ude_{U]5C8ea+0p
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [65] trp-wextp-fe1 [SSH]
+      IP(s)    : 172.30.230.97 (Port: 30)
+      User     : superuser
+      Password : n7$Rk8!FvZq2@Yp4#B6tLm9%
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [66] trp-wextp-mdb1 [SSH]
+      IP(s)    : 172.30.230.137 (Port: 30)
+      User     : superuser
+      Password : 4oy(+H*N$@]KM)c`osy~
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [67] trp-wextp-rdb1 [SSH]
+      IP(s)    : 172.30.230.129 (Port: 30)
+      User     : superuser
+      Password : K7!zV9wq$3fL0pRb
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [68] trp-wextp-be6 [SSH]
+      IP(s)    : 172.30.230.118 (Port: 30)
+      User     : superuser
+      Password : q8R#vK3n!p2T$zF6
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [69] trp-wextp-stat1 [SSH]
+      IP(s)    : 172.30.231.81 (Port: 30)
+      User     : superuser
+      Password : T5DpcWyeumxwhhFvwUw@
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [70] trp-wextp-be11 [SSH]
+      IP(s)    : 172.30.230.123 (Port: 30)
+      User     : root
+      Password : A3!kP7^xD1#vM8yQ
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [71] trp-wextp-be11 [SSH]
+      IP(s)    : 172.30.230.123 (Port: 30)
+      User     : root
+      Password : A3!kP7^xD1#vM8yQ
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+
+  [72] trp-wextp-be1 [SSH]
+      IP(s)    : 172.30.230.113 (Port: 30)
+      User     : root
+      Password : tR3$kB6w@1Xc9Nf5
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [73] trp-wextp-be2 [SSH]
+      IP(s)    : 172.30.230.114 (Port: 30)
+      User     : root
+      Password : xT$3mW8&uQz6Lp9r
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [74] trp-wextp-be3 [SSH]
+      IP(s)    : 172.30.230.115 (Port: 30)
+      User     : root
+      Password : Y8#kD4qZ1^pL6wXe
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [75] trp-wextp-be4 [SSH]
+      IP(s)    : 172.30.230.116 (Port: 30)
+      User     : root
+      Password : S2%vL7#nK5@xP8yJ
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [76] trp-wextp-be5 [SSH]
+      IP(s)    : 172.30.230.117 (Port: 30)
+      User     : root
+      Password : H7#pX2@vG5!sL8yN
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [77] trp-wextp-be6 [SSH]
+      IP(s)    : 172.30.230.118 (Port: 30)
+      User     : root
+      Password : M9$wX7r@t4L#cQ1v
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [78] trp-wextp-be7 [SSH]
+      IP(s)    : 172.30.230.119 (Port: 30)
+      User     : root
+      Password : U4#yM8@pS2!cL7wQ
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [79] trp-wextp-be8 [SSH]
+      IP(s)    : 172.30.230.120 (Port: 30)
+      User     : root
+      Password : q67poEEW6lyYIBxa
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [80] trp-wextp-be9 [SSH]
+      IP(s)    : 172.30.230.121 (Port: 30)
+      User     : root
+      Password : T3g%vN7m#Q1bC8jF
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [81] trp-wextp-be10 [SSH]
+      IP(s)    : 172.30.230.122 (Port: 30)
+      User     : root
+      Password : mK5$Zp8qF1@tW3nJ
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [82] trp-wextp-dbm1 [SSH]
+      IP(s)    : 172.30.230.89 (Port: 30)
+      User     : root
+      Password : ~+6mqS9Pu<(<S,zK<jJ,
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [83] trp-wextp-dbm2 [SSH]
+      IP(s)    : 172.30.230.90 (Port: 30)
+      User     : V9k!3qTz#Fp7XwBd
+      Password : ~+6mqS9Pu<(<S,zK<jJ,
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [84] trp-wextp-dbm3 [SSH]
+      IP(s)    : 172.30.230.91 (Port: 30)
+      User     : root
+      Password : V9k!3qTz#Fp7XwBd
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [85] trp-wextp-fe2 [SSH]
+      IP(s)    : 172.30.230.98 (Port: 30)
+      User     : root
+      Password : K3m#R8t!p5Vq9$zN2yLx7@
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [86] trp-wextp-rdb1 [SSH]
+      IP(s)    : 172.30.230.129 (Port: 30)
+      User     : root
+      Password : rty
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [87] trp-wextp-mdb1 [SSH]
+      IP(s)    : 172.30.230.137 (Port: 30)
+      User     : root
+      Password : :2UTWx;b;{nP~]RVm<%d
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [88] trp-wextp-fe1 [SSH]
+      IP(s)    : 172.30.230.97 (Port: 30)
+      User     : root
+      Password : `F3n@9xW!z2Q#s7L%r8J`
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [89] trp-wextp-rfe1 [SSH]
+      IP(s)    : 172.30.230.108 (Port: 30)
+      User     : root
+      Password : O>dX[yp5Fa,f&@R;V{5L
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [90] trp-wextp-aife1 [SSH]
+      IP(s)    : 172.30.230.109 (Port: 30)
+      User     : root
+      Password : O>dX[yp5Fa,f&@R;V{5L
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [91] trp-wextp-fe3 [SSH]
+      IP(s)    : 172.30.230.99 (Port: 30)
+      User     : root
+      Password : O>dX[yp5Fa,f&@R;V{5L
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+  [92] trp-wextp-stat1 [SSH]
+      IP(s)    : 172.30.231.81 (Port: 30)
+      User     : root
+      Password : jZDWXPDR$hS3nZkJ7pPw
+      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+
+

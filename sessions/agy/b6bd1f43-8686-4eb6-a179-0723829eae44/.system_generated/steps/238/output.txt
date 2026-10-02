@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+_acme-challenge.geo		TXT 	Druw6oLbgHO3kVB_auy3EBaah5RMNxTeM25DwjGhBm0
+geo				CNAME				gbs-frontweb-01
+geo2				CNAME				trp-wextp-fe1
+geoloc				CNAME				trp-wextp-fe1
+geoloc.api			CNAME				trp-wextp-fe1
+

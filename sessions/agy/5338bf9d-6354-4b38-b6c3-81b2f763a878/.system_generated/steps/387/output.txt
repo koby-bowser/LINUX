@@ -1,0 +1,21 @@
+{"name":".ansible", "isDir":true}
+{"name":".claude", "isDir":true}
+{"name":".git", "isDir":true}
+{"name":".gitignore", "sizeBytes":"343"}
+{"name":".remember", "isDir":true}
+{"name":".vault_pass", "sizeBytes":"5"}
+{"name":"ansible.cfg", "sizeBytes":"285"}
+{"name":"copy-to-remote.sh", "sizeBytes":"45"}
+{"name":"cp", "isDir":true}
+{"name":"galaxy_cache", "isDir":true}
+{"name":"host_vars", "isDir":true}
+{"name":"inventory", "isDir":true}
+{"name":"kssh", "sizeBytes":"35"}
+{"name":"playbooks", "isDir":true}
+{"name":"roles", "isDir":true}
+{"name":"scripts", "isDir":true}
+{"name":"search-servers.sh", "sizeBytes":"45"}
+{"name":"tmp", "isDir":true}
+{"name":"typescript", "sizeBytes":"6943"}
+
+Summary: This directory contains 12 subdirectories and 7 files.

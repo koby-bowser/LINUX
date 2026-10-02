@@ -1,0 +1,22 @@
+The search for ""netbox.authentication.LDAPBackend" github" returned the following summary:
+`netbox.authentication.LDAPBackend` is the standard class used to enable LDAP authentication in NetBox[1][2]. When configuring NetBox for LDAP, it is crucial to use the exact case-sensitive string `'netbox.authentication.LDAPBackend'` in your `configuration.py` file, as using lowercase (`LDAPbackend`) will cause errors[3].
+
+### Key Configuration Steps
+*   **Enable Remote Auth:** In `configuration.py`, set `REMOTE_AUTH_ENABLED = True` and `REMOTE_AUTH_BACKEND = 'netbox.authentication.LDAPBackend'`[1][2].
+*   **Install Dependencies:** You must install `django-auth-ldap` within your NetBox Python virtual environment[4]. It is recommended to add this to `local_requirements.txt` so it persists through upgrades[4].
+*   **Create `ldap_config.py`:** This file must be created in the same directory as your `configuration.py` to house your LDAP-specific settings (e.g., `AUTH_LDAP_SERVER_URI`, `AUTH_LDAP_BIND_DN`)[4][5].
+*   **Common Pitfalls:**
+    *   **Case Sensitivity:** Ensure it is `LDAPBackend`, not `LDAPbackend`[3].
+    *   **Environment:** If using Docker, ensure the LDAP requirements are properly included in your image or volume setup[6][7].
+    *   **Permissions/Logging:** If authentication fails, check the NetBox logs[1]. Ensure the `ldap_config.py` file is readable by the user running the NetBox service[1].
+
+For detailed documentation and example configurations, you can refer to the official [NetBox documentation on Authentication](https://netboxlabs.com/docs/netbox/en/stable/configuration/authentication/) or search the [netbox-community GitHub](https://github.com/netbox-community/netbox) for issues related to LDAP configuration if you encounter specific errors[1][2].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvqNkv4lqExHsPoCqPeg6SXIqL6jNV7IPV-dOCiU-Ajm-M2HgpEm1HFaxMfkdTORNvji7VFHA4LCYirjALwxRk7Iq13VK7tKk1pm0QwyEXQjMFVoyIQZayXWRGMTsjLNYCPFuPAqoJd4dGQFklZ-3GvA4=)
+[2] [netboxlabs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGLEv5bgyKQ2mX8ttChKqGwn3kJAdnY0ua-RxEOPip8fZRky5bec1UpJsXDKKRMs4nunO0mjXPUKP3xm1NMzuajHt6hFTiFHjcMBp4H0tIOWZRElxPZyzV_qyMIoI9pJsZfqb4WehqZ158jb27i0jdiof_uN8dI8eBfXt8ol5ab6Q==)
+[3] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwbJQw_qQ7Phhg8xsTkG4-4gpjcWMnJXpBlOh0OWWUnkdGv8waS3YLPZTFcHZqoyMJPVat4g6_GKqsbqt3nsxzP4daED8tgV8IqW5xaRtQ94TsMx6bZb8iesvJhZZxcKab7SM-VHbu6igPS73_xzzcZl4=)
+[4] [netboxlabs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFjaLTYHwBHzV4T8Yoz1i3nlo1V4A3LEyPigmuym4_IYvd0teV8ylAaIo1_TDhMl9GgnnSj4ODKkv0_OJZ34kXT5699o_2AcFAJ9BX1DiKdhGhqmGrh0Ritl6uVfubOiiGDVgVfCvCrAHqzmOSP)
+[5] [rlskeels.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHyiW5t2hLWTiaRU-D2D_PFr257xWiZSnJkNxgGq5ImKgLExJcngczpBPZ0PGh_5Yb77m4v0s3sXYAzr5BOf-9w660mMJmbGeJ9Xx9S1_GNO8zpvEx8IsVPvTekpvryI4y3I3nL2qXV4OYXN40loeKm_Q==)
+[6] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHSX3KLQNcUbS7po0pW3B-icj91qsQRSgoSD4VMhr3lN6GNnX9jcrRBltRwtB6E_ZS2nAKmTH4bEVQ20shiXrrWEaYQaksr8kOEBUz9q8BK9cUtNYHNsHPxPVUmNxgml-55dnhA2nJDBDmSK9XI15l9f-ME)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHEp05a4OqBBM57fsAME3jVIySvK19kMmv3AMZHRDYcz7Y5H2iL-TZGC9uRZEqMskXQ8g179MFdyn27nqXpf17YUqG8BljrHa9fThrpzM86N8fvZH-mPGCOESq90UV_uLJiR0nzerAmdR8Iu8iYcUyQjgD8Mx8RNQ==)

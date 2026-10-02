@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+total 12
+drwxrwxr-x 2 koby koby 4096 Aug 11 13:41 .
+drwxrwxr-x 6 koby koby 4096 Aug 11 13:41 ..
+-rw-rw-r-- 1 koby koby 2362 Aug 11 13:41 main.yml
+

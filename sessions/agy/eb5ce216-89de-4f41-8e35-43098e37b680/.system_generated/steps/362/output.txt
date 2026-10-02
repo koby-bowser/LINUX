@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+      "notes": "root / admin",
+      "notes": "root / root2026",
+      "notes": "root / root2026",
+      "notes": "Port 30 ssh\nroot / 8&#JMl1Mwe0GyN",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / npA*w6SFWxc83yr7",
+      "notes": "root / root2026",
+      "notes": "root / root2026",
+

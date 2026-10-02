@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+Testing root@172.30.198.162:30 ... failed
+Testing superuser@172.30.198.162:30 ... SUCCESS
+

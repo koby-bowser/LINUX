@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+no /etc/ansible
+no ~/.ansible.cfg
+total 68
+drwxrwxr-x 13 koby koby 4096 Sep  4 17:30 .
+drwx------ 39 koby koby 4096 Sep  9 13:03 ..
+drwxrwxr-x  5 koby koby 4096 Sep  4 12:26 .ansible
+-rw-rw-r--  1 koby koby  251 Sep  3 14:30 ansible.cfg
+drwxrwxr-x  3 koby koby 4096 Sep  4 17:30 .claude
+drwx------  2 koby koby 4096 Sep  4 16:00 cp
+drwx------  2 koby koby 4096 Sep  3 14:35 galaxy_cache
+drwxrwxr-x  8 koby koby 4096 Sep  4 17:31 .git
+-rw-rw-r--  1 koby koby  264 Sep  3 14:31 .gitignore
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 host_vars
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 inventory
+drwxrwxr-x  6 koby koby 4096 Sep  4 12:25 playbooks
+drwx------  4 koby koby 4096 Sep  4 17:31 .remember
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 roles
+drwx------  2 koby koby 4096 Sep  9 15:58 tmp
+-rw-r--r--  1 root root 6943 Sep  4 15:58 typescript
+

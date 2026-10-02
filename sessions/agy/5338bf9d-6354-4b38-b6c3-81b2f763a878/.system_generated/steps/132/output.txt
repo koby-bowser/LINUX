@@ -1,0 +1,22 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+mtq-mailsrvp-01
+uid=1000(superuser) gid=1000(superuser) groups=1000(superuser),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),101(netdev),990(SSH_Users)
+ 14:24:28 up 56 days, 18:16,  1 user,  load average: 0.08, 0.02, 0.01
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+VERSION_ID="13"
+sudo: a password is required
+SUDO_REQUIRES_PASSWORD
+

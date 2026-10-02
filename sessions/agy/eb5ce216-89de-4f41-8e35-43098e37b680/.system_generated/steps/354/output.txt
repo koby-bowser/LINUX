@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+Extracted: 2 servers
+Inventory generated keys: ['mtq-mailsrvp-01', 'trp-wm2mp-fe1']
+Search matches for 172.30.39: ['mtq-mailsrvp-01']
+

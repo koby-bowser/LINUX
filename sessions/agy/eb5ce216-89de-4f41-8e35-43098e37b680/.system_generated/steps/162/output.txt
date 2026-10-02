@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+total 24
+drwxrwxr-x 2 koby koby 4096 Sep  4 12:00 .
+drwxrwxr-x 3 koby koby 4096 Sep  3 16:45 ..
+-rw-rw-r-- 1 koby koby 1860 Sep  4 12:00 certificates.yml
+-rw------- 1 koby koby 6122 Sep  3 16:42 vault.yml
+-rw-rw-r-- 1 koby koby 1441 Sep  3 16:30 vault.yml.example
+

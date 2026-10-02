@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+[ERROR]: Decryption failed (no vault secrets were found that could decrypt). for /home/koby/infra-management-system/scripts/acme/gitlab_api_vault.yml
+

@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Attachment uploaded successfully! ID=dc8d6163-d4e8-40f4-b668-d5db3226b72a, URL=/api/attachments.redirect?id=dc8d6163-d4e8-40f4-b668-d5db3226b72a
+

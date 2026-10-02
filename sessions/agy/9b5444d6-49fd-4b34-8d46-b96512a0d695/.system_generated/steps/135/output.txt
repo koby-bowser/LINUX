@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+* f8848e8 (HEAD -> Baba-Koby) feat(ansible): migrate playbooks, scripts, and utilities from ~/.ansible
+*   cad07a2 Merge Ansible repository into LINUX (branch Baba-Koby)
+|\  
+| * 928d43c feat(certbot): update DNS-01 hooks for passwordless PowerDNS master challenge injection
+| * a5b38b4 Add Let's Encrypt DNS-01 cert issuance/deployment playbook
+| * fbadb50 Add SSH key deployment playbook
+| * 39c49c6 Initial Ansible control node scaffolding
+| * d74c56b Add diamond.only.fr to certificates catalogue
+* 099f52c (origin/refactorisation-de-code-34769, origin/HEAD, origin/Baba-Koby) Initial commit
+

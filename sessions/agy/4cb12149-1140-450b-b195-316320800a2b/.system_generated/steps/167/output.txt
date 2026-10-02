@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.npm/_npx/1149d391a9f6528a:
+total 8
+drwxrwxr-x 2 koby koby 4096 Sep 22 18:17 .
+drwxrwxr-x 5 koby koby 4096 Sep 22 18:14 ..
+
+/home/koby/.npm/_npx/4b4c857f6efdfb61:
+total 28
+drwxrwxr-x   3 koby koby  4096 Aug 26 11:17 .
+drwxrwxr-x   5 koby koby  4096 Sep 22 18:14 ..
+drwxrwxr-x 424 koby koby 20480 Sep 22 18:14 node_modules
+

@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+{
+  "Status": 3,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "_acme-challenge.epdg.epc.mnc002.mcc340.pub.3gppnetwork.org.",
+      "type": 16
+    }
+  ],
+  "Authority": [
+    {
+      "name": "mnc002.mcc340.pub.3gppnetwork.org.",
+      "type": 6,
+      "TTL": 1800,
+      "data": "th2-dnsp-mst1.outremer-telecom.fr. noc.resot.net. 2026092404 10800 3600 604800 3600"
+    }
+  ],
+  "Comment": "Response from ns.th2.outremer-telecom.fr.(217.175.160.10)."
+}
+

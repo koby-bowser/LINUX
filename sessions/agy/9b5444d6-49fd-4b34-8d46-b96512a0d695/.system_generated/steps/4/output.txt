@@ -1,0 +1,4 @@
+{"name":".git", "isDir":true}
+{"name":"README.md", "sizeBytes":"7"}
+
+Summary: This directory contains 1 subdirectories and 1 files.

@@ -1,0 +1,33 @@
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Account registered.
+Requesting a certificate for map.extranetclient.outremer-telecom.fr
+Hook '--manual-auth-hook' for map.extranetclient.outremer-telecom.fr ran with output:
+ Current records for _acme-challenge.map.extranetclient.outremer-telecom.fr IN TXT will be replaced
+ New rrset:
+ _acme-challenge.map.extranetclient.outremer-telecom.fr. 60 IN TXT "k_y1G8KntjYHSXxk57dZ_Rxe4atC7nVrozhz88bikM0"
+ SOA serial for zone outremer-telecom.fr set to 2026091009
+Hook '--manual-auth-hook' for map.extranetclient.outremer-telecom.fr ran with error output:
+ #####################################################################
+ #                                                                   #
+ # ~# Outremer Telecom #~                                            #
+ #                                                                   #
+ #      You are trying to login to an Outremer Telecom server.       #
+ # Authorized uses only. All activity may be monitored and recorded. #
+ #    Disconnect IMMEDIATELY if you are not an authorized user.      #
+ #                                                                   #
+ #####################################################################
+Hook '--manual-cleanup-hook' for map.extranetclient.outremer-telecom.fr ran with output:
+ SOA serial for zone outremer-telecom.fr set to 2026091010
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/privkey.pem
+This certificate expires on 2026-12-09.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

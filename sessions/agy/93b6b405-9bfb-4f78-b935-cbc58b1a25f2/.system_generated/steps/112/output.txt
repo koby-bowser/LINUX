@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.claude/projects/-home-koby-infra-management-system/13876f5e-9fa6-4edb-aad6-91d0c707791f.jsonl {"type":"queue-operation","operation":"enqueue","timestamp":"2026-09-29T14:42:05.837Z","sessionId":"13876f5e-9fa6-4edb-a
+/home/koby/.claude/projects/-home-koby-infra-management-system/3db158a2-6335-43bd-9565-eabed7848cf2.jsonl {"type":"queue-operation","operation":"enqueue","timestamp":"2026-09-29T14:32:26.738Z","sessionId":"3db158a2-6335-43bd-9
+/home/koby/.claude/projects/-home-koby-infra-management-system/b1467824-a320-4a55-83e4-ebcd188cc69a.jsonl {"type":"queue-operation","operation":"enqueue","timestamp":"2026-09-29T14:38:23.658Z","sessionId":"b1467824-a320-4a55-8
+/home/koby/.claude/projects/-home-koby-infra-management-system/0a8ce2d2-2b21-4b13-82db-be95d5ce8359.jsonl {"type":"queue-operation","operation":"enqueue","timestamp":"2026-09-29T14:42:55.862Z","sessionId":"0a8ce2d2-2b21-4b13-8
+/home/koby/.claude/projects/-home-koby-infra-management-system/81d667fa-8f60-4f58-9a03-c0f56aa43739.jsonl {"type":"queue-operation","operation":"enqueue","timestamp":"2026-09-29T14:42:47.912Z","sessionId":"81d667fa-8f60-4f58-9
+

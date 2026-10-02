@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+/home/koby/LINUX
+/home/koby/Documents/Linux/LINUX for Network Engineer.pdf
+/home/koby/node_modules/@msgpackr-extract/msgpackr-extract-linux-x64
+

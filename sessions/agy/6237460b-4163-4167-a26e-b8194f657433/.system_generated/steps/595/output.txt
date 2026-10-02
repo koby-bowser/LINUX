@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+debug1: Authenticating to 172.30.198.162:30 as 'superuser'
+debug1: Authentications that can continue: publickey,password
+debug1: Next authentication method: publickey
+Authenticated to 172.30.198.162 ([172.30.198.162]:30) using "publickey".
+

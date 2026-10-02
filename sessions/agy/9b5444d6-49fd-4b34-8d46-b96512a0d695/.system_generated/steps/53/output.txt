@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.local/bin/kssh
+/home/koby/.ansible/copy-to-remote.sh
+/home/koby/.ansible/search-servers.sh
+/home/koby/.ansible/kssh
+/home/koby/.ansible/playbooks/search-servers.yml
+

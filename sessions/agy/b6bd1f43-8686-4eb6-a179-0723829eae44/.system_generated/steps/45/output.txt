@@ -1,0 +1,31 @@
+
+The command exited with code 0.
+Output:
+$TTL 180
+@       IN SOA  ns1.outremer-telecom.fr. noc.resot.net. (
+			2026020401 ; serial
+			12H        ; refresh
+			2H         ; retry
+			4W         ; expire
+			3H )       ; minimum
+
+                	NS	ns1.outremer-telecom.fr.
+                	NS	ns2.outremer-telecom.fr.
+
+;apple			TXT	lghpc3znqwvcs4cdmn4qmvf4yh8gldxd
+apple			TXT	_lu2tr7hh4uuo1hw5bvxb2lre9xtpvw4
+
+_acme-challenge.esim-dev			TXT	-lIj44gyWlhiTRKk1pwxDicBAR7ULHdHZmqthWT18Qo
+_acme-challenge.esim			TXT	Q3pVcNGQTXmsVaF9kN_gdxOnqlzjN5aJqSOQHXYn_2o
+_acme-challenge.esim2			TXT	Q3pVcNGQTXmsVaF9kN_gdxOnqlzjN5aJqSOQHXYn_2o
+_acme-challenge.apple			TXT	zXOuNjJCwjoSuNH6ozPmMeuuYpyNrFhBn1bYpXhzIV4
+_acme-challenge.epdg.epc		TXT	BfJXny1SBARuwgi-f-4CTCNl2zPUQR1lwAkEppCm8Fk
+
+;apple			CNAME	apple-omt-entitlement.sd-sfr.fr.
+apple			A	77.158.191.35
+apple			A	77.154.8.160	
+gbs-lbng-01		A	217.175.160.15
+esim			CNAME	trp-wextp-rfe1.sfrcaraibe.fr.
+esim-dev		CNAME	trp-wextp-rfe1.sfrcaraibe.fr.
+epdg.epc 		A 	217.175.160.71
+

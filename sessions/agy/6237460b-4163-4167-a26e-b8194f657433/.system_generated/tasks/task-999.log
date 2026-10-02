@@ -1,0 +1,15 @@
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Host key verification failed.
+ssh: connect to host 172.30.198.50 port 22: Connection refused
+SSH directly not with key

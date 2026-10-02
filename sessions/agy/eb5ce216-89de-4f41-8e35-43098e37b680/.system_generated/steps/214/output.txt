@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+      ansible_port: 30
+      ansible_user: spui-runner
+    # Serveur mail Martinique (Postfix / Dovecot / Roundcube). Héberge le service SMTP/IMAP
+    # et le certificat public Let's Encrypt postfix.outremer-telecom.fr émis le 17/08/2026.
+    # Bootstrappé manuellement (spui-runner) et rattaché au runner Semaphore PROD
+    # (th2-ansip-run1). Volontairement HORS des groupes partagés wextp/frontaux/backends :
+    # regroupé dans mail_servers ci-dessous.
+    mtq-mailsrvp-01:
+      ansible_host: 172.30.39.153
+      ansible_port: 30
+      ansible_user: spui-runner
+  children:
+    databases:
+      children:
+        mariadb:
+          hosts:
+            trp-wextp-dbm1:
+            trp-wextp-dbm2:
+            trp-wextp-dbm3:
+    proxysql:
+      hosts:
+

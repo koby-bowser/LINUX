@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+origin	https://github.com/koby-bowser/LINUX.git (fetch)
+origin	https://github.com/koby-bowser/LINUX.git (push)
+

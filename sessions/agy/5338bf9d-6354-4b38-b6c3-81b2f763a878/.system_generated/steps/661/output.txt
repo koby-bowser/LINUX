@@ -1,0 +1,197 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+upstream SFRPROD74 {
+    least_conn;
+    keepalive 32;
+    #server trp-wextp-be1:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be2:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be3:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be4:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be5:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be6:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be7:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be8:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be9:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+}
+
+upstream SFRPROD74-DEBUG {
+least_conn;
+keepalive 32;
+server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+}
+
+upstream SFRBIZPROD74 {
+    least_conn;
+    keepalive 32;
+    #server trp-wextp-be1:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be2:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be3:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be4:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be5:17400 max_fails=3 fail_timeout=120s;##
+    server trp-wextp-be6:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be7:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be8:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be9:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+}
+
+upstream SFRBIZPROD74-NOREDIS {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:37400 max_fails=3 fail_timeout=120s;
+}
+
+
+upstream SFRDEV74 {
+    least_conn;
+    keepalive 32;
+    #server trp-wextp-be1:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be2:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be3:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be4:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be5:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be6:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be7:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be8:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be9:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be11:17400 max_fails=3 fail_timeout=120s;
+}
+upstream SFRDEV82 {
+    least_conn;
+    keepalive 32;
+    #server trp-wextp-be1:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be2:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be3:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be4:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be5:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be6:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be7:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be8:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be9:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be10:18200 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be11:18200 max_fails=3 fail_timeout=120s;
+}
+
+upstream SFRBIZ74 {
+    least_conn;
+    keepalive 32;
+    #server trp-wextp-be1:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be2:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be3:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be4:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be5:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be6:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be7:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be8:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be9:17400 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+
+}
+
+upstream SFRRESIL {
+    least_conn;
+    keepalive 32;
+    #server trp-wextp-be1:27406 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be2:27406 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be3:18200 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be4:18200 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be4:27404 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be5:18200 max_fails=3 fail_timeout=120s;##
+    server trp-wextp-be5:27404 max_fails=3 fail_timeout=120s;##
+    #server trp-wextp-be6:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be7:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be8:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be9:17400 max_fails=3 fail_timeout=120s;
+    #server trp-wextp-be10:17400 max_fails=3 fail_timeout=120s;
+}
+
+
+upstream SFRPROD74-10 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be9:17400 max_fails=3 fail_timeout=120s;
+}
+
+
+upstream SFRUXUIPROD82 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:28202 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be7:28202 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be8:28202 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be9:28202 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be10:28202 max_fails=3 fail_timeout=120s;
+}
+
+
+
+
+upstream PAYSFRUXUIPROD82 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:28204 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be7:28204 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be8:28204 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be9:28204 max_fails=3 fail_timeout=120s;
+    server trp-wextp-be10:28204 max_fails=3 fail_timeout=120s;
+}
+
+
+
+
+# BEGIN ANSIBLE MANAGED upstream RETRACTATIONSFRPROD83
+upstream RETRACTATIONSFRPROD83 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:18203;
+    #server trp-wextp-be7:18203;
+    #server trp-wextp-be8:18203;
+    #server trp-wextp-be9:18203;
+    #server trp-wextp-be10:18203;
+}
+# END ANSIBLE MANAGED upstream RETRACTATIONSFRPROD83
+# BEGIN ANSIBLE MANAGED upstream RETRACTATIONLPMPROD83
+upstream RETRACTATIONLPMPROD83 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:18205;
+    #server trp-wextp-be7:18205;
+    #server trp-wextp-be8:18205;
+    #server trp-wextp-be9:18205;
+    #server trp-wextp-be10:18205;
+}
+# END ANSIBLE MANAGED upstream RETRACTATIONLPMPROD83
+# BEGIN ANSIBLE MANAGED upstream SELFCAREBIZPROD83
+upstream SELFCAREBIZPROD83 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:18202;
+    server trp-wextp-be7:18202;
+    server trp-wextp-be8:18202;
+    server trp-wextp-be9:18202;
+    server trp-wextp-be10:18202;
+}
+# END ANSIBLE MANAGED upstream SELFCAREBIZPROD83
+# BEGIN ANSIBLE MANAGED upstream SELFCAREBIZDEMO83
+upstream SELFCAREBIZDEMO83 {
+    least_conn;
+    keepalive 32;
+    server trp-wextp-be6:18206;
+}
+# END ANSIBLE MANAGED upstream SELFCAREBIZDEMO83
+

@@ -1,0 +1,236 @@
+
+The command exited with code 0.
+Output:
+<truncated 1 lines>
+  when: 1787150663
+- cmd: nslookup distrib.in.i-tel.fr 172.30.216.3
+  when: 1787151127
+- cmd: git clone https://github.com/earendil-works/pi.git
+--
+  when: 1787227524
+- cmd: ssh root@172.30.249.2029
+  when: 1787233855
+- cmd: opencode agent list
+--
+  when: 1787238646
+- cmd: ssh -p 30 superuser@172.30.243.209
+  when: 1787296671
+- cmd: ls -lhtriZ .claude/agents/
+--
+  when: 1787305800
+- cmd: nslookup sagex3.outremer-telecom.fr 172.30.198.62
+  when: 1787312232
+- cmd: nslookup sagex3.outremer-telecom.fr 172.16.75.2
+--
+  when: 1787564352
+- cmd: nslookup sagex3.outremer-telecom.fr 172.30.198.162
+  when: 1787570441
+- cmd: nslookup postfix.outremer-telecom.fr 172.30.198.162
+  when: 1787570447
+- cmd: ping -c2 172.30.39.153
+  when: 1787571324
+- cmd: cat /etc/hosts
+--
+  when: 1787573572
+- cmd: ping -c2 172.30.33.105
+  when: 1787581496
+- cmd: ping -c2 172.30.31.105
+  when: 1787581502
+- cmd: ping -c2 172.30.32.105
+  when: 1787581507
+- cmd: ping -c2 172.16.1.34
+--
+  when: 1787646665
+- cmd: ssh -p 30 superuser@172.30.172.161
+  when: 1787647094
+- cmd: ssh -p 30 superuser@172.30.173.161
+  when: 1787647110
+- cmd: sudo nano /etc/sudoers
+--
+  when: 1787815310
+- cmd: nslookup dataviz.corp.intranet.local 172.30.215.18
+  when: 1787815359
+- cmd: nslookup dataviz.corp.intranet.local 172.30.216.2
+  when: 1787816715
+- cmd: kimi
+  when: 1787818292
+- cmd: ssh -p 30 superuser@172.30.242.129
+  when: 1787821471
+- cmd: ls -lhtria
+--
+  when: 1787837834
+- cmd: ssh -p 30 root@172.30.243.145
+  when: 1787838781
+- cmd: ssh -p 30 superuser@172.30.243.145
+  when: 1787838797
+- cmd: ping -c2 172.30.36.247
+  when: 1787839105
+- cmd: nslookup 172.30.36.247
+  when: 1787839215
+- cmd: nslookup 172.30.36.247 172.16.75.2
+  when: 1787839234
+- cmd: ssh -p 30 superuser@172.30.242.137
+  when: 1787840382
+- cmd: pwgen -CcAsn -y 15 1
+--
+  when: 1788257873
+- cmd: ssh -p 30 superuser@172.30.250.113
+  when: 1788270511
+- cmd: ping -c2 172.16.75.250
+--
+  when: 1788351031
+- cmd: ssh -p 30 superuser@172.30.237.209
+  when: 1788351112
+- cmd: claude mcp remove semaphore -s user\nclaude mcp add semaphore -s user \\\n  -e SEMAPHORE_URL=https://semaphore.corp.intranet.local \\\n  -e SEMAPHORE_API_TOKEN=idjmlcr2-4355we8ydcffidc-cwd99k0cmo86v2zwju= \\\n  -e REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt \\\n  -e SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt \\\n  -- semaphore-mcp
+--
+    - /proc/29402/environ
+- cmd: ssh -p 30 superuser@172.30.199.65
+  when: 1788362192
+- cmd: apt list --upgradable | grep linux
+--
+  when: 1788418672
+- cmd: ssh superuser@172.30.199.65
+  when: 1788421436
+- cmd: nslookup -type=NS sfrcaraibe.fr
+--
+    - /dev/null
+- cmd: script -qec 'ansible-playbook -i "172.30.39.153," playbooks/deploy-ssh-key.yml -e @/tmp/deploy-vars.yml' /dev/null
+  when: 1788439775
+  paths:
+--
+    - playbooks/group_vars/all/certificates.yml
+- cmd: ssh root@172.30.249.209
+  when: 1788519290
+- cmd: sudo script -qec "ansible-playbook -i '172.30.249.209,' playbooks/deploy-ssh-key.yml -e @/tmp/claude-1000/-home-koby--ansible/46297aab-f476-4be0-a1e8-0f904d5a227f/scratchpad/vars-172.30.249.209.yml --vault-password-file\n"
+  when: 1788523117
+- cmd: script -qec "ansible-playbook -i '172.30.249.209,' playbooks/deploy-ssh-key.yml -e @/tmp/claude-1000/-home-koby--ansible/46297aab-f476-4be0-a1e8-0f904d5a227f/scratchpad/vars-172.30.249.209.yml --vault-password-file /tmp/claude-1000/-home-koby--ansible/46297aab-f476-4be0-a1e8-0f904d5a227f/scratchpad/vault-pass.txt" /dev/null
+  when: 1788523142
+  paths:
+--
+  when: 1788876522
+- cmd: ssh -p 30 admin@172.30.38.233
+  when: 1788878999
+- cmd: sudo journalctl --vacuum-time=3days
+--
+    - Downloads/
+- cmd: ansible-playbook -i "172.30.39.153," playbooks/copy-to-tmp.yml \\\n      -u koby-bowser-ansible \\\n      -e "ansible_port=30" \\\n      -e "src_file=/home/koby/Downloads/geo.prod.intranet.local_bundle.zip"\n
+  when: 1788956757
+- cmd: ansible-playbook -i "172.30.39.153," playbooks/copy-to-tmp.yml \\\n      -u koby-bowser-ansible \\\n      -e "ansible_port=30" \\\n      -e "src_file=/home/koby/Downloads/geo.prod.intranet.local_bundle.zip"
+  when: 1788957829
+  paths:
+    - playbooks/copy-to-tmp.yml
+- cmd: ansible-playbook -i "172.30.231.17," \\\n      playbooks/bootstrap-koby-bowser.yml \\\n      playbooks/copy-to-tmp.yml \\\n      -e "ansible_user=superuser" \\\n      -e "ansible_port=30" \\\n      -e "src_file=/home/koby/Downloads/geo.prod.intranet.local_bundle.zip" \\\n      -k -K
+  when: 1788957863
+  paths:
+--
+    - playbooks/copy-to-tmp.yml
+- cmd: ssh -p 30 superuser@172.30.197.18
+  when: 1788959072
+- cmd: curl -Iv https://geo.prod.intranet.local
+--
+    - /etc/resolv.conf
+- cmd: dig @172.30.197.18 geo.prod.intranet.local
+  when: 1788960691
+- cmd: ping -c2 geo.prod.intranet.local
+--
+  when: 1788961198
+- cmd: ssh -p 30 superuser@172.30.92.242
+  when: 1788962835
+- cmd: ssh superuser@172.30.92.242
+  when: 1788962884
+- cmd: ssh -p 30 superuser@172.16.92.242
+--
+    - ~/Documents/keePassXC/
+- cmd: ansible-playbook playbooks/kdbx-pool.yml -e "search=172.30.231"
+  when: 1788964062
+  paths:
+--
+  when: 1789041825
+- cmd: ssh -p 30 superuser@172.30.198.49
+  when: 1789043614
+- cmd: which certbot
+--
+    - playbooks/issue-deploy-certs.yml
+- cmd: ssh -p 30 superuser@172.30.0.243
+  when: 1789046471
+- cmd: ssh -p 30 superuser@172.30.25.161
+  when: 1789046500
+- cmd: ssh -p 30 superuser@172.30.0.227
+  when: 1789049914
+- cmd: env | grep -i proxy
+--
+  when: 1789123639
+- cmd: ssh -p 30 superuser@172.30.198.33
+  when: 1789123644
+- cmd: curl -s "https://ipapi.co/8.8.8.8/json/"
+--
+  when: 1789390984
+- cmd: nc -zv 172.30.216.33 443
+  when: 1789392175
+- cmd: ssh -p 30 superuser@172.30.216.33
+  when: 1789392490
+- cmd: ssh -p 30 superuser@172.30.39.153
+  when: 1789392509
+- cmd: curl -Iv https://sagex3.outremer-telecom.fr/
+  when: 1789396144
+- cmd: nmap -sS -Pn 172.30.249.209
+  when: 1789398684
+- cmd: sudo nmap -sS -Pn 172.30.249.209
+  when: 1789398688
+- cmd: ssh -p 30 superuser@172.30.249.209
+  when: 1789400230
+- cmd: ssh -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa root@172.30.249.209
+  when: 1789400246
+- cmd: ssh -o KexAlgorithms=+diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa admin@172.16.75.2
+--
+    - Downloads/
+- cmd: scp ~/Downloads/cert1.pem ~/Downloads/chain1.pem ~/Downloads/fullchain1.pem ~/Downloads/privkey1.pem swadmin@172.30.39.114:/tmp
+  when: 1789477243
+  paths:
+--
+    - ~/Downloads/privkey1.pem
+- cmd: ssh swadmint@172.30.39.114
+  when: 1789477318
+- cmd: ssh swadmin@172.30.39.114
+  when: 1789477352
+- cmd: scp root@172.16.92.243:'/etc/letsencrypt/archive/vvggpe.sfrcaraibe.fr/*1.pem' ~/Downloads/
+--
+    - ~/Downloads/
+- cmd: scp ~/Downloads/cert1.pem ~/Downloads/chain1.pem ~/Downloads/fullchain1.pem ~/Downloads/privkey1.pem swadmin@172.30.7.114:/tmp
+  when: 1789483191
+  paths:
+--
+    - ~/Downloads/
+- cmd: scp ~/Downloads/cert1.pem ~/Downloads/chain1.pem ~/Downloads/fullchain1.pem ~/Downloads/privkey1.pem swadmin@172.30.71.114:/tmp
+  when: 1789483294
+  paths:
+--
+    - ~/Downloads/privkey1.pem
+- cmd: ssh swadmin@172.30.7.114
+  when: 1789483338
+- cmd: ssh swadmin@172.30.71.114
+  when: 1789484183
+- cmd: sudo apt upgrade
+--
+    - .ansible/playbooks/deploy-ssh-key.yml
+- cmd: ssh -p 30 superuser@172.30.231.117
+  when: 1789548560
+- cmd: batcat --theme Dracula .ssh/id_ed25519.pub
+--
+    - .ssh/id_ed25519.pub
+- cmd: ssh -p 30 superuser@172.30.231.17
+  when: 1789548790
+- cmd: ssh -p 30 superuser@172.30.217.19
+  when: 1789549046
+- cmd: ls -lhtriZa Downloads/CERTIFICATS/CERTIFICATS/
+--
+  when: 1789557728
+- cmd: ssh -p 30 superuser@172.30.198.162
+  when: 1789557915
+- cmd: scp -P 30 -r root@172.16.92.243://etc/letsencrypt/live/citrix.outremer-telecom.fr/*.pem /home/koby/Downloads/
+--
+  when: 1789643867
+- cmd: ssh -p 30 superuser@172.30.39.153
+  when: 1789644537
+- cmd: cd  LINUX/
+

@@ -1,0 +1,86 @@
+
+PLAY [Bootstrap koby-bowser-ansible user with passwordless SSH & sudo] *********
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.30.39.153]
+
+TASK [Verify local public key exists] ******************************************
+ok: [172.30.39.153 -> localhost]
+
+TASK [Fail if local public key does not exist] *********************************
+skipping: [172.30.39.153]
+
+TASK [Inspect effective sshd configuration] ************************************
+ok: [172.30.39.153]
+
+TASK [Extract sshd AllowGroups if defined] *************************************
+ok: [172.30.39.153]
+
+TASK [Create automation user] **************************************************
+ok: [172.30.39.153]
+
+TASK [Add automation user to sudo group] ***************************************
+ok: [172.30.39.153]
+
+TASK [Add automation user to sshd AllowGroups if configured] *******************
+ok: [172.30.39.153] => (item=SSH_Users)
+
+TASK [Configure passwordless sudo in /etc/sudoers.d] ***************************
+ok: [172.30.39.153]
+
+TASK [Retrieve target user passwd info] ****************************************
+ok: [172.30.39.153]
+
+TASK [Determine user home and gid] *********************************************
+ok: [172.30.39.153]
+
+TASK [Ensure ~/.ssh directory exists] ******************************************
+ok: [172.30.39.153]
+
+TASK [Deploy public key to user ~/.ssh/authorized_keys] ************************
+ok: [172.30.39.153]
+
+TASK [Resolve centralized authorized_keys path] ********************************
+ok: [172.30.39.153]
+
+TASK [Ensure parent directory of centralized authorized_keys exists] ***********
+ok: [172.30.39.153]
+
+TASK [Deploy key to centralized path] ******************************************
+ok: [172.30.39.153]
+
+TASK [Set strict permissions on centralized authorized_keys file] **************
+ok: [172.30.39.153]
+
+TASK [Report bootstrap completion] *********************************************
+ok: [172.30.39.153] => {
+    "msg": [
+        "Host: 172.30.39.153",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+
+PLAY [Phase 2 - Audit Web Servers & TLS Certificates] **************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.30.39.153]
+
+TASK [Audit web servers (Nginx/Apache) and TLS certificates via Python engine] ***
+ok: [172.30.39.153]
+
+TASK [Parse audit results into structured facts] *******************************
+ok: [172.30.39.153]
+
+TASK [Display Host Web Services & TLS Audit Report] ****************************
+ok: [172.30.39.153] => {
+    "msg": "====================================================================================================\nHOST AUDIT: 172.30.39.153 (172.30.39.153)\n====================================================================================================\n* NGINX  : INSTALLED & ACTIVE (nginx/1.26.3)\n* APACHE : INSTALLED (inactive)\n\nHOSTED DOMAINS & TLS CERTIFICATES:\n----------------------------------------------------------------------------------------------------\n[1] Web Server : NGINX\n    Config File: /etc/nginx/sites-enabled/default\n    Ports      : 80 default_server, [::]:80 default_server\n    Domains    : _ (default / catch-all)\n    SSL / TLS  : DISABLED (Plain HTTP)\n        Cert Path  : None (Plain HTTP virtualhost)\n    ----------------------------------------------------------------------------------------------------\n[2] Web Server : NGINX\n    Config File: /etc/nginx/sites-enabled/roundcube.conf\n    Ports      : 80\n    Domains    : 172.30.39.153, postfix.outremer-telecom.fr\n    SSL / TLS  : DISABLED (Plain HTTP)\n        Cert Path  : None (Plain HTTP virtualhost)\n    ----------------------------------------------------------------------------------------------------\n[3] Web Server : NGINX\n    Config File: /etc/nginx/sites-enabled/roundcube.conf\n    Ports      : 443 ssl\n    Domains    : 172.30.39.153, postfix.outremer-telecom.fr\n    SSL / TLS  : ENABLED\n        Cert Path  : /etc/ssl/certs/postfix.pem\n    Key Path   : /etc/ssl/private/postfix.key\n          Status     : VALID (58 days left)\n    Subject    : CN=postfix.outremer-telecom.fr\n    Issuer     : C=US, O=Let's Encrypt, CN=YE1\n    Expires    : Nov 15 11:48:08 2026 GMT\n    SANs       : postfix.outremer-telecom.fr\n          ----------------------------------------------------------------------------------------------------\n"
+}
+
+TASK [Display Consolidated Infrastructure Summary Table] ***********************
+ok: [172.30.39.153 -> localhost] => {
+    "msg": "================================================================================================================================================================\nINFRASTRUCTURE WEB & TLS CERTIFICATE SUMMARY TABLE\n================================================================================================================================================================\nHOST                 | SERVER   | HOSTED DOMAIN(S)                    | PORT(S)      | TLS CERTIFICATE PATH                   | STATUS / EXPIRY         \n----------------------------------------------------------------------------------------------------------------------------------------------------------------\n172.30.39.153        | nginx    | _ (default / catch-all)             | 80 defaul... | None                                   | No TLS                  \n172.30.39.153        | nginx    | 172.30.39.153, postfix.outremer-... | 80           | None                                   | No TLS                  \n172.30.39.153        | nginx    | 172.30.39.153, postfix.outremer-... | 443 ssl      | /etc/ssl/certs/postfix.pem             | VALID (58 days left)    \n================================================================================================================================================================\n"
+}
+
+PLAY RECAP *********************************************************************
+172.30.39.153              : ok=22   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+

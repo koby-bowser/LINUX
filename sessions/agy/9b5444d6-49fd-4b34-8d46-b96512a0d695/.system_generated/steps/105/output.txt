@@ -1,0 +1,25 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/scripts/kssh. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -7,11 +7,17 @@
+ 
+ set -eo pipefail
+ 
+-POOL_JSON="${HOME}/.ansible/inventory/server_pool.json"
++SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
++REPO_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
++POOL_JSON="${REPO_DIR}/inventory/server_pool.json"
++
++if [ ! -f "$POOL_JSON" ]; then
++    POOL_JSON="${HOME}/.ansible/inventory/server_pool.json"
++fi
+ 
+ if [ ! -f "$POOL_JSON" ]; then
+     echo -e "\033[0;31m[ERROR] Server pool not found at ${POOL_JSON}.\033[0m"
+-    echo -e "Run: ansible-playbook ~/.ansible/playbooks/kdbx-pool.yml -e 'action=sync' to build it."
++    echo -e "Run: ansible-playbook playbooks/kdbx-pool.yml -e 'action=sync' to build it."
+     exit 1
+ fi
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

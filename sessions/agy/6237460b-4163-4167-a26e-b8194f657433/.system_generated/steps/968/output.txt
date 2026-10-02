@@ -1,0 +1,78 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+*   Trying 172.30.198.50:9443...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to 172.30.198.50 (172.30.198.50) port 9443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* successfully set certificate verify locations:
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+{ [32 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [4344 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [264 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [52 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [52 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server did not agree to a protocol
+* Server certificate:
+*  subject: CN=th2-centprop-map1.prod.intranet.local; O=Outremer Telecom Digital Solutions Ltd; OU=IT Departement; C=MU; L=EBENE; emailAddress=admin@outremer-telecom.fr
+*  start date: Feb 24 06:12:02 2026 GMT
+*  expire date: Feb 24 06:12:02 2028 GMT
+*  issuer: C=FR; ST=France; L=Paris; O=Outremer Telecom; OU=OMT CA; CN=OMT Root CA
+*  SSL certificate verify ok.
+} [5 bytes data]
+> GET /centreon-map/api/latest/actuator/health HTTP/1.1
+> Host: 172.30.198.50:9443
+> User-Agent: curl/7.74.0
+> Accept: */*
+> 
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [4584 bytes data]
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 
+< Vary: Origin
+< Vary: Access-Control-Request-Method
+< Vary: Access-Control-Request-Headers
+< X-Content-Type-Options: nosniff
+< X-XSS-Protection: 0
+< Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+< Pragma: no-cache
+< Expires: 0
+< Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+< X-Frame-Options: DENY
+< Content-Type: application/vnd.spring-boot.actuator.v3+json
+< Transfer-Encoding: chunked
+< Date: Thu, 10 Sep 2026 14:13:12 GMT
+< 
+{ [20 bytes data]
+100    15    0    1{"status":"UP"}5    0     0    555      0 --:--:-- --:--:-- --:--:--   555
+* Connection #0 to host 172.30.198.50 left intact
+

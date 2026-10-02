@@ -1,0 +1,29 @@
+OpenAI Codex v0.159.0
+--------
+workdir: /home/koby/infra-management-system
+model: gpt-6-sol
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: high
+reasoning summaries: none
+session id: 01a0ed94-fb6f-7781-8b27-0303ee8c2702
+--------
+user
+Respond with: 'Codex CLI is online and operational.' followed by your model name.
+2026-09-29T14:32:41.635352Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+2026-09-29T14:32:44.285585Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+2026-09-29T14:32:45.733187Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+ERROR: Reconnecting... 2/5
+2026-09-29T14:32:47.305128Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+ERROR: Reconnecting... 3/5
+2026-09-29T14:32:49.301258Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+ERROR: Reconnecting... 4/5
+2026-09-29T14:32:52.037579Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+ERROR: Reconnecting... 5/5
+2026-09-29T14:32:56.559836Z ERROR codex_api::endpoint::responses_websocket: failed to connect to websocket: HTTP error: 405 Method Not Allowed, url: wss://chatgpt.com/backend-api/codex/responses
+warning: Falling back from WebSockets to HTTPS transport. unexpected status 405 Method Not Allowed: Unknown error, url: wss://chatgpt.com/backend-api/codex/responses, cf-ray: a42bb2434dd0f854-CDG, request id: 987a6f9a-f4da-436b-95da-f60305e04628
+codex
+Codex CLI is online and operational. GPT-6.
+tokens used
+3,065

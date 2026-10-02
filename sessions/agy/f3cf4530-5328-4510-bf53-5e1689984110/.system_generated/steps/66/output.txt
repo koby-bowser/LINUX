@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/inventories/val/host_vars/trp-wextv-fe1/doccli.yml:74:  - gettokenappscan
+/home/koby/infra-management-system/inventories/val/host_vars/trp-wextv-fe1/doccli.yml:77:  - gettokenappsign
+/home/koby/infra-management-system/inventories/val/host_vars/trp-wextv-fe1/doccli.yml:90:  - getdocclibyaccesstoken
+/home/koby/infra-management-system/inventories/dev/host_vars/trp-wextd-fe1/doccli.yml:80:  - gettokenappscan
+/home/koby/infra-management-system/inventories/dev/host_vars/trp-wextd-fe1/doccli.yml:83:  - gettokenappsign
+/home/koby/infra-management-system/inventories/dev/host_vars/trp-wextd-fe1/doccli.yml:96:  - getdocclibyaccesstoken
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-afe1/doccli.yml:114:  - gettokenappscan
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-afe1/doccli.yml:117:  - gettokenappsign
+/home/koby/infra-management-system/inventories/prod/host_vars/trp-wextp-afe1/doccli.yml:130:  - getdocclibyaccesstoken
+

@@ -1,0 +1,27 @@
+
+The command exited with code 2.
+Output:
+ansible-lint 25.6.1+really25.2.1 using ansible-core:2.19.11 ansible-compat:25.1.5 ruamel-yaml:0.18.10 ruamel-yaml-clib:0.2.12
+WARNING  Listing 4 violation(s) that are fatal
+ignore-errors: Use failed_when and specify error conditions instead of using ignore_errors.
+playbooks/check-distro-kernel.yml:48 Task/Handler: Display Host OS and Kernel Information
+
+yaml[line-length]: Line too long (167 > 160 characters)
+playbooks/check-distro-kernel.yml:58
+
+run-once[task]: Using run_once may behave differently if strategy is set to free.
+playbooks/check-distro-kernel.yml:80 Task/Handler: Display Summary Table of All Infrastructure Nodes
+
+yaml[line-length]: Line too long (213 > 160 characters)
+playbooks/check-distro-kernel.yml:112
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+# Rule Violation Summary
+
+  2 yaml profile:basic tags:formatting,yaml
+  1 ignore-errors profile:basic tags:unpredictability
+  1 run-once profile:basic tags:idiom
+
+Failed: 4 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+

@@ -1,0 +1,19 @@
+## Canvas Description
+Total elements: 13
+Types: text(1), rectangle(5), ellipse(1), arrow(6)
+Bounding box: (80, 40) to (700, 520) = 620x480
+
+### Elements (top-to-bottom, left-to-right):
+  [mucs8si5v42dmec1wb] text | at (320, 40) | text: "Production Web Architecture" | stroke: #1e1e1e
+  [client] rectangle | at (80, 130) | size 190x70 | label: "Clients / Web & Mobile" | bg: #a5d8ff | stroke: #1971c2
+  [nginx] rectangle | at (370, 130) | size 220x70 | label: "Nginx Reverse Proxy\n(TLS & Load Balancer)" | bg: #b2f2bb | stroke: #2f9e44
+  [arr_client_nginx] arrow | at (278, 165) | label: "HTTPS / 443" | stroke: #1971c2
+  [arr_nginx_auth] arrow | at (445, 206) | label: "/auth" | stroke: #2f9e44
+  [arr_nginx_app] arrow | at (512, 206) | label: "/api" | stroke: #2f9e44
+  [auth_svc] rectangle | at (250, 290) | size 190x70 | label: "Auth & Identity API" | bg: #eebefa | stroke: #9c36b5
+  [app_svc] rectangle | at (510, 290) | size 190x70 | label: "Core App Backend" | bg: #eebefa | stroke: #9c36b5
+  [arr_auth_redis] arrow | at (345, 368) | label: "Tokens" | stroke: #e8590c
+  [arr_app_redis] arrow | at (542, 365) | label: "Cache" | stroke: #e8590c
+  [arr_app_pg] arrow | at (605, 368) | label: "SQL Queries" | stroke: #0c8599
+  [redis] ellipse | at (250, 450) | size 190x70 | label: "Redis Cache & Session" | bg: #ffd8a8 | stroke: #e8590c
+  [postgres] rectangle | at (510, 450) | size 190x70 | label: "PostgreSQL DB (Main)" | bg: #99e9f2 | stroke: #0c8599

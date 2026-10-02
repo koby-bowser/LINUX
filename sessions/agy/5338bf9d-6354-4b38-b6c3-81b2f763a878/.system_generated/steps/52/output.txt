@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+*   838bad7 (HEAD -> main, origin/main, origin/HEAD) Merge branch 'le-cert/postfix.outremer-telecom.fr-20260817124644' into 'main'
+|\  
+| * 2df2c23 feat(le): bundle TLS postfix.outremer-telecom.fr (émis automatiquement via Semaphore)
+|/  
+*   0d54f73 Merge branch 'feat/le-issue-postfix-target' into 'main'
+|\  
+| * 02b3185 feat(le): ajout cible postfix.outremer-telecom.fr
+|/  
+*   575f972 Merge branch 'feat/dotnet-cgrcore-check-environment' into 'main'
+|\  
+| * d72ecf0 Ajouter une vérification groupée de /_environment pour les 17 apps
+|/  
+*   3743b51 Merge branch 'feat/dotnet-cgrcore-check-all-status' into 'main'
+|\  
+| * b252430 Ajouter une vérification groupée du statut des 17 apps CGR Core
+|/  
+*   278b1eb Merge branch 'feat/dotnet-cgrcore-remaining-apps-vars' into 'main'
+|\  
+| * 1494576 Ajouter group_vars/dotnet_<app>.yml pour les 16 autres apps CGR Core
+|/  
+

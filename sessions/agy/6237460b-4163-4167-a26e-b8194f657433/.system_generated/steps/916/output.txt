@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 8
+    print(f"--- STEP {idx} ({data.get(\"source\")}, {data.get(\"type\")}) ---")
+                                       ^
+SyntaxError: unexpected character after line continuation character
+

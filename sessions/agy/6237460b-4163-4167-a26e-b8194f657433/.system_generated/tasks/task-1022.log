@@ -1,0 +1,112 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+HTTP/2.0 400
+Permissions-Policy: interest-cohort=()
+Content-Security-Policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+Referrer-Policy: no-referrer-when-downgrade
+X-XSS-Protection: 1; mode=block
+Content-Language: en
+Connection: close
+X-Content-Type-Options: nosniff
+Content-Type: text/html;charset=utf-8
+Content-Length: 435
+Date: Thu, 10 Sep 2026 14:15:33 GMT
+Server: nginx
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+---4RmzSxUv---H--
+
+---4RmzSxUv---J--
+
+---4RmzSxUv---K--
+
+---4RmzSxUv---Z--
+
+---HseWbjGO---A--
+[10/Sep/2026:14:15:38 +0000] 1789049738 10.6.201.54 34486 172.30.198.33 9443
+---HseWbjGO---B--
+GET /centreon-map/api/latest/actuator/health HTTP/1.1
+Host: map.extranetclient.outremer-telecom.fr:9443
+User-Agent: curl/8.14.1
+Accept: */*
+
+---HseWbjGO---E--
+<!doctype html><html lang="en"><head><title>HTTP Status 400 \xe2\x80\x93 Bad Request</title><style type="text/css">body {font-family:Tahoma,Arial,sans-serif;} h1, h2, h3, b {color:white;background-color:#525D76;} h1 {font-size:22px;} h2 {font-size:16px;} h3 {font-size:14px;} p {font-size:12px;} a {color:black;} .line {height:1px;background-color:#525D76;border:none;}</style></head><body><h1>HTTP Status 400 \xe2\x80\x93 Bad Request</h1></body></html>
+
+---HseWbjGO---F--
+HTTP/1.1 400
+Permissions-Policy: interest-cohort=()
+Content-Security-Policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+Referrer-Policy: no-referrer-when-downgrade
+X-XSS-Protection: 1; mode=block
+Content-Language: en
+Connection: keep-alive
+X-Content-Type-Options: nosniff
+Content-Type: text/html;charset=utf-8
+Content-Length: 435
+Date: Thu, 10 Sep 2026 14:15:38 GMT
+Server: nginx
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+---HseWbjGO---H--
+
+---HseWbjGO---J--
+
+---HseWbjGO---K--
+
+---HseWbjGO---Z--
+
+---T8tbWja2---A--
+[10/Sep/2026:14:15:44 +0000] 1789049744 163.116.250.60 4076 172.30.198.33 443
+---T8tbWja2---B--
+GET /centreon/api/latest/configuration/users/current/parameters HTTP/2.0
+accept-encoding: gzip, deflate, br, zstd
+cookie: PHPSESSID=893ev2jb6pb7ide3i1eoi9egqd
+referer: https://extranetclient.outremer-telecom.fr/centreon/
+sec-ch-ua-platform: "Windows"
+sec-fetch-site: same-origin
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
+sec-ch-ua-mobile: ?0
+sec-ch-ua: "Chromium";v="152", "Not?A_Brand";v="24", "Google Chrome";v="152"
+accept: application/json, text/plain, */*
+sec-fetch-dest: empty
+sec-fetch-mode: cors
+host: extranetclient.outremer-telecom.fr
+accept-language: fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7
+priority: u=1, i
+
+---T8tbWja2---F--
+HTTP/2.0 401
+X-Frame-Options: sameorigin
+Content-Security-Policy: default-src 'self' 'unsafe-inline' 'unsafe-eval' http: https: ws: wss: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https: data: blob:;
+Content-Security-Policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+Referrer-Policy: no-referrer-when-downgrade
+Api-Version: 24.10
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, private
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Connection: close
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+Date: Thu, 10 Sep 2026 14:15:44 GMT
+Server: nginx
+Permissions-Policy: interest-cohort=()
+
+---T8tbWja2---H--
+
+---T8tbWja2---J--
+
+---T8tbWja2---K--
+
+---T8tbWja2---Z--
+

@@ -1,0 +1,23 @@
+Task: b6bd1f43-8686-4eb6-a179-0723829eae44/task-203
+Status: RUNNING
+Log: /home/koby/.gemini/antigravity-cli/brain/b6bd1f43-8686-4eb6-a179-0723829eae44/.system_generated/tasks/task-203.log
+Log output:
+<truncated 53 lines>
+ [[ad-hoc] Construire l'entrée de certificat pour] *************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Zone découverte pour] *******************************************
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend rfc2136 (ns1/BIND)] *********
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend powerdns (dnsp-mst)] ********
+included: /home/koby/LINUX/playbooks/tasks/issue_and_queue_cert.yml for localhost => (item={'domain': 'epdg.epc.mnc002.mcc340.pub.3gppnetwork.org', 'extra_sans': [], 'dns_backend': 'powerdns', 'target_host': 'CHANGEME', 'webserver': 'nginx', 'service_name': 'nginx', 'cert_dest_dir': '/etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org'})
+
+TASK [[epdg.epc.mnc002.mcc340.pub.3gppnetwork.org] Relever le numéro de série actuel (avant émission), si le certificat existe déjà] ***
+ok: [localhost]
+
+TASK [[epdg.epc.mnc002.mcc340.pub.3gppnetwork.org] certbot certonly] ***********
+
+Last progress: 4s ago

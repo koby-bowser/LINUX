@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+Search results for postfix: 3
+- 20250311 - CR Incident Majeur - TT_000076882025 - MRU_ICM2_Mail utilisant smtprelay.intranet.loca... in collection 120257b7-bcc6-499a-8b52-19b50941f0c4
+- 2.1.3.1. OMT Level 1 Incoming Mail troubleshooting in collection f05ee197-da24-4eca-8374-f8347cbb639d
+- 2.1.3.2. OMT Level 1 Outgoing Mail troubleshooting in collection f05ee197-da24-4eca-8374-f8347cbb639d
+

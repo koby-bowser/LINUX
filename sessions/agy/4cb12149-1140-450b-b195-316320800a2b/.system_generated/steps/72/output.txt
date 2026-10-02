@@ -1,0 +1,42 @@
+
+The command exited with code 0.
+Output:
+
+mcp-excalidraw-server@2.0.0 | MIT | deps: 14 | versions: 10
+Excalidraw toolkit for AI coding agents — agent skill, CLI, and MCP server with a live canvas
+https://github.com/yctimlin/mcp_excalidraw#readme
+
+keywords: mcp, mcp-server, excalidraw, model-context-protocol, ai, drawing, diagrams, canvas, real-time, websocket, visualization, claude, ai-tools, claude-skill, agent-skills, cli, ai-agents
+
+bin: mcp-excalidraw-server, excalidraw-canvas
+
+dist
+.tarball: https://registry.npmjs.org/mcp-excalidraw-server/-/mcp-excalidraw-server-2.0.0.tgz
+.shasum: 4f15335e456ab97e0d0d3a177b85a4f41a84fd51
+.integrity: sha512-aBzC2Mbb7XSVoiIC0SSZh2728Z59H82sXzTe8pn1o9fLVedPBecgYhuDxrtsPpVT7Njh3Spb0b/k40R5Jjk8Xg==
+.unpackedSize: 11.2 MB
+
+dependencies:
+@excalidraw/excalidraw: ^0.18.1
+@excalidraw/mermaid-to-excalidraw: ^1.1.3
+@modelcontextprotocol/core: 2.0.0
+@modelcontextprotocol/server: 2.0.0
+cors: ^2.8.5
+dotenv: ^16.3.1
+express: ^4.22.2
+mermaid: ^11.17.0
+react-dom: ^18.3.1
+react: ^18.3.1
+winston: ^3.11.0
+ws: ^8.21.3
+zod-to-json-schema: ^3.22.3
+zod: ^3.22.4
+
+maintainers:
+- yctimlin <c22647809@gmail.com>
+
+dist-tags:
+latest: 2.0.0  
+
+published a month ago by yctimlin <c22647809@gmail.com>
+

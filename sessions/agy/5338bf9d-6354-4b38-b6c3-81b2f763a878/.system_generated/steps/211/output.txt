@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+http://a.samy:koby_%40miT_S%40My@172.16.75.9%3a3128
+https://a.samy:koby_%40miT_S%40My@gitsi.intranet.local
+

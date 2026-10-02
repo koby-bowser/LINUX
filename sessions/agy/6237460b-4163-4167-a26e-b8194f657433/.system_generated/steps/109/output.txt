@@ -1,0 +1,44 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== Ping 172.30.198.50 ===
+PING 172.30.198.50 (172.30.198.50) 56(84) bytes of data.
+64 bytes from 172.30.198.50: icmp_seq=1 ttl=63 time=0.240 ms
+64 bytes from 172.30.198.50: icmp_seq=2 ttl=63 time=0.264 ms
+
+--- 172.30.198.50 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1012ms
+rtt min/avg/max/mdev = 0.240/0.252/0.264/0.012 ms
+
+=== Test common web ports on 172.30.198.50 ===
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connection refused.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connected to 172.30.198.50:30.
+Ncat: 0 bytes sent, 0 bytes received in 0.01 seconds.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connection refused.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connection refused.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connection refused.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connection refused.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connection refused.
+Ncat: Version 7.80 ( https://nmap.org/ncat )
+Ncat: Connected to 172.30.198.50:9443.
+Ncat: 0 bytes sent, 0 bytes received in 0.01 seconds.
+

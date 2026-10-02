@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+172.30.230.113  trp-wextp-be1.intranet.local
+exit: 0
+

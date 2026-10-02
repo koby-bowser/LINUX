@@ -1,0 +1,1 @@
+Encountered error in step execution: Failed to fetch document content at https://mcp.draw.io/mcp: failed to get URL https://mcp.draw.io/mcp: status code 400

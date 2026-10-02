@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+default via 10.6.201.254 dev enp0s31f6 proto dhcp src 10.6.201.54 metric 100 
+10.6.201.0/24 dev enp0s31f6 proto kernel scope link src 10.6.201.54 metric 100 
+172.16.30.0/24 dev vmnet1 proto kernel scope link src 172.16.30.1 
+172.16.31.0/24 dev vmnet8 proto kernel scope link src 172.16.31.1 
+109.62.64.18 via 10.6.201.254 dev enp0s31f6 src 10.6.201.54 uid 1000 
+    cache 
+172.30.198.33 via 10.6.201.254 dev enp0s31f6 src 10.6.201.54 uid 1000 
+    cache 
+

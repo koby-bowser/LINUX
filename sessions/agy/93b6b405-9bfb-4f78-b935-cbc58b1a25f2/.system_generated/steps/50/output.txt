@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+total 3.4M
+drwxr-xr-x 4 koby koby 4.0K Sep 10 11:24 chunks
+-rw-r--r-- 1 koby koby 1.8M Sep 11 16:47 transcript_full.jsonl
+-rw-r--r-- 1 koby koby 1.6M Sep 11 16:47 transcript.jsonl
+

@@ -1,0 +1,39 @@
+
+The command exited with code 0.
+Output:
+diff --git a/.gitignore b/.gitignore
+index aa53f19..d4e74c6 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -8,3 +8,7 @@ vault_pass*
+ 
+ # Collections/plugins téléchargés localement (réinstallables via requirements.yml)
+ collections/
++
++# Generated server pool and credentials
++inventory/server_pool.*
++server_pool.*
+diff --git a/ansible.cfg b/ansible.cfg
+index 8dbd8c1..44651fb 100644
+--- a/ansible.cfg
++++ b/ansible.cfg
+@@ -1,4 +1,5 @@
+ [defaults]
++vault_password_file = .vault_pass
+ inventory = inventory/hosts.ini
+ roles_path = roles
+ retry_files_enabled = False
+diff --git a/playbooks/deploy-ssh-key.yml b/playbooks/deploy-ssh-key.yml
+index b6c571e..fd37771 100644
+--- a/playbooks/deploy-ssh-key.yml
++++ b/playbooks/deploy-ssh-key.yml
+@@ -30,7 +30,7 @@
+   hosts: all
+   gather_facts: true
+   become: true
+-  become_method: sudo
++  become_method: ansible.builtin.sudo
+   vars:
+     local_pubkey_path: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519.pub"
+     ansible_ssh_common_args: "-o StrictHostKeyChecking=accept-new"
+

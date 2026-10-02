@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+Usage:
+    search-servers.sh <SEARCH_TERM>
+    search-servers.sh --sync [--db <PATH_TO_KDBX>]
+
+Description:
+    Searches your KeePass server pool across Hostnames, IPs, Usernames,
+    Groups, and Notes in milliseconds.
+
+Options:
+    --sync                 Prompt for master password and rebuild the server pool
+    --db <PATH>            Specify alternative .kdbx path (default: Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx)
+    -j, --json             Output raw JSON for scripting/automation
+    -h, --help             Show this help message
+
+Examples:
+    search-servers.sh 172.30.231
+    search-servers.sh mail
+    search-servers.sh superuser
+    search-servers.sh --sync
+

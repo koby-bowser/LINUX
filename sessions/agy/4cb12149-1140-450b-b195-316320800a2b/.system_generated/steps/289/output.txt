@@ -1,0 +1,21 @@
+Task: 4cb12149-1140-450b-b195-316320800a2b/task-287
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/4cb12149-1140-450b-b195-316320800a2b/.system_generated/tasks/task-287.log
+Log output:
+<truncated 32 lines>
+ha.yml
+/home/koby/infra-management-system/playbooks/cutover-dns-wikio-to-poc.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-outline-mcp-wiki.yml
+/home/koby/infra-management-system/playbooks/issue-pki-cert-outline-mcp-wiki.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-db.yml
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wikio.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wiki-definitive.yml
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wiki.yml
+/home/koby/infra-management-system/playbooks/check-runner-wikio-connectivity.yml
+/home/koby/infra-management-system/playbooks/recon-dns-wiki-corp-state.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wikio-poc.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-redis.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-backends-base.yml
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml
+
+Last progress: 2s ago

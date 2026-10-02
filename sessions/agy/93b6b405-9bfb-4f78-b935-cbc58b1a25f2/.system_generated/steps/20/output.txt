@@ -1,0 +1,39 @@
+
+The command exited with code 0.
+Output:
+total 12132
+drwxrwxr-x 15 koby koby    4096 Oct  2 14:50 .
+drwx------ 43 koby koby    4096 Oct  2 11:43 ..
+drwx------  2 koby koby    4096 Oct  2 11:08 app-server-control
+drwx------  2 koby koby    4096 Oct  2 11:08 app-server-daemon
+-rw-------  1 koby koby    3918 Sep 29 15:22 auth.json
+drwxrwxr-x  5 koby koby    4096 Sep 29 15:22 cache
+-rw-------  1 koby koby     206 Sep 30 14:59 config.toml
+-rw-r--r--  1 koby koby   32768 Oct  2 11:28 goals_1.sqlite
+-rw-------  1 koby koby    2626 Sep 30 15:06 history.jsonl
+-rw-r--r--  1 koby koby      36 Sep 29 15:21 installation_id
+-rw-r--r--  1 koby koby 9445376 Oct  2 14:49 logs_2.sqlite
+-rw-r--r--  1 koby koby   32768 Oct  2 15:02 logs_2.sqlite-shm
+-rw-r--r--  1 koby koby  725152 Oct  2 15:02 logs_2.sqlite-wal
+-rw-r--r--  1 koby koby   45056 Oct  2 11:28 memories_1.sqlite
+-rw-rw-r--  1 koby koby  422359 Oct  2 15:00 models_cache.json
+drwxrwxr-x  4 koby koby    4096 Sep 29 15:21 packages
+drwxrwxr-x  4 koby koby    4096 Sep 29 15:23 plugins
+-rw-r--r--  1 koby koby    4096 Sep 29 15:21 queue_1.sqlite
+-rw-r--r--  1 koby koby   32768 Oct  2 11:03 queue_1.sqlite-shm
+-rw-r--r--  1 koby koby  292552 Oct  2 11:03 queue_1.sqlite-wal
+drwxrwxr-x  2 koby koby    4096 Sep 29 17:12 rules
+-rw-------  1 koby koby       3 Sep 29 15:22 .sandbox_migration
+-rw-rw-r--  1 koby koby     251 Sep 30 15:00 session_index.jsonl
+drwxrwxr-x  3 koby koby    4096 Sep 29 15:24 sessions
+drwxrwxr-x  2 koby koby    4096 Oct  2 11:08 shell_snapshots
+drwxrwxr-x  3 koby koby    4096 Sep 29 15:21 skills
+-rw-rw-r--  1 koby koby       0 Oct  2 11:04 .sqlite-maintenance.lock
+-rw-r--r--  1 koby koby  266240 Oct  2 11:28 state_5.sqlite
+-rw-r--r--  1 koby koby 1015808 Oct  2 11:28 thread_history_1.sqlite
+drwxrwxr-x  2 koby koby    4096 Oct  2 11:08 thread-writer-locks
+drwxrwxr-x  3 koby koby    4096 Sep 29 15:22 .tmp
+drwxrwxr-x  3 koby koby    4096 Sep 29 15:21 tmp
+drwxrwxr-x  2 koby koby    4096 Sep 30 14:59 tui-thread-reference-capabilities
+-rw-rw-r--  1 koby koby     105 Oct  2 11:03 version.json
+

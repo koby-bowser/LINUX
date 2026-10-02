@@ -1,0 +1,26 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/sync-ai-sessions.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -67,8 +67,8 @@
+ 
+     - name: Définir les variables de chemin
+       ansible.builtin.set_fact:
+-        user_home: "{{ ansible_facts.getent_passwd[ai_sessions_user][4] }}"
+-        repo_root: "{{ _repo_root_cmd.stdout.strip() }}"
++        user_home: "{{ user_home | default(ansible_facts.getent_passwd[ai_sessions_user][4]) }}"
++        repo_root: "{{ repo_root | default(_repo_root_cmd.stdout.strip()) }}"
+ 
+     - name: Définir les chemins sources et destinations des sessions
+       ansible.builtin.set_fact:
+@@ -167,7 +167,8 @@
+ 
+     - name: Convertir les vérifications sources en dictionnaire
+       ansible.builtin.set_fact:
+-        src_exists: "{{ _src_stats.results | items2dict(key_name='item.key', value_name='stat.exists') }}"
++        src_exists: >-
++          {{ dict(_src_stats.results | map(attribute='item.key') | zip(_src_stats.results | map(attribute='stat.exists'))) }}
+ 
+     # =========================================================================
+     # 1. Antigravity CLI (agy)
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

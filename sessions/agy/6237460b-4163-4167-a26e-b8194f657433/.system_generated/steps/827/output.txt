@@ -1,0 +1,35 @@
+
+The command exited with code 124.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+tcpdump: data link type LINUX_SLL2
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on any, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144 bytes
+13:57:11.863109 ens192 Out IP 172.30.198.33.45818 > 172.30.198.49.80: Flags [S], seq 131056815, win 64240, options [mss 1460,sackOK,TS val 1863887126 ecr 0,nop,wscale 7], length 0
+13:57:11.863385 ens192 In  IP 172.30.198.49.80 > 172.30.198.33.45818: Flags [S.], seq 561984034, ack 131056816, win 28960, options [mss 1460,sackOK,TS val 3385656486 ecr 1863887126,nop,wscale 7], length 0
+13:57:11.863433 ens192 Out IP 172.30.198.33.45818 > 172.30.198.49.80: Flags [.], ack 1, win 502, options [nop,nop,TS val 1863887126 ecr 3385656486], length 0
+13:57:11.863506 ens192 Out IP 172.30.198.33.45818 > 172.30.198.49.80: Flags [P.], seq 1:370, ack 1, win 502, options [nop,nop,TS val 1863887126 ecr 3385656486], length 369: HTTP: GET /admin/config.php HTTP/1.1
+13:57:11.863612 ens192 In  IP 172.30.198.49.80 > 172.30.198.33.45818: Flags [.], ack 370, win 235, options [nop,nop,TS val 3385656486 ecr 1863887126], length 0
+13:57:11.866916 ens192 In  IP 172.30.198.49.80 > 172.30.198.33.45818: Flags [.], seq 1:1449, ack 370, win 235, options [nop,nop,TS val 3385656489 ecr 1863887126], length 1448: HTTP: HTTP/1.1 404 Not Found
+13:57:11.866958 ens192 Out IP 172.30.198.33.45818 > 172.30.198.49.80: Flags [.], ack 1449, win 501, options [nop,nop,TS val 1863887130 ecr 3385656489], length 0
+13:57:11.866993 ens192 In  IP 172.30.198.49.80 > 172.30.198.33.45818: Flags [P.], seq 1449:2130, ack 370, win 235, options [nop,nop,TS val 3385656489 ecr 1863887126], length 681: HTTP
+13:57:11.867008 ens192 Out IP 172.30.198.33.45818 > 172.30.198.49.80: Flags [.], ack 2130, win 496, options [nop,nop,TS val 1863887130 ecr 3385656489], length 0
+13:57:11.867035 ens192 In  IP 172.30.198.49.80 > 172.30.198.33.45818: Flags [F.], seq 2130, ack 370, win 235, options [nop,nop,TS val 3385656489 ecr 1863887126], length 0
+13:57:11.867532 ens192 Out IP 172.30.198.33.45818 > 172.30.198.49.80: Flags [F.], seq 370, ack 2131, win 501, options [nop,nop,TS val 1863887130 ecr 3385656489], length 0
+13:57:11.867662 ens192 In  IP 172.30.198.49.80 > 172.30.198.33.45818: Flags [.], ack 371, win 235, options [nop,nop,TS val 3385656490 ecr 1863887130], length 0
+
+12 packets captured
+13 packets received by filter
+0 packets dropped by kernel
+

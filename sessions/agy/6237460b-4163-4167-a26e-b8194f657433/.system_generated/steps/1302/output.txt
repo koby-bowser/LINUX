@@ -1,0 +1,13 @@
+Task: 6237460b-4163-4167-a26e-b8194f657433/task-1300
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-1300.log
+Log output:
+<truncated 27 lines>
+ HTTP/2.0" 404 280 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+10.6.201.54 - - [10/Sep/2026:14:41:42 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+172.30.198.49 - - [10/Sep/2026:14:42:45 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "Symfony HttpClient (Curl)"
+172.30.198.49 - - [10/Sep/2026:14:52:54 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "Symfony HttpClient (Curl)"
+172.30.198.49 - - [10/Sep/2026:14:53:26 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "Symfony HttpClient (Curl)"
+10.6.201.54 - - [10/Sep/2026:14:53:31 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+
+Last progress: 2s ago

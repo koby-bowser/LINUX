@@ -1,0 +1,65 @@
+
+The command exited with code 0.
+Output:
+
+    def parse_group(group_elem, current_path=''):
+        name_elem = group_elem.find('Name')
+        group_name = name_elem.text.strip() if (name_elem is not None and name_elem.text) else 'General'
+        group_path = f"{current_path}/{group_name}" if current_path else group_name
+
+        for entry in group_elem.findall('Entry'):
+            fields = {}
+            for s in entry.findall('String'):
+                k = s.find('Key')
+                v = s.find('Value')
+                if k is not None and k.text:
+                    fields[k.text.strip()] = (v.text.strip() if (v is not None and v.text) else '')
+
+            title = fields.get('Title', '').strip()
+            username = fields.get('UserName', '').strip()
+            url = fields.get('URL', '').strip()
+            notes = fields.get('Notes', '').strip()
+
+            # Collect all text to search for IPs & ports
+            all_text = " ".join([title, url, notes] + list(fields.values()))
+            raw_ips = IP_REGEX.findall(all_text)
+            
+            # Deduplicate and filter out invalid/netmask IPs
+            ips = []
+            for ip in raw_ips:
+                if ip not in EXCLUDE_IPS and ip not in ips:
+                    ips.append(ip)
+
+            # Determine port
+            port = None
+            port_match = PORT_REGEX.search(f"{url} {notes}")
+            if port_match:
+                port_str = port_match.group(1) or port_match.group(2)
+                try:
+                    p = int(port_str)
+                    if 1 <= p <= 65535:
+                        port = p
+                except ValueError:
+                    pass
+
+            # Detect common protocol
+            protocol = 'ssh'
+            if 'rdp' in url.lower() or 'rdp' in notes.lower() or port == 3389:
+                protocol = 'rdp'
+            elif 'https' in url.lower() or port == 443:
+                protocol = 'https'
+            elif 'http' in url.lower() or port == 80:
+                protocol = 'http'
+
+            # Build record
+            if title or ips or username:
+                servers.append({
+                    'title': title or (ips[0] if ips else 'Unnamed'),
+                    'group': group_path,
+                    'ips': ips,
+                    'primary_ip': ips[0] if ips else None,
+                    'username': username,
+                    'port': port,
+                    'protocol': protocol,
+                    'url': url,
+

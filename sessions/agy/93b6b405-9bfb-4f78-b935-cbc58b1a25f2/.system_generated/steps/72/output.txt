@@ -1,0 +1,62 @@
+
+The command exited with code 0.
+Output:
+=== /home/koby/.claude/projects/-home-koby ===
+total 15700
+-rw------- 1 koby koby  391808 Sep  1 19:09 13507989-4a8f-4a40-a8b3-d94aeee8e26c.jsonl
+drwxrwxr-x 3 koby koby    4096 Sep  2 11:41 15d4cdc3-fae4-43d8-b0a9-b9fe41de1be8
+-rw------- 1 koby koby  191252 Sep  2 17:41 15d4cdc3-fae4-43d8-b0a9-b9fe41de1be8.jsonl
+-rw------- 1 koby koby  214032 Sep  1 19:23 4644fc32-9e56-4d84-8946-7a830f6ab395.jsonl
+-rw------- 1 koby koby 7585710 Oct  2 11:03 5a62d8bf-3773-4e9a-9d0d-7cb400ed6e73.jsonl
+-rw------- 1 koby koby   30724 Sep  8 10:27 5f1e63b4-5f36-4469-a889-286ccc6c5a97.jsonl
+drwxrwxr-x 4 koby koby    4096 Sep  4 11:50 606522f3-7aec-44d7-b078-42b782586702
+-rw------- 1 koby koby  752226 Sep  4 18:23 606522f3-7aec-44d7-b078-42b782586702.jsonl
+-rw------- 1 koby koby  967865 Sep  9 20:36 6607eee0-6dce-4cab-bf01-0e01ac39b5d7.jsonl
+-rw------- 1 koby koby  155669 Sep  3 18:51 6d9607c9-22dc-45f8-be36-bfbd6ba8a8c9.jsonl
+-rw------- 1 koby koby 1500545 Sep  2 18:45 8be29f1d-29fb-4f5e-8728-989e7fd7f57a.jsonl
+-rw------- 1 koby koby  442844 Sep 10 19:18 aa1fd8aa-0efa-4ade-9e12-bcf90a9b4111.jsonl
+-rw------- 1 koby koby   95975 Aug 31 13:13 b05b8806-3080-42f4-a211-2ba7e180d099.jsonl
+-rw------- 1 koby koby  462807 Sep 11 16:55 b73c8b1c-2a6d-4236-a647-bf30dd1b08a4.jsonl
+-rw------- 1 koby koby  451254 Sep  4 19:13 b79906c5-8b8d-47fc-a5ce-501e976ae911.jsonl
+-rw------- 1 koby koby   27203 Sep  2 15:10 b81056c3-de32-40cb-b725-68f861bac7cd.jsonl
+-rw------- 1 koby koby  519488 Sep 23 15:50 f31b6e03-e95b-49ec-b555-fc516f8b5278.jsonl
+-rw------- 1 koby koby 2188493 Sep 23 20:12 fa169dba-aebf-47fb-8c6b-61b0f9a7261c.jsonl
+drwxrwxr-x 2 koby koby    4096 Sep 28 19:06 memory
+=== /home/koby/.claude/projects/-home-koby--ansible ===
+total 3560
+-rw------- 1 koby koby 2863600 Sep  3 19:12 05f38780-fe5a-4cbf-a339-2806ded87760.jsonl
+-rw------- 1 koby koby   58642 Sep  4 12:26 1dc76393-b29b-4caf-ac23-b280fdea5218.jsonl
+-rw------- 1 koby koby   89795 Sep  4 12:25 37346d65-8fa9-412f-9912-9de161e81965.jsonl
+drwxrwxr-x 3 koby koby    4096 Sep  4 14:49 46297aab-f476-4be0-a1e8-0f904d5a227f
+-rw------- 1 koby koby  335542 Sep  4 17:32 46297aab-f476-4be0-a1e8-0f904d5a227f.jsonl
+-rw------- 1 koby koby   92029 Sep  4 12:09 55c2ee90-02fc-4a09-bd6e-0bac554931b9.jsonl
+-rw------- 1 koby koby   31460 Sep  4 12:23 9b8e5fc7-b079-478d-b4d1-dad8fe5ab859.jsonl
+-rw------- 1 koby koby  146667 Sep  4 12:26 c0f88498-6e5f-4072-9039-efb7507e7cbc.jsonl
+drwxrwxr-x 2 koby koby    4096 Sep  3 19:11 memory
+=== /home/koby/.claude/projects/-home-koby--claude ===
+total 964
+-rw------- 1 koby koby  80871 Aug 31 15:50 40293d88-54ff-420e-891f-da68a757a404.jsonl
+drwxrwxr-x 3 koby koby   4096 Sep  2 14:01 e8755439-56e8-44ea-8357-3da1ab48290e
+-rw------- 1 koby koby 540761 Sep  2 14:54 e8755439-56e8-44ea-8357-3da1ab48290e.jsonl
+-rw------- 1 koby koby 347001 Aug 31 15:49 f173b919-6689-4d0f-8300-cb533ec34d44.jsonl
+=== /home/koby/.claude/projects/-home-koby--config-fish ===
+total 780
+drwxrwxr-x 4 koby koby   4096 Aug 31 13:21 10ea919f-afc6-4332-9cce-0244e5060104
+-rw------- 1 koby koby 782547 Sep  1 10:32 10ea919f-afc6-4332-9cce-0244e5060104.jsonl
+drwxrwxr-x 2 koby koby   4096 Aug 31 13:17 memory
+=== /home/koby/.claude/projects/-home-koby-infra-management-system ===
+total 1476
+-rw------- 1 koby koby 240703 Sep 29 18:43 0a8ce2d2-2b21-4b13-82db-be95d5ce8359.jsonl
+-rw------- 1 koby koby 237163 Sep 29 18:42 13876f5e-9fa6-4edb-aad6-91d0c707791f.jsonl
+-rw------- 1 koby koby 242312 Sep 29 18:37 3be555e0-1b26-46c8-8c9a-3df99b914219.jsonl
+-rw------- 1 koby koby 224992 Sep 29 18:32 3db158a2-6335-43bd-9565-eabed7848cf2.jsonl
+-rw------- 1 koby koby 312813 Sep 29 18:43 81d667fa-8f60-4f58-9a03-c0f56aa43739.jsonl
+-rw------- 1 koby koby 235073 Sep 29 18:38 b1467824-a320-4a55-83e4-ebcd188cc69a.jsonl
+drwxrwxr-x 2 koby koby   4096 Sep 29 18:32 memory
+=== /home/koby/.claude/projects/-home-koby-pi ===
+total 4
+drwxrwxr-x 2 koby koby 4096 Aug 20 19:12 memory
+=== /home/koby/.claude/projects/-tmp ===
+total 4
+drwx------ 2 koby koby 4096 Sep 21 19:07 memory
+

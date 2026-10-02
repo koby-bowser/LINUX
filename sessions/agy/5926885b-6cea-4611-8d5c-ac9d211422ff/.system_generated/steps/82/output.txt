@@ -1,0 +1,29 @@
+
+The command exited with code 0.
+Output:
+93ddf5d6-6091-4fd2-bf9d-063ada0212a3 | Migration qmail → Postfix/Dovecot — Outremer Telecom | parent=7965f1a8-e9a6-4454-a621-78b89dbe1435 | url=/doc/migration-qmail-postfixdovecot-outremer-telecom-3eiPEr1MHO
+f5932193-57f3-4049-ac75-1a55004c50b5 | CR — CSP catalogues.sfrcaraibe.fr (suite signalement XSS) | parent=295b4701-a833-46f0-b244-f7933c01ed78 | url=/doc/cr-csp-cataloguessfrcaraibefr-suite-signalement-xss-MiFwcwX26m
+295b4701-a833-46f0-b244-f7933c01ed78 | SfrCaraibe | parent=d83bed84-f9a4-481a-aa1b-d674adbc9832 | url=/doc/sfrcaraibe-kTz3xe0EwZ
+6e76a237-0a50-4c88-81a2-ed997e0acab8 | CR intervention — Resize CCP APM fe1/fe2 (23/09/2026) | parent=7b3a4128-86b5-420d-9ef8-f9c4c906a9cc | url=/doc/cr-intervention-resize-ccp-apm-fe1fe2-23092026-vfy1fX0x36
+7b3a4128-86b5-420d-9ef8-f9c4c906a9cc | Changements | parent=09641ce0-03a7-45fe-8673-b5b7f0a2307d | url=/doc/changements-NtcSnue7tI
+09641ce0-03a7-45fe-8673-b5b7f0a2307d | OCS | parent=d83bed84-f9a4-481a-aa1b-d674adbc9832 | url=/doc/ocs-FCt0wxcLE7
+dcde5b76-b423-4f53-8ab0-71e94a36db69 | Procédure d'extension du stockage de sauvegarde /backup sur trp-bcki-sys1 (MergerFS) | parent=fadb8718-bb7a-4349-b22f-4fdc83051340 | url=/doc/procedure-dextension-du-stockage-de-sauvegarde-backup-sur-trp-bcki-sys1-mergerfs-32TWoJ3ZjT
+270bbbbf-fd5c-4fec-ac75-684ad3023e01 | CR — Incident Kea_Log_Age_Status GPE fe2 (ProxySQL SHUNNED) — 2026-09-18 | parent=72dcac30-1b46-4c07-b139-2b0f2454b1b9 | url=/doc/cr-incident-kea_log_age_status-gpe-fe2-proxysql-shunned-2026-09-18-wLwhHaeUXt
+894278a1-647c-4e1b-a810-b5f6467a287b | Supervision SNMP des pools DHCPv4 (OLT) | parent=cd46d2fe-c389-4063-9062-82ab85d41c4c | url=/doc/supervision-snmp-des-pools-dhcpv4-olt-r2Gus3YDpV
+fb78e3d8-e45c-4ea2-9741-7d55cbf83e58 | Inventaire OLT supervisés (Kea) | parent=cd46d2fe-c389-4063-9062-82ab85d41c4c | url=/doc/inventaire-olt-supervises-kea-M4t87hqchP
+cd46d2fe-c389-4063-9062-82ab85d41c4c | Monitoring | parent=c71b9092-66f0-4ba5-a8a2-bc89f4989bfd | url=/doc/monitoring-m3l9kWcijA
+1972725b-1d15-4846-abb8-cae73ec0ffee | Netbackup Restore VM | parent=fadb8718-bb7a-4349-b22f-4fdc83051340 | url=/doc/netbackup-restore-vm-UhUfVDbyUe
+2bc6b087-9423-4081-8411-b7e165524179 | Comment ajouter une entrée DNS dans TH2-DNSINTRA-01 | parent=fadb8718-bb7a-4349-b22f-4fdc83051340 | url=/doc/comment-ajouter-une-entree-dns-dans-th2-dnsintra-01-Jp0P64JIw1
+f28f1cdb-6a14-4589-84e0-05e6dff6f7cc | CR Intervention - Diagnostic Livebox INIT / Saturation Pool IPv4 DHCP | parent=72dcac30-1b46-4c07-b139-2b0f2454b1b9 | url=/doc/cr-intervention-diagnostic-livebox-init-saturation-pool-ipv4-dhcp-2RoPmoE8Wj
+2988f8a9-d883-4ffc-8fcf-aa4ed5b4623a | CR MEP DHCP Kea/Galera Single-Writer — GPE/GUY — 2026-09-08 | parent=c71b9092-66f0-4ba5-a8a2-bc89f4989bfd | url=/doc/cr-mep-dhcp-keagalera-single-writer-gpeguy-2026-09-08-bIBeJTUFfs
+34b74b9d-5226-4ef8-9a7a-4292fa1153bb | Architecture | parent=cfa67936-0b6a-4663-980f-c8803be8f51c | url=/doc/architecture-X4Dm8yPUv7
+f222213e-4393-4929-9a6a-73554e8ba31a | Migration flux audio Intelcia → GCP (ftpx-01 → ftpx-02) | parent=cfa67936-0b6a-4663-980f-c8803be8f51c | url=/doc/migration-flux-audio-intelcia-gcp-ftpx-01-ftpx-02-hKCdpGIwgD
+cfa67936-0b6a-4663-980f-c8803be8f51c | CallVault | parent=d83bed84-f9a4-481a-aa1b-d674adbc9832 | url=/doc/callvault-DcaKk7D5VU
+888d52ee-88f5-4475-85c7-79fb74f2bbc3 | Procédure d'Intervention — Stabilisation DHCP Kea / MariaDB Galera (Guadeloupe & Guyane) | parent=c71b9092-66f0-4ba5-a8a2-bc89f4989bfd | url=/doc/procedure-dintervention-stabilisation-dhcp-kea-mariadb-galera-guadeloupe-guyane-9ShHSsG11h
+9a3c8307-2a46-47e6-8dd2-ec823ee11a38 | CR Intervention - Stabilisation DHCP Kea / MariaDB Galera - MTQ | parent=c71b9092-66f0-4ba5-a8a2-bc89f4989bfd | url=/doc/cr-intervention-stabilisation-dhcp-kea-mariadb-galera-mtq-7LwTLAOL2s
+52e25216-a596-4211-99e1-6aefb74a127a | 2026-09-03 : WO_00719/2026 : MeP WP SFR : KO | parent=3cc93062-764d-4df6-be84-f5ade131a9ce | url=/doc/2026-09-03-wo_007192026-mep-wp-sfr-ko-sb5Yy7PsEf
+47665109-c7f5-4565-a26f-40e961989003 | Flux | parent=e2ceed4e-933c-439c-a78b-8689e0cb7d63 | url=/doc/flux-wXrH0Jhiqc
+e2ceed4e-933c-439c-a78b-8689e0cb7d63 | Prometheus Grafana | parent=a55d4395-bfb1-46e8-a16b-94ed6c4a3459 | url=/doc/prometheus-grafana-RmkhfNBVFT
+c71b9092-66f0-4ba5-a8a2-bc89f4989bfd | FTTH | parent=1a3118cf-bd45-45e4-bbe3-72e424bd0ce3 | url=/doc/ftth-0ZCk0uC6Lk
+1a3118cf-bd45-45e4-bbe3-72e424bd0ce3 | DHCP | parent=a55d4395-bfb1-46e8-a16b-94ed6c4a3459 | url=/doc/dhcp-pOgPLURhdG
+

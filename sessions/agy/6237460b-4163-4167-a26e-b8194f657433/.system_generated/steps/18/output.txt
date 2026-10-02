@@ -1,0 +1,22 @@
+{"name":"annotations", "isDir":true}
+{"name":"bin", "isDir":true}
+{"name":"brain", "isDir":true}
+{"name":"builtin", "isDir":true}
+{"name":"cache", "isDir":true}
+{"name":"cli.log", "sizeBytes":"27"}
+{"name":"conversation_summaries.db", "sizeBytes":"20480"}
+{"name":"conversations", "isDir":true}
+{"name":"crashes", "isDir":true}
+{"name":"history.jsonl", "sizeBytes":"29745"}
+{"name":"implicit", "isDir":true}
+{"name":"installation_id", "sizeBytes":"36"}
+{"name":"jetski_state.pbtxt", "sizeBytes":"518"}
+{"name":"knowledge", "isDir":true}
+{"name":"last_check.timestamp"}
+{"name":"log", "isDir":true}
+{"name":"mcp", "isDir":true}
+{"name":"presence", "isDir":true}
+{"name":"settings.json", "sizeBytes":"13652"}
+{"name":"updater", "isDir":true}
+
+Summary: This directory contains 13 subdirectories and 7 files.

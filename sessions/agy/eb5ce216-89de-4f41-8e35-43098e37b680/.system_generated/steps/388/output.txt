@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+
+=== [Search Results for 'mtq-mailsrvp-01': 1 match(es)] ===
+
+   1. mtq-mailsrvp-01 [SSH]
+      IP(s)   : 172.30.39.153 Port: 30
+      User    : superuser
+      Group   : OMT_PFS.SYSTEME.ALL/MTQ/linux
+      Notes   : root / [PROTECTED]
+
+

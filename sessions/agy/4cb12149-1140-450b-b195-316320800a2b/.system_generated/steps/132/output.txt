@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.npm/_cacache/index-v5/58/48
+/home/koby/.npm/_cacache/index-v5/58/48/7d90044fd2e276a92320eb5a0bdd8d7e2ab2a574e8cb5924af45a2512c30
+/home/koby/.npm/_cacache/index-v5/dc/7e
+/home/koby/.npm/_cacache/index-v5/dc/7e/1e90a3b54d4219358312442a3962410c82f729f297531bd19157342be837
+/home/koby/.npm/_cacache/index-v5/db/e8/2741c60fc481ae4f934cfd20ec6bd7a3b5b9489c3b778d76ec4c98e8c204
+/home/koby/.npm/_cacache/index-v5/a2/e3
+/home/koby/.npm/_cacache/index-v5/a2/e3/de4a2b09ccab3cb9282ecc9509b87db4f83688d793015327d075afc28524
+/home/koby/.npm/_cacache/index-v5/6c/78
+/home/koby/.npm/_cacache/index-v5/6c/78/72397578f44f7b8c1d65033d9aeda035e4236defb72923ffa4a60063e2dc
+/home/koby/.npm/_cacache/index-v5/4a/11
+/home/koby/.npm/_cacache/index-v5/4a/11/9a089cdd0b04882d561bd381f54e55eacdfe8e3354f96bad8d6df317ccc0
+/home/koby/.npm/_cacache/index-v5/ac/5b
+/home/koby/.npm/_cacache/index-v5/ac/5b/6c13c10c7e073802aeb07775fe3df8fc8c4fff33f71f5894afd60a25c003
+/home/koby/.npm/_cacache/index-v5/93/3b
+/home/koby/.npm/_cacache/index-v5/93/3b/5852d2201e7868d54dc51123100051f6876f03ce066a21835b1991b6515d
+/home/koby/.npm/_cacache/index-v5/12/89/6459a1b039fad920507f09258833ee4c9b93bf1c434242621c5675b06217
+/home/koby/.npm/_cacache/index-v5/4f/0d
+/home/koby/.npm/_cacache/index-v5/4f/0d/cdf3f85c08721b55176e4696ca0aac590a534e7c6f7d0965f24db47c05b4
+/home/koby/.npm/_cacache/index-v5/9e/d1
+/home/koby/.npm/_cacache/index-v5/9e/d1/d02a71de789b685cfd5aba2a8c1970bda787c4497defcdb201c7fc07a917
+

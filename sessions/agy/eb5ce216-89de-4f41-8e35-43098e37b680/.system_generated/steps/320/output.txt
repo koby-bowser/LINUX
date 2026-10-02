@@ -1,0 +1,21 @@
+
+The command exited with code 1.
+Output:
+Argument(s) de position manquant(s).
+
+Utilisation keepassxc-cli search [options] database term
+Trouver des entrées rapidement.
+
+Options :
+  -q, --quiet                    Silence password prompt and other secondary
+                                 outputs.
+  -k, --key-file <path>          Key file of the database.
+  --no-password                  Deactivate password key for the database.
+  -y, --yubikey <slot[:serial]>  Yubikey slot and optional serial used to
+                                 access the database (e.g., 1:7370001).
+  -h, --help                     Display this help.
+
+Arguments :
+  database                       Chemin de la base de données.
+  term                           Terme d'interrogation.
+

@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+pe1-gbs.intranet.local.
+gbs-fw-01.intranet.local.
+

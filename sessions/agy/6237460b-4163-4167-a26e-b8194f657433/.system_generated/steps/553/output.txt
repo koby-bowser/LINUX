@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/playbooks/rekey-vault-secrets.yml
+/home/koby/.ansible/.vault_pass
+

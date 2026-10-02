@@ -1,0 +1,4 @@
+
+The command exited with code 0.
+Output:
+{"pid":143707,"sessionId":"5a62d8bf-3773-4e9a-9d0d-7cb400ed6e73","cwd":"/home/koby","startedAt":1790924602024,"procStart":"131958","version":"2.1.287","peerProtocol":1,"peerFeatures":["notify_idle","reply_across_default_dirs","artifact_yield"],"kind":"interactive","entrypoint":"cli","pidDomain":"linux:dd42e5675ce44921b8dbeb555449ab61:pid:[4026531836]","messagingSocketPath":"/run/user/1000/cc-socks/143707.sock","name":"koby-89","nameSource":"derived","nameSince":1790924602024,"updatedAt":1790924602321,"status":"idle","statusUpdatedAt":1790924602321,"bridgeSessionId":"session_01ArxF9GPxibeXfFn6q9es9y"}

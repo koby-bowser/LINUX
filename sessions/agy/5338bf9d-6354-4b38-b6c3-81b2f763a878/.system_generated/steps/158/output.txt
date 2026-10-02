@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+total 16
+-rw-r--r-- 1 root root 2412 May 15 14:13 default
+-rw-r----- 1 root root  733 Jun 10 12:53 roundcube.conf
+-rw-r----- 1 root root 1091 Aug 17 15:35 roundcube.conf_443
+-rw-r----- 1 root root 1068 Aug 14 10:17 roundcube.conf_443.bak-20260817
+

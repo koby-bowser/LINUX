@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+Linux Kaboom 6.12.107+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.107-1 (2026-08-29) x86_64 GNU/Linux
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.6
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+total 358236
+-rw-rw-r-- 1 koby koby 366828204 Sep  8 10:45 VMware-Workstation-Full-26H1u1-25688693.x86_64.bundle
+

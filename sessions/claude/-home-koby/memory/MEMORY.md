@@ -1,0 +1,6 @@
+- [Samy Amit — sysadmin Outremer Telecom](user_samy_amit_sysadmin.md) — fait de l'admin sys réelle sur des serveurs Debian de production
+- [Projet mail server Outremer Telecom](project_outremer_telecom_mailserver.md) — Phases 5+6 réussies 2026-09-24 ; Maildirs du pilote (8 comptes) migrés et vérifiés via doveadm 2026-09-28, reste test de login réel
+- [Classificateur bloque les scripts distants groupés](feedback_classifier_blocks_bundled_remote_commands.md) — découper les actions SSH root en commandes individuelles
+- [Sync Yooz gbs-ftpx-02](project_outremer_yooz_sync_gbs-ftpx-02.md) — crons actifs ; bug faux-positif sur fichiers avec espace corrigé le 2026-09-09, portée rétroactive non auditée
+- [Serveur Netbox th2-ipamc-02](project_th2-ipamc-02_netbox.md) — coordonnées SSH (172.30.217.19:30, superuser) + état sain constaté 2026-08-21
+- [PC Kaboom perd enp0s31f6 au réveil](project_kaboom_enp0s31f6_sleep_fix.md) — hook systemd-sleep déployé et fonctionnel, runbook + subagent dédié dispo

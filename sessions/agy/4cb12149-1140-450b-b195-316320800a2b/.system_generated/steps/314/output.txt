@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 7
+    print(f"- {t.get(\"title\")} (ID: {t.get(\"id\")}, Collection: {t.get(\"collectionId\")})")
+                      ^
+SyntaxError: unexpected character after line continuation character
+

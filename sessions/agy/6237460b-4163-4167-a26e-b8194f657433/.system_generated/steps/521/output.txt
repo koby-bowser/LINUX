@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+no_proxy=.intranet.local,localhost,127.0.0.0/8,::1
+ftp_proxy=http://172.16.75.9:3128/
+https_proxy=http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128
+NO_PROXY=.intranet.local,localhost,127.0.0.0/8,::1
+FTP_PROXY=http://172.16.75.9:3128/
+ANTIGRAVITY_SOURCE_METADATA={"tool":{"conversationId":"6237460b-4163-4167-a26e-b8194f657433", "stepIndex":521, "toolCall":{"id":"call_1124142", "name":"run_command", "argumentsJson":"{\"CommandLine\":\"env | grep -i proxy || true\",\"Cwd\":\"/home/koby\",\"RunPersistent\":false,\"WaitMsBeforeAsync\":2000,\"toolAction\":\"Checking proxy variables\",\"toolSummary\":\"Check proxy in env\"}", "thinkingSignature":"EvUCCvICARFNMg+CwFwG6wxMjgFO5EPifyTmDkfLjVYvFHwhnb26wRHEWNigBDHtGcESONMklSZ29EwgwzAxZVMThXho/HsTiYtm3yAa4rKdg8sXcTJFhEJyqnT/y6sKIZ9jYgKWjVPtram+VCyBuQU896ICcPhuxy4dlXZopIHwJYaK+ld/pGmK6Y6YjxkVaRd6bAe1dWl/TbOd0T20zYK8D8PT3aa9bMi/YZZJtMTmoD8RXbTda1NAp3mqSmTFBUJ7FQJ7GzpykbXESGBoqgRftJ4ucL6BZrm+befYadwMVd3i1eZXlTjWJMtkoXIo+HirqXJGObhj823Zwvh5EL71jeQy3HJrSbVQlWuodOchuzL3uZcHTgDSzkzvSZgzcuRWvP8av6VWredMFqNhjmQW2MnNI5flv3pKzSeJEgcyzXvwgzCsOp1D5zbiME/ITBUeHy0dmg2sJ3FC8cTT1IMfEson8yjTQFCnCsk8Ka9yqEWLXWfLhQ=="}}}
+HTTPS_PROXY=http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128
+HTTP_PROXY=http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128
+http_proxy=http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128
+

@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 914,
+  "template_id": 130,
+  "project_id": 1,
+  "status": "waiting",
+  "playbook": "",
+  "secret": "{}",
+  "user_id": 6,
+  "created": "2026-09-08T12:15:50.079003054Z",
+  "message": "Check OS and kernel on mtq-mailsrvp-01 (DEV)",
+  "params": {
+    "limit": [
+      "mtq-mailsrvp-01"
+    ]
+  },
+  "limit": "mtq-mailsrvp-01"
+}
+

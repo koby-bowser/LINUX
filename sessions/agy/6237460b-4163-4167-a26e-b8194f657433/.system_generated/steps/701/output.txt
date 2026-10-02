@@ -1,0 +1,21 @@
+
+The command exited with code 1.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+sed: -e expression #1, char 23: unexpected `,'
+nginx: [emerg] duplicate listen options for 0.0.0.0:9443 in /etc/nginx/sites-enabled/03-map.extranetclient.outremer-telecom.fr.conf:3
+nginx: configuration file /etc/nginx/nginx.conf test failed
+Job for nginx.service failed.
+See "systemctl status nginx.service" and "journalctl -xe" for details.
+

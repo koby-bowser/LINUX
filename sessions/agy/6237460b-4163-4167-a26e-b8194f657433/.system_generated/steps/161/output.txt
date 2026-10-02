@@ -1,0 +1,115 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+server {
+    listen              172.30.198.33:443 ssl http2 reuseport;
+    server_name         extranetclient.outremer-telecom.fr;
+
+    # SSL
+    ssl_certificate /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/privkey.pem; # managed by Certbot
+    ssl_trusted_certificate /etc/certs/OMT/CA/STAR_outremer-telecom.fr/DigiCertCA.crt;
+
+    # security
+    include             nginxconfig.io/security.conf;
+
+    # logging
+    access_log          /var/log/nginx/extranetclient.outremer-telecom.fr-access.log;
+    error_log           /var/log/nginx/extranetclient.outremer-telecom.fr-error.log warn;
+
+    # Redirection explicite racine → /centreon/
+    location = / {
+        return 301 /centreon/;
+    }
+
+    # Location block to forward LoRaWAN traffic to backend server on port 8443
+    location /lorawan/data {
+        proxy_pass http://172.30.198.49:8443/lorawan/data;
+        include nginxconfig.io/proxy.conf;
+        
+        # Standard proxy headers
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Ssl on;
+        
+        # Ensure Nginx passes all custom and standard client request headers
+        proxy_pass_request_headers on;
+        
+        # Allow extra large or custom header buffers if needed
+        proxy_headers_hash_max_size 1024;
+        proxy_headers_hash_bucket_size 128;
+    }    
+
+    # reverse proxy
+    location / {
+        proxy_pass http://172.30.198.49;
+        include    nginxconfig.io/proxy.conf;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Ssl   on;
+        proxy_redirect http:// https://;
+        proxy_headers_hash_max_size 1024;
+        proxy_headers_hash_bucket_size 128;
+
+    }
+
+    # additional config
+    include nginxconfig.io/general.conf;
+
+}
+
+# HTTP redirect
+server {
+    listen      172.30.198.33:80 reuseport;
+    server_name extranetclient.outremer-telecom.fr;
+    return      301 https://$host$request_uri;
+}
+
+#HTTPS redirect MAP
+server {
+    listen              172.30.198.33:9443 ssl http2 reuseport;
+    server_name         extranetclient.outremer-telecom.fr;
+
+    # SSL (même certificat Let's Encrypt que :443)
+    ssl_certificate     /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/privkey.pem;
+    ssl_trusted_certificate /etc/certs/OMT/CA/STAR_outremer-telecom.fr/DigiCertCA.crt;
+
+    # security
+    include             nginxconfig.io/security.conf;
+
+    # logging (nouveaux fichiers dédiés — pour ne pas polluer les logs du :443)
+    access_log          /var/log/nginx/extranetclient.outremer-telecom.fr-9443-access.log;
+    error_log           /var/log/nginx/extranetclient.outremer-telecom.fr-9443-error.log warn;
+
+    # reverse proxy vers Map
+    location / {
+        proxy_pass http://172.30.198.50;
+        #proxy_ssl_verify off;
+        #proxy_set_header Host $host; 
+        include    nginxconfig.io/proxy.conf;
+        proxy_set_header X-Forwarded-Proto  https;
+        proxy_set_header X-Forwarded-Ssl    on;
+        #proxy_set_header X-Forwarded-Port   9443;
+        proxy_redirect http:// https://;
+        proxy_headers_hash_max_size   1024;
+        proxy_headers_hash_bucket_size 128;
+    }
+
+    # additional config
+    include nginxconfig.io/general.conf;
+}
+

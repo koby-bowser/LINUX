@@ -1,0 +1,15 @@
+
+The command exited with code 2.
+Output:
+WARNING  Listing 1 violation(s) that are fatal
+jinja[invalid]: Error rendering template: Type 'function' is unsupported for variable storage.
+playbooks/kdbx-pool.yml:71:13 Task/Handler: Search server pool for query
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+# Rule Violation Summary
+
+  1 jinja profile:basic tags:formatting
+
+Failed: 1 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+

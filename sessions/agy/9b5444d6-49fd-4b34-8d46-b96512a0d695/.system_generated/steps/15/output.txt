@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+099f52c (HEAD -> Baba-Koby, origin/refactorisation-de-code-34769, origin/HEAD, origin/Baba-Koby) Initial commit
+

@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+Saisissez un mot de passe pour chiffrer la base de données (facultatif) :
+Confirmer le mot de passe :
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeePassFile>
+	<Meta>
+		<Generator>KeePassXC</Generator>
+		<DatabaseName/>
+		<DatabaseNameChanged>2026-09-09T14:22:48Z</DatabaseNameChanged>
+		<DatabaseDescription/>
+		<DatabaseDescriptionChanged>2026-09-09T14:22:48Z</DatabaseDescriptionChanged>
+		<DefaultUserName/>
+		<DefaultUserNameChanged>2026-09-09T14:22:48Z</DefaultUserNameChanged>
+

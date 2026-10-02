@@ -1,0 +1,9 @@
+Task: eb5ce216-89de-4f41-8e35-43098e37b680/task-484
+Status: RUNNING
+Log: /home/koby/.gemini/antigravity-cli/brain/eb5ce216-89de-4f41-8e35-43098e37b680/.system_generated/tasks/task-484.log
+Log output:
+Multiple matches found for 'trp-wextp-fe1':
+  [1] trp-wextp-fe1 (172.30.230.97:30) - User: superuser [OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP]
+  [2] trp-wextp-fe1 (172.30.230.97:30) - User: root [OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root]
+Select server [1-2]: 
+Last progress: 4s ago

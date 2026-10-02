@@ -1,0 +1,2 @@
+Created file file:///home/koby/.gemini/antigravity-cli/brain/5338bf9d-6354-4b38-b6c3-81b2f763a878/scratch/inv-be-bootstrap.yml with requested content.
+If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.

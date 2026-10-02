@@ -1,0 +1,18 @@
+
+The command exited with code 255.
+Output:
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Warning: Permanently added '[172.30.198.50]:30' (ECDSA) to the list of known hosts.
+superuser@172.30.198.50: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+

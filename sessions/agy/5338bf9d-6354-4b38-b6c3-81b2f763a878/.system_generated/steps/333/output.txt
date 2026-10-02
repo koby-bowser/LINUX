@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+Enumerating objects: 13, done.
+Counting objects:   7% (1/13)Counting objects:  15% (2/13)Counting objects:  23% (3/13)Counting objects:  30% (4/13)Counting objects:  38% (5/13)Counting objects:  46% (6/13)Counting objects:  53% (7/13)Counting objects:  61% (8/13)Counting objects:  69% (9/13)Counting objects:  76% (10/13)Counting objects:  84% (11/13)Counting objects:  92% (12/13)Counting objects: 100% (13/13)Counting objects: 100% (13/13), done.
+Delta compression using up to 12 threads
+Compressing objects:  14% (1/7)Compressing objects:  28% (2/7)Compressing objects:  42% (3/7)Compressing objects:  57% (4/7)Compressing objects:  71% (5/7)Compressing objects:  85% (6/7)Compressing objects: 100% (7/7)Compressing objects: 100% (7/7), done.
+Writing objects:  14% (1/7)Writing objects:  28% (2/7)Writing objects:  42% (3/7)Writing objects:  57% (4/7)Writing objects:  71% (5/7)Writing objects:  85% (6/7)Writing objects: 100% (7/7)Writing objects: 100% (7/7), 1.03 KiB | 1.03 MiB/s, done.
+Total 7 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: View merge request for feat/move-mtq-mailsrvp-to-prod:        
+remote:   https://gitsi.intranet.local/omt/infra/management/infra-management-system/-/merge_requests/267        
+remote: 
+To https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+ * [new branch]      feat/move-mtq-mailsrvp-to-prod -> feat/move-mtq-mailsrvp-to-prod
+branch 'feat/move-mtq-mailsrvp-to-prod' set up to track 'origin/feat/move-mtq-mailsrvp-to-prod'.
+

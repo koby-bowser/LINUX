@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+user.name=Amit Samy
+user.email=a.samy@outremer-telecom.fr
+credential.helper=store
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/koby-bowser/LINUX.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.Baba-Koby.remote=origin
+branch.Baba-Koby.merge=refs/heads/Baba-Koby
+

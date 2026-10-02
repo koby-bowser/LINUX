@@ -1,0 +1,7 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-09-22T18:18:41+04:00
+Prompt: Check task-134 status
+Early Termination: 4cb12149-1140-450b-b195-316320800a2b/task-134
+
+[2026-09-22T18:18:36+04:00] Still waiting. Remaining time: 5s
+[2026-09-22T18:18:41+04:00] Timer fired.

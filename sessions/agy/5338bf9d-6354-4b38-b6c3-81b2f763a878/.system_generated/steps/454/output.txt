@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+<string>:24: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+{'subject': 'CN=postfix.outremer-telecom.fr', 'issuer': "C=US, O=Let's Encrypt, CN=YE1", 'expires': 'Nov 15 11:48:08 2026 GMT', 'days_remaining': 58, 'sans': ['postfix.outremer-telecom.fr']}
+

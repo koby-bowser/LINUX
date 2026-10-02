@@ -1,0 +1,77 @@
+
+The command exited with code 0.
+Output:
+[sudo] password for admin: #!/bin/bash
+
+##################################################################
+#                                                                #
+# Script d'envoie des facture OMT chez SERES                     #
+#                                                                #
+# 27/02/2014 - Antoine LOISEAU <a.loiseau@outremer-telecom.fr>   #
+#                                                                #
+##################################################################
+
+# sftp -oIdentityFile=./id_ed25519-siddata -oPort=2222 -oStrictHostKeychecking=no -oUserKnownHostsFile=/dev/null sftp_azure@4.178.122.222
+
+# Init
+LOGIN=sftp_azure
+KEY=/etc/ssh/generated_keys/siddata/id_ed25519-siddata
+HOST=4.178.122.222
+INPUT_DIR="/opt/sftproot/siddata/upload"
+OUTPUT_DIR="./share-sftpazure/DME"
+SCP="/usr/bin/sftp"
+OPTIONS="-oBatchMode=no -oIdentityFile=$KEY -oStrictHostKeychecking=no -oUserKnownHostsFile=/dev/null -oPort=2222"
+ACK="/tmp/siddata"
+
+function log {
+        echo "$(date '+%b %d %H:%M:%S') $1"
+}
+
+# Get filelist we need to upload
+FILE_LIST=`find $INPUT_DIR -maxdepth 1 -type f|awk -F/ '{print $NF}'`
+
+# Remove files that are currently uploaded and/or currently used
+REM_LIST=`find $INPUT_DIR -maxdepth 1 -type f -exec fuser {} \; 2>&1|awk -F: '{print $1}'|awk -F/ '{print $NF}'`
+for EXCLUDE in $REM_LIST
+do
+	FILE_LIST=`echo $FILE_LIST | sed "s/$EXCLUDE//g"`
+done
+
+log "======== New Execution ========"
+
+# Sending
+ret=0
+for i in $FILE_LIST
+do
+	log "sending            : $i"
+$SCP $OPTIONS -b - $LOGIN@$HOST << !
+   cd $OUTPUT_DIR
+   lcd $INPUT_DIR
+   put $i
+   bye
+!
+	err=$?
+	log "return code        : $err"
+
+	# Delete only if sending is OK
+	if [ $err -eq 0 ]
+	then
+		log "removing           : $i"
+		#rm -f $INPUT_DIR/$i	
+		mv $INPUT_DIR/$i $INPUT_DIR/sent/
+	fi
+
+	# Keep counting
+	let ret=$ret+$err
+done
+
+log "global return code : $ret"
+log "==============================="
+
+#echo $ret
+#echo $ret > $ACK
+exit $ret
+5,20,35,50 * * * * siddata /usr/local/bin/sendFile-SRR_sid.sh >> /var/log/siddata/siddata.log 2>&1
+#* * * * * siddata /usr/local/bin/sendFile-SRR_sid.sh >> /var/log/siddata/siddata.log 2>&1
+Connection to 172.16.92.241 closed.
+

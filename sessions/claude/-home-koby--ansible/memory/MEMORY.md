@@ -1,0 +1,5 @@
+- [Koby's role](user-role.md) — sysadmin, real production DNS/certs for Outremer Telecom/SFR Caraïbe group, fish shell on Kaboom
+- [Don't over-lecture on pasted secrets](feedback-dont-over-lecture.md) — flag once, then just handle securely without repeating
+- [DNS prod safety](feedback-dns-prod-safety.md) — test zone edits on a copy first; require multi-resolver DoH consensus for propagation
+- [Ansible gotchas](feedback-ansible-gotchas.md) — group_vars placement, tag inheritance, pre_tasks tags, command `~` expansion, block+loop
+- [DNS/cert automation project](project-dns-cert-automation.md) — issue-deploy-certs.yml status: ssh_zonefile working, rfc2136/powerdns untested, dnsp-mst1 next

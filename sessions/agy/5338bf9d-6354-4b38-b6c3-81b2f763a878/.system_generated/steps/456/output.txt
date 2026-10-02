@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+{
+  "path": "/etc/ssl/certs/postfix.pem",
+  "exists": true,
+  "subject": "CN=postfix.outremer-telecom.fr",
+  "issuer": "C=US, O=Let's Encrypt, CN=YE1",
+  "expires": "Nov 15 11:48:08 2026 GMT",
+  "days_remaining": 58,
+  "status": "VALID (58 days left)",
+  "sans": [
+    "postfix.outremer-telecom.fr"
+  ]
+}
+

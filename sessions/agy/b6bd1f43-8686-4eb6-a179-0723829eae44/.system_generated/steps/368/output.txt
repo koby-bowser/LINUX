@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+acme-zone-update.sh                             0%    0     0.0KB/s   --:-- ETAacme-zone-update.sh                           100% 4474    20.9KB/s   00:00    
+

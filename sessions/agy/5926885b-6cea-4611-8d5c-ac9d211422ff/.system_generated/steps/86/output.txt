@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+dcde5b76-b423-4f53-8ab0-71e94a36db69 | Procédure d'extension du stockage de sauvegarde /backup sur trp-bcki-sys1 (MergerFS) | url=/doc/procedure-dextension-du-stockage-de-sauvegarde-backup-sur-trp-bcki-sys1-mergerfs-32TWoJ3ZjT
+1972725b-1d15-4846-abb8-cae73ec0ffee | Netbackup Restore VM | url=/doc/netbackup-restore-vm-UhUfVDbyUe
+2bc6b087-9423-4081-8411-b7e165524179 | Comment ajouter une entrée DNS dans TH2-DNSINTRA-01 | url=/doc/comment-ajouter-une-entree-dns-dans-th2-dnsintra-01-Jp0P64JIw1
+b7e3080a-1776-41e7-89aa-cc1b77402bdb | Procédure de Préfacturation – Environnement Préproduction Informix | url=/doc/procedure-de-prefacturation-environnement-preproduction-informix-ueGZdu5Kwe
+2a9908cd-024d-4835-85f4-988959169c26 | REQUISITION-FTTH | url=/doc/requisition-ftth-wZv5CRkbBI
+77ab18c7-20e1-48cc-972c-49246ac060c4 | Documentation_Sauvegarde_RMAN_SGX3 | url=/doc/documentation_sauvegarde_rman_sgx3-DY6u8yVrt4
+dc8bfad9-5792-4b7e-8079-b415268cba79 | Migration de VMs via Advanced Cross vCenter vMotion (XVM) | url=/doc/migration-de-vms-via-advanced-cross-vcenter-vmotion-xvm-hf2jSiw9wr
+85f5416c-5012-46dc-bbef-474fec39ddd0 | Certificats Publics | url=/doc/certificats-publics-Nlo4QuXtqq
+35127e53-80ef-47fb-aad0-9f47f9c85a05 | Procédure d'extension d'un volume LVM après augmentation d'un disque sur Vmware | url=/doc/procedure-dextension-dun-volume-lvm-apres-augmentation-dun-disque-sur-vmware-BMp5uy2Bwq
+6aa7dabf-40d5-4ed7-93c0-28db7cd5c46c | Renouvellement des certificats – VVG | url=/doc/renouvellement-des-certificats-vvg-7Z7JGjv2Ix
+

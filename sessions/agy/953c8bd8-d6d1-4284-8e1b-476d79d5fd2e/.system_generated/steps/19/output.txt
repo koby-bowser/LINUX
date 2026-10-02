@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+;; communications error to 172.16.6.2#53: timed out
+;; communications error to 172.16.6.2#53: timed out
+;; communications error to 172.16.6.2#53: timed out
+

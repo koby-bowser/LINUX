@@ -1,0 +1,32 @@
+
+The command exited with code 0.
+Output:
+zone "redbysfrcaraibe.fr" {
+	type master;
+	file "redbysfrcaraibe.fr";
+};
+
+// migré sur powerDNS TH2/RBX
+//zone "red-by-sfrcaraibe.fr" {
+//	type master;
+//	file "red-by-sfrcaraibe.fr";
+//	allow-transfer {"none";};
+//};
+
+zone "redbysfrcaraibes.fr" {
+        type master;
+--
+zone "sfrcaraibe.fr" {
+        type master;
+        file "sfrcaraibe.fr";
+};
+
+zone "cc.sfrcaraibe.fr" {
+	type master;
+	file "cc.sfrcaraibe.fr";
+};
+
+// migré sur powerDNS TH2/RBX
+//zone "sfrcaraibes.fr" {
+//      type master;
+

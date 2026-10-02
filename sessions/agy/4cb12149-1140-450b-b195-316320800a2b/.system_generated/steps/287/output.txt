@@ -1,0 +1,49 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.config/BraveSoftware/Brave-Browser/iodkpdagapdfkphljnddpjlldadblomo/1.0.21511/list.txt
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Web Data
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Shortcuts
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Session Storage/000818.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_teams.cloud.microsoft_0.indexeddb.leveldb/003418.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_teams.cloud.microsoft_0.indexeddb.leveldb/003420.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_teams.cloud.microsoft_0.indexeddb.leveldb/003417.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_teams.cloud.microsoft_0.indexeddb.leveldb/003419.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_teams.cloud.microsoft_0.indexeddb.leveldb/003421.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_teams.cloud.microsoft_0.indexeddb.leveldb/003416.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Local Storage/leveldb/007496.ldb
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Local Storage/leveldb/MANIFEST-000001
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Local Extension Settings/mnojpmjdmbbfmejpflffifhffcmidifd/MANIFEST-000001
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Preferences
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Cookies
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/History
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Network Action Predictor
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Top Sites
+/home/koby/.config/BraveSoftware/Brave-Browser/Default/Login Data
+/home/koby/.local/share/gvfs-metadata/home
+/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md
+/home/koby/infra-management-system/playbooks/fix-dns-wiki-corp-stale-cname.yml
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-outline-mcp-wiki.yml
+/home/koby/infra-management-system/playbooks/backup-outline-wikio.yml
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-poc.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wiki.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-nfs-server.yml
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-drawio.yml
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-outline-mcp.yml
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-wikio.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-nfs-ha.yml
+/home/koby/infra-management-system/playbooks/cutover-dns-wikio-to-poc.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-outline-mcp-wiki.yml
+/home/koby/infra-management-system/playbooks/issue-pki-cert-outline-mcp-wiki.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-db.yml
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wikio.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wiki-definitive.yml
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wiki.yml
+/home/koby/infra-management-system/playbooks/check-runner-wikio-connectivity.yml
+/home/koby/infra-management-system/playbooks/recon-dns-wiki-corp-state.yml
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wikio-poc.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-redis.yml
+/home/koby/infra-management-system/playbooks/deploy-wiki-backends-base.yml
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml
+

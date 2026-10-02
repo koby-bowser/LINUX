@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+total 48
+drwxrwxr-x  8 koby koby 4096 Sep 17 11:05 .
+drwx------ 40 koby koby 4096 Sep 17 10:55 ..
+-rw-rw-r--  1 koby koby  285 Sep  9 16:08 ansible.cfg
+lrwxrwxrwx  1 koby koby   25 Sep 17 11:05 copy-to-remote.sh -> scripts/copy-to-remote.sh
+drwxrwxr-x  8 koby koby 4096 Sep 17 11:12 .git
+-rw-rw-r--  1 koby koby  343 Sep  9 18:39 .gitignore
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:10 host_vars
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:05 inventory
+lrwxrwxrwx  1 koby koby   15 Sep 17 11:05 kssh -> scripts/kssh.py
+drwxrwxr-x  6 koby koby 4096 Sep 17 11:05 playbooks
+-rw-rw-r--  1 koby koby    7 Sep 17 10:46 README.md
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:10 roles
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:05 scripts
+lrwxrwxrwx  1 koby koby   25 Sep 17 11:05 search-servers.sh -> scripts/search-servers.sh
+-rw-------  1 koby koby    5 Sep  9 16:08 .vault_pass
+

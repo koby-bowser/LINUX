@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+trp-wextp-be1 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'G7v!r9Qp#2Lm8Zt4'
+trp-wextp-be2 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'g7P#v9ZqR4!tB2yK'
+trp-wextp-be3 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'Nf!5sV2@jH7cR0yM'
+trp-wextp-be4 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'bR9&zG3!tF6uH2cQ'
+trp-wextp-be5 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'mT4!qC9^rZ1&dW6p'
+trp-wextp-be6 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'q8R#vK3n!p2T$zF6'
+trp-wextp-be7 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'qK6&nB3!tR9^fV1z'
+trp-wextp-be8 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP '92GLku4FKjUyh5bP'
+trp-wextp-be9 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'A4h^dE9yP!rL6uX2'
+trp-wextp-be10 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP 'V7p!rQ2sXz#9gL4w'
+trp-wextp-be11 OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP '}`ig_+i}6[Ude_{U]5C8ea+0p'
+

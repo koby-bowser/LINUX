@@ -1,0 +1,41 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/sync-ai-sessions.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -277,7 +277,7 @@
+         cmd: git -C "{{ repo_root }}" add "{{ sessions_dir_name }}" ai-sessions
+       when:
+         - not ansible_check_mode
+-        - git_commit
++        - git_commit | bool
+         - _git_status.stdout | length > 0
+ 
+     - name: Créer le commit git pour les sessions
+@@ -286,7 +286,7 @@
+           "chore(sessions): sync AI CLI sessions [agy, claude, codex] ({{ ansible_date_time.iso8601 }})"
+       when:
+         - not ansible_check_mode
+-        - git_commit
++        - git_commit | bool
+         - _git_status.stdout | length > 0
+       register: _git_commit_res
+ 
+@@ -294,8 +294,8 @@
+         cmd: git -C "{{ repo_root }}" push "{{ git_remote }}" "{{ resolved_git_branch }}"
+       when:
+         - not ansible_check_mode
+-        - git_push
+-        - git_commit
++        - git_push | bool
++        - git_commit | bool
+         - _git_status.stdout | length > 0
+       register: _git_push_res
+ 
+@@ -308,5 +308,5 @@
+           - "Modifications git détectées : {{ (_git_status.stdout | length > 0) }}"
+           - "Commit git effectué : {{ _git_commit_res is defined and not _git_commit_res.skipped | default(false) }}"
+           - "Push GitHub effectué : {{ _git_push_res is defined and not _git_push_res.skipped | default(false) }}"
+-          - "Statut : {{ 'Sessions poussées vers ' ~ git_remote ~ '/' ~ resolved_git_branch if (_git_status.stdout | length > 0 and git_push) else 'Les sessions sont déjà synchronisées. Aucun push requis.' }}"
++          - "Statut : {{ 'Sessions poussées vers ' ~ git_remote ~ '/' ~ resolved_git_branch if (_git_status.stdout | length > 0 and (git_push | bool)) else 'Les sessions sont déjà synchronisées. Aucun push requis.' }}"
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

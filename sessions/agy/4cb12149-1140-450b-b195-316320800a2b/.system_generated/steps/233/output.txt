@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+-rw-rw-r-- 1 koby koby 25K Sep 22 18:42 /home/koby/architecture.excalidraw
+

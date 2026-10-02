@@ -1,0 +1,36 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+active
+active
+Netid State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0            0.0.0.0:161       0.0.0.0:*          
+udp   UNCONN 0      0          127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0              [::1]:323             *:*          
+tcp   LISTEN 0      0            0.0.0.0:993       0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:995       0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:30        0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:25        0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:80        0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:110       0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:143       0.0.0.0:*          
+tcp   LISTEN 0      0            0.0.0.0:443       0.0.0.0:*          
+tcp   LISTEN 0      0          127.0.0.1:3306      0.0.0.0:*          
+tcp   LISTEN 0      0                  *:993             *:*          
+tcp   LISTEN 0      0                  *:995             *:*          
+tcp   LISTEN 0      0                  *:30              *:*          
+tcp   LISTEN 0      0                  *:80              *:*          
+tcp   LISTEN 0      0                  *:110             *:*          
+tcp   LISTEN 0      0                  *:143             *:*          
+

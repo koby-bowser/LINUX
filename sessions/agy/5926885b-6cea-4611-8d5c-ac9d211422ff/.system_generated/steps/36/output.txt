@@ -1,0 +1,34 @@
+
+The command exited with code 0.
+Output:
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Outline</title>
+    <meta
+      name="theme-color"
+      content="#FFF"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#111319"
+      media="(prefers-color-scheme: dark)"
+    />
+    <script nonce="ab5f15b4b241c09030c2973dca3d94b2">
+      (function () {
+        var theme = "system";
+        var storedTheme;
+
+        try {
+          storedTheme = window.localStorage.getItem("theme");
+          theme = storedTheme ? JSON.parse(storedTheme) : theme;
+        } catch (_err) {
+          // Older versions stored the value without JSON encoding.
+          theme = storedTheme || theme;
+        }
+
+        var isDark =
+          theme === "dark" ||
+          (theme !== "light" &&
+

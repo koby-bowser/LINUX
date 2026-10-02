@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+796K	/home/koby/.gemini/antigravity-cli/brain/20db857b-8785-48da-9198-01add9384dc4
+1.6M	/home/koby/.gemini/antigravity-cli/brain/3cf1558c-4ee1-4f25-8dba-fc7d40054008
+3.1M	/home/koby/.gemini/antigravity-cli/brain/4cb12149-1140-450b-b195-316320800a2b
+468K	/home/koby/.gemini/antigravity-cli/brain/50479c19-5180-4aa7-94da-62d796e908db
+6.8M	/home/koby/.gemini/antigravity-cli/brain/5338bf9d-6354-4b38-b6c3-81b2f763a878
+4.6M	/home/koby/.gemini/antigravity-cli/brain/5926885b-6cea-4611-8d5c-ac9d211422ff
+94M	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433
+396K	/home/koby/.gemini/antigravity-cli/brain/93b6b405-9bfb-4f78-b935-cbc58b1a25f2
+356K	/home/koby/.gemini/antigravity-cli/brain/953c8bd8-d6d1-4284-8e1b-476d79d5fd2e
+1.5M	/home/koby/.gemini/antigravity-cli/brain/9b5444d6-49fd-4b34-8d46-b96512a0d695
+572K	/home/koby/.gemini/antigravity-cli/brain/a6d077d5-5dc2-45c4-8e83-b3c97e1ae6d2
+48K	/home/koby/.gemini/antigravity-cli/brain/ac6b2cc9-4e43-49c7-a9af-9015af0f4f0d
+5.5M	/home/koby/.gemini/antigravity-cli/brain/b6bd1f43-8686-4eb6-a179-0723829eae44
+768K	/home/koby/.gemini/antigravity-cli/brain/d0c4410e-7377-4808-a25d-2384c4b82146
+4.1M	/home/koby/.gemini/antigravity-cli/brain/eb5ce216-89de-4f41-8e35-43098e37b680
+1.3M	/home/koby/.gemini/antigravity-cli/brain/f3cf4530-5328-4510-bf53-5e1689984110
+

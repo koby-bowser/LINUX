@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Deleted all files relating to certificate epdg.epc.mnc002.mcc340.pub.3gppnetwork.org.
+

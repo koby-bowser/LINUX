@@ -1,0 +1,78 @@
+
+   ╔═════════════════════════════════════════════════════════════════════╗
+   ║                        THE TRIAD ALLIANCE                           ║
+   ║   Antigravity (Gemini) ⟡ Claude Code (Opus) ⟡ Codex CLI (GPT-6)    ║
+   ╚═════════════════════════════════════════════════════════════════════╝
+
+Mission Prompt: Review the latest playbook in this repository: playbooks/deploy-alertmanager-si.yml and its role roles/alertmanager_server (tasks, templates, defaults). Assess: 1) Production safety, idempotency and container lifecycle; 2) Configuration validation (amtool) and checksum label recreate strategy; 3) Networking and exposure (port 9093, external docker network 'monitoring'); 4) Potential edge cases or hazards.
+
+Dispatching query across the Alliance concurrently...
+
+━━━ [Claude Code — Opus 5.5] (52.22s) ━━━
+# Revue : `deploy-alertmanager-si.yml` et `roles/alertmanager_server`
+
+J'ai lu le playbook, le rôle (tasks, templates, defaults, meta), le helper `docker_compose_deploy` et le `host_vars` de `th2-grafac-si1`. Je n'ai rien exécuté et rien modifié.
+
+**Verdict :** le rôle est propre et cohérent avec `prometheus_server`. Il vise l'inventaire **corp**, pas la prod, donc les règles dures du CLAUDE.md ne s'appliquent pas directement. Il y a quelques défauts réels, dont un à corriger avant de merger.
+
+## 1. Sécurité, idempotence, cycle de vie du conteneur
+
+**Points positifs**
+- Le playbook ne touche que `th2-grafac-si1`. Le `target_host` par défaut est bien ce serveur.
+- Il n'y a aucun `state: restarted`, aucun `rm` et aucun `state: absent`.
+- Les templates sont déterministes. La stat sha1, l'`amtool` et le `docker compose ps` sont en `changed_when: false`.
+- Le volume nommé `alertmanager-data` conserve les silences et l'état de notification d'un redéploiement à l'autre.
+
+**Défauts**
+- **`--remove-orphans` (moyen).** `docker_compose_deploy` l'active toujours (`remove_orphans: true`). Le projet compose est `/opt/monitoring/alertmanager`. Aujourd'hui rien d'autre n'y vit, donc c'est sans effet. Si quelqu'un ajoute un service à ce répertoire hors du template, il sera supprimé silencieusement. Cela reste théorique, mais c'est un comportement de suppression implicite dans un helper partagé.
+- **Le `dcd_pull: true` casse le déterminisme (moyen).** L'image est épinglée (`v0.34.1`), donc le risque est faible. Mais chaque run refait un `pull always` via le proxy corp. Si le registre ou le proxy est indisponible, le déploiement échoue alors que rien n'a changé. Un `pull: missing` suffit avec un tag épinglé.
+- **Le `rescue` du helper masque les vraies erreurs (mineur).** Il relance `docker compose up` en CLI pour n'importe quel échec de la collection. Une erreur légitime, comme une conf invalide ou un port déjà pris, est rejouée puis remontée sous un autre libellé.
+- **`Verify … running` est fragile (mineur).** Il vérifie qu'un conteneur est *running*, pas qu'il est *sain*. Aucun `healthcheck` n'est défini. Un conteneur qui crashe en boucle (`restart: unless-stopped`) peut passer le contrôle pendant sa fenêtre « running ». Il faudrait un appel à `http://localhost:9093/-/healthy` avec `uri` et `retries`.
+
+## 2. Validation amtool et stratégie de recréation par label
+
+**Points positifs**
+- Ordre correct : template, puis `stat`, puis `amtool`, puis compose. Une conf invalide fait échouer le play **avant** toute recréation.
+- Le label `config_sha` provoque une recréation à chaque changement de conf. C'est utile, parce que le bind-mount d'un fichier unique ne se rafraîchit pas si le template remplace l'inode.
+
+**Défauts**
+- **Écart de séquence sur le sha (à corriger).** Le `stat` est fait *avant* `amtool`, ce qui est correct. Mais si le template `alertmanager.yml` est écrit et que `amtool` échoue ensuite, le fichier invalide **reste sur disque**. Le conteneur en cours n'est pas touché, mais un `docker restart` manuel ou un reboot de l'hôte le relira et Alertmanager ne démarrera plus. Solution : utiliser `validate:` du module `template`, ce qui valide un fichier temporaire avant de remplacer la cible. Il faut alors monter le fichier dans le conteneur, donc passer par `%s` avec un `docker run` à part.
+- **Aucun `depends_on` ni `--web.external-url`.** Sans `--web.external-url`, les liens dans l'UI et les alertes pointent vers le nom de conteneur interne. Cela n'a pas d'incidence tant que le receiver est un blackhole.
+- **`amtool` lance un conteneur jetable (mineur).** Il tire donc l'image via le proxy, comme le pull principal. Il n'y a pas de `--network none`, alors que ce serait plus strict pour un simple contrôle syntaxique.
+- **Le rendu du sha dépend d'une variable de tâche.** `_alertmanager_cfg` est un fait enregistré, propre au play. Lancer le rôle avec `--tags` ou `--start-at-task` après le `stat` casse le rendu du compose. Même limite que `prometheus_server`, donc c'est cohérent avec l'existant.
+
+## 3. Réseau et exposition
+
+- **`ports: "9093:9093"` publie sur `0.0.0.0` (le point le plus important).** Alertmanager n'a **aucune authentification** : l'API et l'UI permettent de créer des silences, donc de masquer des alertes. Un `Centreon` en poll n'a besoin que d'un accès en lecture depuis sa propre IP. Le CLAUDE.md dit que le lien Prometheus vers Alertmanager passe déjà par le nom de conteneur `alertmanager:9093` sur le réseau `monitoring`. La publication sur l'hôte ne sert donc que pour Centreon.
+  - Correction minimale : lier à l'IP interne de l'hôte, par exemple `"{{ alertmanager_listen_address }}:9093:9093"`, avec un défaut variabilisé.
+  - Il faut aussi confirmer que le pare-feu de l'hôte limite le 9093 à l'IP de Centreon. Je n'ai pas pu vérifier ce point depuis le dépôt.
+- **Cohérence avec Prometheus.** `prometheus_server` publie lui aussi sans adresse d'écoute (`"{{ prometheus_listen_port }}:9090"`). Le même correctif serait à répercuter là-bas pour rester cohérent.
+- **Réseau `monitoring` externe.** Le compose déclare `external: true`, et le helper crée le réseau avec `docker network create` s'il manque. C'est correct. Points d'attention :
+  - `changed_when` compare le texte `already exists` de stderr, ce qui dépend de la locale et de la version de Docker.
+  - Sur un premier déploiement, l'ordre entre les rôles n'est pas garanti. Si Prometheus est déployé avant Alertmanager, le nom `alertmanager` ne résout pas encore. Prometheus retente ensuite, donc c'est bénin.
+- **Pas de HA, pas de cluster.** `--cluster.listen-address` n'est pas désactivé. Alertmanager ouvre donc par défaut le port de gossip 9094 dans le conteneur, sans le publier. C'est inoffensif ici, mais `--cluster.listen-address=` (vide) supprime cette surface.
+
+## 4. Cas limites et dangers
+
+1. **Alertes perdues à la recréation.** Le receiver est un blackhole et Centreon lit l'API. Pendant la recréation (quelques secondes), l'API ne répond plus. Un poll qui tombe à ce moment peut passer en UNKNOWN côté Centreon. Prévenir l'équipe ou éviter les heures de poll intensif.
+2. **Perte des silences si le volume est supprimé.** Le volume nommé est persistant. Un `docker compose down -v` manuel efface les silences. Rien dans le rôle ne l'exécute.
+3. **Assertion trop faible.** `assert` teste `length > 0`, mais `alertmanager_image` a un défaut non vide. L'assertion ne peut donc jamais échouer, et son message parle de `group_vars/monitoring*.yml`, ce qui est trompeur. Elle est inutile en l'état.
+4. **`global: {}`** est accepté par `amtool`. Une route avec `receiver: blackhole` et aucun `group_by` est valide, mais toutes les alertes tombent dans un seul groupe. C'est sans conséquence puisque rien n'est notifié.
+5. **Droits.** Le fichier de conf est en `0644`. Il ne contient aucun secret aujourd'hui. Si un webhook ou un mot de passe SMTP y est ajouté plus tard, il faudra repasser en `0640`.
+6. **Runner Semaphore.** Le helper suppose que le chemin `/opt/monitoring/...` est identique côté runner et côté hôte (socket Docker monté). L'`amtool` utilise `docker run -v <chemin hôte>`, ce qui fonctionne pour la même raison. Cette hypothèse est documentée dans le helper.
+
+## Synthèse priorisée
+
+| Priorité | Point | Action |
+|---|---|---|
+| Haute | Port 9093 sur `0.0.0.0`, API sans authentification | Lier à une IP interne et confirmer le pare-feu |
+| Moyenne | Conf invalide laissée sur disque si `amtool` échoue | `validate:` sur le template, ou validation avant écriture |
+| Moyenne | Vérification « running » sans santé réelle | Sonde `/-/healthy` avec retries |
+| Basse | `pull always` à chaque run, `--remove-orphans` implicite | `pull: missing` avec tag épinglé, à discuter pour le helper |
+| Basse | Assertion sans effet | La supprimer ou la rendre pertinente |
+
+Souhaitez-vous que j'applique les correctifs de priorité haute et moyenne sur une branche dédiée, conformément à la règle « 1 sujet = 1 branche » ?
+
+━━━ [Codex CLI — GPT-6] (120.00s) ━━━
+Error: Timed out after 120s
+

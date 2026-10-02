@@ -1,0 +1,1 @@
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":34,"LineContent":"      ansible_host: 172.30.230.97"}

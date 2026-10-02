@@ -1,0 +1,48 @@
+The search for ""mcp-excalidraw-server" "mcp" command args" returned the following summary:
+To configure the `mcp-excalidraw-server` (often referenced in the context of the **yctimlin/mcp_excalidraw** implementation), you typically define it as an MCP server within your AI client's configuration file (e.g., `claude_desktop_config.json` or `.cursor/mcp.json`)[1].
+
+### **Typical Configuration**
+Most users integrate this server using `npx` to ensure it uses the latest version without needing a manual local build[1].
+
+#### **Claude Desktop / Cursor Configuration**
+Add the following to your MCP configuration file:
+
+```json
+{
+  "mcpServers": {
+    "excalidraw": {
+      "command": "npx",
+      "args": ["-y", "mcp-excalidraw-server"]
+    }
+  }
+}
+```
+
+### **Common Command Line Arguments & Options**
+If you are running the server directly via the CLI or need to pass specific configurations, here is the standard breakdown:
+
+*   **`npx -y mcp-excalidraw-server`**: The primary command to execute the server[2][3].
+*   **Environment Variables**: These are often used to configure the server's behavior, particularly for canvas synchronization[4]:
+    *   `EXPRESS_SERVER_URL`: Sets the URL for the local canvas server (e.g., `http://localhost:3000`)[4][5].
+    *   `ENABLE_CANVAS_SYNC`: Set to `true` to enable real-time synchronization between the AI agent and the canvas[4][5].
+*   **Debug/Help Options**:
+    *   `-d`, `--debug`: Enables debug logging[6].
+    *   `-?`, `--help`: Shows the help message[6].
+    *   `--yes`: Often used with commands like `clear` to skip confirmation prompts[7].
+
+### **Important Notes**
+*   **Local vs. Remote**: There are multiple Excalidraw MCP implementations. The setup above is for the common local Node.js-based server[1]. If you are using the official remote version or Excalidraw+, you may need to point to a URL (e.g., `https://api.excalidraw.com/api/v1/mcp`) and provide an API key via headers[8][9][10].
+*   **Absolute Paths**: If you have cloned the repository locally and are running from the source instead of `npx`, your `args` should point to the absolute path of the compiled file, typically:
+    `"args": ["/absolute/path/to/mcp_excalidraw/dist/index.js"]`[1].
+
+Sources:
+[1] [lobehub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEGKFhyqeDeGNEWRaRhB8XPvAAqbMGiSIDwMZt6fhe0VFGY4GiCqwuHo7g1hqOHT01wDdEBYWur7mLRz4Qu84hIM4kCSUU8C7O30SZMBPJXq_iqExuQK_YsHh8Ai_jJOr1IUgRVpFG1LefEsw==)
+[2] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEnk9s7TSC8sDIh1BjsgBgvWiKk7xa-rkfQJsdHZRFFShgLlrmChQen0Y9CuStx3YE71DB1dCq9KzKz6tzWTJy9eSNMA2hFbz_If5p8R6RZi9hM9KEQ0b46XRLzByfxK9Y=)
+[3] [wordpress.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGyS4wKlYOHDBoQcUQR6WGL3FS1Nps_xMOoF2UKIVNrzLQgswsQFcftsigAcE_4WFlMIkh7Yi3HZtCMqSumpTKxNbR3faqYnRCHVrwiVZRiC0dsEZyTjvNnEaxLTEdT2NB2B_IEuCp9M6E5fZ6B7ApKU8ybJFgBIVbpU41JiAyUNQPoiO8zScZhCouQzr9eCNO7n_rrkQ1v-jpaU-RhdVBo9ntY2g==)
+[4] [npmjs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFgDh6SQGlRFrAfvZ7zRBE04PrW1WQv6abLwMF5EiObadsVGdJWOh_wcdoDmI6eTXE1Ym8qWlRj-xYoriorTnc7wbEmq-YYcXMwzKYoMlvwwuWcjSPUi-loNSMca73q6KpQXGbgBNwpgtR623xCAe4ma9G-pXpO)
+[5] [wordpress.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGyS4wKlYOHDBoQcUQR6WGL3FS1Nps_xMOoF2UKIVNrzLQgswsQFcftsigAcE_4WFlMIkh7Yi3HZtCMqSumpTKxNbR3faqYnRCHVrwiVZRiC0dsEZyTjvNnEaxLTEdT2NB2B_IEuCp9M6E5fZ6B7ApKU8ybJFgBIVbpU41JiAyUNQPoiO8zScZhCouQzr9eCNO7n_rrkQ1v-jpaU-RhdVBo9ntY2g==)
+[6] [lobehub.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFfO7TfJQ_sA8X87Xj8SQQxa8E1bihODc1H0Ggu3JZ-ebZMVZh0h-9lTBkWnUh48N37I1X4lzQOGBLuLiCJSk14FmK45oQnHS3QEd9mhX4bV0d6ypoVQReuKmUe_pOrCDH1F9FEgg==)
+[7] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZf4-gE5wCxyIjUOFOFKlVUeoCpLTwvfGhUaQqJohkFGmRv_MRhOYgc0yY4tSx-OvFYq2GgKtFC-4YA8qQ9n1RcbMsBr2oTjf_-MyfjuJOtl8IlwX3GEx86Pr1jjJKpIzCXLjk-Z_IjUxS4te-RuY7XDlYDWBWkdKNl2r8gToU-DavOx8bxLmRaJH3)
+[8] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGhxB6TAecTyIzO4__ZXGxB3mw7TbxS6xwzoZSmfd34f716SOxiNhuRQTEIhJwLV9HMtRaaxHfTAV2R5GMWTEl1n1s62KvP-K0CP8LJb81e7tM-PYpJHAiQquY=)
+[9] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEkXquisxVcN2ao29WI6GrPBP_ao0OMtKNPgobhdjdi-o7qlf_--ZR22w-AidtwPU8eJOHva-79LrtKe9xW_BM9QEgjB8us3BdtcRqyD8cWcac2m1WxTjzBlXk8B38m82cocwj7f_21I1Ig)
+[10] [mcpservers.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFnQcbSip6Nl06CuQDxRwCOUpGIz-f718f8Rp5NXmjsmpBmqaW7GhkjwPlS5LNTB8IgIap-nnVhH9FZE-MsbeDnvPWhU62kiSSWTy6M3b9ieXU3Trx9NQeOBnFKsZha-BXh3jDDXbUZDg8JlXrOFZ2UjUj-)

@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+Script started on 2026-09-04 15:58:39+04:00 [COMMAND="ansible-playbook -i '172.30.249.209,' playbooks/deploy-ssh-key.yml -e @/tmp/claude-1000/-home-koby--ansible/46297aab-f476-4be0-a1e8-0f904d5a227f/scratchpad/vars-172.30.249.209.yml --vault-password-file " TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="264" LINES="64"]
+usage: ansible-playbook [-h] [--version] [-v] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS]
+                        [--ssh-extra-args SSH_EXTRA_ARGS] [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [--force-handlers] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-t TAGS]
+                        [--skip-tags SKIP_TAGS] [-C] [-D] [-i INVENTORY] [--list-hosts] [-l SUBSET] [--flush-cache] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [-J | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS] [-M MODULE_PATH] [--syntax-check]
+                        [--list-tasks] [--list-tags] [--step] [--start-at-task START_AT_TASK]
+                        playbook [playbook ...]
+ansible-playbook: error: argument --vault-password-file/--vault-pass-file: expected one argument
+ 
+usage: ansible-playbook [-h] [--version] [-v] [--private-key PRIVATE_KEY_FILE] [-u REMOTE_USER] [-c CONNECTION] [-T TIMEOUT] [--ssh-common-args SSH_COMMON_ARGS] [--sftp-extra-args SFTP_EXTRA_ARGS] [--scp-extra-args SCP_EXTRA_ARGS]
+                        [--ssh-extra-args SSH_EXTRA_ARGS] [-k | --connection-password-file CONNECTION_PASSWORD_FILE] [--force-handlers] [-b] [--become-method BECOME_METHOD] [--become-user BECOME_USER] [-K | --become-password-file BECOME_PASSWORD_FILE] [-t TAGS]
+                        [--skip-tags SKIP_TAGS] [-C] [-D] [-i INVENTORY] [--list-hosts] [-l SUBSET] [--flush-cache] [-e EXTRA_VARS] [--vault-id VAULT_IDS] [-J | --vault-password-file VAULT_PASSWORD_FILES] [-f FORKS] [-M MODULE_PATH] [--syntax-check]
+                        [--list-tasks] [--list-tags] [--step] [--start-at-task START_AT_TASK]
+                        playbook [playbook ...]
+
+Runs Ansible playbooks, executing the defined tasks on the targeted hosts.
+
+positional arguments:
+  playbook              Playbook(s)
+
+options:
+

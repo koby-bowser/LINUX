@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system
+/home/koby/infra-management-system/ansible.cfg
+/home/koby/.ansible/ansible.cfg
+

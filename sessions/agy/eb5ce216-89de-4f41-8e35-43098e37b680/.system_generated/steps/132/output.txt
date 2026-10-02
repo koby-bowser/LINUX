@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+ansible-lint 25.6.1+really25.2.1 using ansible-core:2.19.4 ansible-compat:25.1.5 ruamel-yaml:0.18.10 ruamel-yaml-clib:0.2.12
+WARNING  Project directory /.ansible cannot be used for caching as it is not writable.
+WARNING  Using unique temporary directory /tmp/.ansible-0aaa for caching.
+

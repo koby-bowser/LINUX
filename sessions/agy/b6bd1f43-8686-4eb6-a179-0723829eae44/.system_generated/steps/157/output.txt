@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+{
+  "Status": 0,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "_acme-challenge.epdg.epc.mnc002.mcc340.pub.3gppnetwork.org.",
+      "type": 16
+    }
+  ],
+  "Answer": [
+    {
+      "name": "_acme-challenge.epdg.epc.mnc002.mcc340.pub.3gppnetwork.org.",
+      "type": 16,
+      "TTL": 60,
+      "data": "test-validation-1234"
+    }
+  ],
+  "Comment": "Response from 109.62.64.1."
+}
+

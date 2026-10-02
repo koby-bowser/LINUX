@@ -1,0 +1,5 @@
+npm error code ENETUNREACH
+npm error syscall connect
+npm error errno ENETUNREACH
+npm error request to https://registry.npmjs.org/mcp-excalidraw-server failed, reason: connect ENETUNREACH 172.16.75.9:3128 - Local (0.0.0.0:0)
+npm error A complete log of this run can be found in: /tmp/koby-npm-cache/_logs/2026-09-22T14_18_16_321Z-debug-0.log

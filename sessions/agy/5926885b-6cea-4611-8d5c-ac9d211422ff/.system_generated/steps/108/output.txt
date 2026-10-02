@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+Found: 4
+Doc title: FiabFTTH_GestionComm&RejetsProvisionning
+  ->  ![C:\\\\Users\\\\katia.bernolin\\\\AppData\\\\Local\\\\Microsoft\\\\Windows\\\\Temporary Internet Files\\\\Content.IE5\\\\J80BGVT2\\\\attention-hi\\[
+  ->  ![C:\\\\Users\\\\katia.bernolin\\\\AppData\\\\Local\\\\Microsoft\\\\Windows\\\\Temporary Internet Files\\\\Content.IE5\\\\J80BGVT2\\\\attention-hi\\[
+  ->   * Le délai de prise de RDV ne doit plus dépendre du Gestionnaire d'Infra comme pour un 1er RDV de Racc pris à la souscription, il doit être ramené à
+  ->   * Le délai de prise de RDV ne doit plus dépendre du Gestionnaire d'Infra comme pour un 1er RDV de Racc pris à la souscription, il doit être ramené à
+  ->   * Le délai de prise de RDV ne doit plus dépendre du Gestionnaire d'Infra comme pour un 1er RDV de Racc pris à la souscription, il doit être ramené à
+Doc title: eligibilite.ui
+Doc title: retractation.ui
+  -> * Dépôt créé le 2026-06-04 (p.laborieu) par dérivation de `resiliation.ui` ; documentation `docs/` et README au template standard posés le 2026-09-14 
+Doc title: revenueassurance.omt.ui
+

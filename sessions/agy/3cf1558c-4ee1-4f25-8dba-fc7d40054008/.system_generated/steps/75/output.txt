@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+[sudo] password for admin: total 112
+drwsrws---. 3 decisionnel_netezza siddata   4096 Sep 22 00:05 .
+drwxr-xr-x. 3 root                root      4096 Apr 11  2025 ..
+drwxrwx---. 2 decisionnel_netezza siddata 102400 Sep 22 00:05 sent
+Connection to 172.16.92.241 closed.
+

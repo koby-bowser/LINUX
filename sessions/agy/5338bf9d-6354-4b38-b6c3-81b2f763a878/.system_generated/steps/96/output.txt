@@ -1,0 +1,47 @@
+
+The command exited with code 0.
+Output:
+<truncated 4 lines>
+Receiving objects:  37% (82/220)Receiving objects:  38% (84/220)Receiving objects:  39% (86/220)Receiving objects:  40% (88/220)Receiving objects:  41% (91/220)Receiving objects:  42% (93/220)Receiving objects:  43% (95/220)Receiving objects:  44% (97/220)Receiving objects:  45% (99/220)Receiving objects:  46% (102/220)Receiving objects:  47% (104/220)Receiving objects:  48% (106/220)Receiving objects:  49% (108/220)Receiving objects:  50% (110/220)Receiving objects:  51% (113/220)Receiving objects:  52% (115/220)Receiving objects:  53% (117/220)Receiving objects:  54% (119/220)Receiving objects:  55% (121/220)Receiving objects:  56% (124/220)Receiving objects:  57% (126/220)Receiving objects:  58% (128/220)Receiving objects:  59% (130/220)Receiving objects:  60% (132/220)Receiving objects:  61% (135/220)Receiving objects:  62% (137/220)Receiving objects:  63% (139/220)Receiving objects:  64% (141/220)Receiving objects:  65% (143/220)Receiving objects:  66% (146/220)Receiving objects:  67% (148/220)Receiving objects:  68% (150/220)Receiving objects:  69% (152/220)Receiving objects:  70% (154/220)Receiving objects:  71% (157/220)Receiving objects:  72% (159/220)Receiving objects:  73% (161/220)Receiving objects:  74% (163/220)Receiving objects:  75% (165/220)Receiving objects:  76% (168/220)Receiving objects:  77% (170/220)Receiving objects:  78% (172/220)Receiving objects:  79% (174/220)Receiving objects:  80% (176/220)Receiving objects:  81% (179/220)Receiving objects:  82% (181/220)Receiving objects:  83% (183/220)Receiving objects:  84% (185/220)Receiving objects:  85% (187/220)Receiving objects:  86% (190/220)Receiving objects:  87% (192/220)Receiving objects:  88% (194/220)Receiving objects:  89% (196/220)Receiving objects:  90% (198/220)Receiving objects:  91% (201/220)Receiving objects:  92% (203/220)Receiving objects:  93% (205/220)Receiving objects:  94% (207/220)Receiving objects:  95% (209/220)Receiving objects:  96% (212/220)Receiving objects:  97% (214/220)Receiving objects:  98% (216/220)Receiving objects:  99% (218/220)Receiving objects: 100% (220/220)Receiving objects: 100% (220/220), 134.63 KiB | 787.00 KiB/s, done.
+Resolving deltas:   0% (0/121)Resolving deltas:   1% (2/121)Resolving deltas:   2% (3/121)Resolving deltas:   4% (5/121)Resolving deltas:   5% (7/121)Resolving deltas:   6% (8/121)Resolving deltas:   7% (9/121)Resolving deltas:   8% (10/121)Resolving deltas:   9% (11/121)Resolving deltas:  10% (13/121)Resolving deltas:  11% (14/121)Resolving deltas:  12% (15/121)Resolving deltas:  13% (16/121)Resolving deltas:  14% (17/121)Resolving deltas:  17% (21/121)Resolving deltas:  18% (22/121)Resolving deltas:  19% (23/121)Resolving deltas:  20% (25/121)Resolving deltas:  21% (26/121)Resolving deltas:  22% (27/121)Resolving deltas:  23% (28/121)Resolving deltas:  24% (30/121)Resolving deltas:  25% (31/121)Resolving deltas:  26% (32/121)Resolving deltas:  27% (33/121)Resolving deltas:  28% (34/121)Resolving deltas:  29% (36/121)Resolving deltas:  30% (37/121)Resolving deltas:  31% (38/121)Resolving deltas:  32% (39/121)Resolving deltas:  33% (40/121)Resolving deltas:  34% (42/121)Resolving deltas:  35% (43/121)Resolving deltas:  36% (44/121)Resolving deltas:  37% (45/121)Resolving deltas:  38% (46/121)Resolving deltas:  41% (50/121)Resolving deltas:  44% (54/121)Resolving deltas:  45% (55/121)Resolving deltas:  46% (56/121)Resolving deltas:  47% (57/121)Resolving deltas:  48% (59/121)Resolving deltas:  49% (60/121)Resolving deltas:  51% (62/121)Resolving deltas:  52% (64/121)Resolving deltas:  53% (65/121)Resolving deltas:  54% (66/121)Resolving deltas:  55% (67/121)Resolving deltas:  56% (68/121)Resolving deltas:  57% (70/121)Resolving deltas:  58% (71/121)Resolving deltas:  59% (72/121)Resolving deltas:  60% (73/121)Resolving deltas:  61% (74/121)Resolving deltas:  62% (76/121)Resolving deltas:  64% (78/121)Resolving deltas:  65% (79/121)Resolving deltas:  66% (80/121)Resolving deltas:  67% (82/121)Resolving deltas:  68% (83/121)Resolving deltas:  69% (84/121)Resolving deltas:  70% (85/121)Resolving deltas:  71% (86/121)Resolving deltas:  72% (88/121)Resolving deltas:  73% (89/121)Resolving deltas:  74% (90/121)Resolving deltas:  75% (91/121)Resolving deltas:  76% (92/121)Resolving deltas:  77% (94/121)Resolving deltas:  78% (95/121)Resolving deltas:  79% (96/121)Resolving deltas:  80% (97/121)Resolving deltas:  81% (99/121)Resolving deltas:  82% (100/121)Resolving deltas:  84% (102/121)Resolving deltas:  85% (104/121)Resolving deltas:  87% (106/121)Resolving deltas:  88% (107/121)Resolving deltas:  89% (108/121)Resolving deltas:  90% (109/121)Resolving deltas:  93% (113/121)Resolving deltas:  94% (114/121)Resolving deltas:  95% (115/121)Resolving deltas:  96% (117/121)Resolving deltas:  97% (118/121)Resolving deltas:  98% (119/121)Resolving deltas:  99% (120/121)Resolving deltas: 100% (121/121)Resolving deltas: 100% (121/121), done.
+From https://gitsi.intranet.local/omt/infra/management/infra-management-system
+   838bad7..7a97cb8  main                  -> origin/main
+ * [new branch]      feat/bootstrap-th2-grafac-si1-promp-scrp1 -> origin/feat/bootstrap-th2-grafac-si1-promp-scrp1
+ * [new branch]      feat/check-tunnel-sfr -> origin/feat/check-tunnel-sfr
+ * [new branch]      feat/le-issue-andesite-target -> origin/feat/le-issue-andesite-target
+ * [new branch]      feat/recon-distro-kernel-audit -> origin/feat/recon-distro-kernel-audit
+ * [new branch]      feat/recon-php-config-compare-sfr-uxui -> origin/feat/recon-php-config-compare-sfr-uxui
+ * [new branch]      feat/recon-resiliation-batch-cert-500 -> origin/feat/recon-resiliation-batch-cert-500
+ * [new branch]      feat/recon-www-sfrcaraibe-502 -> origin/feat/recon-www-sfrcaraibe-502
+ * [new branch]      feat/renew-pay-sfrcaraibe-dev-cert -> origin/feat/renew-pay-sfrcaraibe-dev-cert
+ * [new branch]      feat/uxui-siteurl-update-dev-isoprod -> origin/feat/uxui-siteurl-update-dev-isoprod
+ * [new branch]      fix/le-andesite-only-fr-bind-legacy-alias -> origin/fix/le-andesite-only-fr-bind-legacy-alias
+ * [new branch]      recon/wp-uxui-db-location -> origin/recon/wp-uxui-db-location
+Updating 838bad7..7a97cb8
+Fast-forward
+ ...ligibilite.intranet.local_certificate_chain.pem | 729 +++++++++++++++++++++
+ .../api.eligibilite.intranet.local_private_key.pem |  90 +++
+ ...ligibilite.intranet.local_certificate_chain.pem | 729 +++++++++++++++++++++
+ .../one.eligibilite.intranet.local_private_key.pem |  90 +++
+ .../dev/group_vars/batch_selfcarebusiness_cli.yml  |   6 +
+ .../prod/group_vars/batch_selfcarebusiness_cli.yml |   7 +
+ inventories/prod/hosts.yml                         |  13 +
+ .../check-batch-selfcarebusiness-prereqs-prod.yml  |  63 ++
+ playbooks/check-batch-selfcarebusiness-prereqs.yml |  57 ++
+ playbooks/check-distro-kernel.yml                  | 116 ++++
+ playbooks/check-pki-status-eligibilite.yml         |  36 +
+ playbooks/deploy-cert-eligibilite.yml              | 137 ++++
+ playbooks/issue-le-cert.yml                        |  15 +
+ playbooks/recon-eligibilite-cert-and-vhost.yml     | 174 +++++
+ roles/php_cli_install/defaults/main.yml            |   6 +
+ roles/php_cli_install/tasks/main.yml               |  11 +
+ 16 files changed, 2279 insertions(+)
+ create mode 100644 files/tls/api.eligibilite.intranet.local/api.eligibilite.intranet.local_certificate_chain.pem
+ create mode 100644 files/tls/api.eligibilite.intranet.local/api.eligibilite.intranet.local_private_key.pem
+ create mode 100644 files/tls/one.eligibilite.intranet.local/one.eligibilite.intranet.local_certificate_chain.pem
+ create mode 100644 files/tls/one.eligibilite.intranet.local/one.eligibilite.intranet.local_private_key.pem
+ create mode 100644 playbooks/check-distro-kernel.yml
+ create mode 100644 playbooks/check-pki-status-eligibilite.yml
+ create mode 100644 playbooks/deploy-cert-eligibilite.yml
+ create mode 100644 playbooks/recon-eligibilite-cert-and-vhost.yml
+

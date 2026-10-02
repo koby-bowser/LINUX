@@ -1,0 +1,14 @@
+Task: 6237460b-4163-4167-a26e-b8194f657433/task-745
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-745.log
+Log output:
+<truncated 684 lines>
+ests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7588:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7591:      test_title: 944300-327
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7611:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7614:      test_title: 944300-328
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7634:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7637:      test_title: 944300-329
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7657:              log_contains: "id \"944300\""
+
+Last progress: 2s ago

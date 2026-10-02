@@ -1,0 +1,67 @@
+
+The command exited with code 0.
+Output:
+diff --git a/playbooks/files/certbot-hooks/pdns-auth-hook.sh b/playbooks/files/certbot-hooks/pdns-auth-hook.sh
+index 4f19c89..48ca1ff 100755
+--- a/playbooks/files/certbot-hooks/pdns-auth-hook.sh
++++ b/playbooks/files/certbot-hooks/pdns-auth-hook.sh
+@@ -15,6 +15,8 @@ elif [[ "${CERTBOT_DOMAIN}" =~ sfrcaraibe\.fr$ ]]; then
+   ZONE="sfrcaraibe.fr"
+ elif [[ "${CERTBOT_DOMAIN}" =~ only\.fr$ ]]; then
+   ZONE="only.fr"
++elif [[ "${CERTBOT_DOMAIN}" =~ 3gppnetwork\.org$ ]]; then
++  ZONE="mnc002.mcc340.pub.3gppnetwork.org"
+ else
+   ZONE="${CERTBOT_DOMAIN}"
+ fi
+@@ -27,6 +29,9 @@ else
+ fi
+ 
+ PDNS_HOST="${PDNS_DNS_HOST:-172.30.198.162}"
++if [ "${PDNS_HOST}" = "dnsp-mst.example.lan" ] || [ -z "${PDNS_HOST}" ]; then
++  PDNS_HOST="172.30.198.162"
++fi
+ SSH_USER="superuser"
+ SSH_PORT="30"
+ 
+diff --git a/playbooks/files/certbot-hooks/pdns-cleanup-hook.sh b/playbooks/files/certbot-hooks/pdns-cleanup-hook.sh
+index 26e3159..0f751c0 100755
+--- a/playbooks/files/certbot-hooks/pdns-cleanup-hook.sh
++++ b/playbooks/files/certbot-hooks/pdns-cleanup-hook.sh
+@@ -13,6 +13,8 @@ elif [[ "${CERTBOT_DOMAIN}" =~ sfrcaraibe\.fr$ ]]; then
+   ZONE="sfrcaraibe.fr"
+ elif [[ "${CERTBOT_DOMAIN}" =~ only\.fr$ ]]; then
+   ZONE="only.fr"
++elif [[ "${CERTBOT_DOMAIN}" =~ 3gppnetwork\.org$ ]]; then
++  ZONE="mnc002.mcc340.pub.3gppnetwork.org"
+ else
+   ZONE="${CERTBOT_DOMAIN}"
+ fi
+@@ -25,6 +27,9 @@ else
+ fi
+ 
+ PDNS_HOST="${PDNS_DNS_HOST:-172.30.198.162}"
++if [ "${PDNS_HOST}" = "dnsp-mst.example.lan" ] || [ -z "${PDNS_HOST}" ]; then
++  PDNS_HOST="172.30.198.162"
++fi
+ SSH_USER="superuser"
+ SSH_PORT="30"
+ 
+diff --git a/playbooks/group_vars/all/certificates.yml b/playbooks/group_vars/all/certificates.yml
+index 3d4847a..2a0fd39 100644
+--- a/playbooks/group_vars/all/certificates.yml
++++ b/playbooks/group_vars/all/certificates.yml
+@@ -51,3 +51,12 @@ certificates:
+     webserver: nginx
+     service_name: nginx
+     cert_dest_dir: /etc/nginx/ssl/diamond.only.fr
++
++  - domain: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
++    extra_sans: []
++    dns_backend: powerdns
++    target_host: CHANGEME
++    webserver: nginx
++    service_name: nginx
++    cert_dest_dir: /etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
++
+

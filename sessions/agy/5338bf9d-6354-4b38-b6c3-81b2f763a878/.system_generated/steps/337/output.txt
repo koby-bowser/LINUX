@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+remote: Enumerating objects: 11, done.        
+remote: Counting objects:  11% (1/9)        remote: Counting objects:  22% (2/9)        remote: Counting objects:  33% (3/9)        remote: Counting objects:  44% (4/9)        remote: Counting objects:  55% (5/9)        remote: Counting objects:  66% (6/9)        remote: Counting objects:  77% (7/9)        remote: Counting objects:  88% (8/9)        remote: Counting objects: 100% (9/9)        remote: Counting objects: 100% (9/9), done.        
+remote: Compressing objects:  20% (1/5)        remote: Compressing objects:  40% (2/5)        remote: Compressing objects:  60% (3/5)        remote: Compressing objects:  80% (4/5)        remote: Compressing objects: 100% (5/5)        remote: Compressing objects: 100% (5/5), done.        
+remote: Total 5 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)        
+Unpacking objects:  20% (1/5)Unpacking objects:  40% (2/5)Unpacking objects:  60% (3/5)Unpacking objects:  80% (4/5)Unpacking objects: 100% (5/5)Unpacking objects: 100% (5/5), 803 bytes | 401.00 KiB/s, done.
+From https://gitsi.intranet.local/omt/infra/management/infra-management-system
+   4b69e15..be8b832  main       -> origin/main
+ * [new branch]      feat/le-issue-onetask-target -> origin/feat/le-issue-onetask-target
+Updating 4b69e15..be8b832
+Fast-forward
+ inventories/dev/hosts.yml  |  8 --------
+ inventories/prod/hosts.yml | 14 ++++++++++++++
+ 2 files changed, 14 insertions(+), 8 deletions(-)
+Deleted branch feat/move-mtq-mailsrvp-to-prod (was b6f5e4b).
+

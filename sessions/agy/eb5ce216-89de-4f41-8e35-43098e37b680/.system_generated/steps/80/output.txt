@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+NAME                    ID              SIZE      MODIFIED     
+glm-4.7-flash:latest    d1a8a26252f1    19 GB     6 months ago    
+minimax-m2.5:cloud      c0d5751c800f    -         6 months ago    
+qwen2.5-coder:latest    dae161e27b0e    4.7 GB    6 months ago    
+

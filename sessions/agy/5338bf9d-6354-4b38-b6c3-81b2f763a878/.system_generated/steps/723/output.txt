@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+total 2296
+drwxrwxr-x 2 koby koby    4096 Sep 17 11:05 .
+drwxrwxr-x 9 koby koby    4096 Sep 17 16:00 ..
+-rw-rw-r-- 1 koby koby     597 Sep 17 11:04 hosts.ini
+-rw------- 1 koby koby 1239266 Sep  9 18:40 server_pool.json
+-rw------- 1 koby koby 1095328 Sep  9 18:40 server_pool.yml
+

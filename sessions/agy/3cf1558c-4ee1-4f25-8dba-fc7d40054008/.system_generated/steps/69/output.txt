@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+172.16.92.240/28 dev eth0  proto kernel  scope link  src 172.16.92.241 
+169.254.0.0/16 dev eth0  scope link  metric 1002 
+default via 172.16.92.254 dev eth0 
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN 
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP qlen 1000
+    link/ether 00:50:56:a0:3f:fa brd ff:ff:ff:ff:ff:ff
+    inet 172.16.92.241/28 brd 172.16.92.255 scope global eth0
+Connection to 172.16.92.241 closed.
+

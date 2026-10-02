@@ -1,0 +1,37 @@
+
+The command exited with code 0.
+Output:
+ .gitignore                                         |  14 +
+ ansible.cfg                                        |  14 +
+ copy-to-remote.sh                                  |   1 +
+ host_vars/.gitkeep                                 |   0
+ inventory/hosts.ini                                |  15 +
+ kssh                                               |   1 +
+ playbooks/00-smoke-test.yml                        |  17 ++
+ playbooks/bootstrap-koby-bowser.yml                | 132 +++++++++
+ playbooks/copy-to-tmp.yml                          |  46 +++
+ playbooks/deploy-ssh-key.yml                       | 177 +++++++++++
+ .../files/certbot-hooks/ns1-zonefile-auth-hook.sh  |  76 +++++
+ .../certbot-hooks/ns1-zonefile-cleanup-hook.sh     |  22 ++
+ playbooks/files/certbot-hooks/pdns-auth-hook.sh    |  73 +++++
+ playbooks/files/certbot-hooks/pdns-cleanup-hook.sh |  32 ++
+ playbooks/files/ns1-hooks/acme-zone-update.sh      | 109 +++++++
+ playbooks/files/ns1-hooks/find-zone.sh             |  43 +++
+ playbooks/group_vars/all/certificates.yml          |  53 ++++
+ playbooks/group_vars/all/vault.yml                 |  77 +++++
+ playbooks/group_vars/all/vault.yml.example         |  32 ++
+ playbooks/issue-deploy-certs.yml                   | 330 +++++++++++++++++++++
+ playbooks/kdbx-pool.yml                            | 109 +++++++
+ playbooks/search-servers.yml                       |   1 +
+ playbooks/tasks/deploy_and_reload_cert.yml         |  38 +++
+ playbooks/tasks/issue_and_queue_cert.yml           |  50 ++++
+ playbooks/templates/rfc2136-credentials.ini.j2     |   5 +
+ roles/.gitkeep                                     |   0
+ scripts/build_kdbx_pool.py                         | 313 +++++++++++++++++++
+ scripts/copy-to-remote.sh                          | 258 ++++++++++++++++
+ scripts/kssh                                       | 139 +++++++++
+ scripts/kssh.py                                    | 157 ++++++++++
+ scripts/search-servers.sh                          | 119 ++++++++
+ search-servers.sh                                  |   1 +
+ 32 files changed, 2454 insertions(+)
+

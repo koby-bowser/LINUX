@@ -1,0 +1,3 @@
+{"File":"/home/koby/infra-management-system/docs/retractation-web-prod.md"}
+{"File":"/home/koby/infra-management-system/docs/mep-bascule-sfruxui-prod.md"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml"}

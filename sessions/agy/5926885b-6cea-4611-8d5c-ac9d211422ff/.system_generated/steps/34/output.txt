@@ -1,0 +1,34 @@
+
+The command exited with code 0.
+Output:
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Thu, 24 Sep 2026 10:21:56 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
+Location: https://wiki.corp.intranet.local/
+
+HTTP/2 200 
+server: nginx
+date: Thu, 24 Sep 2026 10:21:57 GMT
+content-type: text/html; charset=utf-8
+content-length: 14522
+vary: Accept-Encoding
+content-security-policy: base-uri 'none';default-src 'self';style-src 'self' 'unsafe-inline';script-src https://wiki.corp.intranet.local wiki.corp.intranet.local/static/ 'nonce-3f8ac859640b2856698535747ab81105';media-src * data: blob:;img-src * data: blob:;frame-src * data:;worker-src 'self';object-src https://wiki.corp.intranet.local 'self';connect-src *
+x-dns-prefetch-control: on
+expect-ct: max-age=0
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=15552000; includeSubDomains
+x-download-options: noopen
+x-content-type-options: nosniff
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+x-xss-protection: 0
+vary: Accept-Encoding
+set-cookie: __Host-csrfToken=d84b7bdf57cc8cbff8eb76af3cf600e5.abef218f3814e2eef389159636f92fc506b9e91eaea3d244e242f5031dc5763b; path=/; samesite=lax; secure
+timing-allow-origin: https://wiki.corp.intranet.local
+cache-control: no-cache, must-revalidate
+expires: -1
+
+

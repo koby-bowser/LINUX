@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+8.0K	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/centreon-map-chain-report.md
+4.0K	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/centreon-map-chain-report.md.metadata.json
+12K	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/scratch
+

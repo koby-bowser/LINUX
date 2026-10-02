@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+Draw.io MCP server running on stdio
+{"result":{"protocolVersion":"2024-11-05","capabilities":{"tools":{}},"serverInfo":{"name":"drawio-mcp","version":"1.6.1"}},"jsonrpc":"2.0","id":1}
+

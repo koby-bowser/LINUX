@@ -1,0 +1,35 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+	# server_names_hash_bucket_size 64;
+	# server_name_in_redirect off;
+#		listen     localhost:110;
+#		listen     localhost:143;
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	# listen 443 ssl default_server;
+	# listen [::]:443 ssl default_server;
+	server_name _;
+#	listen 80;
+#	listen [::]:80;
+#	server_name example.com;
+    listen 80;
+    server_name 172.30.39.153 postfix.outremer-telecom.fr;
+    listen 443 ssl;
+    server_name 172.30.39.153 postfix.outremer-telecom.fr;
+    ssl_certificate     /etc/ssl/certs/postfix.pem;
+    ssl_certificate_key /etc/ssl/private/postfix.key;
+fastcgi_param  SERVER_NAME        $server_name;
+fastcgi_param  SERVER_NAME        $server_name;
+

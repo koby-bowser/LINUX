@@ -1,0 +1,28 @@
+The search for ""excalidraw" "mcp" github" returned the following summary:
+The integration of **Excalidraw** with the **Model Context Protocol (MCP)** allows AI agents (like Claude Desktop, Cursor, or other MCP-compatible clients) to generate, edit, and interact with hand-drawn-style diagrams directly within an AI chat interface[1][2][3].
+
+### Key Projects & Repositories
+*   **[excalidraw/excalidraw-mcp](https://github.com/excalidraw/excalidraw-mcp)**: The official MCP server implementation. It is designed for "prompt-to-diagram" generation, allowing the AI to stream diagrams directly into your conversation[4][1].
+*   **[yctimlin/mcp_excalidraw](https://github.com/yctimlin/mcp_excalidraw)**: A community project that functions as a workbench for coding agents. Unlike the official version, it supports persistent, local canvases with granular element-level CRUD (Create, Read, Update, Delete) operations and real-time sync[4][1].
+*   **[bassimeledath/excalidraw-render-mcp](https://github.com/bassimeledath/excalidraw-render-mcp)**: A headless renderer that allows MCP clients to generate diagrams as PNG or SVG files locally using a headless Chromium browser[5].
+*   **[BV-Venky/excalidraw-architect-mcp](https://github.com/BV-Venky/excalidraw-architect-mcp)**: Focuses on architectural diagramming, where an AI describes the structure and the MCP server handles layout and styling[6][7].
+
+### How It Works
+*   **Interactive Interface:** MCP apps can render an interactive Excalidraw canvas inside the chat, allowing you to view and edit the diagram without switching tabs[2][8].
+*   **Workflow Integration:** By connecting Excalidraw to your AI agent via MCP, you can move from architectural brainstorming to visual representation without leaving your development environment (like VS Code or Cursor)[9][10].
+*   **Programmatic Control:** Advanced implementations allow AI to do more than just "draw" a static image; they can manipulate specific elements, align components, and manage the scene programmatically[4][1].
+
+If you are looking to get started, the **[official repository](https://github.com/excalidraw/excalidraw-mcp)** is the standard starting point for most users[11][3]. For more complex engineering workflows involving persistent files and granular control, community-maintained repositories like `mcp_excalidraw` are often preferred[4][1].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFXAEDreRx3l2YSLUnBO8et_8VYIlaEhxtrqguP0VUcHHw3mXGxCu9Z9hnPfVkky6i1xxQdHHcad9iNeTA4zv6mOxoO6Zm3qOtXZGX58j9C045EMLw0ojDQCUTeLsl7X4vpJ9w=)
+[2] [modelcontextprotocol.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGvVKsn8juN6TVFE9NrBNgNF34uZAB75HZnN9fdB4nP0C6sY1pBuxRDbBo12pyso3Iifjk7yoat82wmvKqrqhe7KFBgggqBCI4LEENsGV1arlfPoqGPvquqMfq-PqigQikMEApxgT9phDkWiW3pRg==)
+[3] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGECvuokJ_xRc6MGbqg6EjtoDd9XkRwb3jGuMbHNp2w3ZcXNDLclfTsm_mZBtGJBJcH9vGfj1ij6SWWCQZhkU90_OhFWHnblCiCRAQ8e5RWGPi153MG1YvZiXu56uzXRSn0)
+[4] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHa5C8bQfkJlIFpagf6rPllsdf7nlO0114PX-5HrN1pknMsBR0XIFXTvVU2RH1sVMS2InKkie88OUZxWWNtUEdRablxJOSsYq9TLy_G9iIvF3mkqnIhq18bPwwfn2iXUn8=)
+[5] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFTR1KMutcsXEIN0xy5PnFWQ8nq0QWJFZuX3dg0PiMQLbr4naLuWmJzf9KBs8W8x0cDi4AmBRdOAhLqiD496X5WnqJfFbYK10xG2JAbz_7d6K4KgRyENk8-atukJazEGdBLjaqkkA11pg==)
+[6] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEADMu2K5njig0KU5gf5KOC5OB9WYyunFRaTYE5S3jc2IjuG6FuRViRihOLT5A4RcEjt9zdSoKZoa13x0uEZUEGaih4tLZ7gtVkn33iOxDwHJY_fzcy6f6uTeuG7fOdEVtpWMjwiJ_-K9-p)
+[7] [cursor.directory](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHdrz2-PKKqKhFyvW7v2xrmlXS7zMLs3qyGNeyv6mWTCex8xAt5tbwyedk5wh7bR3cMgwLMhWaxPwwaZywoYydlRsGobhZDLgv9_8AFmvyM)
+[8] [mcpapp-store.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGagJuVVLycX0xLsdyKulVi8DTgrRGq7Ej4q74rkXgWp-vQ9nRNpG5iCzQk6ixRsCzFN6BZBI2qI0IQ2FG7ALbW2ZdFGszaj2yM_MS6TRYYZNaYxItvbvYBVRAkGLxTlyWYew==)
+[9] [thomasthornton.cloud](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpm1szH_SsTFaZoBVgkxKMudK603SU-VBTUJfJLE6T2PA-RtC5JzLsmpY44WjVZAXH8nhRL4EV_ynQWD7kRTXfI0JHrGV1YJSgCLnwx3S0CB8m3BtuhnQKA-VPNUGvN45dbQVeKVhSC_SbYGrYjEiJwGaFx68nAPYqOjVnMxlqI-UgTk6kaQ8SI0NOVkbpBIiRwtm-1LUF)
+[10] [thomasthornton.cloud](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHpm1szH_SsTFaZoBVgkxKMudK603SU-VBTUJfJLE6T2PA-RtC5JzLsmpY44WjVZAXH8nhRL4EV_ynQWD7kRTXfI0JHrGV1YJSgCLnwx3S0CB8m3BtuhnQKA-VPNUGvN45dbQVeKVhSC_SbYGrYjEiJwGaFx68nAPYqOjVnMxlqI-UgTk6kaQ8SI0NOVkbpBIiRwtm-1LUF)
+[11] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE9nVj_F7Sld4QY8p_wQKLVPD_vHvW-x1wUMXv0nO7iGyDO-VsoG3Z9SYWdck8Z3IUCMulD02e94bqpYW50gYTTemkICDAIR4fplkDFNDC_MAkVGQbCkZmI8WU=)

@@ -1,0 +1,19 @@
+
+The command exited with code 1.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Cleaned 02-extranetclient...conf successfully
+nginx: [emerg] "proxy_http_version" directive is duplicate in /etc/nginx/sites-enabled/03-map.extranetclient.outremer-telecom.fr.conf:34
+nginx: configuration file /etc/nginx/nginx.conf test failed
+

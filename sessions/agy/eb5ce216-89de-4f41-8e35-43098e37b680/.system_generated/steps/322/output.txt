@@ -1,0 +1,30 @@
+
+The command exited with code 1.
+Output:
+Argument(s) de position manquant(s).
+
+Utilisation keepassxc-cli show [options] database entry
+Afficher les renseignements d’une entrée.
+
+Options :
+  -q, --quiet                    Silence password prompt and other secondary
+                                 outputs.
+  -k, --key-file <path>          Key file of the database.
+  --no-password                  Deactivate password key for the database.
+  -y, --yubikey <slot[:serial]>  Yubikey slot and optional serial used to
+                                 access the database (e.g., 1:7370001).
+  -t, --totp                     Show the entry's current TOTP.
+  -a, --attributes <attribute>   Names of the attributes to show. This option
+                                 can be specified more than once, with each
+                                 attribute shown one-per-line in the given
+                                 order. If no attributes are specified, a
+                                 summary of the default attributes is given.
+  -s, --show-protected           Show the protected attributes in clear text.
+  --all                          Show all the attributes of the entry.
+  --show-attachments             Show the attachments of the entry.
+  -h, --help                     Display this help.
+
+Arguments :
+  database                       Chemin de la base de données.
+  entry                          Nom de l’entrée à afficher.
+

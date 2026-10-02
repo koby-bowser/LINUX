@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+total 88
+drwxrwxr-x 11 koby koby  4096 Sep 16 12:20 .
+drwx------ 41 koby koby  4096 Sep 28 14:47 ..
+-rw-rw-r--  1 koby koby  4161 Aug 13 17:10 AGENTS.md
+drwxrwxr-x  5 koby koby  4096 Sep 16 12:20 .ansible
+-rw-rw-r--  1 koby koby   202 Jun 24 18:45 ansible.cfg
+drwxrwxr-x  4 koby koby  4096 Sep  2 15:18 .claude
+-rw-rw-r--  1 koby koby  2824 Aug 11 13:41 CLAUDE.md
+drwxrwxr-x  2 koby koby  4096 Sep 24 11:07 docs
+drwxrwxr-x  4 koby koby  4096 Aug 11 13:41 files
+drwxrwxr-x  8 koby koby  4096 Sep 25 15:53 .git
+-rw-rw-r--  1 koby koby   438 Aug 11 13:41 .gitignore
+-rw-rw-r--  1 koby koby  1025 Jun 24 18:45 .gitlab-ci.yml
+drwxrwxr-x  7 koby koby  4096 Aug 11 13:41 inventories
+drwxrwxr-x  6 koby koby 12288 Sep 25 14:33 playbooks
+-rw-rw-r--  1 koby koby  1833 Aug 11 13:41 README.md
+-rw-rw-r--  1 koby koby   315 Aug 11 13:41 requirements.yml
+drwxrwxr-x 49 koby koby  4096 Sep 24 11:07 roles
+drwxrwxr-x  3 koby koby  4096 Jun 24 18:45 scripts
+-rw-rw-r--  1 koby koby   588 Aug 11 13:41 vsphere-requirements.yml
+

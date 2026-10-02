@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFW7ywu9PSVguYkbxDRMkU8FH/Ws09CDTWUSylusKkDA semaphore-runner-prod
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFXxaA6I6XHKt1N9KMolZQQ7abBDA3r+RDl3iFc3l/Jo semaphore-runner
+

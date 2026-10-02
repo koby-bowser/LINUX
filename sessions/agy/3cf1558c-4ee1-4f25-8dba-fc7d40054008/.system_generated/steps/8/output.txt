@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+
+Host ns1
+    HostName 172.16.75.250
+    User admin
+    IdentityFile ~/.ssh/id_rsa
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedAlgorithms +ssh-rsa
+    IdentitiesOnly yes
+

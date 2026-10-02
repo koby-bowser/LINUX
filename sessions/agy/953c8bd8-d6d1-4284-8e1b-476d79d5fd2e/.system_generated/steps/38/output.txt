@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+traceroute to 10.92.74.1 (10.92.74.1), 20 hops max, 60 byte packets
+ 1  10.6.201.252  1.505 ms  1.451 ms  1.445 ms
+ 2  10.6.10.248  1.438 ms  1.432 ms  1.427 ms
+ 3  10.92.10.71  210.358 ms  210.354 ms  210.331 ms
+ 4  10.92.10.81  210.372 ms  210.366 ms  210.360 ms
+ 5  10.92.74.1  210.309 ms !X  211.281 ms !X  210.298 ms !X
+

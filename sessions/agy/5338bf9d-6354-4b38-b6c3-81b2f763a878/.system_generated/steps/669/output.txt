@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 23
+    print(f"  ip={entry.get(\"ip\")} user={entry.get(\"user\")} group={entry.get(\"group\")}")
+                             ^
+SyntaxError: unexpected character after line continuation character
+

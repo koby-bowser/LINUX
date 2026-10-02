@@ -1,0 +1,76 @@
+
+The command exited with code 0.
+Output:
+[
+  {
+    "id": 1,
+    "name": "Build",
+    "project_id": 1,
+    "inventory": "[builder]\nlocalhost ansible_connection=local",
+    "ssh_key_id": 1,
+    "become_key_id": null,
+    "type": "static",
+    "template_id": null,
+    "repository_id": null
+  },
+  {
+    "id": 5,
+    "name": "Corp",
+    "project_id": 1,
+    "inventory": "inventories/corp/hosts.yml",
+    "ssh_key_id": 21,
+    "become_key_id": null,
+    "type": "file",
+    "template_id": null,
+    "repository_id": null,
+    "runner_tag": "CORP"
+  },
+  {
+    "id": 2,
+    "name": "Dev",
+    "project_id": 1,
+    "inventory": "inventories/dev/hosts.yml",
+    "ssh_key_id": 4,
+    "become_key_id": null,
+    "type": "file",
+    "template_id": null,
+    "repository_id": 1,
+    "runner_tag": "dev"
+  },
+  {
+    "id": 4,
+    "name": "Dev Bootstrap (superuser)",
+    "project_id": 1,
+    "inventory": "inventories/dev/hosts.yml",
+    "ssh_key_id": 5,
+    "become_key_id": 5,
+    "type": "file",
+    "template_id": null,
+    "repository_id": 1,
+    "runner_tag": "dev"
+  },
+  {
+    "id": 6,
+    "name": "Efalia Compose PROD (recon, static)",
+    "project_id": 1,
+    "inventory": "all:\n  hosts:\n    trp-efaliap-cmp1:\n      ansible_host: 172.30.231.73\n      ansible_port: 30\n    trp-efaliap-cmp2:\n      ansible_host: 172.30.231.74\n      ansible_port: 30\n",
+    "ssh_key_id": 16,
+    "become_key_id": null,
+    "type": "file",
+    "template_id": null,
+    "repository_id": null
+  },
+  {
+    "id": 3,
+    "name": "Prod",
+    "project_id": 1,
+    "inventory": "inventories/prod/hosts.yml",
+    "ssh_key_id": 16,
+    "become_key_id": null,
+    "type": "file",
+    "template_id": null,
+    "repository_id": 1,
+    "runner_tag": "PROD"
+  }
+]
+

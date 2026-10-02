@@ -1,0 +1,20 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/sync-ai-sessions.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -64,6 +64,7 @@
+         cmd: git -C "{{ playbook_dir }}" rev-parse --show-toplevel
+       register: _repo_root_cmd
+       changed_when: false
++      check_mode: false
+ 
+     - name: Définir les variables de chemin
+       ansible.builtin.set_fact:
+@@ -70,4 +70,5 @@
+-        repo_root: "{{ repo_root | default(_repo_root_cmd.stdout.strip()) }}"
++        repo_root: >-
++          {{ repo_root | default((_repo_root_cmd.stdout | default('') | trim) if (_repo_root_cmd.stdout | default('') | trim | length > 0) else (playbook_dir if (playbook_dir ~ '/.git') is directory else playbook_dir | dirname)) }}
+ 
+     - name: Définir les chemins sources et destinations des sessions
+       ansible.builtin.set_fact:
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

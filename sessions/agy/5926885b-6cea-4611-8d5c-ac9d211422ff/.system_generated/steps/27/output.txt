@@ -1,0 +1,57 @@
+
+Encountered error in step execution: context canceled
+Output:
+<truncated 897 lines>
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:45:    - name: "Remplacer le A de wiki.corp.intranet.local ({{ old_ip }} -> {{ new_ip }})"
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:47:        pdnsutil replace-rrset {{ dns_zone }} wiki.corp.intranet.local. A 300 {{ new_ip }}
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:63:    - name: "Nettoyer le PTR de l'ancienne IP (ne garder que poc.wiki.corp.intranet.local)"
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:66:        poc.wiki.corp.intranet.local.
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:82:    - name: "Vérifier si le PTR wiki.corp.intranet.local existe déjà sur fe1"
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:89:    - name: "Ajouter le PTR wiki.corp.intranet.local sur fe1 (AJOUT, ne touche pas wikio/mcp-wikio/mcp.wiki déjà présents)"
+/home/koby/infra-management-system/playbooks/cutover-dns-wiki-corp-to-fe1.yml:91:        pdnsutil add-record {{ new_reverse_zone }} 113 PTR 300 wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-poc.yml:4:# de wiki.corp.intranet.local vers trp-wintc-fe1/be2 (le POC restera ainsi
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-poc.yml:12:# IP relevée par résolution live de wiki.corp.intranet.local (le POC) le
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-poc.yml:20:- name: Enregistrer poc.wiki.corp.intranet.local -> th2-ansic-ap1 (POC)
+/home/koby/infra-management-system/playbooks/deploy-dns-wiki-wikio.yml:3:# wiki Outline (backend be2), distinct du POC (wiki.corp.intranet.local). Fait
+/home/koby/infra-management-system/playbooks/fix-outline-poc-url-env.yml:2:# Corrige URL=https://wiki.corp.intranet.local -> https://wikio.corp.intranet.local
+/home/koby/infra-management-system/playbooks/fix-outline-poc-url-env.yml:5:# pas à chaud). wiki.corp.intranet.local ne reçoit plus aucun trafic depuis
+/home/koby/infra-management-system/playbooks/cutover-dns-wikio-to-poc.yml:6:# wiki.corp.intranet.local) : wikio n'est plus utile comme nom de validation
+/home/koby/infra-management-system/playbooks/cutover-dns-wikio-to-poc.yml:10:# poc.wiki.corp.intranet.local, jamais déclaré). poc.wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/cutover-dns-wikio-to-poc.yml:30:# Nom RELATIF partout (leçon des 2 échecs précédents sur wiki.corp.intranet.local :
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-outline-mcp-wiki.yml:3:# définitif, mcp.wiki.corp.intranet.local, destiné à remplacer
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-outline-mcp-wiki.yml:24:    vhost_fqdn: mcp.wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/issue-pki-cert-outline-mcp-wiki.yml:2:# Émet (ou vérifie) le certificat TLS de mcp.wiki.corp.intranet.local depuis
+/home/koby/infra-management-system/playbooks/issue-pki-cert-outline-mcp-wiki.yml:26:#      ansible-vault encrypt files/tls/mcp.wiki.corp.intranet.local/*_private_key.pem
+/home/koby/infra-management-system/playbooks/issue-pki-cert-outline-mcp-wiki.yml:27:- name: Émettre/vérifier le certificat PKI pour mcp.wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/issue-pki-cert-outline-mcp-wiki.yml:32:    vhost_fqdn: mcp.wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wikio.yml:6:# POC (wiki.corp.intranet.local) — cf. plan de bascule associé.
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wiki-definitive.yml:3:# wiki.corp.intranet.local, EN PARALLÈLE de wikio.corp.intranet.local
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wiki-definitive.yml:11:# Le DNS wiki.corp.intranet.local pointe ENCORE sur le POC à ce stade : ce
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wiki-definitive.yml:23:    vhost_fqdn: wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wiki.yml:2:# Émet (ou vérifie) le certificat TLS de wiki.corp.intranet.local depuis la
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wiki.yml:27:#      ansible-vault encrypt files/tls/wiki.corp.intranet.local/*_private_key.pem
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wiki.yml:28:- name: Émettre/vérifier le certificat PKI pour wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/issue-pki-cert-wiki.yml:33:    vhost_fqdn: wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/recon-dns-wiki-corp-state.yml:3:# wiki.corp.intranet.local dans la zone PowerDNS.
+/home/koby/infra-management-system/playbooks/recon-dns-wiki-corp-state.yml:4:- name: "RECO — etat DNS de wiki.corp.intranet.local"
+/home/koby/infra-management-system/playbooks/recon-dns-wiki-corp-state.yml:17:    - name: Afficher uniquement les lignes wiki.corp.intranet.local
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wikio-poc.yml:8:# sites-enabled, le vhost wiki.corp.intranet.local existant n'est jamais
+/home/koby/infra-management-system/playbooks/deploy-nginx-vhost-wikio-poc.yml:11:# Structure du vhost calquée sur le bloc wiki.corp.intranet.local existant
+/home/koby/infra-management-system/playbooks/recon-th2-ansic-ap1-outline-config.yml:5:# URL_CHECK/cookies scopés sur wiki.corp.intranet.local uniquement).
+/home/koby/infra-management-system/playbooks/fix2-outline-poc-url-recreate.yml:3:# outline_app annonçait toujours "Listening on ... https://wiki.corp.intranet.local"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:2:# Deuxième correctif de la bascule wiki.corp.intranet.local (suite MR!180/181).
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:6:# "wiki.corp.intranet.local." comme NAME avec ZONE=corp.intranet.local a
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:8:#   - replace-rrset A  -> a créé "wiki.corp.intranet.local.corp.intranet.local"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:9:#     (le vrai wiki.corp.intranet.local n'a donc jamais eu de A)
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:17:#   1. Supprime le CNAME wiki.corp.intranet.local -> th2-ansic-ap1 (relatif : "wiki")
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:18:#   2. Supprime le A garbled "wiki.corp.intranet.local.corp.intranet.local"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:19:#      (relatif : "wiki.corp.intranet.local", qui se fait doubler par pdnsutil
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:21:#   3. Ajoute le bon A wiki.corp.intranet.local -> 172.30.250.113 (relatif : "wiki")
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:25:- name: "Correctif #2 : bascule propre de wiki.corp.intranet.local vers fe1"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:39:    - name: "RECO — afficher les enregistrements wiki.corp.intranet.local avant correctif"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:43:    - name: "Supprimer le CNAME wiki.corp.intranet.local -> th2-ansic-ap1 (nom relatif correct)"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:49:    - name: "Supprimer le A garbled wiki.corp.intranet.local.corp.intranet.local"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:50:      ansible.builtin.raw: "pdnsutil delete-rrset {{ dns_zone }} wiki.corp.intranet.local A"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:55:    - name: "Ajouter le bon A wiki.corp.intranet.local -> {{ new_ip }} (nom relatif correct)"
+/home/koby/infra-management-system/playbooks/fix2-dns-wiki-corp-cutover.yml:71:    - name: "VERIF — afficher les enregistrements wiki.corp.intranet.local après correctif"
+

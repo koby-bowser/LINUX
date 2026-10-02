@@ -1,0 +1,24 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -55,9 +55,9 @@
+   [ "${g}" = "${CERTBOT_VALIDATION}" ] && [ "${c}" = "${CERTBOT_VALIDATION}" ]
+ }
+ 
+-required_consecutive=3
++required_consecutive=2
+ consecutive_ok=0
+-for i in $(seq 1 40); do
++for i in $(seq 1 60); do
+   if check_both_resolvers; then
+     consecutive_ok=$((consecutive_ok + 1))
+     if [ "${consecutive_ok}" -ge "${required_consecutive}" ]; then
+@@ -64,5 +64,5 @@
+       # secondaires additionnels que ni Google ni Cloudflare n'ont interrogés.
+-      sleep 15
++      sleep 10
+       exit 0
+     fi
+   else
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

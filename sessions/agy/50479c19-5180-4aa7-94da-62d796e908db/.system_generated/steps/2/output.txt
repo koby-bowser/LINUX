@@ -1,0 +1,59 @@
+The search for "netbox multiple ldap domains django auth ldap" returned the following summary:
+To configure multiple LDAP domains in NetBox (which utilizes `django-auth-ldap`), you must define multiple authentication backends, as the standard `django-auth-ldap` settings are prefixed with `AUTH_LDAP_` and are intended for a single configuration[1][2].
+
+### Implementation Steps
+
+#### 1. Create Custom Backend Subclasses
+Since `django-auth-ldap` identifies its settings by a prefix, you can create a custom Python module (e.g., `custom_backends.py`) to define separate backend classes that point to different setting prefixes[1][2][3].
+
+```python
+# custom_backends.py
+from django_auth_ldap.backend import LDAPBackend
+
+class LDAPBackend1(LDAPBackend):
+    settings_prefix = "AUTH_LDAP_1_"
+
+class LDAPBackend2(LDAPBackend):
+    settings_prefix = "AUTH_LDAP_2_"
+```
+
+#### 2. Update `configuration.py`
+In your NetBox `configuration.py`, update the `AUTHENTICATION_BACKENDS` to include your new classes. Django will iterate through these backends until one successfully authenticates the user[1][2].
+
+```python
+# configuration.py
+AUTHENTICATION_BACKENDS = (
+    'path.to.custom_backends.LDAPBackend1',
+    'path.to.custom_backends.LDAPBackend2',
+    'django.contrib.auth.backends.ModelBackend', # Keep local auth as a fallback
+)
+```
+
+#### 3. Define Settings for Each Domain
+In your `ldap_config.py` (or directly in `configuration.py` if preferred), define the settings using the prefixes you assigned to the backend classes[1][2]:
+
+```python
+# LDAP Domain 1
+AUTH_LDAP_1_SERVER_URI = "ldaps://ldap1.example.com"
+AUTH_LDAP_1_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=domain1,dc=com"
+# ... other AUTH_LDAP_1_* settings
+
+# LDAP Domain 2
+AUTH_LDAP_2_SERVER_URI = "ldaps://ldap2.example.com"
+AUTH_LDAP_2_USER_DN_TEMPLATE = "uid=%(user)s,ou=users,dc=domain2,dc=com"
+# ... other AUTH_LDAP_2_* settings
+```
+
+### Important Considerations
+*   **Global Settings:** Note that `AUTH_LDAP_GLOBAL_OPTIONS` is global and ignores prefixes[1][2]. It is applied once when the LDAP module is loaded.
+*   **Active Directory Forest:** If you are using Active Directory and simply need to reach multiple domains within the same forest, you may not need separate backends. You can often configure `AUTH_LDAP_SERVER_URI` to point to the **Global Catalog** (port 3268 or 3269 for LDAPS), which allows searching across the entire forest with a single configuration[4][5].
+*   **Local Fallback:** Always ensure `django.contrib.auth.backends.ModelBackend` remains in your `AUTHENTICATION_BACKENDS` list so that local superusers can still log in if the LDAP servers become unreachable[6][7].
+
+Sources:
+[1] [readthedocs.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGCmrMpqzJxdI_jD2J6gmgjDvNRy5Jbk2Glsb860ocsnYGpgkVNAsAfP68iheu15KSvpM1CLbrlfsv7bQ9cVI-ghq7DQJH3jUBOYwgd70WcfSS1pMOEffwHiu-q1gqLYxy1HcZ94JCwXmtsr7L8QKUYUzfSgO90pw=)
+[2] [readthedocs.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFGCmrMpqzJxdI_jD2J6gmgjDvNRy5Jbk2Glsb860ocsnYGpgkVNAsAfP68iheu15KSvpM1CLbrlfsv7bQ9cVI-ghq7DQJH3jUBOYwgd70WcfSS1pMOEffwHiu-q1gqLYxy1HcZ94JCwXmtsr7L8QKUYUzfSgO90pw=)
+[3] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGwQ43ZAroJ5PLLMGaG1ouLfX9WgZQsEeg_JitC3qTzHJ8iCDUexKuF9uFRkCThxbzwHOk1lVVQjYR5YB8-VIjWQ6I0JsGLEFV3CvBkjASpGXA6NK1MeExSkAtuJZYvda7WjDgyZPq_iLsdGAs=)
+[4] [nautobot.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEVn6gCGd8R0AUCCWZ6z7J__2JWEyB0HO5Ei13PPoqGn6qe5cy61WEhdVeDn6nZfJxqRMpZRLpKRjMAcaUBABdvqZBWEmsA6_4EgmVSjHlTlAedlE089D_ie-Oq4gHgph70wSx0NLP7kp6wghOMhoTnXY-TZM_Jkn-yvNIXsajQl8C8OCi3MXilv_Uc5wOw5nRKh32vcp3uM-E8haBAoDnzY4t-gg==)
+[5] [netboxlabs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3PKNlYn0CdU2BwRZruTUMrjOEWWBqYg2qhylyWnLk8RP_j5MnsJHlplwx-85GGl7yAG2o731lpi4Fkayg_vuMtzDmPvH1Z6AQ9hsdi8dsTv9CZJnK8fZEK8aheOkECly0xPDbE05yDmpvXy9D)
+[6] [github.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH7JpMFY10PJFQPykUKFb7mSBdwRslDZYr3ti0E67GSA9zkwXe8wnJUXNcsHI_KjYVdxqExp2XJiQ37gyc7ngKKDczjKejyxtp0KBH2Pp_MFBw6_BzC7pDWMZZ8avRvAdjl5mO3atvIU0I2Th8KbpDgiw1dOjtPjNzm1ekm_uqtTylhnmE=)
+[7] [makina-corpus.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE7JdVAHBTzOW8aZJnHANeAvg4jd71o10-Tv60FZ5XyR1iaH__c4BjOc9AUz5TK2PBnSE2dol2SG-uRtDcjL9IR4IlXp0k9coifEmwg0Xke79C1GRl86jwAn6IP4H8pSycibD5ur6NRHYUGPg2wNxpvy0Bp9jT1wsZVtnZc-fc4xjKQjAejfGL3HkHy7VP8qEs3YMdmGtjGdPubrthAnRI=)

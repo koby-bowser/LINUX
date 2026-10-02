@@ -1,0 +1,45 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+server {
+    listen 127.0.0.1:9440;
+    location / {
+        include nginxconfig.io/proxy.conf;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Ssl on;
+        proxy_set_header X-Forwarded-Port 9443;
+        proxy_pass http://127.0.0.1:9444;
+    }
+}nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: [warn] could not build optimal proxy_headers_hash, you should increase either proxy_headers_hash_max_size: 512 or proxy_headers_hash_bucket_size: 64; ignoring proxy_headers_hash_bucket_size
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/map.extranetclient.outremer-telecom.fr/fullchain.pem"
+=== CAPTURED FROM NGINX ===
+GET /centreon-map/api/latest/actuator/health HTTP/1.1
+Connection: close
+Host: map.extranetclient.outremer-telecom.fr
+X-Real-IP: 127.0.0.1
+Forwarded: for=127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-Proto: http
+X-Forwarded-Host: map.extranetclient.outremer-telecom.fr
+X-Forwarded-Port: 9440
+Host: map.extranetclient.outremer-telecom.fr:9443
+X-Forwarded-Proto: https
+X-Forwarded-Ssl: on
+X-Forwarded-Port: 9443
+Accept-Encoding: identity
+User-Agent: Python-urllib/3.9
+
+

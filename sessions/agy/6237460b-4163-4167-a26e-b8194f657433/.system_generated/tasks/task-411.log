@@ -1,0 +1,22 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== File content ===
+cat: /etc/network/interfaces.d/lo-alias: Permission denied
+
+=== Test dry-run ifup ===
+
+/bin/run-parts --exit-on-error /etc/network/if-pre-up.d
+/sbin/ip addr add 109.62.64.18/255.255.255.255 broadcast 109.62.64.18 	  dev lo:1 label lo:1
+/sbin/ip link set dev lo:1   up
+
+/bin/run-parts --exit-on-error /etc/network/if-up.d

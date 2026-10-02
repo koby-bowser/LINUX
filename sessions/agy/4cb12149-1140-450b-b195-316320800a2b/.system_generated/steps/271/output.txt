@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+Search results for qmail: 2
+- 202512609_CR incident Majeur_TT_000066202025_ ICM1_Réception de mail Dégradé in collection 120257b7-bcc6-499a-8b52-19b50941f0c4
+- 202512609_CR incident Majeur_TT_000066202025_ ICM1_Réception de mail Dégradé in collection 120257b7-bcc6-499a-8b52-19b50941f0c4
+

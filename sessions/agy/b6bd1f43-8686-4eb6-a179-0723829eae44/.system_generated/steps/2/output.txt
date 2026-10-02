@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system
+/home/koby/LINUX
+/home/koby/Documents/Linux/unix-linux-system-administration-handbook-5th.pdf
+/home/koby/node_modules/@msgpackr-extract/msgpackr-extract-linux-x64
+/home/koby/.cache/event-sound-cache.tdb.dd42e5675ce44921b8dbeb555449ab61.x86_64-pc-linux-gnu
+

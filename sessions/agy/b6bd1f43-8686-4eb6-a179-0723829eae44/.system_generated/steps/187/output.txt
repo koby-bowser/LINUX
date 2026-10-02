@@ -1,0 +1,19 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/group_vars/all/certificates.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -51,4 +51,13 @@
+     webserver: nginx
+     service_name: nginx
+     cert_dest_dir: /etc/nginx/ssl/diamond.only.fr
++
++  - domain: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
++    extra_sans: []
++    dns_backend: powerdns
++    target_host: CHANGEME
++    webserver: nginx
++    service_name: nginx
++    cert_dest_dir: /etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
++
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

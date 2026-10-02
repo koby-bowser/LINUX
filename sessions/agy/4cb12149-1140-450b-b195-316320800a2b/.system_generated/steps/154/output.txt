@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+noproxy[]=.intranet.local,localhost,127.0.0.0/8,::1,generativelanguage.googleapis.com
+proxy=http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128/
+https-proxy=http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128/
+RPC_PROXY_HEADER_AS_EXTENSION=true
+no_proxy=.intranet.local,localhost,127.0.0.0/8,::1,outremer-telecom.fr,.outremer-telecom.fr
+RPC_PROXY_DEST_OVERRIDE=127.0.0.1:46065
+ftp_proxy=http://172.16.75.9:3128/
+https_proxy=http://127.0.0.1:46065
+NO_PROXY=.intranet.local,localhost,127.0.0.0/8,::1,outremer-telecom.fr,.outremer-telecom.fr
+FTP_PROXY=http://172.16.75.9:3128/
+ANTIGRAVITY_SOURCE_METADATA={"tool":{"conversationId":"4cb12149-1140-450b-b195-316320800a2b", "stepIndex":154, "toolCall":{"id":"call_327307", "name":"run_command", "argumentsJson":"{\"CommandLine\":\"cat ~/.npmrc 2\\u003e/dev/null || true\\nenv | grep -i -E \\\"proxy|npm\\\" || true\\n\",\"Cwd\":\"/home/koby\",\"WaitMsBeforeAsync\":5000,\"toolAction\":\"Checking npmrc and environment\",\"toolSummary\":\"Check npmrc and proxy settings\"}", "thinkingSignature":"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"}}}
+HTTPS_PROXY=http://127.0.0.1:46065
+HTTP_PROXY=http://127.0.0.1:46065
+http_proxy=http://127.0.0.1:46065
+npm_config_cafile=/etc/ssl/certs/ca-certificates.crt
+

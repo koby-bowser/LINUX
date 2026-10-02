@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+curl: (7) Failed to connect to fibre.argos.cgr.intranet.local port 80 after 214 ms: Could not connect to server
+

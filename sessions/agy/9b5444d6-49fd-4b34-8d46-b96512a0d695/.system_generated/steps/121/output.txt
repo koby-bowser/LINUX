@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+Checking playbooks/00-smoke-test.yml...
+
+playbook: playbooks/00-smoke-test.yml
+Checking playbooks/bootstrap-koby-bowser.yml...
+
+playbook: playbooks/bootstrap-koby-bowser.yml
+Checking playbooks/copy-to-tmp.yml...
+
+playbook: playbooks/copy-to-tmp.yml
+Checking playbooks/deploy-ssh-key.yml...
+
+playbook: playbooks/deploy-ssh-key.yml
+Checking playbooks/issue-deploy-certs.yml...
+
+playbook: playbooks/issue-deploy-certs.yml
+Checking playbooks/kdbx-pool.yml...
+
+playbook: playbooks/kdbx-pool.yml
+Checking playbooks/search-servers.yml...
+
+playbook: playbooks/search-servers.yml
+

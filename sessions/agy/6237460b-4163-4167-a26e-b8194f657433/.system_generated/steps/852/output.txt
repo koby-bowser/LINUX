@@ -1,0 +1,67 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+$form = new HTML_QuickFormCustom('Form', 'post', '?p=' . $p);
+$form->addElement('header', 'title', _('Centreon MAP settings'));
+$form->addElement('header', 'connection_information', _('Connection information'));
+$form->addElement('text', 'server_address', _('MAP Legacy server address'), ['size' => 30]);
+$form->addElement(
+    'button',
+    'test_server_address',
+    _('Test connection to server'),
+    ['class' => 'btc bt_success', 'onClick' => 'javascript:testServerAddress()']
+);
+
+$form->addElement('header', 'refresh_interval', _('Refresh interval'));
+$form->addElement('text', 'refresh_status_interval', _('Status refresh interval'), ['size' => 5]);
+$form->addElement('text', 'refresh_graph_interval', _('Graph refresh interval'), ['size' => 5]);
+
+// Server Map NG
+$form->addElement('text', 'server_address_ng', _('MAP Engine server address'), ['size' => 30]);
+$form->addElement(
+    'button',
+    'test_server_address_ng',
+    _('Test connection to server'),
+    ['class' => 'btc bt_success', 'onClick' => 'javascript:testServerAddressNg()']
+);
+
+// Internal Server Address
+$form->addElement('text', 'internal_server_address_ng', _('MAP server address as seen by Central'), ['size' => 30]);
+$form->addElement(
+    'button',
+    'test_internal_server_address_ng',
+    _('Test connection to server'),
+    ['class' => 'btc bt_success', 'onClick' => 'javascript:testInternalServerAddressNg()']
+);
+
+$isServerUsingNg[] = $form->createElement('radio', 'server_using_ng', null, _('Yes'), '1');
+$isServerUsingNg[] = $form->createElement('radio', 'server_using_ng', null, _('No'), '0');
+$form->addGroup($isServerUsingNg, 'server_using_ng', _('MAP Engine server'), '&nbsp;');
+
+// Add the part of the selection type of link colors
+$form->addElement('header', 'links_color_definition', _('Link color definition'));
+
+$isDesktopOverloaded[] = $form->createElement('radio', 'is_web_config', null, _('Yes'), '1');
+$isDesktopOverloaded[] = $form->createElement('radio', 'is_web_config', null, _('No'), '0');
+$form->addGroup($isDesktopOverloaded, 'is_web_config', _('Define links colors for all users'), '&nbsp;');
+
+$form->addElement('select', 'select_coloration_mode', _('Select coloration mode'), $colorsMode);
+$form->addElement(
+    'text',
+    'start_color_linear',
+    _('Start color'),
+    [
+        'size' => 5,
+

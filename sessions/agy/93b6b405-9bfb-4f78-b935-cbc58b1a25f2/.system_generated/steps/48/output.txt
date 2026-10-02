@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+20K	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.agents
+93M	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated
+876K	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.tempmediaStorage
+4.0K	/home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.user_uploaded
+

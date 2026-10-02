@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+The following paths are ignored by one of your .gitignore files:
+.remember/remember.md
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config advice.addIgnoredFile false"
+

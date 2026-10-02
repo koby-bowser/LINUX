@@ -1,0 +1,23 @@
+The search for ""NestedGroupOfNamesType" vs "ActiveDirectoryGroupType" django-auth-ldap" returned the following summary:
+In `django-auth-ldap`, the primary difference between these classes lies in their intended use case and how they handle group membership logic, specifically regarding structure and nesting.
+
+### Core Differences
+
+*   **`ActiveDirectoryGroupType`**: This class is specifically designed to handle the nuances of Microsoft Active Directory group objects. It is optimized for how Active Directory stores membership information (typically in the `member` attribute). If you are authenticating against an Active Directory server, this is generally the preferred choice.
+*   **`NestedGroupOfNamesType`**: This is a more generic implementation intended for LDAP directories that follow the `groupOfNames` or `groupOfUniqueNames` object classes. The "Nested" prefix indicates that the class is configured to recursively resolve group memberships—meaning if a user is a member of "Group A," and "Group A" is a member of "Group B," the system will recognize the user as a member of both.
+
+### Summary Table
+
+| Feature | `ActiveDirectoryGroupType` | `NestedGroupOfNamesType` |
+| :--- | :--- | :--- |
+| **Primary Target** | Microsoft Active Directory | Generic LDAP (`groupOfNames`/`uniqueNames`) |
+| **Nesting Support** | Supported (via `NestedActiveDirectoryGroupType`) | Supported (explicitly enabled) |
+| **Optimization** | Optimized for AD schema/attributes | Generic LDAP schema implementation |
+
+### Key Considerations
+
+1.  **Nesting**: If you need to support nested groups (where groups contain other groups) in an Active Directory environment, `django-auth-ldap` actually provides a specific class for this: **`NestedActiveDirectoryGroupType`**. Using the "Nested" variant is necessary if your organization relies on group inheritance.
+2.  **Performance**: As noted in the documentation, "Nested" group types are more computationally expensive. Because they must recursively traverse the directory to resolve all group memberships, they require more complex and frequent LDAP queries compared to non-nested types.
+3.  **Configuration**: When choosing a group type, ensure that your `AUTH_LDAP_GROUP_SEARCH` filter matches the `objectClass` of the groups in your directory (e.g., `(objectCategory=Group)` for AD or `(objectClass=groupOfNames)` for standard LDAP). If you switch between these types, you may also need to adjust `AUTH_LDAP_GROUP_TYPE_PARAMS` if your configuration relies on specific parameters like `member_attr`.
+
+**Recommendation:** For an Active Directory environment, start with `ActiveDirectoryGroupType` (or `NestedActiveDirectoryGroupType` if you have nested groups). If you are working with a standard OpenLDAP or other non-AD directory service, use `GroupOfNamesType` or its `Nested` variant.

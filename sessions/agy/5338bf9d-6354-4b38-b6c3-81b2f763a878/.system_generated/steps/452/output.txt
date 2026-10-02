@@ -1,0 +1,59 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+[
+  {
+    "webserver": "nginx",
+    "domains": [
+      "_ (default)"
+    ],
+    "ports": [
+      "80 default_server",
+      "[::]:80 default_server"
+    ],
+    "is_ssl": false,
+    "ssl_certificate": null,
+    "ssl_key": null,
+    "config_file": "/etc/nginx/sites-enabled/default"
+  },
+  {
+    "webserver": "nginx",
+    "domains": [
+      "172.30.39.153",
+      "postfix.outremer-telecom.fr"
+    ],
+    "ports": [
+      "80"
+    ],
+    "is_ssl": false,
+    "ssl_certificate": null,
+    "ssl_key": null,
+    "config_file": "/etc/nginx/sites-enabled/roundcube.conf"
+  },
+  {
+    "webserver": "nginx",
+    "domains": [
+      "172.30.39.153",
+      "postfix.outremer-telecom.fr"
+    ],
+    "ports": [
+      "443 ssl"
+    ],
+    "is_ssl": true,
+    "ssl_certificate": "/etc/ssl/certs/postfix.pem",
+    "ssl_key": "/etc/ssl/private/postfix.key",
+    "config_file": "/etc/nginx/sites-enabled/roundcube.conf"
+  }
+]
+

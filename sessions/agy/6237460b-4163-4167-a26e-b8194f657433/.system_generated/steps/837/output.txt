@@ -1,0 +1,17 @@
+Task: 6237460b-4163-4167-a26e-b8194f657433/task-835
+Status: DONE
+Log: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/.system_generated/tasks/task-835.log
+Log output:
+<truncated 14 lines>
+60.6 - - [10/Sep/2026:13:50:51 +0000] "GET /centreon/ HTTP/1.1" 200 1673 "-" "centreon::plugins::backend::http::useragent"
+217.175.160.6 - - [10/Sep/2026:13:55:51 +0000] "GET / HTTP/1.1" 301 162 "-" "centreon::plugins::backend::http::useragent"
+217.175.160.6 - - [10/Sep/2026:13:55:51 +0000] "GET /centreon/ HTTP/1.1" 200 1673 "-" "centreon::plugins::backend::http::useragent"
+187.17.228.218 - - [10/Sep/2026:13:57:11 +0000] "GET /admin/config.php HTTP/1.0" 404 1661 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+--- MAP LOG ---
+10.6.201.54 - - [10/Sep/2026:13:36:03 +0000] "" 400 0 "-" "-"
+10.6.201.54 - - [10/Sep/2026:13:36:36 +0000] "HEAD / HTTP/2.0" 301 0 "-" "curl/8.14.1"
+10.6.201.54 - - [10/Sep/2026:13:36:44 +0000] "HEAD /centreon-map/ HTTP/2.0" 400 0 "-" "curl/8.14.1"
+172.30.198.49 - - [10/Sep/2026:13:37:26 +0000] "HEAD / HTTP/2.0" 301 0 "-" "curl/7.61.1"
+172.30.198.49 - - [10/Sep/2026:13:38:04 +0000] "HEAD /centreon-map/ HTTP/2.0" 400 0 "-" "curl/7.61.1"
+
+Last progress: 2s ago

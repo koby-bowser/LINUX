@@ -1,0 +1,5 @@
+=== Testing 109.62.64.27:9443 ===
+curl: (28) Connection timed out after 3001 milliseconds
+
+=== Testing 109.62.62.18:9443 ===
+curl: (28) Connection timed out after 3001 milliseconds

@@ -1,0 +1,256 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 12,
+  "name": "Bootstrap spui-runner SSH - DEV",
+  "playbook": "playbooks/bootstrap-spui-runner.yml",
+  "inventory_id": 4,
+  "runner_tag": null
+}
+{
+  "id": 30,
+  "name": "Check Monitoring backend - DEV",
+  "playbook": "playbooks/check-monitoring.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 36,
+  "name": "Check apps - DEV",
+  "playbook": "playbooks/check-apps.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 45,
+  "name": "Check apps - wm2md batch - DEV",
+  "playbook": "playbooks/check-apps.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 35,
+  "name": "Check php-fpm pools - DEV",
+  "playbook": "playbooks/check-php-fpm-pools.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 16,
+  "name": "Clone Database - DEV",
+  "playbook": "playbooks/clone-database.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 29,
+  "name": "Deploy Alloy agent - DEV",
+  "playbook": "playbooks/deploy-alloy-agent.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 28,
+  "name": "Deploy Monitoring backend - DEV",
+  "playbook": "playbooks/deploy-monitoring-backend.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 19,
+  "name": "Deploy Nginx vhost - DEV",
+  "playbook": "playbooks/deploy-nginx-vhost.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 23,
+  "name": "Deploy PHP app config - DEV",
+  "playbook": "playbooks/deploy-php-app-config.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 26,
+  "name": "Deploy PHP define config - retractation - DEV",
+  "playbook": "playbooks/deploy-php-define-config.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 43,
+  "name": "Deploy ProxySQL - wm2md - DEV",
+  "playbook": "playbooks/deploy-proxysql.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 33,
+  "name": "Deploy TLS bundle - DEV",
+  "playbook": "playbooks/deploy-tls-bundle.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 3,
+  "name": "Deploy demo app to Dev",
+  "playbook": "deploy.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 44,
+  "name": "Deploy nginx OMT base - DEV",
+  "playbook": "playbooks/deploy-nginx-omt-base.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 129,
+  "name": "Deploy pay.sfrcaraibe cert - DEV",
+  "playbook": "playbooks/deploy-pay-sfrcaraibe-dev-cert.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 20,
+  "name": "Deploy php-fpm pool - DEV",
+  "playbook": "playbooks/deploy-php-fpm-pool.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 25,
+  "name": "Deploy php-fpm pool - retractation - DEV",
+  "playbook": "playbooks/deploy-php-fpm-pool.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 67,
+  "name": "Diag corosync-qdevice - CORP",
+  "playbook": "playbooks/check-corosync-qdevice-journal.yml",
+  "inventory_id": 5,
+  "runner_tag": null
+}
+{
+  "id": 13,
+  "name": "Drop Databases - DEV (DESTRUCTIVE)",
+  "playbook": "playbooks/drop-databases.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 14,
+  "name": "Dump Database - DEV",
+  "playbook": "playbooks/dump-database.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 15,
+  "name": "Import Database Dump - DEV",
+  "playbook": "playbooks/import-database-dump.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 74,
+  "name": "Inspect Nginx Base - DEV",
+  "playbook": "playbooks/inspect-nginx-base.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 82,
+  "name": "Install PHP CLI - DEV",
+  "playbook": "playbooks/install-php-cli.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 46,
+  "name": "Install pdftk - batch.retractation - DEV",
+  "playbook": "playbooks/install-pdftk.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 34,
+  "name": "Issue PKI cert - DEV",
+  "playbook": "playbooks/issue-pki-cert.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 1,
+  "name": "Ping semaphoreui.com",
+  "playbook": "ping.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 11,
+  "name": "Provision App DB - DEV",
+  "playbook": "playbooks/provision-app-db.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 18,
+  "name": "Provision App DB - recrutement - DEV",
+  "playbook": "playbooks/provision-app-db.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 31,
+  "name": "Provision App DB - retractation - DEV",
+  "playbook": "playbooks/provision-app-db.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 24,
+  "name": "Provision App DB - retractation - DEV",
+  "playbook": "playbooks/provision-app-db.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 42,
+  "name": "Provision ProxySQL monitor user - wm2md - DEV",
+  "playbook": "playbooks/provision-proxysql-monitor-user.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 83,
+  "name": "Recon SFTP mapping (cgrbatch/cgr) - Efalia Compose PROD",
+  "playbook": "playbooks/sftp-mapping-recon.yml",
+  "inventory_id": 3,
+  "runner_tag": null
+}
+{
+  "id": 127,
+  "name": "Recon php config compare sfr-uxui - DEV",
+  "playbook": "playbooks/recon-php-config-compare.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 85,
+  "name": "Run batch.selfcarebusiness - DEV",
+  "playbook": "playbooks/run-batch-selfcarebusiness.yml",
+  "inventory_id": 2,
+  "runner_tag": null
+}
+{
+  "id": 84,
+  "name": "SFTP mapping dual-user (cgr+cgrbatch) - Efalia Compose PROD",
+  "playbook": "playbooks/sftp-mapping-dual-user.yml",
+  "inventory_id": 3,
+  "runner_tag": null
+}
+

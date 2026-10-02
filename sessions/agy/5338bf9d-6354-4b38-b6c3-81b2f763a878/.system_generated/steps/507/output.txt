@@ -1,0 +1,229 @@
+
+The command exited with code 0.
+Output:
+<truncated 1 lines>
++    branches: [ "Baba-Koby" ]
++
++jobs:
++  build:
++
++    runs-on: ubuntu-latest
++    strategy:
++      max-parallel: 4
++      matrix:
++        python-version: [3.7, 3.8, 3.9]
++
++    steps:
++    - uses: actions/checkout@v4
++    - name: Set up Python ${{ matrix.python-version }}
++      uses: actions/setup-python@v3
++      with:
++        python-version: ${{ matrix.python-version }}
++    - name: Install Dependencies
++      run: |
++        python -m pip install --upgrade pip
++        pip install -r requirements.txt
++    - name: Run Tests
++      run: |
++        python manage.py test
+
+commit f99f3d82e5fc72c8ff78765494dcc55a8ab9a215
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Thu Sep 17 12:06:40 2026 +0400
+
+    feat: add Ansible configuration, inventory, and check-nginx playbook
+---
+ README.md                 | 69 ++++++++++++++++++++++++++++++++++++++++++++++-
+ ansible.cfg               |  3 ++-
+ inventory.yml             | 15 +++++++++++
+ playbooks/check-nginx.yml | 67 +++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 152 insertions(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index b18aef9..f8ab5b9 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,68 @@
+-# LINUX
+\ No newline at end of file
++# ansible
++
++Projet Ansible personnel pour l'administration, le dépannage et le
++durcissement sécurité de plusieurs serveurs.
++
++## Utilisation
++
++`ansible.cfg` n'est chargé que si les commandes sont lancées **depuis ce
++dossier** (ou avec `ANSIBLE_CONFIG=~/ansible/ansible.cfg` exporté).
++
++**Contre `localhost` sur cette machine, ne pas utiliser `-K`** (voir
++"sudo-rs" ci-dessous) — lancer tout le process déjà en root :
++
++```bash
++cd ~/ansible
++sudo ansible-playbook playbooks/check-nginx.yml
++```
++
++Contre un hôte **distant** (SSH), `-K` fonctionne normalement (sauf si cet
++hôte utilise aussi sudo-rs — voir ci-dessous) :
++
++```bash
++ansible-playbook playbooks/check-nginx.yml -K --limit web01
++```
++
++### Piège connu : sudo-rs sur cette machine casse `-K`/become en local
++
++Cette machine fait pointer `/usr/bin/sudo` vers **sudo-rs** (réimplémentation
++Rust de sudo, choisie par défaut sur Ubuntu "resolute") plutôt que le sudo
++classique. sudo-rs enveloppe le prompt personnalisé qu'Ansible génère
++(`[sudo via ansible, key=...] password:`) dans son propre format
++(`[sudo: ...] Password:`) au lieu de l'afficher tel quel. Le plugin become
++d'Ansible attend une correspondance exacte en début de ligne pour savoir
++quand envoyer le mot de passe — avec sudo-rs, elle n'arrive jamais, et la
++tâche échoue au bout du timeout (`Timed out waiting for become success or
++become password prompt`), même avec le bon mot de passe saisi via `-K`.
++
++C'est pour ça que le contournement ci-dessus (`sudo ansible-playbook ...`
++sans `-K`) fonctionne : le process entier tourne déjà en root, donc `become`
++n'a plus besoin de prompt du tout (sudo en tant que root ne redemande pas de
++mot de passe).
++
++Pour régler ça une fois pour toutes au niveau système (pas fait par défaut ici
++— changement qui affecte tout `sudo` sur la machine, pas seulement Ansible) :
++`sudo update-alternatives --config sudo`, puis choisir `/usr/bin/sudo.ws`
++(le sudo classique, déjà installé en parallèle).
++
++## Inventaire
++
++`inventory.yml` contient un groupe `webservers`. `localhost` (en
++`ansible_connection: local`) y est déjà présent comme hôte réel — ajoutez vos
++serveurs distants à côté (voir le commentaire dans le fichier).
++
++## Vérification des clés SSH
++
++Contrairement à beaucoup de configs Ansible qui désactivent
++`host_key_checking`, ce projet le laisse activé (comportement par défaut)
++puisqu'un des objectifs est le durcissement sécurité — désactiver la
++vérification des clés d'hôte affaiblirait la protection contre le
++détournement de connexion. Avant d'ajouter un nouveau serveur distant,
++connectez-vous-y une première fois en SSH manuellement (ou `ssh-keyscan`)
++pour accepter sa clé.
++
++## Playbooks
++
++- `playbooks/check-nginx.yml` — lecture seule : statut du service, validité
++  de la config (`nginx -t`), liens cassés dans `sites-enabled/`, et
++  vérification que `sites-enabled/` est bien inclus dans `nginx.conf`.
+diff --git a/ansible.cfg b/ansible.cfg
+index 44651fb..cfd8ffb 100644
+--- a/ansible.cfg
++++ b/ansible.cfg
+@@ -1,11 +1,12 @@
+ [defaults]
+ vault_password_file = .vault_pass
+-inventory = inventory/hosts.ini
++inventory = inventory/hosts.ini, inventory.yml
+ roles_path = roles
+ retry_files_enabled = False
+ host_key_checking = True
+ interpreter_python = auto_silent
+ stdout_callback = default
++timeout = 30
+ 
+ [callback_default]
+ result_format = yaml
+diff --git a/inventory.yml b/inventory.yml
+new file mode 100644
+index 0000000..f05c041
+--- /dev/null
++++ b/inventory.yml
+@@ -0,0 +1,15 @@
++all:
++  children:
++    webservers:
++      hosts:
++        # Cible réelle : cette machine, en local (nginx y est installé).
++        localhost:
++          ansible_connection: local
++        web01:
++          ansible_host: 172.30.198.33
++          ansible_port: 30
++          ansible_user: superuser
++        # Ajoutez d'autres serveurs distants ici, par ex. :
++        # web02:
++        #   ansible_host: 203.0.113.10
++        #   ansible_user: koby
+diff --git a/playbooks/check-nginx.yml b/playbooks/check-nginx.yml
+new file mode 100644
+index 0000000..48b93f8
+--- /dev/null
++++ b/playbooks/check-nginx.yml
+@@ -0,0 +1,67 @@
++---
++# Vérification en lecture seule de nginx : statut du service, validité de la
++# config, cohérence de sites-enabled (liens cassés + inclusion effective dans
++# nginx.conf), et contenu de tous les domaines dans sites-available/. Aucune
++# modification n'est effectuée.
++#
++#   ansible-playbook playbooks/check-nginx.yml -K
++#   ansible-playbook playbooks/check-nginx.yml -K --limit web01
++- name: Vérifier l'état et la config de nginx
++  hosts: webservers
++  become: true
++  gather_facts: false
++  tasks:
++    - name: Statut du service nginx
++      ansible.builtin.command: systemctl is-active nginx
++      register: _nginx_service
++      changed_when: false
++      failed_when: false
++
++    - name: Test de syntaxe de la config nginx
++      ansible.builtin.command: nginx -t
++      register: _nginx_test
++      changed_when: false
++      failed_when: false
++
++    - name: Contenu de sites-enabled
++      ansible.builtin.command: ls -la /etc/nginx/sites-enabled/
++      register: _sites_enabled
++      changed_when: false
++      failed_when: false
++
++    - name: Liens symboliques cassés dans sites-enabled
++      ansible.builtin.command: find /etc/nginx/sites-enabled/ -xtype l
++      register: _broken_links
++      changed_when: false
++      failed_when: false
++
++    - name: sites-enabled est-il inclus par nginx.conf
++      ansible.builtin.command: grep -n "include.*sites-enabled" /etc/nginx/nginx.conf
++      register: _sites_enabled_included
++      changed_when: false
++      failed_when: false
++
++    - name: Contenu de chaque domaine dans sites-available
++      ansible.builtin.shell: >-
++        for f in /etc/nginx/sites-available/*; do
++          echo "===== $f =====";
++          cat "$f";
++          echo;
++        done
++      register: _sites_available_content
++      changed_when: false
++      failed_when: false
++
++    - name: Résultat
++      ansible.builtin.debug:
++        msg:
++          - "service nginx actif : {{ _nginx_service.stdout | default('') }}"
++          - "config valide : {{ _nginx_test.rc == 0 }}"
++          - "détail du test de config : {{ _nginx_test.stderr_lines }}"
++          - "sites-enabled : {{ _sites_enabled.stdout_lines }}"
++          - "liens cassés dans sites-enabled : {{ _broken_links.stdout_lines }}"
++          - "sites-enabled inclus dans nginx.conf : {{ _sites_enabled_included.rc == 0 }}"
++
++    - name: Configs de sites-available (un domaine par fichier)
++      ansible.builtin.debug:
++        var: _sites_available_content.stdout_lines
+

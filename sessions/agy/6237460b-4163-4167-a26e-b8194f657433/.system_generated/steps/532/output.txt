@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+uid=500(admin) gid=501(admin) groups=501(admin) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+

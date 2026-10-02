@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+commit 410220fd7f2726ed8564dee4e52d04e1c1910d02 (origin/feat/le-issue-postfix-target, feat/le-issue-postfix-target)
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Mon Aug 17 15:35:42 2026 +0400
+
+    feat(le): ajout cible postfix.outremer-telecom.fr
+    
+    Nouvelle entrée le_targets_map pour émettre le certificat public LE de
+    mtq-mailsrvp-01 (SMTP/IMAP STARTTLS), même pattern que ios/aota
+    (zone outremer-telecom.fr, TXT direct, pas de CNAME). Déploiement
+    hors périmètre de ce playbook (hôte hors IaC).
+

@@ -1,0 +1,10 @@
+Mermaid diagram sent for conversion!
+
+{
+  "success": true,
+  "mermaidDiagram": "graph TD\n    Client[\"Clients & Browsers (HTTPS)\"]\n    Nginx[\"Nginx Reverse Proxy & Load Balancer\"]\n    AuthService[\"Auth Service (API)\"]\n    AppService[\"Backend App Services\"]\n    Redis[(\"Redis Cache & Sessions\")]\n    Postgres[(\"PostgreSQL Database\")]\n\n    Client -->|TLS 443| Nginx\n    Nginx -->|/auth| AuthService\n    Nginx -->|/api| AppService\n    AuthService --> Redis\n    AppService --> Redis\n    AppService --> Postgres",
+  "config": {},
+  "message": "Mermaid diagram sent to frontend for conversion."
+}
+
+⚠️  Note: The actual conversion happens in the frontend canvas with DOM access. Open the canvas at http://127.0.0.1:3000 to see the diagram rendered.

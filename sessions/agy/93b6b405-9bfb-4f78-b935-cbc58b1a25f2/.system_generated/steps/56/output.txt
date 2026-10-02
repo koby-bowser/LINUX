@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+3.3M	/home/koby/.codex/sessions
+

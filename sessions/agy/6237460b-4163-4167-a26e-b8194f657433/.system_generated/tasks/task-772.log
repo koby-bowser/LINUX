@@ -1,0 +1,3 @@
+    server_name extranetclient.outremer-telecom.fr;
+    listen              9443 ssl http2 reuseport;
+    server_name         map.extranetclient.outremer-telecom.fr 109.62.64.18;

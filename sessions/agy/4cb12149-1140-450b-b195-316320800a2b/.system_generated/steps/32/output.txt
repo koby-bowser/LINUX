@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+drawio-mcp 1.6.1
+
+Official draw.io MCP server for opening diagrams in the draw.io editor.
+
+Usage:
+  drawio-mcp              Start the MCP stdio server
+  drawio-mcp --help       Show this help text
+  drawio-mcp --version    Show the package version
+
+Options:
+  -h, --help              Show help
+  -v, --version           Show version
+

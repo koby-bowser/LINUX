@@ -1,0 +1,19 @@
+
+The command exited with code 28.
+Output:
+<truncated 42 lines>
+server: nginx
+date: Thu, 10 Sep 2026 08:50:27 GMT
+content-type: text/html
+content-length: 162
+location: https://map.extranetclient.outremer-telecom.fr:9443/centreon-map/
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+  0     0    0     0    0     0      0      0 --:--:--  0:02:10 --:--:--     0
+curl: (28) Failed to connect to map.extranetclient.outremer-telecom.fr port 9443: Connection timed out
+

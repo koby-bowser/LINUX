@@ -1,0 +1,59 @@
+
+The command exited with code 0.
+Output:
+=== trp-wextp-be1 ===
+  ip=172.30.230.113 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.113 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.113 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.113 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be2 ===
+  ip=172.30.230.114 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.114 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.114 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.114 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be3 ===
+  ip=172.30.230.115 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.115 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.115 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.115 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be4 ===
+  ip=172.30.230.116 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.116 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.116 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.116 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be5 ===
+  ip=172.30.230.117 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.117 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.117 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.117 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be6 ===
+  ip=172.30.230.118 user=superuser group=OMT_PFS.SYSTEME.ALL/Recycle Bin
+  ip=172.30.230.118 user=root group=OMT_PFS.SYSTEME.ALL/Recycle Bin
+  ip=172.30.230.118 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.118 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be7 ===
+  ip=172.30.230.119 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.119 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.119 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.119 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be8 ===
+  ip=172.30.230.120 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.120 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.120 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.120 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be9 ===
+  ip=172.30.230.121 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.121 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.121 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.121 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be10 ===
+  ip=172.30.230.122 user=superuser group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP
+  ip=172.30.230.122 user=root group=OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root
+  ip=172.30.230.122 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.122 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root
+=== trp-wextp-be11 ===
+  ip=172.30.230.123 user=superuser group=OMT_PFS.SYSTEME.ALL/Recycle Bin
+  ip=172.30.230.123 user=superuser group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.123 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+  ip=172.30.230.123 user=root group=OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP
+

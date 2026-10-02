@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+/home/koby/LINUX/inventory/server_pool.json:49177:        "172.30.250.113"
+/home/koby/LINUX/inventory/server_pool.json:49179:      "primary_ip": "172.30.250.113",
+/home/koby/LINUX/inventory/server_pool.json:49184:      "url": "ssh://172.30.250.113",
+/home/koby/LINUX/inventory/server_pool.json:49237:        "172.30.250.113"
+/home/koby/LINUX/inventory/server_pool.json:49239:      "primary_ip": "172.30.250.113",
+/home/koby/LINUX/inventory/server_pool.json:49244:      "url": "ssh://172.30.250.113",
+/home/koby/LINUX/inventory/server_pool.yml:30837:          ansible_host: 172.30.250.113
+/home/koby/LINUX/inventory/server_pool.yml:30844:          - 172.30.250.113
+/home/koby/LINUX/inventory/server_pool.yml:30877:          ansible_host: 172.30.250.113
+/home/koby/LINUX/inventory/server_pool.yml:30884:          - 172.30.250.113
+

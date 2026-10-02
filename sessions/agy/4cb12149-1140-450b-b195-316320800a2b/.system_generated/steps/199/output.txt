@@ -1,0 +1,33 @@
+
+The command exited with code 0.
+Output:
+total 112
+drwxr-xr-x 2 koby koby 4096 Sep 22 18:29 .
+drwxr-xr-x 5 koby koby 4096 Sep 22 18:29 ..
+-rw-r--r-- 1 koby koby  306 Sep 22 18:29 align_elements.json
+-rw-r--r-- 1 koby koby 1713 Sep 22 18:29 batch_create_elements.json
+-rw-r--r-- 1 koby koby  121 Sep 22 18:29 clear_canvas.json
+-rw-r--r-- 1 koby koby 1646 Sep 22 18:29 create_element.json
+-rw-r--r-- 1 koby koby  688 Sep 22 18:29 create_from_mermaid.json
+-rw-r--r-- 1 koby koby  157 Sep 22 18:29 delete_element.json
+-rw-r--r-- 1 koby koby  291 Sep 22 18:29 describe_scene.json
+-rw-r--r-- 1 koby koby  276 Sep 22 18:29 distribute_elements.json
+-rw-r--r-- 1 koby koby  414 Sep 22 18:29 duplicate_elements.json
+-rw-r--r-- 1 koby koby  429 Sep 22 18:29 export_scene.json
+-rw-r--r-- 1 koby koby  259 Sep 22 18:29 export_to_excalidraw_url.json
+-rw-r--r-- 1 koby koby  463 Sep 22 18:29 export_to_image.json
+-rw-r--r-- 1 koby koby  369 Sep 22 18:29 get_canvas_screenshot.json
+-rw-r--r-- 1 koby koby  194 Sep 22 18:29 get_element.json
+-rw-r--r-- 1 koby koby  211 Sep 22 18:29 get_resource.json
+-rw-r--r-- 1 koby koby  202 Sep 22 18:29 group_elements.json
+-rw-r--r-- 1 koby koby  540 Sep 22 18:29 import_scene.json
+-rw-r--r-- 1 koby koby  206 Sep 22 18:29 lock_elements.json
+-rw-r--r-- 1 koby koby  562 Sep 22 18:29 query_elements.json
+-rw-r--r-- 1 koby koby  355 Sep 22 18:29 read_diagram_guide.json
+-rw-r--r-- 1 koby koby  240 Sep 22 18:29 restore_snapshot.json
+-rw-r--r-- 1 koby koby 1090 Sep 22 18:29 set_viewport.json
+-rw-r--r-- 1 koby koby  243 Sep 22 18:29 snapshot_scene.json
+-rw-r--r-- 1 koby koby  168 Sep 22 18:29 ungroup_elements.json
+-rw-r--r-- 1 koby koby  208 Sep 22 18:29 unlock_elements.json
+-rw-r--r-- 1 koby koby  863 Sep 22 18:29 update_element.json
+

@@ -1,0 +1,5 @@
+
+The command exited with code 2.
+Output:
+ls: cannot access '/home/koby/infra-management-system/scripts/acme/gitlab_api_vault.SECRETS-PLAINTEXT.yml': No such file or directory
+

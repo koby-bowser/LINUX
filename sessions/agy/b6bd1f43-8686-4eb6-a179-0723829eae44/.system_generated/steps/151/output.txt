@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Current records for _acme-challenge.epdg.epc.mnc002.mcc340.pub.3gppnetwork.org IN TXT will be replaced
+New rrset:
+_acme-challenge.epdg.epc.mnc002.mcc340.pub.3gppnetwork.org. 60 IN TXT "test-validation-1234"
+SOA serial for zone mnc002.mcc340.pub.3gppnetwork.org set to 2026092401
+

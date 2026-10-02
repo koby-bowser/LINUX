@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+
+PLAY [localhost] ***************************************************************
+
+TASK [Run inline python audit] *************************************************
+ok: [localhost]
+
+TASK [Parse output] ************************************************************
+ok: [localhost]
+
+TASK [Display parsed result] ***************************************************
+ok: [localhost] => {
+    "audit_data": {
+        "status": "ok",
+        "test": "success"
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+

@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+=== [Pre-flight Diagnostics] ===
+[ERROR] Local source file does not exist: /nonexistent/file
+

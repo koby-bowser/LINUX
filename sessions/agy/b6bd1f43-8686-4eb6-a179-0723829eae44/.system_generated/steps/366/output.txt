@@ -1,0 +1,34 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/files/ns1-hooks/acme-zone-update.sh. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -54,9 +54,16 @@
+ 
+ tmpfile="${zonefile}.acme.tmp.$$"
+ 
+-# Retirer toute ligne existante dont le premier champ correspond exactement
+-# au label (évite les doublons/résidus d'une précédente émission).
+-awk -v label="$label" '$1 != label' "$zonefile" > "$tmpfile"
++# Calculer le label relatif et le FQDN absolu (avec point final) pour
++# immuniser l'enregistrement contre toute directive $ORIGIN intermédiaire
++# dans le fichier de zone (ex. $ORIGIN private.sfrcaraibe.fr. dans sfrcaraibe.fr).
++label_rel="${label%.${zonename}.}"
++label_rel="${label_rel%.}"
++fqdn="${label_rel}.${zonename}."
++
++# Retirer toute ligne existante dont le premier champ correspond au label
++# relatif ou au FQDN absolu (évite les doublons/résidus).
++awk -v rel="$label_rel" -v fqdn="$fqdn" '$1 != rel && $1 != fqdn' "$zonefile" > "$tmpfile"
+ 
+ if [ "$action" = "add" ]; then
+   if [ -z "$value" ]; then
+@@ -63,7 +63,7 @@
+     rm -f "$tmpfile"
+     exit 2
+   fi
+-  printf '%s\t60\tTXT\t"%s"\n' "$label" "$value" >> "$tmpfile"
++  printf '%s\t60\tTXT\t"%s"\n' "$fqdn" "$value" >> "$tmpfile"
+ fi
+ 
+ # Faire avancer le serial SOA (format YYYYMMDDNN observé dans ce fichier).
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+tcp   LISTEN 0      128          0.0.0.0:6032       0.0.0.0:*    users:(("proxysql",pid=1093643,fd=46))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+tcp   LISTEN 0      1024         0.0.0.0:6033       0.0.0.0:*    users:(("proxysql",pid=1093643,fd=34))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+tcp   LISTEN 0      1024         0.0.0.0:6033       0.0.0.0:*    users:(("proxysql",pid=1093643,fd=33))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+tcp   LISTEN 0      1024         0.0.0.0:6033       0.0.0.0:*    users:(("proxysql",pid=1093643,fd=31))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+tcp   LISTEN 0      1024         0.0.0.0:6033       0.0.0.0:*    users:(("proxysql",pid=1093643,fd=30))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+tcp   LISTEN 0      4096         0.0.0.0:6080       0.0.0.0:*    users:(("proxysql",pid=1093643,fd=38))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+admin_variables =
+{
+	admin_credentials="admin:inf0t3l!;proxycluster1:oPgEuVr$TY3}xNfB"
+	checksum_mysql_query_rules="true"
+

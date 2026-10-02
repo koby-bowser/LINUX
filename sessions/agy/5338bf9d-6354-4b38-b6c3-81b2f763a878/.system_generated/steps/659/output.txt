@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+/etc/nginx/sites-available/06-sso.sfrcaraibe.fr.conf:92:        fastcgi_pass SFRDEV82;
+/etc/nginx/sites-available/05-rechargement.sfrcaraibe.fr.conf:89:        fastcgi_pass SFRDEV82;
+/etc/nginx/sites-available/06-sso.intranet.local.conf:92:        fastcgi_pass SFRDEV82;
+/etc/nginx/sites-available/02-commande.sfrcaraibe.fr.conf:92:        fastcgi_pass SFRDEV82;
+/etc/nginx/sites-available/02-espaceclient-lapostemobile.sfrcaraibe.fr.conf:58:        fastcgi_pass SFRDEV82;
+/etc/nginx/omt/fpm_cluster.conf:60:upstream SFRDEV82 {
+

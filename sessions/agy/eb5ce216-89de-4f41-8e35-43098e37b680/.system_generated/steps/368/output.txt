@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+ssh30://172.30.39.153 => Port: 30
+ssh://172.30.39.107 port 30 => Port: 30
+ssh://10.0.0.1:22 => Port: 22
+ssh22://1.2.3.4 => Port: 22
+

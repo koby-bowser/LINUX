@@ -1,0 +1,57 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Total server blocks with domains: 41
+02-commande.sfrcaraibe.fr.conf -> ['commande.sfrcaraibe.fr', 'commande.sfrcaraibe.com'] root: /var/www/commande.sfrcaraibe.fr targets: ['SFRDEV82']
+02-espaceclient-lapostemobile.sfrcaraibe.fr.conf -> ['espaceclient-lapostemobile.sfrcaraibe.fr'] root: None targets: []
+02-espaceclient-lapostemobile.sfrcaraibe.fr.conf -> ['espaceclient-lapostemobile.sfrcaraibe.fr'] root: /var/www/espaceclient-lapostemobile.sfrcaraibe.fr targets: ['SFRDEV82']
+02-espaceclient_sfrcaraibe_fr.conf -> ['espaceclient.sfrcaraibe.fr', 'espaceclient.sfrcaraibe.com'] root: None targets: []
+02-espaceclient_sfrcaraibe_fr.conf -> ['espaceclient.sfrcaraibe.fr', 'espaceclient.sfrcaraibe.com'] root: /var/www/espaceclient.sfrcaraibe.fr targets: ['SFRPROD74']
+02-espaceclientbusiness.sfrcaraibe.fr.conf -> ['espaceclientbusiness.sfrcaraibe.fr'] root: None targets: []
+02-espaceclientbusiness.sfrcaraibe.fr.conf -> ['espacecliententreprise.sfrcaraibe.fr', 'espacecliententreprise.sfrcaraibe.com'] root: None targets: []
+02-espaceclientbusiness.sfrcaraibe.fr.conf -> ['espacecliententreprise.sfrcaraibe.fr', 'espacecliententreprise.sfrcaraibe.com'] root: None targets: []
+02-espaceclientbusiness.sfrcaraibe.fr.conf -> ['espaceclientbusiness.sfrcaraibe.fr'] root: /var/www/espaceclientbusiness.sfrcaraibe.fr targets: ['SFRBIZPROD74-NOREDIS', 'SFRPROD74']
+04-resiliation.sfrcaraibe.fr.conf -> ['resiliation.sfrcaraibe.fr'] root: /var/www/resiliation.sfrcaraibe.fr targets: ['SFRRESIL']
+04-resiliation.sfrcaraibe.fr.conf -> ['resiliation.sfrcaraibe.fr'] root: /var/www/_letsencrypt targets: []
+05-rechargement.sfrcaraibe.fr.conf -> ['rechargement.sfrcaraibe.fr'] root: None targets: []
+05-rechargement.sfrcaraibe.fr.conf -> ['rechargement.sfrcaraibe.fr', 'rechargement.sfrcaraibe.com', 'www.rechargement.sfrcaraibe.fr'] root: /var/www/rechargement.sfrcaraibe.fr targets: ['SFRDEV82']
+06-sso.intranet.local.conf -> ['ssosfr.intranet.local'] root: None targets: []
+06-sso.intranet.local.conf -> ['ssosfr.intranet.local'] root: /var/www/sso.sfrcaraibe.fr targets: ['SFRDEV82']
+07-sso.sfrcaraibe.fr.conf -> ['sso.sfrcaraibe.fr'] root: None targets: []
+07-sso.sfrcaraibe.fr.conf -> ['sso.sfrcaraibe.fr', 'sso.sfrcaraibe.com', 'sso.smartwifi.sfrcaraibe.fr', 'sso.smartwifi.alabs.private.sfrcaraibe.fr'] root: /var/www/sso.sfrcaraibe.fr targets: ['SFRDEV82']
+09-assistance.sfrcaraibe.fr.conf -> ['assistance.sfrcaraibe.fr', 'assistance.sfrcaraibe.com'] root: /var/www/assistance.sfrcaraibe.fr targets: ['SFRPROD74']
+10-ipsf_sfrcaraibe_fr.conf -> ['isp.sfrcaraibe.fr', 'ipsf.sfrcaraibe.fr', 'on'] root: None targets: ['https://ingenico.wscgr.intranet.local']
+11-geo.sfrcaraibe.fr.conf -> ['geo2.sfrcaraibe.fr'] root: /var/www/geo.sfrcaraibe.fr targets: ['http://172.16.92.85:8080/']
+13-geoloc.api.sfrcaraibe.fr.conf -> ['geoloc.api.sfrcaraibe.fr'] root: /var/www/geoloc.api.sfrcaraibe.fr targets: ['172.30.230.118:17400']
+14-geoloc.sfrcaraibe.fr.conf -> ['geoloc.sfrcaraibe.fr'] root: /var/www/geoloc.sfrcaraibe.fr targets: ['172.30.230.118:17400']
+15-resiliation.lapostemobile.sfrcaraibe.fr.conf -> ['resiliation.lapostemobile.sfrcaraibe.fr'] root: /var/www/resiliation.lapostemobile.sfrcaraibe.fr targets: ['SFRRESIL']
+15-resiliation.lapostemobile.sfrcaraibe.fr.conf -> ['resiliation.lapostemobile.sfrcaraibe.fr'] root: /var/www/_letsencrypt targets: []
+16-config.yealink.sfrcaraibe.fr_2_.conf -> ['config.yealink.sfrcaraibe.fr'] root: None targets: ['http://127.0.0.1:8000/$1', 'http://127.0.0.1:8000/api', 'http://127.0.0.1:8000/$mac.cfg']
+17-business.sfrcaraibe.fr.conf -> ['business.sfrcaraibe.fr'] root: /var/www/business.sfrcaraibe.fr/ targets: ['SFRBIZPROD74']
+17-catalogues.sfrcaraibe.fr.conf -> ['catalogues.sfrcaraibe.fr'] root: /var/www/catalogues.sfrcaraibe.fr targets: ['172.30.230.113:27400']
+api.selfcarebusiness.sfrcaraibe.fr.conf -> ['api.selfcarebusiness.sfrcaraibe.fr'] root: /var/www/letsencrypt targets: []
+api.selfcarebusiness.sfrcaraibe.fr.conf -> ['api.selfcarebusiness.sfrcaraibe.fr'] root: /var/www/api.selfcarebusiness.sfrcaraibe.fr/public targets: ['SELFCAREBIZPROD83']
+demo.api.selfcarebusiness.sfrcaraibe.fr.conf -> ['demo.api.selfcarebusiness.sfrcaraibe.fr'] root: /var/www/letsencrypt targets: []
+demo.api.selfcarebusiness.sfrcaraibe.fr.conf -> ['demo.api.selfcarebusiness.sfrcaraibe.fr'] root: /var/www/demo.api.selfcarebusiness.sfrcaraibe.fr/public targets: ['SELFCAREBIZDEMO83']
+demo.selfcarebusiness.sfrcaraibe.fr.conf -> ['demo.selfcarebusiness.sfrcaraibe.fr'] root: None targets: []
+demo.selfcarebusiness.sfrcaraibe.fr.conf -> ['demo.selfcarebusiness.sfrcaraibe.fr'] root: /var/www/demo.selfcarebusiness.sfrcaraibe.fr targets: []
+pay.uxui.sfrcaraibe.fr.conf -> ['pay.sfrcaraibe.fr'] root: /var/www/pay.uxui.sfrcaraibe.fr/public targets: ['PAYSFRUXUIPROD82']
+retractation.lapostemobile.sfrcaraibe.fr.conf -> ['retractation.lapostemobile.sfrcaraibe.fr'] root: /var/www/retractation.lapostemobile.sfrcaraibe.fr targets: ['RETRACTATIONLPMPROD83']
+retractation.sfrcaraibe.fr.conf -> ['retractation.sfrcaraibe.fr'] root: /var/www/retractation.sfrcaraibe.fr targets: ['RETRACTATIONSFRPROD83']
+selfcarebusiness.sfrcaraibe.fr.conf -> ['selfcarebusiness.sfrcaraibe.fr'] root: None targets: []
+selfcarebusiness.sfrcaraibe.fr.conf -> ['selfcarebusiness.sfrcaraibe.fr'] root: /var/www/selfcarebusiness.sfrcaraibe.fr targets: []
+uxui.sfrcaraibe.fr.conf -> ['sfrcaraibe.fr', 'www.sfrcaraibe.fr'] root: /var/www/html targets: []
+uxui.sfrcaraibe.fr.conf -> ['sfrcaraibe.fr'] root: None targets: []
+uxui.sfrcaraibe.fr.conf -> ['www.sfrcaraibe.fr'] root: /var/www/uxui.sfrcaraibe.fr targets: ['SFRUXUIPROD82']
+

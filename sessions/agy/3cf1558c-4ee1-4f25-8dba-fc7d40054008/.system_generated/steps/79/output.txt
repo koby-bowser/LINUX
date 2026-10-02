@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+[sudo] password for admin: total 36
+drwxr-xr-x.  7 decisionnel_netezza decisionnel_netezza 4096 Jul  1  2024 .
+drwxr-xr-x. 46 root                root                4096 Sep 17 10:05 ..
+-rw-------.  1 decisionnel_netezza decisionnel_netezza  248 Jun 24  2024 .bash_history
+drwxr-xr-x.  3 decisionnel_netezza                 672 4096 Jun 27  2024 .config
+drwxr-xr-x.  2 decisionnel_netezza                 672 4096 Sep  2  2025 ELOQUENT
+drwxr-xr-x.  3 decisionnel_netezza                 672 4096 Jun 27  2024 .local
+drwxr-xr-x.  2 decisionnel_netezza                 672 4096 Jun 28  2024 scripts_sh
+drwx------.  2 decisionnel_netezza                 672 4096 Jun 27  2024 .ssh
+-rw-------.  1 decisionnel_netezza                 672  656 Jun 27  2024 .viminfo
+Connection to 172.16.92.241 closed.
+

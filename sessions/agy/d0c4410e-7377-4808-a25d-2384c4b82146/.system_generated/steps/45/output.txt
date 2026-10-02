@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+commit 75b3027b388893caf0f9e63b7ec951f3398a6cd3
+Merge: 7aeedd8 808477d
+Author: Loïc RANGON <l.rangon@outremer-telecom.fr>
+Date:   Thu Sep 24 19:44:22 2026 +0000
+
+    Merge branch 'feat/deploy-alertmanager-si-psp-alerting' into 'main'
+    
+    Deploie alerting PSP sur th2-grafac-si1 (phase 5 migration SI)
+    
+    See merge request omt/infra/management/infra-management-system!345
+
+ .../corp/host_vars/th2-grafac-si1/monitoring.yml   | 29 +++++++++++++++++-----
+ playbooks/deploy-alertmanager-si.yml               | 19 ++++++++++++++
+ roles/prometheus_server/defaults/main.yml          |  8 ++++++
+ .../files/rules/psp-supervision.yml                | 28 +++++++++++++++++++++
+ .../templates/docker-compose.yml.j2                |  1 +
+ 5 files changed, 79 insertions(+), 6 deletions(-)
+

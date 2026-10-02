@@ -1,0 +1,20 @@
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Simulating a certificate request for map.extranetclient.outremer-telecom.fr
+Hook '--manual-auth-hook' for map.extranetclient.outremer-telecom.fr ran with output:
+ Current records for _acme-challenge.map.extranetclient.outremer-telecom.fr IN TXT will be replaced
+ New rrset:
+ _acme-challenge.map.extranetclient.outremer-telecom.fr. 60 IN TXT "X4WMXbESJhETTn39dV0XWy4T1Af22h5ENvidnrqxhSY"
+ SOA serial for zone outremer-telecom.fr set to 2026091007
+Hook '--manual-auth-hook' for map.extranetclient.outremer-telecom.fr ran with error output:
+ #####################################################################
+ #                                                                   #
+ # ~# Outremer Telecom #~                                            #
+ #                                                                   #
+ #      You are trying to login to an Outremer Telecom server.       #
+ # Authorized uses only. All activity may be monitored and recorded. #
+ #    Disconnect IMMEDIATELY if you are not an authorized user.      #
+ #                                                                   #
+ #####################################################################
+Hook '--manual-cleanup-hook' for map.extranetclient.outremer-telecom.fr ran with output:
+ SOA serial for zone outremer-telecom.fr set to 2026091008
+The dry run was successful.

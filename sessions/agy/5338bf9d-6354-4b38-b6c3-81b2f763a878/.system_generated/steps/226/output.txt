@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+{
+  "login": "",
+  "password": ""
+}
+

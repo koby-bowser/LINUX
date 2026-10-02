@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+./.claude/projects/-home-koby--ansible
+./.claude/agents/koby-bowser-ansible.md
+./.gemini/agents/koby-bowser-ansible.md
+./generate_ansible_playbook.py
+./infra-management-system
+./infra-management-system/.ansible
+./infra-management-system/ansible.cfg
+./infra-management-system/roles/sftp_mapping_dual_user
+./infra-management-system/playbooks/sftp-mapping-recon.yml
+./infra-management-system/playbooks/sftp-mapping-dual-user.yml
+./LINUX/ansible.cfg
+./.ansible
+./ansible_backup_20260917_105548.tar.gz
+./__pycache__/generate_ansible_playbook.cpython-313.pyc
+./.cache/claude-cli-nodejs/-home-koby-infra-management-system
+./.cache/claude-cli-nodejs/-home-koby--ansible
+

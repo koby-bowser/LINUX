@@ -1,0 +1,59 @@
+
+The command exited with code 0.
+Output:
+<truncated 636 lines>
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7035:      test_title: 944300-303
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7055:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7058:      test_title: 944300-304
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7078:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7081:      test_title: 944300-305
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7101:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7104:      test_title: 944300-306
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7124:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7127:      test_title: 944300-307
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7147:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7149:      test_title: 944300-308
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7169:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7172:      test_title: 944300-309
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7192:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7195:      test_title: 944300-310
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7216:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7219:      test_title: 944300-311
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7240:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7243:      test_title: 944300-312
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7264:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7267:      test_title: 944300-313
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7287:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7290:      test_title: 944300-314
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7310:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7313:      test_title: 944300-315
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7333:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7336:      test_title: 944300-316
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7356:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7359:      test_title: 944300-317
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7379:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7382:      test_title: 944300-318
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7402:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7404:      test_title: 944300-319
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7424:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7427:      test_title: 944300-320
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7447:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7450:      test_title: 944300-321
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7471:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7474:      test_title: 944300-322
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7495:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7498:      test_title: 944300-323
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7519:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7522:      test_title: 944300-324
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7542:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7545:      test_title: 944300-325
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7565:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7568:      test_title: 944300-326
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7588:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7591:      test_title: 944300-327
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7611:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7614:      test_title: 944300-328
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7634:              log_contains: "id \"944300\""
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7637:      test_title: 944300-329
+/etc/nginx/modsec/coreruleset-3.3.2/tests/regression/tests/REQUEST-944-APPLICATION-ATTACK-JAVA/944300.yaml:7657:              log_contains: "id \"944300\""
+

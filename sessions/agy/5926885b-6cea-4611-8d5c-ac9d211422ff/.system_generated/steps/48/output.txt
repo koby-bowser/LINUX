@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+/home/koby/LINUX/inventory/server_pool.json:2143:      "title": "gbs-wiki-01",
+/home/koby/LINUX/inventory/server_pool.json:4340:      "title": "gbs-wiki-02",
+/home/koby/LINUX/inventory/server_pool.json:4358:      "title": "gbs-wiki-02",
+/home/koby/LINUX/inventory/server_pool.json:17952:      "title": "izi.wiki.ovz",
+/home/koby/LINUX/inventory/server_pool.json:18384:      "title": "mbs.mobwiki.ovz",
+/home/koby/LINUX/inventory/server_pool.json:21081:      "title": "mau-wiki-02",
+/home/koby/LINUX/inventory/server_pool.json:27365:      "title": "mtq-wiki-02",
+/home/koby/LINUX/inventory/server_pool.yml:1361:        gbs-wiki-01:
+/home/koby/LINUX/inventory/server_pool.yml:1366:          kdbx_title: gbs-wiki-01
+/home/koby/LINUX/inventory/server_pool.yml:2759:        gbs-wiki-02:
+/home/koby/LINUX/inventory/server_pool.yml:2764:          kdbx_title: gbs-wiki-02
+/home/koby/LINUX/inventory/server_pool.yml:2770:        gbs-wiki-02_2:
+/home/koby/LINUX/inventory/server_pool.yml:2775:          kdbx_title: gbs-wiki-02
+/home/koby/LINUX/inventory/server_pool.yml:11150:        izi.wiki.ovz:
+/home/koby/LINUX/inventory/server_pool.yml:11152:          kdbx_title: izi.wiki.ovz
+/home/koby/LINUX/inventory/server_pool.yml:11322:        mbs.mobwiki.ovz:
+/home/koby/LINUX/inventory/server_pool.yml:11324:          kdbx_title: mbs.mobwiki.ovz
+/home/koby/LINUX/inventory/server_pool.yml:12738:        mau-wiki-02:
+/home/koby/LINUX/inventory/server_pool.yml:12743:          kdbx_title: mau-wiki-02
+/home/koby/LINUX/inventory/server_pool.yml:16693:        mtq-wiki-02:
+/home/koby/LINUX/inventory/server_pool.yml:16698:          kdbx_title: mtq-wiki-02
+

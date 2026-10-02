@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+On branch feat/onboard-mtq-mailsrvp-dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   inventories/dev/hosts.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.claude/agents/
+	AGENTS.md
+
+

@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+grep: /home/koby/infra-management-system/.git/index: binary file matches
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:109:Le PAT est stocké chiffré dans `scripts/acme/gitlab_api_vault.yml` (clé Vault Password
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:111:Sa création est décrite dans `scripts/acme/gitlab_api_vault.SECRETS-PLAINTEXT.yml`. Le PAT
+/home/koby/infra-management-system/playbooks/issue-pki-cert-doccli-val.yml:9:# scripts/acme/gitlab_api_vault.yml -> tasks/commit-le-bundle-gitlab.yml, générique).
+/home/koby/infra-management-system/playbooks/issue-pki-cert-doccli-val.yml:117:            path: "{{ playbook_dir }}/../scripts/acme/gitlab_api_vault.yml"
+/home/koby/infra-management-system/playbooks/issue-pki-cert-doccli-val.yml:124:              scripts/acme/gitlab_api_vault.yml introuvable — le commit automatique ne
+/home/koby/infra-management-system/playbooks/issue-pki-cert-doccli-val.yml:129:            file: "{{ playbook_dir }}/../scripts/acme/gitlab_api_vault.yml"
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:548:            path: "{{ playbook_dir }}/../scripts/acme/gitlab_api_vault.yml"
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:555:              scripts/acme/gitlab_api_vault.yml introuvable — le commit automatique ne
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:557:              scripts/acme/gitlab_api_vault.SECRETS-PLAINTEXT.yml (PAT GitLab scope api)
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:558:              puis `ansible-vault encrypt --output scripts/acme/gitlab_api_vault.yml
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:559:              scripts/acme/gitlab_api_vault.SECRETS-PLAINTEXT.yml`, et committer le
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:565:            file: "{{ playbook_dir }}/../scripts/acme/gitlab_api_vault.yml"
+/home/koby/infra-management-system/playbooks/generate-idemia-csr.yml:11:# Secret : le PAT GitLab est lu dans scripts/acme/gitlab_api_vault.yml (chiffré
+/home/koby/infra-management-system/playbooks/generate-idemia-csr.yml:116:        file: "{{ playbook_dir }}/../scripts/acme/gitlab_api_vault.yml"
+

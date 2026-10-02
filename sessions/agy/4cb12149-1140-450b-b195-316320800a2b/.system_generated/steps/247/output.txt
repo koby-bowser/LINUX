@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 26
+    print(f"- {col[\"name\"]}:")
+                    ^
+SyntaxError: unexpected character after line continuation character
+

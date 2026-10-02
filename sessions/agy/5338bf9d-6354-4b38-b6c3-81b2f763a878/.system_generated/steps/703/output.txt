@@ -1,0 +1,69 @@
+
+The command exited with code 0.
+Output:
+
+PLAY [Bootstrap koby-bowser-ansible user with passwordless SSH & sudo] *********
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.30.230.113]
+
+TASK [Verify local public key exists] ******************************************
+ok: [172.30.230.113 -> localhost]
+
+TASK [Fail if local public key does not exist] *********************************
+skipping: [172.30.230.113]
+
+TASK [Inspect effective sshd configuration] ************************************
+ok: [172.30.230.113]
+
+TASK [Extract sshd AllowGroups if defined] *************************************
+ok: [172.30.230.113]
+
+TASK [Create automation user] **************************************************
+changed: [172.30.230.113]
+
+TASK [Add automation user to sudo group] ***************************************
+changed: [172.30.230.113]
+
+TASK [Add automation user to sshd AllowGroups if configured] *******************
+changed: [172.30.230.113] => (item=SSH_Users)
+
+TASK [Configure passwordless sudo in /etc/sudoers.d] ***************************
+changed: [172.30.230.113]
+
+TASK [Retrieve target user passwd info] ****************************************
+ok: [172.30.230.113]
+
+TASK [Determine user home and gid] *********************************************
+ok: [172.30.230.113]
+
+TASK [Ensure ~/.ssh directory exists] ******************************************
+changed: [172.30.230.113]
+
+TASK [Deploy public key to user ~/.ssh/authorized_keys] ************************
+changed: [172.30.230.113]
+
+TASK [Resolve centralized authorized_keys path] ********************************
+ok: [172.30.230.113]
+
+TASK [Ensure parent directory of centralized authorized_keys exists] ***********
+ok: [172.30.230.113]
+
+TASK [Deploy key to centralized path] ******************************************
+changed: [172.30.230.113]
+
+TASK [Set strict permissions on centralized authorized_keys file] **************
+ok: [172.30.230.113]
+
+TASK [Report bootstrap completion] *********************************************
+ok: [172.30.230.113] => {
+    "msg": [
+        "Host: 172.30.230.113",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+
+PLAY RECAP *********************************************************************
+172.30.230.113             : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+

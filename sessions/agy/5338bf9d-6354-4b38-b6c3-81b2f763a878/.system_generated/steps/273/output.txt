@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 914,
+  "status": "running",
+  "start": "2026-09-08T12:15:53.877476Z",
+  "end": null
+}
+

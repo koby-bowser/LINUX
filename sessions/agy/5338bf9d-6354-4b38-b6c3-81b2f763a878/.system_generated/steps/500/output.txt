@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+[Baba-Koby a0e2b91] feat(ansible): add audit-web-certs playbook for web server & TLS discovery
+ 1 file changed, 370 insertions(+)
+ create mode 100644 playbooks/audit-web-certs.yml
+

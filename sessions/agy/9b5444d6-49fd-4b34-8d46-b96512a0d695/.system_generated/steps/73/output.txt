@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.ansible/host_vars:
+total 8
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 .
+drwxrwxr-x 14 koby koby 4096 Sep  9 19:26 ..
+
+/home/koby/.ansible/roles:
+total 8
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 .
+drwxrwxr-x 14 koby koby 4096 Sep  9 19:26 ..
+

@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+$ORIGIN .
+acs.outremer-telecom.fr	3600	IN	A	109.62.64.5
+aota.outremer-telecom.fr	3600	IN	A	217.175.160.114
+api.cgrcore.private.outremer-telecom.fr	3600	IN	CNAME	trp-wextp-rfe1.outremer-telecom.fr.
+api.cgrcore.private.val.outremer-telecom.fr	3600	IN	CNAME	trp-wextv-fe1.outremer-telecom.fr.
+

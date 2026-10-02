@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+total 15712
+drwx------  6 koby koby    4096 Sep 28 15:01 .
+drwxrwxr-x 10 koby koby    4096 Sep 29 18:32 ..
+-rw-------  1 koby koby  391808 Sep  1 19:09 13507989-4a8f-4a40-a8b3-d94aeee8e26c.jsonl
+drwxrwxr-x  3 koby koby    4096 Sep  2 11:41 15d4cdc3-fae4-43d8-b0a9-b9fe41de1be8
+-rw-------  1 koby koby  191252 Sep  2 17:41 15d4cdc3-fae4-43d8-b0a9-b9fe41de1be8.jsonl
+-rw-------  1 koby koby  214032 Sep  1 19:23 4644fc32-9e56-4d84-8946-7a830f6ab395.jsonl
+-rw-------  1 koby koby 7585710 Oct  2 11:03 5a62d8bf-3773-4e9a-9d0d-7cb400ed6e73.jsonl
+-rw-------  1 koby koby   30724 Sep  8 10:27 5f1e63b4-5f36-4469-a889-286ccc6c5a97.jsonl
+drwxrwxr-x  4 koby koby    4096 Sep  4 11:50 606522f3-7aec-44d7-b078-42b782586702
+-rw-------  1 koby koby  752226 Sep  4 18:23 606522f3-7aec-44d7-b078-42b782586702.jsonl
+-rw-------  1 koby koby  967865 Sep  9 20:36 6607eee0-6dce-4cab-bf01-0e01ac39b5d7.jsonl
+-rw-------  1 koby koby  155669 Sep  3 18:51 6d9607c9-22dc-45f8-be36-bfbd6ba8a8c9.jsonl
+-rw-------  1 koby koby 1500545 Sep  2 18:45 8be29f1d-29fb-4f5e-8728-989e7fd7f57a.jsonl
+-rw-------  1 koby koby  442844 Sep 10 19:18 aa1fd8aa-0efa-4ade-9e12-bcf90a9b4111.jsonl
+-rw-------  1 koby koby   95975 Aug 31 13:13 b05b8806-3080-42f4-a211-2ba7e180d099.jsonl
+-rw-------  1 koby koby  462807 Sep 11 16:55 b73c8b1c-2a6d-4236-a647-bf30dd1b08a4.jsonl
+-rw-------  1 koby koby  451254 Sep  4 19:13 b79906c5-8b8d-47fc-a5ce-501e976ae911.jsonl
+-rw-------  1 koby koby   27203 Sep  2 15:10 b81056c3-de32-40cb-b725-68f861bac7cd.jsonl
+drwxrwxr-x  2 koby koby    4096 Aug 12 15:19 .claude
+-rw-------  1 koby koby  519488 Sep 23 15:50 f31b6e03-e95b-49ec-b555-fc516f8b5278.jsonl
+-rw-------  1 koby koby 2188493 Sep 23 20:12 fa169dba-aebf-47fb-8c6b-61b0f9a7261c.jsonl
+drwxrwxr-x  2 koby koby    4096 Sep 28 19:06 memory
+

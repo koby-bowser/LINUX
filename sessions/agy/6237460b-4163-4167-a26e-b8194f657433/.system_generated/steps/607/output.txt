@@ -1,0 +1,18 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Current records for _acme-challenge-test.map.extranetclient.outremer-telecom.fr IN TXT will be replaced
+New rrset:
+_acme-challenge-test.map.extranetclient.outremer-telecom.fr. 60 IN TXT "test-token-123"
+

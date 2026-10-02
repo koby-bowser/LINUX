@@ -1,0 +1,10 @@
+{"File":"/home/koby/LINUX/scripts/build_kdbx_pool.py","LineNumber":211,"LineContent":"    parser.add_argument('--output-yaml', default='/home/koby/.ansible/inventory/server_pool.yml', help='Output Ansible inventory YAML')"}
+{"File":"/home/koby/LINUX/scripts/build_kdbx_pool.py","LineNumber":212,"LineContent":"    parser.add_argument('--output-json', default='/home/koby/.ansible/inventory/server_pool.json', help='Output JSON cache')"}
+{"File":"/home/koby/LINUX/playbooks/kdbx-pool.yml","LineNumber":10,"LineContent":"    pool_json_path: \"{{ lookup('env', 'HOME') }}/.ansible/inventory/server_pool.json\""}
+{"File":"/home/koby/LINUX/playbooks/kdbx-pool.yml","LineNumber":11,"LineContent":"    pool_yaml_path: \"{{ lookup('env', 'HOME') }}/.ansible/inventory/server_pool.yml\""}
+{"File":"/home/koby/LINUX/playbooks/kdbx-pool.yml","LineNumber":12,"LineContent":"    parser_script: \"{{ lookup('env', 'HOME') }}/.ansible/scripts/build_kdbx_pool.py\""}
+{"File":"/home/koby/LINUX/scripts/kssh.py","LineNumber":12,"LineContent":"POOL_JSON = os.path.expanduser(\"~/.ansible/inventory/server_pool.json\")"}
+{"File":"/home/koby/LINUX/scripts/kssh.py","LineNumber":27,"LineContent":"        print(\"Run: ansible-playbook ~/.ansible/playbooks/kdbx-pool.yml -e 'action=sync' to build it.\")"}
+{"File":"/home/koby/LINUX/scripts/kssh","LineNumber":10,"LineContent":"POOL_JSON=\"${HOME}/.ansible/inventory/server_pool.json\""}
+{"File":"/home/koby/LINUX/scripts/kssh","LineNumber":14,"LineContent":"    echo -e \"Run: ansible-playbook ~/.ansible/playbooks/kdbx-pool.yml -e 'action=sync' to build it.\""}
+{"File":"/home/koby/LINUX/scripts/copy-to-remote.sh","LineNumber":8,"LineContent":"# Workspace: ~/.ansible"}

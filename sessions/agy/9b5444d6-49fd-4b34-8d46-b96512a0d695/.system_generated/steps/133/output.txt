@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+[Baba-Koby f8848e8] feat(ansible): migrate playbooks, scripts, and utilities from ~/.ansible
+ 17 files changed, 1283 insertions(+), 1 deletion(-)
+ create mode 120000 copy-to-remote.sh
+ create mode 100644 host_vars/.gitkeep
+ create mode 120000 kssh
+ create mode 100644 playbooks/bootstrap-koby-bowser.yml
+ create mode 100644 playbooks/copy-to-tmp.yml
+ create mode 100644 playbooks/kdbx-pool.yml
+ create mode 120000 playbooks/search-servers.yml
+ create mode 100644 roles/.gitkeep
+ create mode 100755 scripts/build_kdbx_pool.py
+ create mode 100755 scripts/copy-to-remote.sh
+ create mode 100755 scripts/kssh
+ create mode 100755 scripts/kssh.py
+ create mode 100755 scripts/search-servers.sh
+ create mode 120000 search-servers.sh
+

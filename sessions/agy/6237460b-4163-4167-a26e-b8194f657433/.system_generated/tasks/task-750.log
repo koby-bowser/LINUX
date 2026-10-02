@@ -1,0 +1,26 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf:3:    listen              9443 ssl http2 reuseport;
+/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf:22:    # reverse proxy vers Map (Tomcat HTTPS sur port 9443)
+/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf:24:        proxy_pass                 https://172.30.198.50:9443;
+/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf:31:        proxy_set_header X-Forwarded-Port  9443;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak.2026-09-10_083706:68:    listen              172.30.198.33:9443 ssl http2 reuseport;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak.2026-09-10_083706:80:    access_log          /var/log/nginx/extranetclient.outremer-telecom.fr-9443-access.log;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak.2026-09-10_083706:81:    error_log           /var/log/nginx/extranetclient.outremer-telecom.fr-9443-error.log warn;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak.2026-09-10_083706:91:        #proxy_set_header X-Forwarded-Port   9443;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak_test:67:    listen              172.30.198.33:9443 ssl http2 reuseport;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak_test:78:    access_log          /var/log/nginx/extranetclient.outremer-telecom.fr-9443-access.log;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak_test:79:    error_log           /var/log/nginx/extranetclient.outremer-telecom.fr-9443-error.log warn;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak_test:86:    # reverse proxy vers Map (Tomcat HTTPS sur port 9443)
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak_test:88:        proxy_pass                 https://172.30.198.50:9443;
+/etc/nginx/sites-available/02-extranetclient.outremer-telecom.fr.conf.bak_test:95:        proxy_set_header X-Forwarded-Port  9443;

@@ -1,0 +1,9 @@
+{"File":"/home/koby/infra-management-system/playbooks/install-semaphore-runner.yml","LineNumber":20,"LineContent":"#     -e ansible_user=superuser -e ansible_port=30 \\"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":43,"LineContent":"    # ansible_user manquant ici jusqu'au 03/08/2026 (contrairement à cmp1/cmp2 ci-dessous,"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":49,"LineContent":"      ansible_user: spui-runner"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":80,"LineContent":"      ansible_user: spui-runner"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":90,"LineContent":"      ansible_user: spui-runner"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":94,"LineContent":"      ansible_user: spui-runner"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":103,"LineContent":"      ansible_user: spui-runner"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":116,"LineContent":"      ansible_user: spui-runner"}
+{"File":"/home/koby/infra-management-system/inventories/prod/hosts.yml","LineNumber":125,"LineContent":"      ansible_user: spui-runner"}

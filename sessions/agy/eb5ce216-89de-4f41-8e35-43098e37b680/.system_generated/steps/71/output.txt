@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+total 36
+drwxr-xr-x  9 root root 4096 Sep  8 12:00 .
+drwxr-xr-x 21 root root 4096 Sep  1 00:06 ..
+drwxr-xr-x  7 root root 4096 Sep  8 12:00 snapshots
+drwxr-xr-x  2 root root 4096 Sep  8 12:00 snapshots-boot
+drwxr-xr-x  2 root root 4096 Sep  8 12:00 snapshots-daily
+drwxr-xr-x  2 root root 4096 Sep  8 12:00 snapshots-hourly
+drwxr-xr-x  2 root root 4096 Sep  8 12:00 snapshots-monthly
+drwxr-xr-x  2 root root 4096 Sep  8 12:00 snapshots-ondemand
+drwxr-xr-x  2 root root 4096 Sep  8 12:00 snapshots-weekly
+

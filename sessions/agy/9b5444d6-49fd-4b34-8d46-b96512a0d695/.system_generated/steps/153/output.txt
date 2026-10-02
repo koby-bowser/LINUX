@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+file:/home/koby/.gitconfig	user.name=Amit Samy
+file:/home/koby/.gitconfig	user.email=a.samy@outremer-telecom.fr
+file:/home/koby/.gitconfig	credential.helper=store
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=true
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	remote.origin.url=https://github.com/samyamit-dotcom/LINUX.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	branch.Baba-Koby.remote=origin
+file:.git/config	branch.Baba-Koby.merge=refs/heads/Baba-Koby
+

@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+From https://gitsi.intranet.local/omt/infra/management/infra-management-system
+ * branch            main       -> FETCH_HEAD
+   81767ed..44c0356  main       -> origin/main
+44c0356 (origin/main, origin/HEAD) Merge branch 'le-cert/vvgguy.sfrcaraibe.fr-20260915110441' into 'main'
+40afef0 feat(le): bundle TLS vvgguy.sfrcaraibe.fr (émis automatiquement via Semaphore)
+addd3f0 Merge branch 'le-cert/vvgmtq.sfrcaraibe.fr-20260915110118' into 'main'
+8652b71 feat(le): bundle TLS vvgmtq.sfrcaraibe.fr (émis automatiquement via Semaphore)
+3bb7668 Merge branch 'feat/le-issue-vvg-mtq-guy-targets' into 'main'
+17b909b feat(le): ajout cibles vvgguy et vvgmtq.sfrcaraibe.fr
+51749f9 Merge branch 'le-cert/vvggpe.sfrcaraibe.fr-20260912204811' into 'main'
+82c6ea5 feat(le): bundle TLS vvggpe.sfrcaraibe.fr (émis automatiquement via Semaphore)
+f4ba4a8 Merge branch 'feat/le-issue-vvggpe-target' into 'main'
+5acdc5e feat(le): ajout cible vvggpe.sfrcaraibe.fr
+df9366d Merge branch 'feat/semaphore-runner-val-install' into 'main'
+43fee5d feat(semaphore): installe le runner VAL + corrige la clé publique spui-runner val
+9139c47 Merge branch 'recon/wscgr-espaceclient-be6' into 'main'
+63b0424 feat(recon): playbook lecture seule WSCGR espaceclient be6 - PROD
+0bbd3f4 Merge branch 'feat/mongodb-doccli-enveloppe-dev' into 'main'
+918c52d feat(mongodb): declare trp-wextd-mdb1 (DEV) + recon lecture seule doccli_store
+

@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+[feat/onboard-mtq-mailsrvp-dev 34dfdf8] feat(inventory): add mtq-mailsrvp-01 to dev inventory
+ Date: Mon Sep 7 19:13:41 2026 +0400
+ 1 file changed, 9 insertions(+)
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)Counting objects:  22% (2/9)Counting objects:  33% (3/9)Counting objects:  44% (4/9)Counting objects:  55% (5/9)Counting objects:  66% (6/9)Counting objects:  77% (7/9)Counting objects:  88% (8/9)Counting objects: 100% (9/9)Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects:  20% (1/5)Compressing objects:  40% (2/5)Compressing objects:  60% (3/5)Compressing objects:  80% (4/5)Compressing objects: 100% (5/5)Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)Writing objects:  40% (2/5)Writing objects:  60% (3/5)Writing objects:  80% (4/5)Writing objects: 100% (5/5)Writing objects: 100% (5/5), 612 bytes | 612.00 KiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: View merge request for feat/onboard-mtq-mailsrvp-dev:        
+remote:   https://gitsi.intranet.local/omt/infra/management/infra-management-system/-/merge_requests/266        
+remote: 
+To https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+ + c764d4f...34dfdf8 feat/onboard-mtq-mailsrvp-dev -> feat/onboard-mtq-mailsrvp-dev (forced update)
+

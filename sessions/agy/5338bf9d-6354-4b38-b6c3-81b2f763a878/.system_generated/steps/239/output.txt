@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+remote: Enumerating objects: 10, done.        
+remote: Counting objects:  10% (1/10)        remote: Counting objects:  20% (2/10)        remote: Counting objects:  30% (3/10)        remote: Counting objects:  40% (4/10)        remote: Counting objects:  50% (5/10)        remote: Counting objects:  60% (6/10)        remote: Counting objects:  70% (7/10)        remote: Counting objects:  80% (8/10)        remote: Counting objects:  90% (9/10)        remote: Counting objects: 100% (10/10)        remote: Counting objects: 100% (10/10), done.        
+remote: Compressing objects:  16% (1/6)        remote: Compressing objects:  33% (2/6)        remote: Compressing objects:  50% (3/6)        remote: Compressing objects:  66% (4/6)        remote: Compressing objects:  83% (5/6)        remote: Compressing objects: 100% (6/6)        remote: Compressing objects: 100% (6/6), done.        
+remote: Total 6 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)        
+Unpacking objects:  16% (1/6)Unpacking objects:  33% (2/6)Unpacking objects:  50% (3/6)Unpacking objects:  66% (4/6)Unpacking objects:  83% (5/6)Unpacking objects: 100% (6/6)Unpacking objects: 100% (6/6), 654 bytes | 654.00 KiB/s, done.
+From https://gitsi.intranet.local/omt/infra/management/infra-management-system
+   7a97cb8..4b69e15  main       -> origin/main
+Updating 7a97cb8..4b69e15
+Fast-forward
+ inventories/dev/hosts.yml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+

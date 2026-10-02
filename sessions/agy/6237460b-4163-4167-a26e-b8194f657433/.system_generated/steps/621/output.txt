@@ -1,0 +1,2 @@
+{"File":"/home/koby/.ansible/inventory/server_pool.yml","LineNumber":6522,"LineContent":"          ansible_host: 172.30.198.33"}
+{"File":"/home/koby/.ansible/inventory/server_pool.yml","LineNumber":6530,"LineContent":"          - 172.30.198.33"}

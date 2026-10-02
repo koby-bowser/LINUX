@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+-rw-rw-r-- 1 koby koby 476K Sep 24 14:21 '/home/koby/Downloads/Decom.excalidraw(1).png'
+

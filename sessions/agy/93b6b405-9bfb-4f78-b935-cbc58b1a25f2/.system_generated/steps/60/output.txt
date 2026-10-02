@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/app.md:11:-   **New Conversation**: Start a new chat session with the agent.
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/app.md:30:    previous conversations, terminal sessions, rules, and MCP servers/tools.
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/mcp_servers.md:20:    sessions).
+

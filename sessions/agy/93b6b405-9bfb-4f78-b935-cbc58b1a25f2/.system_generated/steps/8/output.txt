@@ -1,0 +1,47 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.gemini/antigravity-cli/brain:
+total 72
+drwxr-xr-x 18 koby koby 4096 Oct  2 15:02 .
+drwxr-xr-x 15 koby koby 4096 Oct  2 15:02 ..
+drwxr-xr-x  5 koby koby 4096 Sep 16 12:08 20db857b-8785-48da-9198-01add9384dc4
+drwxr-xr-x  6 koby koby 4096 Sep 22 12:38 3cf1558c-4ee1-4f25-8dba-fc7d40054008
+drwxr-xr-x  5 koby koby 4096 Sep 22 17:59 4cb12149-1140-450b-b195-316320800a2b
+drwxr-xr-x  5 koby koby 4096 Sep  7 18:28 50479c19-5180-4aa7-94da-62d796e908db
+drwxr-xr-x  6 koby koby 4096 Sep  7 12:15 5338bf9d-6354-4b38-b6c3-81b2f763a878
+drwxr-xr-x  6 koby koby 4096 Sep 24 15:28 5926885b-6cea-4611-8d5c-ac9d211422ff
+drwxr-xr-x  7 koby koby 4096 Sep 10 16:53 6237460b-4163-4167-a26e-b8194f657433
+drwxr-xr-x  5 koby koby 4096 Oct  2 15:02 93b6b405-9bfb-4f78-b935-cbc58b1a25f2
+drwxr-xr-x  5 koby koby 4096 Sep 16 18:50 953c8bd8-d6d1-4284-8e1b-476d79d5fd2e
+drwxr-xr-x  5 koby koby 4096 Sep 17 10:46 9b5444d6-49fd-4b34-8d46-b96512a0d695
+drwxr-xr-x  5 koby koby 4096 Sep 30 14:19 a6d077d5-5dc2-45c4-8e83-b3c97e1ae6d2
+drwxr-xr-x  5 koby koby 4096 Sep  9 11:28 ac6b2cc9-4e43-49c7-a9af-9015af0f4f0d
+drwxr-xr-x  5 koby koby 4096 Sep 28 14:38 b6bd1f43-8686-4eb6-a179-0723829eae44
+drwxr-xr-x  5 koby koby 4096 Sep 29 18:30 d0c4410e-7377-4808-a25d-2384c4b82146
+drwxr-xr-x  5 koby koby 4096 Sep  8 10:49 eb5ce216-89de-4f41-8e35-43098e37b680
+drwxr-xr-x  5 koby koby 4096 Sep 25 14:11 f3cf4530-5328-4510-bf53-5e1689984110
+
+/home/koby/.gemini/antigravity-cli/conversations:
+total 55856
+drwxr-xr-x  2 koby koby     4096 Oct  2 15:02 .
+drwxr-xr-x 15 koby koby     4096 Oct  2 15:02 ..
+-rw-------  1 koby koby  1163264 Sep 16 12:32 20db857b-8785-48da-9198-01add9384dc4.db
+-rw-------  1 koby koby  1007616 Sep 22 13:05 3cf1558c-4ee1-4f25-8dba-fc7d40054008.db
+-rw-------  1 koby koby  4911104 Sep 23 12:28 4cb12149-1140-450b-b195-316320800a2b.db
+-rw-r--r--  1 koby koby   720896 Sep  7 18:39 50479c19-5180-4aa7-94da-62d796e908db.db
+-rw-r--r--  1 koby koby  9510912 Sep 21 19:08 5338bf9d-6354-4b38-b6c3-81b2f763a878.db
+-rw-------  1 koby koby  3117056 Sep 24 15:28 5926885b-6cea-4611-8d5c-ac9d211422ff.db
+-rw-r--r--  1 koby koby 15826944 Sep 11 16:48 6237460b-4163-4167-a26e-b8194f657433.db
+-rw-------  1 koby koby    49152 Oct  2 15:02 93b6b405-9bfb-4f78-b935-cbc58b1a25f2.db
+-rw-------  1 koby koby    32768 Oct  2 15:02 93b6b405-9bfb-4f78-b935-cbc58b1a25f2.db-shm
+-rw-------  1 koby koby  1503832 Oct  2 15:02 93b6b405-9bfb-4f78-b935-cbc58b1a25f2.db-wal
+-rw-------  1 koby koby   475136 Sep 16 19:25 953c8bd8-d6d1-4284-8e1b-476d79d5fd2e.db
+-rw-------  1 koby koby  2064384 Sep 17 15:29 9b5444d6-49fd-4b34-8d46-b96512a0d695.db
+-rw-------  1 koby koby  1085440 Sep 30 15:02 a6d077d5-5dc2-45c4-8e83-b3c97e1ae6d2.db
+-rw-r--r--  1 koby koby   196608 Sep  9 11:28 ac6b2cc9-4e43-49c7-a9af-9015af0f4f0d.db
+-rw-------  1 koby koby  4501504 Oct  2 14:54 b6bd1f43-8686-4eb6-a179-0723829eae44.db
+-rw-------  1 koby koby  1490944 Sep 29 18:49 d0c4410e-7377-4808-a25d-2384c4b82146.db
+-rw-r--r--  1 koby koby  7532544 Sep  9 19:32 eb5ce216-89de-4f41-8e35-43098e37b680.db
+-rw-------  1 koby koby  1957888 Sep 25 15:53 f3cf4530-5328-4510-bf53-5e1689984110.db
+

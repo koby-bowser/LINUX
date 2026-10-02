@@ -1,0 +1,88 @@
+
+The command exited with code 2.
+Output:
+
+PLAY [Émettre/renouveler les certificats Let's Encrypt (DNS-01) et les installer] ***
+
+TASK [Installer certbot, le plugin RFC2136, et les outils nécessaires aux hooks] ***
+ok: [localhost]
+
+TASK [S'assurer que le répertoire des identifiants/hooks certbot existe (700)] ***
+ok: [localhost]
+
+TASK [Déployer le fichier d'identifiants RFC2136 (ns1/BIND)] *******************
+skipping: [localhost]
+
+TASK [Déployer les hooks manuels PowerDNS (auth/cleanup)] **********************
+skipping: [localhost] => (item=pdns-auth-hook.sh) 
+skipping: [localhost] => (item=pdns-cleanup-hook.sh) 
+skipping: [localhost]
+
+TASK [Déployer les hooks manuels ns1/BIND (édition de zone via SSH)] ***********
+changed: [localhost] => (item=ns1-zonefile-auth-hook.sh)
+ok: [localhost] => (item=ns1-zonefile-cleanup-hook.sh)
+
+TASK [Déployer le script distant d'édition de zone sur ns1] ********************
+changed: [localhost]
+
+TASK [Rendre le script distant exécutable sur ns1] *****************************
+changed: [localhost]
+
+TASK [Déployer le script de découverte de zone sur ns1 (mode ad-hoc)] **********
+changed: [localhost]
+
+TASK [Rendre le script de découverte de zone exécutable sur ns1] ***************
+changed: [localhost]
+
+TASK [Provisionner le ~/.ssh de root avec la clé et l'alias ns1 (pour les hooks certbot)] ***
+ok: [localhost] => (item={'src': '/home/koby/.ssh/id_rsa', 'dest': '/root/.ssh/id_rsa', 'mode': '0600'})
+ok: [localhost] => (item={'src': '/home/koby/.ssh/id_rsa.pub', 'dest': '/root/.ssh/id_rsa.pub', 'mode': '0644'})
+
+TASK [S'assurer que le ~/.ssh de root a les bonnes permissions de répertoire] ***
+ok: [localhost]
+
+TASK [Ajouter l'alias ns1 au ~/.ssh/config de root, s'il n'y est pas déjà] *****
+ok: [localhost]
+
+TASK [[ad-hoc] Découvrir la zone ns1 hébergeant] *******************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Échouer si aucune zone ns1 ne contient] *************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Extraire zone/fichier depuis la sortie de find-zone.sh] *********
+skipping: [localhost]
+
+TASK [[ad-hoc] Construire l'entrée de certificat pour] *************************
+skipping: [localhost]
+
+TASK [[ad-hoc] Zone découverte pour] *******************************************
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend rfc2136 (ns1/BIND)] *********
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend powerdns (dnsp-mst)] ********
+skipping: [localhost]
+
+TASK [Émettre/renouveler les certificats — backend ssh_zonefile (ns1/BIND, édition manuelle)] ***
+included: /home/koby/LINUX/playbooks/tasks/issue_and_queue_cert.yml for localhost => (item={'domain': 'geo.sfrcaraibe.fr', 'extra_sans': [], 'dns_backend': 'ssh_zonefile', 'zone': 'sfrcaraibe.fr', 'zone_file': '/var/named/sfrcaraibe.fr', 'target_host': 'CHANGEME', 'webserver': 'nginx', 'service_name': 'nginx', 'cert_dest_dir': '/etc/nginx/ssl/geo.sfrcaraibe.fr'})
+
+TASK [[geo.sfrcaraibe.fr] Relever le numéro de série actuel (avant émission), si le certificat existe déjà] ***
+ok: [localhost]
+
+TASK [[geo.sfrcaraibe.fr] certbot certonly] ************************************
+[ERROR]: Task failed: Module failed: non-zero return code
+Origin: /home/koby/LINUX/playbooks/tasks/issue_and_queue_cert.yml:20:3
+
+18   tags: [issue]
+19
+20 - name: "[{{ cert.domain }}] certbot certonly"
+     ^ column 3
+
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["certbot", "certonly", "--non-interactive", "--agree-tos", "--expand", "-m", "a.samy@outremer-telecom.fr", "--test-cert", "--manual", "--preferred-challenges", "dns", "--manual-auth-hook", "/root/.secrets/certbot/ns1-zonefile-auth-hook.sh", "--manual-cleanup-hook", "/root/.secrets/certbot/ns1-zonefile-cleanup-hook.sh", "--cert-name", "geo.sfrcaraibe.fr", "-d", "geo.sfrcaraibe.fr"], "delta": "0:05:42.734524", "end": "2026-10-02 12:20:49.239335", "msg": "non-zero return code", "rc": 1, "start": "2026-10-02 12:15:06.504811", "stderr": "Saving debug log to /var/log/letsencrypt/letsencrypt.log\nHook '--manual-auth-hook' for geo.sfrcaraibe.fr reported error code 1\nHook '--manual-auth-hook' for geo.sfrcaraibe.fr ran with error output:\n Timeout en attendant la propagation publique convergente (DoH, double résolveur) du TXT _acme-challenge.geo.sfrcaraibe.fr.\nSome challenges have failed.\nAsk for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.", "stderr_lines": ["Saving debug log to /var/log/letsencrypt/letsencrypt.log", "Hook '--manual-auth-hook' for geo.sfrcaraibe.fr reported error code 1", "Hook '--manual-auth-hook' for geo.sfrcaraibe.fr ran with error output:", " Timeout en attendant la propagation publique convergente (DoH, double résolveur) du TXT _acme-challenge.geo.sfrcaraibe.fr.", "Some challenges have failed.", "Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details."], "stdout": "Requesting a certificate for geo.sfrcaraibe.fr\n\nCertbot failed to authenticate some domains (authenticator: manual). The Certificate Authority reported these problems:\n  Domain: geo.sfrcaraibe.fr\n  Type:   dns\n  Detail: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.geo.sfrcaraibe.fr - check that a DNS record exists for this domain\n\nHint: The Certificate Authority failed to verify the DNS TXT records created by the --manual-auth-hook. Ensure that this hook is functioning correctly and that it waits a sufficient duration of time for DNS propagation. Refer to \"certbot --help manual\" and the Certbot User Guide.", "stdout_lines": ["Requesting a certificate for geo.sfrcaraibe.fr", "", "Certbot failed to authenticate some domains (authenticator: manual). The Certificate Authority reported these problems:", "  Domain: geo.sfrcaraibe.fr", "  Type:   dns", "  Detail: DNS problem: NXDOMAIN looking up TXT for _acme-challenge.geo.sfrcaraibe.fr - check that a DNS record exists for this domain", "", "Hint: The Certificate Authority failed to verify the DNS TXT records created by the --manual-auth-hook. Ensure that this hook is functioning correctly and that it waits a sufficient duration of time for DNS propagation. Refer to \"certbot --help manual\" and the Certbot User Guide."]}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=12   changed=5    unreachable=0    failed=1    skipped=9    rescued=0    ignored=0   
+
+

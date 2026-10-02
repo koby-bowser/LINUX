@@ -1,0 +1,30 @@
+
+The command exited with code 0.
+Output:
+
+playbook: playbooks/issue-deploy-certs.yml
+
+  play #1 (localhost): Émettre/renouveler les certificats Let's Encrypt (DNS-01) et les installer	TAGS: []
+    tasks:
+      Installer certbot, le plugin RFC2136, et les outils nécessaires aux hooks	TAGS: [always]
+      S'assurer que le répertoire des identifiants/hooks certbot existe (700)	TAGS: [always]
+      Déployer le fichier d'identifiants RFC2136 (ns1/BIND)	TAGS: [always]
+      Déployer les hooks manuels PowerDNS (auth/cleanup)	TAGS: [always]
+      Déployer les hooks manuels ns1/BIND (édition de zone via SSH)	TAGS: [always]
+      Déployer le script distant d'édition de zone sur ns1	TAGS: [always]
+      Rendre le script distant exécutable sur ns1	TAGS: [always]
+      Déployer le script de découverte de zone sur ns1 (mode ad-hoc)	TAGS: [always]
+      Rendre le script de découverte de zone exécutable sur ns1	TAGS: [always]
+      Provisionner le ~/.ssh de root avec la clé et l'alias ns1 (pour les hooks certbot)	TAGS: [always]
+      S'assurer que le ~/.ssh de root a les bonnes permissions de répertoire	TAGS: [always]
+      Ajouter l'alias ns1 au ~/.ssh/config de root, s'il n'y est pas déjà	TAGS: [always]
+      [ad-hoc] Découvrir la zone ns1 hébergeant {{ cert_domain | default('') }}	TAGS: [always]
+      [ad-hoc] Échouer si aucune zone ns1 ne contient {{ cert_domain | default('') }}	TAGS: [always]
+      [ad-hoc] Extraire zone/fichier depuis la sortie de find-zone.sh	TAGS: [always]
+      [ad-hoc] Construire l'entrée de certificat pour {{ cert_domain | default('') }}	TAGS: [always]
+      [ad-hoc] Zone découverte pour {{ cert_domain | default('') }}	TAGS: [always]
+      Émettre/renouveler les certificats — backend rfc2136 (ns1/BIND)	TAGS: [issue]
+      Émettre/renouveler les certificats — backend powerdns (dnsp-mst)	TAGS: [issue]
+      Émettre/renouveler les certificats — backend ssh_zonefile (ns1/BIND, édition manuelle)	TAGS: [issue]
+      Résumé des certificats traités	TAGS: [deploy, issue]
+

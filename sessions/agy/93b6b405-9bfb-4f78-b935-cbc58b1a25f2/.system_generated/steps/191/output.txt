@@ -1,0 +1,21 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/sync-ai-sessions.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -263,6 +263,7 @@
+         cmd: git -C "{{ repo_root }}" rev-parse --abbrev-ref HEAD
+       register: _git_branch_cmd
+       changed_when: false
++      check_mode: false
+ 
+     - name: Déterminer la branche git cible
+       ansible.builtin.set_fact:
+@@ -272,6 +272,7 @@
+         cmd: git -C "{{ repo_root }}" status --porcelain "{{ sessions_dir_name }}" ai-sessions
+       register: _git_status
+       changed_when: false
++      check_mode: false
+ 
+     - name: Indexer (git add) les sessions
+       ansible.builtin.command:
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

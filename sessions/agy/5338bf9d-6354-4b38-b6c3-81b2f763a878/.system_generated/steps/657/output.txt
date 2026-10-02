@@ -1,0 +1,133 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+# Dummy redirect
+server {
+    if ($host = commande.sfrcaraibe.fr) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    #server_name  commande2.sfrcaraibe.fr;
+    listen 80;
+    #return 301 https://commande2.sfrcaraibe.fr$request_uri;
+
+
+}
+
+
+server {
+    server_name commande.sfrcaraibe.fr commande.sfrcaraibe.com;
+
+    listen 443 ssl http2;
+    #listen              [::]:443 ssl http2;
+#    include /etc/nginx/omt/ssl_sfrcaraibe.conf;
+    include /etc/nginx/omt/ssl_trp_wextp_afe1.conf;
+
+
+    include /etc/nginx/omt/browser_caching.conf;
+    include /etc/nginx/omt/gzip.conf; 
+
+#    pagespeed on;
+#    include /etc/nginx/omt/pagespeed.conf;
+
+    #modsecurity on;
+    #modsecurity_rules_file /etc/nginx/modsec/main.conf;
+
+    root        /var/www/commande.sfrcaraibe.fr;
+    index       index.php index.html r-index.php;
+    error_log   /var/log/nginx/commande.sfrcaraibe.fr_ssl-error.log;
+    #access_log  off;
+    access_log /var/log/nginx/commande.sfrcaraibe.fr_ssl-access.log apm;
+
+    proxy_intercept_errors on;
+    fastcgi_intercept_errors on;
+
+    #include /etc/nginx/omt/access.conf;
+
+    add_header X-Frame-Options ALLOWALL;
+
+    if (!-e $request_filename) {
+        rewrite /mtq/wp-admin$ $scheme://$host$uri/ permanent;  
+        rewrite /guy/wp-admin$ $scheme://$host$uri/ permanent;  
+        rewrite /gpe/wp-admin$ $scheme://$host$uri/ permanent;  
+        rewrite ^(/[^/]+)?(/wp-.*) $2 last;                     
+        rewrite ^(/[^/]+)?(/.*\.php) $2 last;                   
+    }
+
+#    #Cache everything by default
+#    set $no_cache 0;
+#
+#    #Don't cache POST requests
+#    if ($request_method = POST) {
+#        set $no_cache 1;
+#    }
+#
+#    #Don't cache if the URL contains a query string
+#    if ($query_string != "") {
+#        set $no_cache 1;
+#    }
+#
+#    #Don't cache the following URLs
+#    if ($request_uri ~* "/mtq/wp-admin/|/gpe/wp-admin/|/guy/wp-admin/|/wp-admin/|/xmlrpc.php|wp-.*.php|/feed/|index.php|sitemap(_index)?.xml") {
+#        set $no_cache 1;
+#    }
+#
+#    #Don't cache if there is a cookie called PHPSESSID
+#    if ($http_cookie ~* "comment_author|wordpress_[a-f0-9]+|wp-postpass|wordpress_no_cache|wordpress_logged_in") {
+#        set $no_cache 1;
+#    }
+
+    location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+        # try_files $uri $uri/ /index.html;
+        # try_files $uri $uri/ =404;
+    }
+
+    location ~ \.php$ {
+        #fastcgi_cache eccache; # The name of the cache key-zone to use
+        fastcgi_cache_valid 200 30m; # What to cache: 'Code 200' responses, for half an hour
+        fastcgi_cache_methods GET HEAD; # What to cache: only GET and HEAD requests (not POST)
+        add_header X-Fastcgi-Cache $upstream_cache_status; # Add header so we can see if the cache hits or misses
+
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        # include snippets/fastcgi-php.conf;
+        fastcgi_pass SFRDEV82;
+        include fastcgi_params;
+        fastcgi_param REQUEST_METHOD $request_method;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        # fastcgi_cache MYAPP;
+        fastcgi_cache_valid 200 60m;
+        fastcgi_cache_bypass $no_cache;
+        fastcgi_no_cache $no_cache;
+	proxy_set_header X-Real-IP  $remote_addr;
+	proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_buffering off;
+        proxy_request_buffering off;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+    location /xmlrpc.php {
+        deny all;
+    }
+
+    location = /favicon.ico { log_not_found off; access_log off; }
+    location = /robots.txt { log_not_found off; access_log off; allow all; }
+    ssl_certificate /etc/letsencrypt/live/commande.sfrcaraibe.fr/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/commande.sfrcaraibe.fr/privkey.pem; # managed by Certbot
+}
+

@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+Ignoring 104 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/koby/infra-management-system"].hasTrustDialogAccepted: true in /home/koby/.claude/.config.json.
+Ignoring 3 permissions.additionalDirectories entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/koby/infra-management-system"].hasTrustDialogAccepted: true in /home/koby/.claude/.config.json.
+Claude Code is online and operational. Je tourne sur Opus 5.5 (ID du modèle : `claude-opus-5-5`).
+

@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/inventories/prod/group_vars/dotnet_catalogapi-argos.yml:2:# Réplica de catalogapi-argos (service systemd sur trp-wm2mp-be1, port 5008, pathBase
+/home/koby/infra-management-system/inventories/prod/group_vars/dotnet_catalogapi-argos.yml:8:dotnet_app_name: cgrcore-catalogapi-argos
+/home/koby/infra-management-system/inventories/prod/group_vars/dotnet_catalogapi-argos.yml:10:dotnet_app_dll_path: /var/www/cgrcore/catalogapi-argos/Cgr.Core.CatalogApi.dll
+/home/koby/infra-management-system/inventories/prod/group_vars/dotnet_customerapi-argos.yml:2:# Réplica de customerapi-argos (service systemd sur trp-wm2mp-be1, port 5007, pathBase
+/home/koby/infra-management-system/inventories/prod/group_vars/dotnet_customerapi-argos.yml:8:dotnet_app_name: cgrcore-customerapi-argos
+/home/koby/infra-management-system/inventories/prod/group_vars/dotnet_customerapi-argos.yml:10:dotnet_app_dll_path: /var/www/cgrcore/customerapi-argos/Cgr.Core.CustomerApi.dll
+/home/koby/infra-management-system/playbooks/check-cgrcore-environment.yml:17:      - { name: cgrcore-catalogapi-argos, port: 5008 }
+/home/koby/infra-management-system/playbooks/check-cgrcore-environment.yml:19:      - { name: cgrcore-customerapi-argos, port: 5007 }
+/home/koby/infra-management-system/playbooks/check-cgrcore-all-status.yml:16:      - { name: cgrcore-catalogapi-argos, port: 5008 }
+/home/koby/infra-management-system/playbooks/check-cgrcore-all-status.yml:18:      - { name: cgrcore-customerapi-argos, port: 5007 }
+/home/koby/infra-management-system/playbooks/check-cgrcore-files-present.yml:17:      - /var/www/cgrcore/catalogapi-argos/Cgr.Core.CatalogApi.dll
+/home/koby/infra-management-system/playbooks/check-cgrcore-files-present.yml:19:      - /var/www/cgrcore/customerapi-argos/Cgr.Core.CustomerApi.dll
+

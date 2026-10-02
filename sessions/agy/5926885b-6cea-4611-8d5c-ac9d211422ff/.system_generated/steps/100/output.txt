@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+attachments.create response: {'data': {'mode': 'post', 'uploadUrl': '/api/files.create', 'form': {'Cache-Control': 'max-age=31557600', 'Content-Type': 'image/png', 'key': 'uploads/66d00cb4-a3cf-422a-a249-ed306710d7cf/cd659696-41ea-4769-94d8-369aa52f8717/Decom_workflow.png', 'acl': 'private', 'maxUploadSize': '20971520', 'contentType': 'image/png', 'sig': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJ1cGxvYWRzLzY2ZDAwY2I0LWEzY2YtNDIyYS1hMjQ5LWVkMzA2NzEwZDdjZi9jZDY1OTY5Ni00MWVhLTQ3NjktOTRkOC0zNjlhYTUyZjg3MTcvRGVjb21fd29ya2Zsb3cucG5nIiwidHlwZSI6ImF0dGFjaG1lbnQtdXBsb2FkIiwiaWF0IjoxNzkwMjQ1Njg2LCJleHAiOjE3OTAyNDkyODZ9.9Ul8VDMr5yq36hMrFLoLOmJNDsK_UtZxI6YcgF30CP8', '_csrf': ''}, 'attachment': {'userId': '66d00cb4-a3cf-422a-a249-ed306710d7cf', 'documentId': None, 'contentType': 'image/png', 'name': 'Decom_workflow.png', 'id': 'cd659696-41ea-4769-94d8-369aa52f8717', 'url': '/api/attachments.redirect?id=cd659696-41ea-4769-94d8-369aa52f8717', 'size': '487004'}}, 'status': 200, 'ok': True}
+/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1109: InsecureRequestWarning: Unverified HTTPS request is being made to host 'wiki.corp.intranet.local'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+upload status: 200 {"success":true,"status":200,"ok":true}
+attachment redirect url: /api/attachments.redirect?id=cd659696-41ea-4769-94d8-369aa52f8717
+

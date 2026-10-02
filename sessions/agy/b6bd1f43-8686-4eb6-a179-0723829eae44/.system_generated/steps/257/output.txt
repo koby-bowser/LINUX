@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+relative=geo
+label=_acme-challenge.geo
+full=_acme-challenge.geo.sfrcaraibe.fr.
+

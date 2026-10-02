@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+total 56
+drwxrwxr-x  9 koby koby 4096 Sep 24 11:53 .
+drwx------ 41 koby koby 4096 Sep 24 11:53 ..
+-rw-rw-r--  1 koby koby  313 Sep 17 16:00 ansible.cfg
+lrwxrwxrwx  1 koby koby   23 Sep 24 11:53 check-kea.yml -> playbooks/check-kea.yml
+lrwxrwxrwx  1 koby koby   25 Sep 17 11:05 copy-to-remote.sh -> scripts/copy-to-remote.sh
+lrwxrwxrwx  1 koby koby   28 Sep 24 11:53 deploy-ssh-key.yml -> playbooks/deploy-ssh-key.yml
+drwxrwxr-x  8 koby koby 4096 Sep 24 11:53 .git
+drwxrwxr-x  3 koby koby 4096 Sep 17 16:00 .github
+-rw-rw-r--  1 koby koby  343 Sep  9 18:39 .gitignore
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:10 host_vars
+drwxrwxr-x  2 koby koby 4096 Sep 24 11:53 inventory
+-rw-rw-r--  1 koby koby  437 Sep 17 16:00 inventory.yml
+lrwxrwxrwx  1 koby koby   15 Sep 17 11:05 kssh -> scripts/kssh.py
+lrwxrwxrwx  1 koby koby   36 Sep 24 11:53 patch-single-writer-fe.yml -> playbooks/patch-single-writer-fe.yml
+drwxrwxr-x  6 koby koby 4096 Sep 24 11:53 playbooks
+-rw-rw-r--  1 koby koby 2931 Sep 17 16:00 README.md
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:10 roles
+drwxrwxr-x  2 koby koby 4096 Sep 17 11:05 scripts
+lrwxrwxrwx  1 koby koby   25 Sep 17 11:05 search-servers.sh -> scripts/search-servers.sh
+-rw-------  1 koby koby    5 Sep  9 16:08 .vault_pass
+

@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/scripts/acme/gitlab_api_vault.yml
+/home/koby/infra-management-system/.gitlab-ci.yml
+/home/koby/infra-management-system/roles/bootstrap_gitlab_runner
+/home/koby/infra-management-system/playbooks/rekey-vault-secrets.yml
+/home/koby/infra-management-system/playbooks/bootstrap-gitlab-runner.yml
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml
+/home/koby/infra-management-system/playbooks/tasks/commit-le-bundle-gitlab.yml
+

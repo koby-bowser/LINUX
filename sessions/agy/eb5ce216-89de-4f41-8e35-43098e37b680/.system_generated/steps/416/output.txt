@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+ M ansible.cfg
+ M playbooks/deploy-ssh-key.yml
+?? copy-to-remote.sh
+?? inventory/server_pool.json
+?? inventory/server_pool.yml
+?? playbooks/bootstrap-koby-bowser.yml
+?? playbooks/copy-to-tmp.yml
+?? playbooks/kdbx-pool.yml
+?? playbooks/search-servers.yml
+?? scripts/
+?? search-servers.sh
+?? tmp/
+?? typescript
+

@@ -1,0 +1,49 @@
+
+The command exited with code 0.
+Output:
+
+@drawio/mcp@1.6.1 | Apache-2.0 | deps: 2 | versions: 34
+Official draw.io MCP server for LLMs - Open diagrams in draw.io editor
+https://github.com/jgraph/drawio-mcp#readme
+
+keywords: mcp, drawio, draw.io, diagrams, mermaid, csv, xml, llm, claude, anthropic
+
+bin: drawio-mcp
+
+dist
+.tarball: https://registry.npmjs.org/@drawio/mcp/-/mcp-1.6.1.tgz
+.shasum: 6db12186a27ec1c98dedf6c48fe3273a379b19d8
+.integrity: sha512-2BnfRxhR/Y3luKZEiluQoK9ZZEfH19240jki2n2T+QMvp79DmUN8NYWGTzrGLcJfsnSJwAUfjD51nsJXYHptLw==
+.unpackedSize: 789.9 kB
+
+dependencies:
+@modelcontextprotocol/sdk: ^1.27.1 pako: ^2.1.0                       
+
+maintainers:
+- drawio <npm@draw.io>
+
+dist-tags:
+latest: 1.6.1  
+
+published yesterday by GitHub Actions <npm-oidc-no-reply@github.com>
+@drawio/mcp@drawio/mcp
+Official draw.io MCP server for LLMs - Open diagrams in draw.io editorOfficial draw.io MCP server for LLMs - Open diagrams in draw.io editor
+Version 1.6.1 published 2026-09-21 by GitHub Actions
+Maintainers: drawio
+Keywords: mcp drawio draw.io diagrams mermaid csv xml llm claude anthropic
+https://npm.im/@drawio/mcp
+
+drawio-mcp-serverdrawio-mcp-server
+Provides Draw.io services to MCP ClientsProvides Draw.io services to MCP Clients
+Version 2.3.0 published 2026-09-15 by GitHub Actions
+Maintainers: lgazo
+Keywords: mcp modelcontextprotocol server draw.io drawio diagrams.net diagramsnet diagram claude
+https://npm.im/drawio-mcp-server
+
+@next-ai-drawio/mcp-server@next-ai-drawio/mcp-server
+MCP server for Next AI Draw.io - AI-powered diagram generation with real-time browser previewMCP server for Next AI Draw.io - AI-powered diagram generation with real-time browser preview
+Version 0.2.3 published 2026-07-12 by GitHub Actions
+Maintainers: dayuanjiang
+Keywords: mcp drawio diagram ai claude model-context-protocol
+https://npm.im/@next-ai-drawio/mcp-server
+

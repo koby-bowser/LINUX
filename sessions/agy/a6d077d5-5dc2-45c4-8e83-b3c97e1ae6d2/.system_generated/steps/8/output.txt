@@ -1,0 +1,44 @@
+
+The command exited with code 0.
+Output:
+* Issue another request to this URL: 'https://outlook.cloud.microsoft/mail/'
+* Uses proxy env variable no_proxy == '.intranet.local,localhost,127.0.0.0/8,::1,outremer-telecom.fr,.outremer-telecom.fr'
+* Uses proxy env variable https_proxy == 'http://a.samy:koby_%40miT_S%40My@172.16.75.9:3128'
+* Re-using existing https: connection with proxy 172.16.75.9
+} [5 bytes data]
+> GET /mail/ HTTP/1.1
+> Host: outlook.cloud.microsoft
+> User-Agent: curl/8.14.1
+> Accept: */*
+> 
+* Request completely sent off
+{ [5 bytes data]
+< HTTP/1.1 417 Expectation Failed
+< Content-Length: 0
+< Server: Microsoft-HTTPAPI/2.0
+< X-NanoProxy: 1,1
+< Request-Id: 4eee6d1d-b6ea-a9e2-b436-c048e45634e3
+< X-CalculatedFETarget: FRYP281CU001.internal.outlook.com
+< MS-CV: HW3uTuq24qm0NsBI5FY04w.1.1
+< x-besku: UNKNOWN
+< X-BackEndHttpStatus: 417,417
+< Report-To: {"group":"NelOfficeUpload1","max_age":7200,"endpoints":[{"url":"https://exo.nel.measure.office.net/api/report?TenantId=&FrontEnd=Cafe&DestinationEndpoint=HHN&RemoteIP=217.175.160.0&Environment=MT&HttpStatusFrom=BE&ServiceName=Default.mail&MiraPartnerName="}],"include_subdomains":true}
+< X-BEPartition: CLDEUP281FRA01
+< X-CalculatedBETarget: FR2P281MB2826.DEUP281.PROD.OUTLOOK.COM
+< X-FEEFZInfo: FRA
+< X-FEServer: FR0P281CA0169
+< X-Proxy-BackendServerStatus: 417
+< X-Proxy-RoutingCorrectness: 1
+< X-FirstHopCafeEFZ: HHN
+< Alt-Svc: h3=":443";ma=2592000,h3-29=":443";ma=2592000
+< Strict-Transport-Security: max-age=31536000; includeSubDomains
+< NEL: {"report_to":"NelOfficeUpload1","max_age":7200,"include_subdomains":true,"failure_fraction":1.0,"success_fraction":0.01}
+< Date: Wed, 30 Sep 2026 10:19:13 GMT
+< X-Cache: MISS from th2-proxyusr-01
+< X-Cache-Lookup: MISS from th2-proxyusr-01:3128
+< Via: 1.1 th2-proxyusr-01 (squid)
+< Connection: keep-alive
+< 
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+* Connection #0 to host 172.16.75.9 left intact
+

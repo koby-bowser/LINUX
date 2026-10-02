@@ -1,0 +1,111 @@
+
+The command exited with code 0.
+Output:
+commit 928d43c553bb8c8553e4246950f78d2b30268cfc (HEAD -> master)
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Thu Sep 10 19:14:01 2026 +0400
+
+    feat(certbot): update DNS-01 hooks for passwordless PowerDNS master challenge injection
+
+ playbooks/files/certbot-hooks/pdns-auth-hook.sh    | 90 +++++++++++++++-------
+ playbooks/files/certbot-hooks/pdns-cleanup-hook.sh | 38 +++++----
+ 2 files changed, 88 insertions(+), 40 deletions(-)
+
+commit a5b38b40add6deba640f769f59e4f235fa6fa1d5
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Fri Sep 4 12:23:17 2026 +0400
+
+    Add Let's Encrypt DNS-01 cert issuance/deployment playbook
+    
+    issue-deploy-certs.yml issues/renews certs for the domains in
+    certificates.yml and deploys them to their web server only when the
+    serial actually changed (no unnecessary reloads). Three DNS-01
+    backends: rfc2136 (certbot's official plugin, BIND+TSIG), powerdns
+    (REST API via manual certbot hooks, no reliable plugin exists), and
+    ssh_zonefile (manual zone-file editing over SSH for ns1, which has
+    neither TSIG nor an API) — plus an ad-hoc mode that auto-discovers
+    the owning ns1 zone for a one-off domain not in the catalogue.
+    
+    Defaults to Let's Encrypt staging (letsencrypt_staging: true) unless
+    explicitly overridden.
+    
+    Includes the encrypted vault (group_vars/all/vault.yml, AES256) and
+    its plaintext .example template, the RFC2136 credentials Jinja
+    template, the certbot manual hooks for PowerDNS and ns1 zonefile
+    editing, and the shared issue/deploy task files.
+    
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_018wejiCmwibafyS9sBqqfnX
+
+ .../files/certbot-hooks/ns1-zonefile-auth-hook.sh  |  76 +++++
+ .../certbot-hooks/ns1-zonefile-cleanup-hook.sh     |  22 ++
+ playbooks/files/certbot-hooks/pdns-auth-hook.sh    |  37 +++
+ playbooks/files/certbot-hooks/pdns-cleanup-hook.sh |  20 ++
+ playbooks/files/ns1-hooks/acme-zone-update.sh      | 109 +++++++
+ playbooks/files/ns1-hooks/find-zone.sh             |  43 +++
+ playbooks/group_vars/all/vault.yml                 |  77 +++++
+ playbooks/group_vars/all/vault.yml.example         |  32 ++
+ playbooks/issue-deploy-certs.yml                   | 330 +++++++++++++++++++++
+ playbooks/tasks/deploy_and_reload_cert.yml         |  38 +++
+ playbooks/tasks/issue_and_queue_cert.yml           |  50 ++++
+ playbooks/templates/rfc2136-credentials.ini.j2     |   5 +
+ 12 files changed, 839 insertions(+)
+
+commit fbadb50a067d0a60fec4887d334a40ebbd6faee0
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Fri Sep 4 12:23:07 2026 +0400
+
+    Add SSH key deployment playbook
+    
+    Pushes a local public key to a remote host's authorized_keys via
+    ansible.posix.authorized_key, resolving the effective sshd
+    AuthorizedKeysFile (handles %u/%h tokens) rather than assuming the
+    default path. Validates sshd config before reload and refuses to
+    touch a shared AuthorizedKeysFile directory's ownership/permissions
+    to avoid an accidental privilege escalation.
+    
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_018wejiCmwibafyS9sBqqfnX
+
+ playbooks/deploy-ssh-key.yml | 177 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 177 insertions(+)
+
+commit 39c49c6d8241dd3a598da55ab9f45cc31ff8c9f3
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Fri Sep 4 12:23:00 2026 +0400
+
+    Initial Ansible control node scaffolding
+    
+    ansible.cfg (inventory path, host key checking on, YAML callback),
+    gitignore for vault/retry files, base inventory (localhost only for
+    now), and a read-only smoke-test playbook to validate the control
+    node (distro/kernel/disk facts).
+    
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_018wejiCmwibafyS9sBqqfnX
+
+ .gitignore                  | 10 ++++++++++
+ ansible.cfg                 | 13 +++++++++++++
+ inventory/hosts.ini         | 15 +++++++++++++++
+ playbooks/00-smoke-test.yml | 17 +++++++++++++++++
+ 4 files changed, 55 insertions(+)
+
+commit d74c56bea2590b03eda713d510d4b48d26712c36
+Author: Amit Samy <a.samy@outremer-telecom.fr>
+Date:   Fri Sep 4 12:07:59 2026 +0400
+
+    Add diamond.only.fr to certificates catalogue
+    
+    certs_filter=diamond.only.fr matched nothing since the domain was only
+    ever issued via ad-hoc mode (cert_domain=), never registered in the
+    catalogue. This left active_certificates empty and cascaded into every
+    downstream task being skipped, including the ssh_zonefile backend loop.
+    
+    Mirrors the andesite.only.fr entry (same only.fr zone/ns1 backend).
+    
+    Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+    Claude-Session: https://claude.ai/code/session_018wejiCmwibafyS9sBqqfnX
+
+ playbooks/group_vars/all/certificates.yml | 53 +++++++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
+

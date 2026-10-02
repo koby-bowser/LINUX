@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+ssh://
+ssh22://
+ssh30://
+

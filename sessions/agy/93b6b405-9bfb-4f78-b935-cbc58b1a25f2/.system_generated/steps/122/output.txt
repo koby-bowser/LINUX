@@ -1,0 +1,7 @@
+Task: 93b6b405-9bfb-4f78-b935-cbc58b1a25f2/task-120
+Status: RUNNING
+Log: /home/koby/.gemini/antigravity-cli/brain/93b6b405-9bfb-4f78-b935-cbc58b1a25f2/.system_generated/tasks/task-120.log
+Log output:
+WARNING: terminal is not fully functional
+Press RETURN to continue 
+Last progress: 13s ago

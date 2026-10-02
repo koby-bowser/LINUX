@@ -1,0 +1,65 @@
+
+The command exited with code 0.
+Output:
+Usage: claude [options] [command] [prompt]
+
+Claude Code - starts an interactive session by default, use -p/--print for
+non-interactive output
+
+Arguments:
+  prompt                                Your prompt
+
+Options:
+  --add-dir <directories...>            Additional directories to allow tool
+                                        access to
+  --agent <agent>                       Agent for the current session. Overrides
+                                        the 'agent' setting.
+  --agents <json-or-file>               JSON object defining custom agents, or
+                                        with --print the path to a file that
+                                        holds one (e.g. '{"reviewer":
+                                        {"description": "Reviews code",
+                                        "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions  Enable bypassing all permission checks
+                                        as an option, without it being enabled
+                                        by default. Recommended only for
+                                        sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>
+      Comma or space-separated list of tool names to allow (e.g. "Bash(git *)
+      Edit")
+  --append-system-prompt <prompt>       Append a system prompt to the default
+                                        system prompt
+  --autocompact <auto|tokens>           Auto-compact window size (auto, or
+                                        100k–1M tokens)
+  --ax-screen-reader                    Render screen-reader friendly output
+---
+Codex CLI
+
+If no subcommand is specified, options will be forwarded to the interactive CLI.
+
+Usage: codex [OPTIONS] [PROMPT]
+       codex [OPTIONS] <COMMAND> [ARGS]
+
+Commands:
+  agents            Browse all agent sessions on the shared local app-server
+                    daemon
+  exec              Run Codex non-interactively [aliases: e]
+  review            Run a code review non-interactively
+  login             Manage login
+  logout            Remove stored authentication credentials
+  mcp               Manage external MCP servers for Codex
+  plugin            Manage Codex plugins
+  app-server        [experimental] Run the app server or related tooling
+  remote-control    [experimental] Manage the app-server daemon with remote
+                    control enabled
+  completion        Generate shell completion scripts
+  update            Update Codex to the latest version
+  doctor            Diagnose local Codex installation, config, auth, and runtime
+                    health
+  sandbox           Run commands within a Codex-provided sandbox
+  debug             Debugging tools
+  apply             Apply the latest diff produced by Codex agent as a `git
+                    apply` to your local working tree [aliases: a]
+  resume            Resume a previous interactive session (picker by default;
+                    use --last to continue the most recent)
+  queue             Queue a message for an existing session
+

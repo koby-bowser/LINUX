@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+subject=CN=postfix.outremer-telecom.fr
+issuer=C=US, O=Let's Encrypt, CN=YE1
+notBefore=Aug 17 11:48:09 2026 GMT
+notAfter=Nov 15 11:48:08 2026 GMT
+X509v3 Subject Alternative Name: 
+    DNS:postfix.outremer-telecom.fr
+

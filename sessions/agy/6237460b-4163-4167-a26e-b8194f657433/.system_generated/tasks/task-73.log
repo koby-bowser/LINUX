@@ -1,0 +1,52 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== NGINX -T SYNTAX CHECK ===
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: [warn] "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+=== SYSTEMCTL STATUS NGINX ===
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Thu 2026-07-02 06:39:24 UTC; 2 months 9 days ago
+       Docs: man:nginx(8)
+    Process: 621690 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 621691 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 739795 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 621765
+      Tasks: 2 (limit: 2319)
+     Memory: 382.7M
+        CPU: 15min 58.989s
+     CGroup: /system.slice/nginx.service
+             ├─621765 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+             └─768184 nginx: worker process
+
+=== LISTENING PORTS (ss -tulpn) ===
+
+=== SITES ENABLED & CONF.D ===
+/etc/nginx/conf.d/:
+total 4
+drwxr-xr-x  2 root root    6 May 29  2021 .
+drwxr-xr-x 10 root root 4096 Aug 19 05:12 ..
+
+/etc/nginx/sites-enabled/:
+total 4
+drwxr-xr-x  2 root root   56 Aug 10 11:02 .
+drwxr-xr-x 10 root root 4096 Aug 19 05:12 ..
+lrwxrwxrwx  1 root root   61 Apr 24  2025 02-extranetclient.outremer-telecom.fr.conf -> ../sites-available/02-extranetclient.outremer-telecom.fr.conf
+
+=== RECENT ERROR LOGS ===
+2026/09/10 07:29:27 [warn] 827749#827749: "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+2026/09/10 07:29:27 [warn] 827749#827749: "ssl_stapling" ignored, no OCSP responder URL in the certificate "/etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem"
+2026/09/10 07:29:27 [notice] 827749#827749: ModSecurity-nginx v1.0.3 (rules loaded inline/local/remote: 0/908/0)

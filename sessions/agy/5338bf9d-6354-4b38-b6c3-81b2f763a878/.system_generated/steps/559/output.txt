@@ -1,0 +1,5 @@
+
+The command exited with code 127.
+Output:
+bash: line 1: docker: command not found
+

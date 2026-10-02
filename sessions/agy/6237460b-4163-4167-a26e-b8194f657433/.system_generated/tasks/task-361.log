@@ -1,0 +1,28 @@
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+[sudo] password for superuser: === Test curl from Backend Central ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    LefHTTP/2 401 
+server: nginx
+date: Thu, 10 Sep 2026 12:00:24 GMT
+content-type: application/json;charset=ISO-8859-1
+content-length: 80
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+x-content-type-options: nosniff
+x-xss-protection: 0
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+t  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    80  100    80    0     0   2000      0 --:--:-- --:--:-- --:--:--  2000

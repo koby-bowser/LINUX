@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+
+=== [Search Results for '172.30.231.17': 4 match(es)] ===
+
+   1. trp-wm2mp-fe1 [SSH]
+      IP(s)   : 172.30.231.177 Port: 30
+      User    : superuser
+      Group   : OMT_PFS.SYSTEME.ALL/TRP/linux/WM2MP
+
+   2. trp-wm2mp-fe1 [SSH]
+      IP(s)   : 172.30.231.177 Port: 30
+      User    : root
+      Group   : OMT_PFS.SYSTEME.ALL/TRP/linux/WM2MP/root
+
+   3. trp-wm2mv-fe1 [SSH]
+      IP(s)   : 172.30.237.177, 172.30.231.177 Port: 30
+      User    : superuser
+      Group   : OMT_PFS.SYSTEME.ALL/TRP/linux/WM2MV
+
+   4. trp-wm2mv-fe1 [SSH]
+      IP(s)   : 172.30.236.177, 172.30.231.177 Port: 30
+      User    : root
+      Group   : OMT_PFS.SYSTEME.ALL/TRP/linux/WM2MV/root
+
+

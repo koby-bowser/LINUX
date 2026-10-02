@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+total 16
+drwxrwxr-x 4 koby koby 4096 Sep 10 11:27 .
+drwxr-xr-x 4 koby koby 4096 Sep  8 17:51 ..
+drwxrwxr-x 2 koby koby 4096 Sep 10 11:27 koby-bowser-nginx
+drwxrwxr-x 2 koby koby 4096 Sep  7 12:15 koby-bowser-sysadmin
+

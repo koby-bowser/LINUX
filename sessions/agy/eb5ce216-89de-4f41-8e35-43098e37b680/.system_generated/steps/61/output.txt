@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+1.3G	/var/cache
+465M	/opt/brave.com
+386M	/var/lib
+371M	/opt/drawio
+104M	/var/log
+14M	/var/backups
+1.4M	/var/mail
+56K	/var/tmp
+52K	/var/spool
+20K	/var/www
+4.0K	/var/snap
+4.0K	/var/opt
+4.0K	/var/local
+0	/var/run
+0	/var/lock
+

@@ -1,0 +1,21 @@
+
+The command exited with code 0.
+Output:
+[WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+[DEPRECATION WARNING]: The '-o' argument is deprecated. This feature will be removed from ansible-core version 2.23. Use callback configuration to enable the oneline callback instead.
+[DEPRECATION WARNING]: The oneline callback plugin is deprecated. This feature will be removed from ansible-core version 2.23.
+trp-wextp-fe3 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-fe2 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-fe1 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be2 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be1 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be4 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be5 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be3 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be7 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be6 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be8 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be9 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be10 | SUCCESS => {"changed": false,"ping": "pong"}
+trp-wextp-be11 | SUCCESS => {"changed": false,"ping": "pong"}
+

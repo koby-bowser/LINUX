@@ -1,0 +1,18 @@
+
+The command exited with code 0.
+Output:
+[
+  {
+    "title": "mtq-mailsrvp-01 (172.30.39.153)",
+    "group": "OMT/PROD",
+    "ips": [
+      "172.30.39.153"
+    ],
+    "primary_ip": "172.30.39.153",
+    "username": "superuser",
+    "port": 30,
+    "url": "ssh://172.30.39.153:30",
+    "notes": "Postfix mail server port 30"
+  }
+]
+

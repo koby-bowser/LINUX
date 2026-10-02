@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+<truncated 139 lines>
+}
+
+PLAY RECAP *********************************************************************
+trp-wextp-fe1              : ok=22   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-fe2              : ok=21   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-fe3              : ok=21   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+

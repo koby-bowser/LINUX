@@ -1,0 +1,57 @@
+
+The command exited with code 0.
+Output:
+diff --git a/inventories/dev/hosts.yml b/inventories/dev/hosts.yml
+index a163b01..447844e 100644
+--- a/inventories/dev/hosts.yml
++++ b/inventories/dev/hosts.yml
+@@ -22,10 +22,6 @@ all:
+     trp-wm2md-be2:
+       ansible_host: 172.30.243.194
+       ansible_port: 30
+-    # Serveur mail (Postfix / Dovecot / Roundcube)
+-    mtq-mailsrvp-01:
+-      ansible_host: 172.30.39.153
+-      ansible_port: 30
+   children:
+     databases:
+       children:
+@@ -80,8 +76,4 @@ all:
+     batch_selfcarebusiness_php:
+       hosts:
+         trp-wm2md-be2:
+-    # Serveurs mail (Postfix / Dovecot / Roundcube)
+-    mail_servers:
+-      hosts:
+-        mtq-mailsrvp-01:
+ 
+diff --git a/inventories/prod/hosts.yml b/inventories/prod/hosts.yml
+index e93c8d5..938486a 100644
+--- a/inventories/prod/hosts.yml
++++ b/inventories/prod/hosts.yml
+@@ -114,6 +114,15 @@ all:
+       ansible_host: 172.30.231.113
+       ansible_port: 30
+       ansible_user: spui-runner
++    # Serveur mail Martinique (Postfix / Dovecot / Roundcube). Héberge le service SMTP/IMAP
++    # et le certificat public Let's Encrypt postfix.outremer-telecom.fr émis le 17/08/2026.
++    # Bootstrappé manuellement (spui-runner) et rattaché au runner Semaphore PROD
++    # (th2-ansip-run1). Volontairement HORS des groupes partagés wextp/frontaux/backends :
++    # regroupé dans mail_servers ci-dessous.
++    mtq-mailsrvp-01:
++      ansible_host: 172.30.39.153
++      ansible_port: 30
++      ansible_user: spui-runner
+   children:
+     databases:
+       children:
+@@ -230,3 +239,8 @@ all:
+       hosts:
+         trp-efaliap-cmp1:
+         trp-efaliap-cmp2:
++    # Serveurs mail (Postfix / Dovecot / Roundcube)
++    mail_servers:
++      hosts:
++        mtq-mailsrvp-01:
++
+

@@ -1,0 +1,30 @@
+
+The command exited with code 0.
+Output:
+total 368
+drwxr-xr-x 15 koby koby  4096 Oct  2 15:02 .
+drwxrwxr-x  7 koby koby  4096 Sep  7 18:23 ..
+drwxr-xr-x  2 koby koby  4096 Oct  2 15:02 annotations
+drwxr-xr-x  2 koby koby  4096 Sep 30 10:55 bin
+drwxr-xr-x 18 koby koby  4096 Oct  2 15:02 brain
+drwxr-xr-x  3 koby koby  4096 Sep 29 10:36 builtin
+drwxr-xr-x  2 koby koby  4096 Oct  2 15:02 cache
+lrwxrwxrwx  1 koby koby    27 Oct  2 14:56 cli.log -> log/cli-20261002_145641.log
+drwxr-xr-x  2 koby koby  4096 Oct  2 15:02 conversations
+-rw-r--r--  1 koby koby 98304 Oct  2 14:57 conversation_summaries.db
+-rw-r--r--  1 koby koby 32768 Oct  2 15:02 conversation_summaries.db-shm
+-rw-r--r--  1 koby koby 28872 Oct  2 15:02 conversation_summaries.db-wal
+drwxr-xr-x  2 koby koby  4096 Oct  2 14:56 crashes
+-rw-------  1 koby koby 76604 Oct  2 15:02 history.jsonl
+drwxr-xr-x  2 koby koby  4096 Sep 29 18:30 implicit
+-rw-r--r--  1 koby koby    36 Sep  7 12:03 installation_id
+-rw-------  1 koby koby  6924 Oct  2 15:02 jetbox_summaries_proto.pb
+-rw-------  1 koby koby   518 Sep  7 12:03 jetski_state.pbtxt
+drwxr-xr-x  2 koby koby  4096 Sep  7 12:03 knowledge
+-rw-rw-r--  1 koby koby     0 Oct  2 14:56 last_check.timestamp
+drwxr-xr-x  2 koby koby  4096 Oct  2 14:56 log
+drwxr-xr-x  5 koby koby  4096 Sep 22 18:29 mcp
+drwxr-xr-x  2 koby koby  4096 Oct  2 15:02 presence
+-rw-------  1 koby koby 48032 Oct  2 12:25 settings.json
+drwxr-xr-x  2 koby koby  4096 Oct  2 14:56 updater
+

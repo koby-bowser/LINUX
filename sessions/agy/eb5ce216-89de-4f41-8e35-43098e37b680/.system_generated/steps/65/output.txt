@@ -1,0 +1,10 @@
+
+The command exited with code 1.
+Output:
+16G	/usr
+4.0K	/root
+836M	/opt
+4.0K	/srv
+1.8G	/var
+27G	/home/koby
+

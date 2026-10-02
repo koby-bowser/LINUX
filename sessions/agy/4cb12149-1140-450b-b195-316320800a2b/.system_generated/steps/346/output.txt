@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+templateId: None
+collectionId: 03d7f507-0722-46bb-ab83-474b42ba6a1c
+

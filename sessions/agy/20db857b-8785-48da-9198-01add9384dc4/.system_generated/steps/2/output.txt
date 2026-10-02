@@ -1,0 +1,8 @@
+{"name":"20db857b-8785-48da-9198-01add9384dc4", "isDir":true}
+{"name":"50479c19-5180-4aa7-94da-62d796e908db", "isDir":true}
+{"name":"5338bf9d-6354-4b38-b6c3-81b2f763a878", "isDir":true}
+{"name":"6237460b-4163-4167-a26e-b8194f657433", "isDir":true}
+{"name":"ac6b2cc9-4e43-49c7-a9af-9015af0f4f0d", "isDir":true}
+{"name":"eb5ce216-89de-4f41-8e35-43098e37b680", "isDir":true}
+
+Summary: This directory contains 6 subdirectories and 0 files.

@@ -1,0 +1,15 @@
+
+The command exited with code 0.
+Output:
+total 144
+drwx------  2 koby koby  4096 Sep  3 16:24 .
+drwx------ 37 koby koby  4096 Sep  7 18:43 ..
+-rw-------  1 koby koby   103 Jul 10 11:48 authorized_keys
+-rw-------  1 koby koby   175 Sep  3 16:24 config
+-rw-------  1 koby koby   411 Jul 10 11:36 id_ed25519
+-rw-r--r--  1 koby koby   100 Jul 10 11:36 id_ed25519.pub
+-rw-------  1 koby koby  3381 Sep  3 16:23 id_rsa
+-rw-r--r--  1 koby koby   745 Sep  3 16:23 id_rsa.pub
+-rw-------  1 koby koby 55652 Sep  4 18:14 known_hosts
+-rw-------  1 koby koby 53584 Jul 27 12:46 known_hosts.old
+

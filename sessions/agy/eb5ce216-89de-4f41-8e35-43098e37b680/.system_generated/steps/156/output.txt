@@ -1,0 +1,7 @@
+
+The command exited with code 4.
+Output:
+
+PLAY [Validate local source file] **********************************************
+[ERROR]: Attempting to decrypt but no vault secrets found.
+

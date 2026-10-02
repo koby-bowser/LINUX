@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+172.30.230.97   trp-wextp-fe1.intranet.local
+172.30.230.98   trp-wextp-fe2.intranet.local
+172.30.230.99   trp-wextp-fe3.intranet.local
+

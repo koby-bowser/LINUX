@@ -1,0 +1,4 @@
+{"File":"/home/koby/.claude.json","LineNumber":2316,"LineContent":"    \"semaphore\": {"}
+{"File":"/home/koby/.claude.json","LineNumber":2318,"LineContent":"      \"command\": \"semaphore-mcp\","}
+{"File":"/home/koby/.claude.json","LineNumber":2321,"LineContent":"        \"SEMAPHORE_URL\": \"https://semaphore.corp.intranet.local\","}
+{"File":"/home/koby/.claude.json","LineNumber":2322,"LineContent":"        \"SEMAPHORE_API_TOKEN\": \"idjmlcr2-4355we8ydcffidc-cwd99k0cmo86v2zwju=\","}

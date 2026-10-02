@@ -1,0 +1,5 @@
+
+The command exited with code 1.
+Output:
+[WARN] No server found in KeePass pool matching '172.30.198.50'.
+

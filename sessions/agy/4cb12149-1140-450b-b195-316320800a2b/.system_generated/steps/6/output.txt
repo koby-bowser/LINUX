@@ -1,0 +1,57 @@
+
+The command exited with code 0.
+Output:
+total 28
+drwxr-xr-x 4 koby koby 4096 Sep  8 17:51 .
+drwxrwxr-x 7 koby koby 4096 Sep  7 18:23 ..
+-rw-rw-r-- 1 koby koby 2960 Sep  8 17:51 AGENTS.md
+-rw------- 1 koby koby   80 Sep  7 12:03 config.json
+-rw-r--r-- 1 koby koby  423 Sep  7 17:56 mcp_config.json
+-rw-r--r-- 1 koby koby    0 Sep  7 12:03 .migrated
+drwxr-xr-x 2 koby koby 4096 Sep  7 12:03 projects
+drwxrwxr-x 4 koby koby 4096 Sep 10 11:27 skills
+{
+  "mcpServers": {
+    "semaphore": {
+      "command": "/home/koby/.local/bin/semaphore-mcp",
+      "args": [],
+      "env": {
+        "SEMAPHORE_URL": "https://semaphore.corp.intranet.local",
+        "SEMAPHORE_API_TOKEN": "idjmlcr2-4355we8ydcffidc-cwd99k0cmo86v2zwju=",
+        "REQUESTS_CA_BUNDLE": "/etc/ssl/certs/ca-certificates.crt",
+        "SSL_CERT_FILE": "/etc/ssl/certs/ca-certificates.crt"
+      }
+    }
+  }
+}
+total 332
+drwxr-xr-x 15 koby koby  4096 Sep 22 17:59 .
+drwxrwxr-x  7 koby koby  4096 Sep  7 18:23 ..
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 annotations
+drwxr-xr-x  2 koby koby  4096 Sep 22 10:58 bin
+drwxr-xr-x 12 koby koby  4096 Sep 22 17:59 brain
+drwxr-xr-x  3 koby koby  4096 Sep 21 11:27 builtin
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 cache
+lrwxrwxrwx  1 koby koby    27 Sep 22 17:59 cli.log -> log/cli-20260922_175926.log
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 conversations
+-rw-r--r--  1 koby koby 94208 Sep 22 13:05 conversation_summaries.db
+-rw-r--r--  1 koby koby 32768 Sep 22 17:59 conversation_summaries.db-shm
+-rw-r--r--  1 koby koby 37112 Sep 22 17:59 conversation_summaries.db-wal
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 crashes
+-rw-------  1 koby koby 55960 Sep 22 17:59 history.jsonl
+drwxr-xr-x  2 koby koby  4096 Sep  8 17:57 implicit
+-rw-r--r--  1 koby koby    36 Sep  7 12:03 installation_id
+-rw-------  1 koby koby  2261 Sep 22 17:59 jetbox_summaries_proto.pb
+-rw-------  1 koby koby   518 Sep  7 12:03 jetski_state.pbtxt
+drwxr-xr-x  2 koby koby  4096 Sep  7 12:03 knowledge
+-rw-rw-r--  1 koby koby     0 Sep 22 17:59 last_check.timestamp
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 log
+drwxr-xr-x  3 koby koby  4096 Sep  7 17:57 mcp
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 presence
+-rw-------  1 koby koby 28928 Sep 22 12:36 settings.json
+drwxr-xr-x  2 koby koby  4096 Sep 22 17:59 updater
+total 12
+drwxr-xr-x  3 koby koby 4096 Sep  7 17:57 .
+drwxr-xr-x 15 koby koby 4096 Sep 22 17:59 ..
+drwxr-xr-x  2 koby koby 4096 Sep 22 17:59 semaphore
+

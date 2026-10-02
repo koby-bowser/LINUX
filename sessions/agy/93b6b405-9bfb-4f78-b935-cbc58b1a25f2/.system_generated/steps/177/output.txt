@@ -1,0 +1,21 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/tests/test_sync_ai_sessions.py. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -48,10 +48,14 @@
+             subprocess.run(["git", "-C", str(fake_repo), "add", "README.md"], check=True)
+             subprocess.run(["git", "-C", str(fake_repo), "commit", "-m", "Initial commit"], check=True)
+ 
+-            # Copy playbook into fake_repo/playbooks/
++            # Copy playbook and scripts into fake_repo
+             (fake_repo / "playbooks").mkdir()
++            (fake_repo / "scripts").mkdir()
+             playbook_copy = fake_repo / "playbooks/sync-ai-sessions.yml"
+             playbook_copy.write_text((REPO / "playbooks/sync-ai-sessions.yml").read_text())
++            script_copy = fake_repo / "scripts/export_session_index.py"
++            script_copy.write_text((REPO / "scripts/export_session_index.py").read_text())
++            script_copy.chmod(0o755)
+ 
+             # Create mock Antigravity CLI structure
+             agy_brain = fake_home / ".gemini/antigravity-cli/brain/sess-agy-1"
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

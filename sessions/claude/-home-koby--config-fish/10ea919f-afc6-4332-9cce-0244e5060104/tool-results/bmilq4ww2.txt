@@ -1,0 +1,197 @@
+Aug 31 13:05:41 Kaboom kernel: e1000e: EEE TX LPI TIMER: 00000011
+Aug 31 13:05:41 Kaboom kernel: ata7: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+Aug 31 13:05:41 Kaboom kernel: ata2: SATA link down (SStatus 4 SControl 300)
+Aug 31 13:05:41 Kaboom kernel: ata6: SATA link down (SStatus 4 SControl 300)
+Aug 31 13:05:41 Kaboom kernel: ata5: SATA link down (SStatus 4 SControl 300)
+Aug 31 13:05:41 Kaboom kernel: ata4: SATA link down (SStatus 4 SControl 300)
+Aug 31 13:05:41 Kaboom kernel: ata3: SATA link down (SStatus 4 SControl 300)
+Aug 31 13:05:41 Kaboom enp0s31f6-fix[182362]: resume detecte, reinitialisation de enp0s31f6 (0000:00:1f.6)
+Aug 31 13:05:41 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: removed PHC
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.874 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-3c4852d6-d47b-4f46-b05e-b5edc1aa440e: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.880 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-3c4852d6-d47b-4f46-b05e-b5edc1aa440e: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.886 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-3c4852d6-d47b-4f46-b05e-b5edc1aa440e: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.898 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.904 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.909 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-b638ab7e-94e2-4ea2-a552-d1c54b627f04: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.926 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-dba4d603-d7ed-4931-8823-17ad585705d5: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.936 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-dba4d603-d7ed-4931-8823-17ad585705d5: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.946 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-dba4d603-d7ed-4931-8823-17ad585705d5: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.966 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-8c2f4425-77d6-4755-aca3-891fdbc66a58: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.976 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-8c2f4425-77d6-4755-aca3-891fdbc66a58: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:41 Kaboom fwupd[3977]: 09:05:41.986 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-8c2f4425-77d6-4755-aca3-891fdbc66a58: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.003 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-8e6a6715-9abc-4043-88ef-9e39c6f63e0f: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.010 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-8e6a6715-9abc-4043-88ef-9e39c6f63e0f: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.018 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-8e6a6715-9abc-4043-88ef-9e39c6f63e0f: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.034 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-5565a099-7fe2-45c1-a22b-d7e9dfea9a2e: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.041 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-5565a099-7fe2-45c1-a22b-d7e9dfea9a2e: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.047 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-5565a099-7fe2-45c1-a22b-d7e9dfea9a2e: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.059 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.064 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.070 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-fbf6fcf1-96cf-4e2e-a6a6-1bab8cbe36b1: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.081 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-f908627d-13bf-4a04-b91f-a64e9245323d: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.087 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-f908627d-13bf-4a04-b91f-a64e9245323d: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.093 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-f908627d-13bf-4a04-b91f-a64e9245323d: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.104 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-309dcde8-ccb1-4062-8f78-600115a34327: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.110 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-309dcde8-ccb1-4062-8f78-600115a34327: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom avahi-daemon[950]: Interface enp0s31f6.IPv6 no longer relevant for mDNS.
+Aug 31 13:05:42 Kaboom avahi-daemon[950]: Leaving mDNS multicast group on interface enp0s31f6.IPv6 with address fe80::9aee:cbff:fef5:f247.
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.116 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-309dcde8-ccb1-4062-8f78-600115a34327: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: NIC Link is Down
+Aug 31 13:05:42 Kaboom avahi-daemon[950]: Interface enp0s31f6.IPv4 no longer relevant for mDNS.
+Aug 31 13:05:42 Kaboom avahi-daemon[950]: Leaving mDNS multicast group on interface enp0s31f6.IPv4 with address 10.6.201.54.
+Aug 31 13:05:42 Kaboom avahi-daemon[950]: Withdrawing address record for fe80::9aee:cbff:fef5:f247 on enp0s31f6.
+Aug 31 13:05:42 Kaboom avahi-daemon[950]: Withdrawing address record for 10.6.201.54 on enp0s31f6.
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.134 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-082ee5a7-7c25-470a-9643-0c06f0466ea1: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.141 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-082ee5a7-7c25-470a-9643-0c06f0466ea1: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.147 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-082ee5a7-7c25-470a-9643-0c06f0466ea1: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.158 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-42b3ce2f-bd9f-485a-96ae-26406230b1ff: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.164 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-42b3ce2f-bd9f-485a-96ae-26406230b1ff: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom NetworkManager[1645]: <info>  [1788167142.1671] device (enp0s31f6): state change: activated -> unmanaged (reason 'unmanaged-link-not-init', managed-type: 'removed')
+Aug 31 13:05:42 Kaboom NetworkManager[1645]: <info>  [1788167142.1672] dhcp4 (enp0s31f6): canceled DHCP transaction
+Aug 31 13:05:42 Kaboom NetworkManager[1645]: <info>  [1788167142.1672] dhcp4 (enp0s31f6): activation: beginning transaction (timeout in 45 seconds)
+Aug 31 13:05:42 Kaboom NetworkManager[1645]: <info>  [1788167142.1672] dhcp4 (enp0s31f6): state changed no lease
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.170 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-42b3ce2f-bd9f-485a-96ae-26406230b1ff: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom dbus-daemon[953]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.13' (uid=0 pid=1645 comm="/usr/sbin/NetworkManager --no-daemon")
+Aug 31 13:05:42 Kaboom systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.183 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-cea154ea-8ff5-4f94-9290-0bb7355a34db: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.189 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-cea154ea-8ff5-4f94-9290-0bb7355a34db: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.195 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-cea154ea-8ff5-4f94-9290-0bb7355a34db: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.206 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-12f80028-b4b7-4b2d-aca8-46e0ff65814c: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom enp0s31f6-fix[182418]: unbind PCI 0000:00:1f.6 effectue
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.212 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-12f80028-b4b7-4b2d-aca8-46e0ff65814c: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.218 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-12f80028-b4b7-4b2d-aca8-46e0ff65814c: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.229 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-6861ec7b-d07a-4673-856c-7f22b4d55769: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.236 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-6861ec7b-d07a-4673-856c-7f22b4d55769: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.242 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-6861ec7b-d07a-4673-856c-7f22b4d55769: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.253 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-dd17041c-09ea-4b17-a271-5b989867ec65: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.259 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-dd17041c-09ea-4b17-a271-5b989867ec65: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.265 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-dd17041c-09ea-4b17-a271-5b989867ec65: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.276 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-55213584-9a29-4916-badf-0fb7ed682aeb: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.282 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-55213584-9a29-4916-badf-0fb7ed682aeb: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.288 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-55213584-9a29-4916-badf-0fb7ed682aeb: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.299 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-6733a4db-0476-4e7b-b3af-bcfc29bee7a7: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.305 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-6733a4db-0476-4e7b-b3af-bcfc29bee7a7: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.310 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-6733a4db-0476-4e7b-b3af-bcfc29bee7a7: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.322 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-05b79a6f-4628-4d7f-899d-a91514cb32ab: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.328 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-05b79a6f-4628-4d7f-899d-a91514cb32ab: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.333 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-05b79a6f-4628-4d7f-899d-a91514cb32ab: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.345 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-bb875e12-cb58-4d14-ae93-8566183c66c7: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.350 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-bb875e12-cb58-4d14-ae93-8566183c66c7: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.356 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-bb875e12-cb58-4d14-ae93-8566183c66c7: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.367 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-685a4351-6444-7a7d-6261-7445517429a3: failed to setup: failed to connect to MCHI: 00cbe07e8537eec788c9f80b2d9f40e4bf5e16d2 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.373 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-685a4351-6444-7a7d-6261-7445517429a3: failed to setup: failed to connect to MKHI: 1d10887a051b3991a3314f760163248231628504 [BootGuard Configuration] has not been opened
+Aug 31 13:05:42 Kaboom fwupd[3977]: 09:05:42.379 FuEngine             failed to add device /sys/devices/pci0000:00/0000:00:16.0/0000:00:16.0-685a4351-6444-7a7d-6261-7445517429a3: failed to setup: failed to connect: 8d5470e73fd9a31eaa460b2b6aea95483fe3f14c [AMT] has not been opened
+Aug 31 13:05:42 Kaboom kernel: audit: type=1400 audit(1788167142.744:947): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/dev/char/195:0" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=0
+Aug 31 13:05:42 Kaboom kernel: audit: type=1400 audit(1788167142.744:948): apparmor="ALLOWED" operation="symlink" class="file" profile="Xorg" name="/dev/char/195:0" pid=3149 comm="Xorg" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
+Aug 31 13:05:42 Kaboom kernel: audit: type=1400 audit(1788167142.744:951): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/dev/char/195:0" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=0
+Aug 31 13:05:42 Kaboom kernel: audit: type=1400 audit(1788167142.744:952): apparmor="ALLOWED" operation="symlink" class="file" profile="Xorg" name="/dev/char/195:0" pid=3149 comm="Xorg" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
+Aug 31 13:05:43 Kaboom kernel: e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+Aug 31 13:05:43 Kaboom kernel: e1000e 0000:00:1f.6 0000:00:1f.6 (uninitialized): registered PHC clock
+Aug 31 13:05:43 Kaboom kernel: audit: type=1400 audit(1788167143.404:1018): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/tmp/server-1.xkm" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=1000
+Aug 31 13:05:43 Kaboom kernel: audit: type=1400 audit(1788167143.416:1020): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/tmp/server-1.xkm" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=1000
+Aug 31 13:05:43 Kaboom kernel: audit: type=1400 audit(1788167143.420:1022): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=0
+Aug 31 13:05:43 Kaboom kernel: audit: type=1400 audit(1788167143.420:1023): apparmor="ALLOWED" operation="symlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
+Aug 31 13:05:43 Kaboom kernel: audit: type=1400 audit(1788167143.420:1026): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=0
+Aug 31 13:05:43 Kaboom kernel: e1000e 0000:00:1f.6 eth0: (PCI Express:2.5GT/s:Width x1) 98:ee:cb:f5:f2:47
+Aug 31 13:05:43 Kaboom kernel: e1000e 0000:00:1f.6 eth0: Intel(R) PRO/1000 Network Connection
+Aug 31 13:05:43 Kaboom kernel: e1000e 0000:00:1f.6 eth0: MAC: 13, PHY: 12, PBA No: FFFFFF-0FF
+Aug 31 13:05:43 Kaboom NetworkManager[1645]: <info>  [1788167143.4749] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/3)
+Aug 31 13:05:43 Kaboom enp0s31f6-fix[182469]: bind PCI 0000:00:1f.6 effectue
+Aug 31 13:05:43 Kaboom NetworkManager[1645]: <info>  [1788167143.4759] device (eth0): interface index 3 renamed iface from 'eth0' to 'enp0s31f6'
+Aug 31 13:05:43 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: renamed from eth0
+Aug 31 13:05:45 Kaboom enp0s31f6-fix[182493]: ip link up envoye sur enp0s31f6, debut polling carrier (max 10s)
+Aug 31 13:05:47 Kaboom ModemManager[1647]: <msg> [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:1f.6': not supported by any plugin
+Aug 31 13:05:52 Kaboom systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Aug 31 13:05:55 Kaboom enp0s31f6-fix[182527]: carrier absent sur enp0s31f6 apres 10s d'attente
+Aug 31 13:05:55 Kaboom enp0s31f6-fix[182528]: fallback declenche : rechargement complet du module e1000e
+Aug 31 13:05:55 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: removed PHC
+Aug 31 13:05:55 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: NIC Link is Down
+Aug 31 13:05:55 Kaboom ModemManager[1647]: <msg> [base-manager] port enp0s31f6 released by device '/sys/devices/pci0000:00/0000:00:1f.6'
+Aug 31 13:05:56 Kaboom enp0s31f6-fix[182535]: module e1000e retire
+Aug 31 13:05:56 Kaboom NetworkManager[1645]: <info>  [1788167156.8486] agent-manager: agent[50cfbbe1403a36a2,:1.94/org.gnome.Shell.NetworkAgent/1000]: agent registered
+Aug 31 13:05:56 Kaboom kernel: audit: type=1400 audit(1788167156.892:1059): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=0
+Aug 31 13:05:56 Kaboom kernel: audit: type=1400 audit(1788167156.892:1060): apparmor="ALLOWED" operation="symlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
+Aug 31 13:05:56 Kaboom kernel: audit: type=1400 audit(1788167156.892:1063): apparmor="ALLOWED" operation="unlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="d" denied_mask="d" fsuid=0 ouid=0
+Aug 31 13:05:56 Kaboom kernel: audit: type=1400 audit(1788167156.892:1064): apparmor="ALLOWED" operation="symlink" class="file" profile="Xorg" name="/dev/char/195:254" pid=3149 comm="Xorg" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
+Aug 31 13:05:58 Kaboom kernel: e1000e: Intel(R) PRO/1000 Network Driver
+Aug 31 13:05:58 Kaboom kernel: e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+Aug 31 13:05:58 Kaboom kernel: e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+Aug 31 13:05:58 Kaboom kernel: e1000e 0000:00:1f.6 0000:00:1f.6 (uninitialized): registered PHC clock
+Aug 31 13:05:58 Kaboom NetworkManager[1645]: <info>  [1788167158.3555] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/4)
+Aug 31 13:05:58 Kaboom enp0s31f6-fix[182614]: module e1000e recharge
+Aug 31 13:05:58 Kaboom NetworkManager[1645]: <info>  [1788167158.3568] device (eth0): interface index 4 renamed iface from 'eth0' to 'enp0s31f6'
+Aug 31 13:05:58 Kaboom kernel: e1000e 0000:00:1f.6 eth0: (PCI Express:2.5GT/s:Width x1) 98:ee:cb:f5:f2:47
+Aug 31 13:05:58 Kaboom kernel: e1000e 0000:00:1f.6 eth0: Intel(R) PRO/1000 Network Connection
+Aug 31 13:05:58 Kaboom kernel: e1000e 0000:00:1f.6 eth0: MAC: 13, PHY: 12, PBA No: FFFFFF-0FF
+Aug 31 13:05:58 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: renamed from eth0
+Aug 31 13:06:00 Kaboom enp0s31f6-fix[182623]: ip link up envoye sur enp0s31f6 apres fallback, debut polling carrier (max 10s)
+Aug 31 13:06:02 Kaboom ModemManager[1647]: <msg> [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:1f.6': not supported by any plugin
+Aug 31 13:06:10 Kaboom enp0s31f6-fix[182663]: carrier absent sur enp0s31f6 apres 10s d'attente
+Aug 31 13:06:10 Kaboom enp0s31f6-fix[182664]: ATTENTION: carrier toujours absent sur enp0s31f6 apres fallback modprobe, intervention manuelle probablement necessaire
+Aug 31 13:06:10 Kaboom NetworkManager[1645]: <info>  [1788167170.6661] agent-manager: agent[97691c35bbcf8723,:1.309/nmcli-connect/0]: agent registered
+Aug 31 13:06:10 Kaboom NetworkManager[1645]: <info>  [1788167170.6680] audit: op="connection-add-activate" pid=182665 uid=0 result="fail" reason="Connection 'enp0s31f6' is not available on device enp0s31f6 because device is strictly unmanaged"
+Aug 31 13:06:10 Kaboom enp0s31f6-fix[182670]: nmcli device connect enp0s31f6 tente
+Aug 31 13:06:10 Kaboom enp0s31f6-fix[182673]: enp0s31f6 etat final apres fix: enp0s31f6        DOWN           98:ee:cb:f5:f2:47 <NO-CARRIER,BROADCAST,MULTICAST,UP> , operstate=down
+Aug 31 13:06:10 Kaboom NetworkManager[1645]: <info>  [1788167170.6748] manager: sleep: wake requested (sleeping: yes  enabled: yes)
+Aug 31 13:06:10 Kaboom NetworkManager[1645]: <info>  [1788167170.6748] device (enp0s31f6): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Aug 31 13:06:10 Kaboom NetworkManager[1645]: <info>  [1788167170.6754] manager: NetworkManager state is now DISCONNECTED
+Aug 31 13:06:10 Kaboom dbus-daemon[953]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.13' (uid=0 pid=1645 comm="/usr/sbin/NetworkManager --no-daemon")
+Aug 31 13:06:10 Kaboom systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Aug 31 13:06:10 Kaboom systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Aug 31 13:06:12 Kaboom ModemManager[1647]: <wrn> [plugin-manager] task 5,enp0s31f6: error when checking support with plugin 'Intel': (Intel) Missing port probe for port (net/enp0s31f6)
+Aug 31 13:06:12 Kaboom ModemManager[1647]: <wrn> [plugin-manager] task 5,enp0s31f6: error when checking support with plugin 'generic': (generic) Missing port probe for port (net/enp0s31f6)
+Aug 31 13:06:14 Kaboom ModemManager[1647]: <msg> [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:1f.6': not supported by any plugin
+Aug 31 13:06:20 Kaboom systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Aug 31 13:06:37 Kaboom ModemManager[1647]: <msg> [device /sys/devices/pci0000:00/0000:00:16.3] creating modem with plugin 'generic' and '1' ports (1734:8086:06e3)
+Aug 31 13:06:37 Kaboom ModemManager[1647]: <wrn> [base-manager] couldn't create modem for device '/sys/devices/pci0000:00/0000:00:16.3': Failed to find primary AT port
+Aug 31 13:08:04 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: removed PHC
+Aug 31 13:08:04 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: NIC Link is Down
+Aug 31 13:08:04 Kaboom NetworkManager[1645]: <info>  [1788167284.6074] device (enp0s31f6): state change: unavailable -> unmanaged (reason 'unmanaged-link-not-init', managed-type: 'removed')
+Aug 31 13:08:04 Kaboom dbus-daemon[953]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.13' (uid=0 pid=1645 comm="/usr/sbin/NetworkManager --no-daemon")
+Aug 31 13:08:04 Kaboom ModemManager[1647]: <msg> [base-manager] port enp0s31f6 released by device '/sys/devices/pci0000:00/0000:00:1f.6'
+Aug 31 13:08:04 Kaboom systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Aug 31 13:08:04 Kaboom systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Aug 31 13:08:14 Kaboom systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Aug 31 13:08:38 Kaboom kernel: e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+Aug 31 13:08:38 Kaboom kernel: e1000e 0000:00:1f.6 0000:00:1f.6 (uninitialized): registered PHC clock
+Aug 31 13:08:38 Kaboom NetworkManager[1645]: <info>  [1788167318.6289] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/5)
+Aug 31 13:08:38 Kaboom NetworkManager[1645]: <info>  [1788167318.6298] device (eth0): interface index 5 renamed iface from 'eth0' to 'enp0s31f6'
+Aug 31 13:08:38 Kaboom kernel: e1000e 0000:00:1f.6 eth0: (PCI Express:2.5GT/s:Width x1) 98:ee:cb:f5:f2:47
+Aug 31 13:08:38 Kaboom kernel: e1000e 0000:00:1f.6 eth0: Intel(R) PRO/1000 Network Connection
+Aug 31 13:08:38 Kaboom kernel: e1000e 0000:00:1f.6 eth0: MAC: 13, PHY: 12, PBA No: FFFFFF-0FF
+Aug 31 13:08:38 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: renamed from eth0
+Aug 31 13:08:38 Kaboom NetworkManager[1645]: <info>  [1788167318.6359] device (enp0s31f6): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Aug 31 13:08:38 Kaboom dbus-daemon[953]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.13' (uid=0 pid=1645 comm="/usr/sbin/NetworkManager --no-daemon")
+Aug 31 13:08:38 Kaboom systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Aug 31 13:08:38 Kaboom systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Aug 31 13:08:42 Kaboom ModemManager[1647]: <msg> [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:1f.6': not supported by any plugin
+Aug 31 13:08:48 Kaboom systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Aug 31 13:10:52 Kaboom NetworkManager[1645]: <info>  [1788167452.7322] agent-manager: agent[5682fbbc4481fa21,:1.325/nmcli-connect/0]: agent registered
+Aug 31 13:10:52 Kaboom NetworkManager[1645]: <info>  [1788167452.7336] audit: op="connection-add-activate" pid=183324 uid=0 result="fail" reason="Connection 'enp0s31f6' is not available on device enp0s31f6 because device has no carrier"
+Aug 31 13:11:17 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: removed PHC
+Aug 31 13:11:17 Kaboom NetworkManager[1645]: <info>  [1788167477.4837] device (enp0s31f6): state change: unavailable -> unmanaged (reason 'unmanaged-link-not-init', managed-type: 'removed')
+Aug 31 13:11:17 Kaboom dbus-daemon[953]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.13' (uid=0 pid=1645 comm="/usr/sbin/NetworkManager --no-daemon")
+Aug 31 13:11:17 Kaboom ModemManager[1647]: <msg> [base-manager] port enp0s31f6 released by device '/sys/devices/pci0000:00/0000:00:1f.6'
+Aug 31 13:11:17 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: NIC Link is Down
+Aug 31 13:11:17 Kaboom systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Aug 31 13:11:17 Kaboom systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Aug 31 13:11:27 Kaboom systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Aug 31 13:11:30 Kaboom kernel: e1000e: Intel(R) PRO/1000 Network Driver
+Aug 31 13:11:30 Kaboom kernel: e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+Aug 31 13:11:30 Kaboom kernel: e1000e 0000:00:1f.6: Interrupt Throttling Rate (ints/sec) set to dynamic conservative mode
+Aug 31 13:11:30 Kaboom kernel: e1000e 0000:00:1f.6 0000:00:1f.6 (uninitialized): registered PHC clock
+Aug 31 13:11:30 Kaboom NetworkManager[1645]: <info>  [1788167490.7651] manager: (eth0): new Ethernet device (/org/freedesktop/NetworkManager/Devices/6)
+Aug 31 13:11:30 Kaboom NetworkManager[1645]: <info>  [1788167490.7664] device (eth0): interface index 6 renamed iface from 'eth0' to 'enp0s31f6'
+Aug 31 13:11:30 Kaboom kernel: e1000e 0000:00:1f.6 eth0: (PCI Express:2.5GT/s:Width x1) 98:ee:cb:f5:f2:47
+Aug 31 13:11:30 Kaboom kernel: e1000e 0000:00:1f.6 eth0: Intel(R) PRO/1000 Network Connection
+Aug 31 13:11:30 Kaboom kernel: e1000e 0000:00:1f.6 eth0: MAC: 13, PHY: 12, PBA No: FFFFFF-0FF
+Aug 31 13:11:30 Kaboom kernel: e1000e 0000:00:1f.6 enp0s31f6: renamed from eth0
+Aug 31 13:11:30 Kaboom NetworkManager[1645]: <info>  [1788167490.7723] device (enp0s31f6): state change: unmanaged -> unavailable (reason 'managed', managed-type: 'external')
+Aug 31 13:11:31 Kaboom dbus-daemon[953]: [system] Activating via systemd: service name='org.freedesktop.nm_dispatcher' unit='dbus-org.freedesktop.nm-dispatcher.service' requested by ':1.13' (uid=0 pid=1645 comm="/usr/sbin/NetworkManager --no-daemon")
+Aug 31 13:11:31 Kaboom systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Aug 31 13:11:31 Kaboom systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Aug 31 13:11:34 Kaboom ModemManager[1647]: <msg> [base-manager] couldn't check support for device '/sys/devices/pci0000:00/0000:00:1f.6': not supported by any plugin
+Aug 31 13:11:41 Kaboom systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Aug 31 13:11:52 Kaboom NetworkManager[1645]: <info>  [1788167512.1324] agent-manager: agent[37a462d8e76266ee,:1.328/nmcli-connect/0]: agent registered
+Aug 31 13:11:52 Kaboom NetworkManager[1645]: <info>  [1788167512.1337] audit: op="connection-add-activate" pid=183409 uid=0 result="fail" reason="Connection 'enp0s31f6' is not available on device enp0s31f6 because device has no carrier"

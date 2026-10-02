@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+On branch Baba-Koby
+Your branch is ahead of 'origin/Baba-Koby' by 7 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+

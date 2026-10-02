@@ -1,0 +1,14 @@
+
+The command exited with code 0.
+Output:
+{
+    "ENVIRONMENT": "DEV",
+    "UNIVERS": "SFR",
+    "ansible_host": "172.30.39.153",
+    "ansible_port": 30,
+    "spui_runner_pubkey": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFXxaA6I6XHKt1N9KMolZQQ7abBDA3r+RDl3iFc3l/Jo semaphore-runner",
+    "system_http_proxy": "http://172.30.209.11:3128",
+    "system_https_proxy": "http://172.30.209.11:3128",
+    "system_no_proxy": "localhost,127.0.0.1,.intranet.local,10.0.0.0/8,172.16.0.0/12,172.30.0.0/16"
+}
+

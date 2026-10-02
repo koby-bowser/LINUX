@@ -1,0 +1,254 @@
+
+The command exited with code 0.
+Output:
+<truncated 56 lines>
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Create automation user] **************************************************
+changed: [trp-wextp-be3]
+changed: [trp-wextp-be7]
+changed: [trp-wextp-be5]
+ok: [trp-wextp-be1]
+changed: [trp-wextp-be9]
+changed: [trp-wextp-be8]
+changed: [trp-wextp-be4]
+changed: [trp-wextp-be6]
+changed: [trp-wextp-be10]
+changed: [trp-wextp-be2]
+changed: [trp-wextp-be11]
+
+TASK [Add automation user to sudo group] ***************************************
+changed: [trp-wextp-be3]
+changed: [trp-wextp-be4]
+changed: [trp-wextp-be7]
+changed: [trp-wextp-be5]
+changed: [trp-wextp-be9]
+changed: [trp-wextp-be8]
+ok: [trp-wextp-be1]
+changed: [trp-wextp-be6]
+changed: [trp-wextp-be2]
+changed: [trp-wextp-be10]
+changed: [trp-wextp-be11]
+
+TASK [Add automation user to sshd AllowGroups if configured] *******************
+changed: [trp-wextp-be3] => (item=SSH_Users)
+changed: [trp-wextp-be4] => (item=SSH_Users)
+changed: [trp-wextp-be7] => (item=SSH_Users)
+changed: [trp-wextp-be9] => (item=SSH_Users)
+changed: [trp-wextp-be5] => (item=SSH_Users)
+changed: [trp-wextp-be8] => (item=SSH_Users)
+changed: [trp-wextp-be6] => (item=SSH_Users)
+ok: [trp-wextp-be1] => (item=SSH_Users)
+changed: [trp-wextp-be2] => (item=SSH_Users)
+changed: [trp-wextp-be10] => (item=SSH_Users)
+changed: [trp-wextp-be11] => (item=SSH_Users)
+
+TASK [Configure passwordless sudo in /etc/sudoers.d] ***************************
+ok: [trp-wextp-be1]
+changed: [trp-wextp-be4]
+changed: [trp-wextp-be7]
+changed: [trp-wextp-be9]
+changed: [trp-wextp-be8]
+changed: [trp-wextp-be3]
+changed: [trp-wextp-be5]
+changed: [trp-wextp-be6]
+changed: [trp-wextp-be2]
+changed: [trp-wextp-be10]
+changed: [trp-wextp-be11]
+
+TASK [Retrieve target user passwd info] ****************************************
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be11]
+
+TASK [Determine user home and gid] *********************************************
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Ensure ~/.ssh directory exists] ******************************************
+changed: [trp-wextp-be3]
+changed: [trp-wextp-be4]
+changed: [trp-wextp-be7]
+changed: [trp-wextp-be9]
+ok: [trp-wextp-be1]
+changed: [trp-wextp-be6]
+changed: [trp-wextp-be2]
+changed: [trp-wextp-be5]
+changed: [trp-wextp-be8]
+changed: [trp-wextp-be10]
+changed: [trp-wextp-be11]
+
+TASK [Deploy public key to user ~/.ssh/authorized_keys] ************************
+changed: [trp-wextp-be5]
+changed: [trp-wextp-be4]
+changed: [trp-wextp-be9]
+changed: [trp-wextp-be7]
+changed: [trp-wextp-be3]
+changed: [trp-wextp-be8]
+ok: [trp-wextp-be1]
+changed: [trp-wextp-be10]
+changed: [trp-wextp-be6]
+changed: [trp-wextp-be2]
+changed: [trp-wextp-be11]
+
+TASK [Resolve centralized authorized_keys path] ********************************
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Ensure parent directory of centralized authorized_keys exists] ***********
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Deploy key to centralized path] ******************************************
+changed: [trp-wextp-be4]
+changed: [trp-wextp-be3]
+changed: [trp-wextp-be5]
+changed: [trp-wextp-be8]
+changed: [trp-wextp-be7]
+ok: [trp-wextp-be1]
+changed: [trp-wextp-be6]
+changed: [trp-wextp-be2]
+changed: [trp-wextp-be9]
+changed: [trp-wextp-be10]
+changed: [trp-wextp-be11]
+
+TASK [Set strict permissions on centralized authorized_keys file] **************
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Report bootstrap completion] *********************************************
+ok: [trp-wextp-be1] => {
+    "msg": [
+        "Host: trp-wextp-be1",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be2] => {
+    "msg": [
+        "Host: trp-wextp-be2",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be3] => {
+    "msg": [
+        "Host: trp-wextp-be3",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be4] => {
+    "msg": [
+        "Host: trp-wextp-be4",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be5] => {
+    "msg": [
+        "Host: trp-wextp-be5",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be6] => {
+    "msg": [
+        "Host: trp-wextp-be6",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be7] => {
+    "msg": [
+        "Host: trp-wextp-be7",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be8] => {
+    "msg": [
+        "Host: trp-wextp-be8",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be9] => {
+    "msg": [
+        "Host: trp-wextp-be9",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be10] => {
+    "msg": [
+        "Host: trp-wextp-be10",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+ok: [trp-wextp-be11] => {
+    "msg": [
+        "Host: trp-wextp-be11",
+        "User koby-bowser-ansible successfully provisioned with passwordless sudo and SSH key access."
+    ]
+}
+
+PLAY RECAP *********************************************************************
+trp-wextp-be1              : ok=17   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be10             : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be11             : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be2              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be3              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be4              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be5              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be6              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be7              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be8              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+trp-wextp-be9              : ok=17   changed=7    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+
+

@@ -1,0 +1,243 @@
+
+The command exited with code 0.
+Output:
+        "IP": "10.92.10.169"
+      }
+    },
+    {
+      "title": "gbs-mapping-01",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/linux",
+      "ips": [
+        "10.92.10.59"
+      ],
+--
+        "IP": "10.92.10.59"
+      }
+    },
+    {
+      "title": "gbs-mapping-02",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/linux",
+      "ips": [
+        "10.92.74.45"
+      ],
+--
+        "IP": "10.92.74.45"
+      }
+    },
+    {
+      "title": "gbs-mapping-03",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/linux",
+      "ips": [
+        "10.92.74.46"
+      ],
+--
+        "IP": "172.30.37.71"
+      }
+    },
+    {
+      "title": "gbs-servermap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/linux",
+      "ips": [
+        "10.92.10.197"
+      ],
+--
+        "IP": "10.92.10.197"
+      }
+    },
+    {
+      "title": "gbs-servermap-02",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/linux",
+      "ips": [
+        "10.92.10.198"
+      ],
+--
+        "IP": "10.92.10.34"
+      }
+    },
+    {
+      "title": "gbs-mapinfo-01",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/Windows",
+      "ips": [
+        "10.92.10.138"
+      ],
+--
+        "IP": "10.92.10.138"
+      }
+    },
+    {
+      "title": "gbs-mapinfo-02",
+      "group": "OMT_PFS.SYSTEME.ALL/GBS/Windows",
+      "ips": [
+        "10.92.10.139"
+      ],
+--
+      "password": "Vrf4X$P^a2'XpS}z",
+      "port": null,
+      "protocol": "ssh",
+      "url": "ssh://10.6.10.40",
+      "notes": "Serveur Semaphore",
+      "custom_fields": {
+        "IP": "10.6.10.40"
+      }
+    },
+--
+      "password": "n0NZMayX#xM1g",
+      "port": null,
+      "protocol": "ssh",
+      "url": "",
+      "notes": "Centreon MAP",
+      "custom_fields": {
+        "IP": "172.16.75.187"
+      }
+    },
+--
+      "password": "",
+      "port": null,
+      "protocol": "rdp",
+      "url": "rdp://10.75.10.127",
+      "notes": "Machine de Migration Mozilla>IMAP Zimbra",
+      "custom_fields": {
+        "IP": "10.75.10.127"
+      }
+    },
+--
+        "IP": "172.16.75.164"
+      }
+    },
+    {
+      "title": "th2-centreonmap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2",
+      "ips": [
+        "172.16.75.165"
+      ],
+--
+        "IP": "172.16.75.163"
+      }
+    },
+    {
+      "title": "th2-centreonmap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2/linux",
+      "ips": [
+        "172.16.75.165"
+      ],
+--
+        "IP": "172.16.75.163"
+      }
+    },
+    {
+      "title": "th2-centreonmap-01(ROOT)",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2/linux",
+      "ips": [
+        "172.16.75.165"
+      ],
+--
+        "IP": "172.16.75.184"
+      }
+    },
+    {
+      "title": "th2-centmap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2/linux",
+      "ips": [
+        "172.16.75.185"
+      ],
+--
+      "notes": "root / npA*w6SFWxc83yr7",
+      "custom_fields": {}
+    },
+    {
+      "title": "th2-centic-map1",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2/linux",
+      "ips": [
+        "172.30.217.81"
+      ],
+--
+        "IP": "172.16.75.211"
+      }
+    },
+    {
+      "title": "gbs-servermap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/Recycle Bin",
+      "ips": [
+        "10.92.10.197"
+      ],
+--
+        "IP": "10.92.10.197"
+      }
+    },
+    {
+      "title": "gbs-servermap-02",
+      "group": "OMT_PFS.SYSTEME.ALL/Recycle Bin",
+      "ips": [
+        "10.92.10.198"
+      ],
+--
+        "IP": "172.16.75.162"
+      }
+    },
+    {
+      "title": "th2-centreonmap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/Recycle Bin",
+      "ips": [
+        "172.16.75.165"
+      ],
+--
+        "IP": "10.75.30.90"
+      }
+    },
+    {
+      "title": "th2-centreonmap-01(ROOT)",
+      "group": "OMT_PFS.SYSTEME.ALL/Recycle Bin",
+      "ips": [
+        "172.16.75.165"
+      ],
+--
+        "IP": "172.16.75.163"
+      }
+    },
+    {
+      "title": "th2-centreonmap-01",
+      "group": "OMT_PFS.SYSTEME.ALL/Recycle Bin",
+      "ips": [
+        "172.16.75.165"
+      ],
+--
+      "password": "RAbLzJ2@Y(x}sBI}",
+      "port": null,
+      "protocol": "ssh",
+      "url": "ssh://10.75.195.11",
+      "notes": "Machine de Migration PST>IMAP Zimbra",
+      "custom_fields": {
+        "IP": "10.75.195.11"
+      }
+    },
+--
+      "password": "tJD%rNCxW$#&$(9j",
+      "port": null,
+      "protocol": "ssh",
+      "url": "ssh://10.6.10.41",
+      "notes": "Serveur Semaphore",
+      "custom_fields": {
+        "IP": "10.6.10.41"
+      }
+    },
+--
+      "password": "Zimbr@75",
+      "port": null,
+      "protocol": "ssh",
+      "url": "ssh://10.6.10.16",
+      "notes": "Machine de Migration PST>IMAP Zimbra",
+      "custom_fields": {
+        "IP": "10.6.10.16"
+      }
+    },
+--
+      "notes": "",
+      "custom_fields": {}
+    },
+    {
+      "title": "trp-srvmapc-ap1",
+      "group": "OMT_PFS.SYSTEME.ALL/TRP/linux",
+      "ips": [
+        "172.30.249.137"
+      ],
+

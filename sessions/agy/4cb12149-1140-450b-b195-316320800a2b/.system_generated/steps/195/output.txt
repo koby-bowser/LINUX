@@ -1,0 +1,26 @@
+
+The command exited with code 1.
+There were sandbox errors that may or may not be related to the failure. If you think the failure is because of running in the sandbox, you can run the command again with `BypassSandbox` set to true to request explicit user permission.
+Output:
+node:fs:440
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open '/home/koby/.gemini/config/mcp_config.json'
+    at Object.readFileSync (node:fs:440:20)
+    at [eval]:1:26
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:446:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:444:60)
+    at evalFunction (node:internal/process/execution:279:30)
+    at evalTypeScript (node:internal/process/execution:291:3)
+    at node:internal/main/eval_string:74:3 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/koby/.gemini/config/mcp_config.json'
+}
+
+Node.js v22.23.2
+

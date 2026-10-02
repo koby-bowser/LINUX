@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+-rw-r--r-- 1 koby koby 285 Sep  9 16:09 /tmp/ansible.cfg
+

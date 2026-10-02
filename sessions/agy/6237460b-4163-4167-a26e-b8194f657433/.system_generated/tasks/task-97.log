@@ -1,0 +1,80 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== 1. Test curl to 172.30.198.50:80 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (7) Failed to connect to 172.30.198.50 port 80: Connection refused
+
+=== 2. Test curl to local port 9443 ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   150  100   150    0     0  10000      0 --:--:-- --:--:-- --:--:-- 10000
+HTTP/2 502 
+server: nginx
+date: Thu, 10 Sep 2026 07:55:31 GMT
+content-type: text/html; charset=utf-8
+content-length: 150
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+<html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+=== 3. cat /etc/nginx/nginxconfig.io/proxy.conf ===
+proxy_http_version                 1.1;
+proxy_cache_bypass                 $http_upgrade;
+
+# Proxy headers
+proxy_set_header Upgrade           $http_upgrade;
+proxy_set_header Connection        $connection_upgrade;
+proxy_set_header Host              $host;
+proxy_set_header X-Real-IP         $remote_addr;
+proxy_set_header Forwarded         $proxy_add_forwarded;
+proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_set_header X-Forwarded-Host  $host;
+proxy_set_header X-Forwarded-Port  $server_port;
+
+# Proxy timeouts
+proxy_connect_timeout              60s;
+proxy_send_timeout                 60s;
+proxy_read_timeout                 60s;
+=== 4. cat /etc/nginx/nginxconfig.io/general.conf ===
+# favicon.ico
+location = /favicon.ico {
+    log_not_found off;
+    access_log    off;
+}
+
+# robots.txt
+location = /robots.txt {
+    log_not_found off;
+    access_log    off;
+}
+
+# gzip
+gzip            on;
+gzip_vary       on;
+gzip_proxied    any;
+gzip_comp_level 6;
+gzip_types      text/plain text/css text/xml application/json application/javascript application/rss+xml application/atom+xml image/svg+xml;

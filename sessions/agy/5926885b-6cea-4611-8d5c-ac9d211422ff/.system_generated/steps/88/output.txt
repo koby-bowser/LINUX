@@ -1,0 +1,62 @@
+
+The command exited with code 0.
+Output:
+Title: Procédure d'extension d'un volume LVM après augmentation d'un disque sur Vmware
+Text snippet:
+ | VERSION | AUTEUR | REVISION | PARTAGER |
+|---------|--------|----------|----------|
+|         |        |          |          |
+| 1\.0    | Suraj Annat | Arvind Ramtohul | Infra lInux |
+|         |        |          |          |
+|         |        |          |          |
+
+**Objectif**
+
+Augmenter la taille du système de fichiers racine / d'un serveur Linux utilisant LVM après extension du disque virtuel dans VMware.
+
+
+---
+
+**Contexte**
+
+Serveur : gbs-cgrsrc-01
+
+**Situation initiale**
+
+df -h /
+
+Résultat :
+
+Filesystem               Size  Used Avail Use% Mounted on
+
+/dev/mapper/vg_sys-root   16G   15G  1.9G  89% /
+
+Le système de fichiers racine était proche de la saturation.
+
+**Configuration LVM initiale**
+
+VG : vg_sys
+
+ 
+
+PV :
+
+\- /dev/sda2 : 23.5 GB
+
+\- /dev/sda3 : 6 GB
+
+LV Root : 16 GB
+
+
+---
+
+**Étape 1 : Extension du disque VMware**
+
+Depuis vSphere :
+
+
+1. Sélectionner la VM.
+2. Edit Settings.
+3. Sélectionner le disque système (Hard Disk 1).
+4. Augmenter la capacité du disque de 30 Go à
+

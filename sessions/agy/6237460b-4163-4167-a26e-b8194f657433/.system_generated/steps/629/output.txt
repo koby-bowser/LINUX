@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+{
+  "Status": 0,
+  "TC": false,
+  "RD": true,
+  "RA": true,
+  "AD": false,
+  "CD": false,
+  "Question": [
+    {
+      "name": "outremer-telecom.fr.",
+      "type": 6
+    }
+  ],
+  "Answer": [
+    {
+      "name": "outremer-telecom.fr.",
+      "type": 6,
+      "TTL": 3600,
+      "data": "th2-dnsp-mst1.outremer-telecom.fr. noc.resot.net. 2026091005 10800 3600 604800 3600"
+    }
+  ],
+  "Comment": "Response from 217.175.160.10."
+}
+

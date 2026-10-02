@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+ANTIGRAVITY_SOURCE_METADATA={"tool":{"conversationId":"f3cf4530-5328-4510-bf53-5e1689984110","stepIndex":124,"toolCall":{"id":"call_954925","name":"run_command","argumentsJson":"{\"CommandLine\":\"env | grep -i vault\",\"Cwd\":\"/home/koby/LINUX\",\"WaitMsBeforeAsync\":2000,\"toolAction\":\"Checking environment for vault\",\"toolSummary\":\"Check vault in env\"}","thinkingSignature":"ErkCCrYCAWkUfRNPfR0x2VZY0byhOmyfOaDcs+ipSp+6zwhBEhHj0RbtqsArFDW2zu4eOE6QEvVvakue7+fsrTue2AuqQfKzruTQCenShhA0aK0voOxMHAdZKE+m0TzV23PRToLByOCRS8McEZJXyUZTe+z5PIRxznHXOYPaZ1cPyQpZzKuChM9qYGjKWsLEuUvQTThDpbD957srnGBad05mp2hN0J1TAVJ+mOZWaapbxkrvb+a6OXNC8EzjhWxvgBdc0hYkpChEqwQIounGtbH05ylUiptY2WQujLf5vGDXrFSB00juU54IxIMy82BOewqom9WN4qf4JRQbBaJaUye7KIaYFkrqT9eb4m1y4YF2D3emHPZiwUOt5ALw8HqEDhvqWARzycYNBgmYdRz3GYVZVMS2aPoCmCbfVw=="}}}
+

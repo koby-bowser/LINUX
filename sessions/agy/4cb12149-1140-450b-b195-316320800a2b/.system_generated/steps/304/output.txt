@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+mediawikiToken=6af83b5e209e4dc06d4d2c83f249c1cf
+mediawikiUserID=11
+mediawikiUserName=A.samy
+

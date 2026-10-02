@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+11G	/home/koby/Downloads
+7.9G	/home/koby/vmware
+2.9G	/home/koby/.cache
+1.7G	/home/koby/.local
+1.1G	/home/koby/.config
+933M	/home/koby/.mozilla
+642M	/home/koby/.npm
+505M	/home/koby/.claude
+239M	/home/koby/.opencode
+108M	/home/koby/Documents
+87M	/home/koby/pi
+63M	/home/koby/node_modules
+25M	/home/koby/.gemini
+16M	/home/koby/infra-management-system
+13M	/home/koby/sshviz
+6.8M	/home/koby/.factory
+1.8M	/home/koby/.gruvbox
+992K	/home/koby/.ansible
+340K	/home/koby/Pictures
+244K	/home/koby/.kimi-code
+

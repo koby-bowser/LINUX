@@ -1,0 +1,79 @@
+
+The command exited with code 0.
+Output:
+diff --git a/playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh b/playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh
+index d731899..bd91b00 100755
+--- a/playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh
++++ b/playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh
+@@ -55,15 +55,15 @@ check_both_resolvers() {
+   [ "${g}" = "${CERTBOT_VALIDATION}" ] && [ "${c}" = "${CERTBOT_VALIDATION}" ]
+ }
+ 
+-required_consecutive=3
++required_consecutive=2
+ consecutive_ok=0
+-for i in $(seq 1 40); do
++for i in $(seq 1 60); do
+   if check_both_resolvers; then
+     consecutive_ok=$((consecutive_ok + 1))
+     if [ "${consecutive_ok}" -ge "${required_consecutive}" ]; then
+       # Marge supplémentaire pour laisser converger d'éventuels nœuds
+       # secondaires additionnels que ni Google ni Cloudflare n'ont interrogés.
+-      sleep 15
++      sleep 10
+       exit 0
+     fi
+   else
+diff --git a/playbooks/files/ns1-hooks/acme-zone-update.sh b/playbooks/files/ns1-hooks/acme-zone-update.sh
+index 54dbdf9..bc05976 100755
+--- a/playbooks/files/ns1-hooks/acme-zone-update.sh
++++ b/playbooks/files/ns1-hooks/acme-zone-update.sh
+@@ -54,9 +54,16 @@ cp "$zonefile" "$backup"
+ 
+ tmpfile="${zonefile}.acme.tmp.$$"
+ 
+-# Retirer toute ligne existante dont le premier champ correspond exactement
+-# au label (évite les doublons/résidus d'une précédente émission).
+-awk -v label="$label" '$1 != label' "$zonefile" > "$tmpfile"
++# Calculer le label relatif et le FQDN absolu (avec point final) pour
++# immuniser l'enregistrement contre toute directive $ORIGIN intermédiaire
++# dans le fichier de zone (ex. $ORIGIN private.sfrcaraibe.fr. dans sfrcaraibe.fr).
++label_rel="${label%.${zonename}.}"
++label_rel="${label_rel%.}"
++fqdn="${label_rel}.${zonename}."
++
++# Retirer toute ligne existante dont le premier champ correspond au label
++# relatif ou au FQDN absolu (évite les doublons/résidus).
++awk -v rel="$label_rel" -v fqdn="$fqdn" '$1 != rel && $1 != fqdn' "$zonefile" > "$tmpfile"
+ 
+ if [ "$action" = "add" ]; then
+   if [ -z "$value" ]; then
+@@ -64,7 +71,7 @@ if [ "$action" = "add" ]; then
+     rm -f "$tmpfile"
+     exit 2
+   fi
+-  printf '%s\tTXT\t"%s"\n' "$label" "$value" >> "$tmpfile"
++  printf '%s\t60\tTXT\t"%s"\n' "$fqdn" "$value" >> "$tmpfile"
+ fi
+ 
+ # Faire avancer le serial SOA (format YYYYMMDDNN observé dans ce fichier).
+diff --git a/playbooks/group_vars/all/certificates.yml b/playbooks/group_vars/all/certificates.yml
+index 2a0fd39..dbee6df 100644
+--- a/playbooks/group_vars/all/certificates.yml
++++ b/playbooks/group_vars/all/certificates.yml
+@@ -60,3 +60,14 @@ certificates:
+     service_name: nginx
+     cert_dest_dir: /etc/nginx/ssl/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+ 
++  - domain: geo.sfrcaraibe.fr
++    extra_sans: []
++    dns_backend: ssh_zonefile
++    zone: sfrcaraibe.fr
++    zone_file: /var/named/sfrcaraibe.fr
++    target_host: CHANGEME
++    webserver: nginx
++    service_name: nginx
++    cert_dest_dir: /etc/nginx/ssl/geo.sfrcaraibe.fr
++
++
+

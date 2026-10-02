@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+From https://github.com/koby-bowser/LINUX
+ * branch            Baba-Koby  -> FETCH_HEAD
+

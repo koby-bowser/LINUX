@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+ playbooks/files/certbot-hooks/pdns-auth-hook.sh    |   5 +
+ playbooks/files/certbot-hooks/pdns-cleanup-hook.sh |   5 +
+ playbooks/group_vars/all/certificates.yml          |   9 ++
+ playbooks/group_vars/all/vault.yml                 | 152 ++++++++++-----------
+ 4 files changed, 95 insertions(+), 76 deletions(-)
+

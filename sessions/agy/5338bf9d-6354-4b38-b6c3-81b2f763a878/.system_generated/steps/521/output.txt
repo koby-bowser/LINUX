@@ -1,0 +1,6 @@
+
+The command exited with code 1.
+Output:
+Connection to 172.30.230.97 30 port [tcp/*] succeeded!
+nc: connect to 172.30.230.97 port 22 (tcp) failed: Connection refused
+

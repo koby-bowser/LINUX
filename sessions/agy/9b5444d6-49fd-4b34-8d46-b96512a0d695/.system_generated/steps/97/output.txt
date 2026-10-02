@@ -1,0 +1,24 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/scripts/build_kdbx_pool.py. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -206,10 +206,15 @@
+ 
+ 
+ def main():
++    script_dir = os.path.dirname(os.path.abspath(__file__))
++    repo_dir = os.path.abspath(os.path.join(script_dir, ".."))
++    default_yaml = os.path.join(repo_dir, "inventory", "server_pool.yml")
++    default_json = os.path.join(repo_dir, "inventory", "server_pool.json")
++
+     parser = argparse.ArgumentParser(description="KeePass Server Pool Manager")
+-    parser.add_argument('--db', default='/home/koby/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx', help='Path to .kdbx file')
+-    parser.add_argument('--output-yaml', default='/home/koby/.ansible/inventory/server_pool.yml', help='Output Ansible inventory YAML')
+-    parser.add_argument('--output-json', default='/home/koby/.ansible/inventory/server_pool.json', help='Output JSON cache')
++    parser.add_argument('--db', default=os.path.expanduser('~/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx'), help='Path to .kdbx file')
++    parser.add_argument('--output-yaml', default=default_yaml, help='Output Ansible inventory YAML')
++    parser.add_argument('--output-json', default=default_json, help='Output JSON cache')
+     parser.add_argument('--search', help='Search query to filter servers')
+     parser.add_argument('--json-output', action='store_true', help='Output search results as JSON')
+     parser.add_argument('--sync', action='store_true', help='Force sync from KeePass DB')
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

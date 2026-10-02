@@ -1,0 +1,21 @@
+The following changes were made by the replace_file_content tool to: /home/koby/.local/bin/alliance. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -284,7 +284,7 @@
+     p_ask.add_argument("prompt", nargs="+", help="The question or task prompt")
+     p_ask.add_argument("--claude-only", action="store_true", help="Query only Claude Code")
+     p_ask.add_argument("--codex-only", action="store_true", help="Query only Codex CLI")
+-    p_ask.add_argument("--timeout", type=int, default=120, help="Per-model timeout in seconds (default: 120)")
++    p_ask.add_argument("--timeout", type=int, default=240, help="Per-model timeout in seconds (default: 240)")
+ 
+     # review
+     p_review = subparsers.add_parser("review", help="Perform dual independent code review on git changes")
+@@ -291,5 +291,5 @@
+     p_review.add_argument("target", nargs="?", default="HEAD~1..HEAD", help="Git revision or branch to diff (default: HEAD~1..HEAD)")
+-    p_review.add_argument("--timeout", type=int, default=180, help="Timeout in seconds")
++    p_review.add_argument("--timeout", type=int, default=240, help="Timeout in seconds (default: 240)")
+ 
+     args = parser.parse_args()
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

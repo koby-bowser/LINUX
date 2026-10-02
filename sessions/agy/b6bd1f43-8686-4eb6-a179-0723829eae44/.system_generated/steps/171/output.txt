@@ -1,0 +1,195 @@
+
+The command exited with code 0.
+Output:
+<truncated 1 lines>
++      become: false
++      ansible.builtin.command: >-
++        scp {{ playbook_dir }}/files/ns1-hooks/acme-zone-update.sh
++        {{ vault_ns1_ssh_alias }}:{{ vault_ns1_admin_home | default('/home/admin') }}/acme-zone-update.sh
++      changed_when: true
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    - name: Rendre le script distant exécutable sur ns1
++      become: false
++      ansible.builtin.command: >-
++        ssh {{ vault_ns1_ssh_alias }} chmod +x {{ vault_ns1_admin_home | default('/home/admin') }}/acme-zone-update.sh
++      changed_when: true
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    - name: Déployer le script de découverte de zone sur ns1 (mode ad-hoc)
++      become: false
++      ansible.builtin.command: >-
++        scp {{ playbook_dir }}/files/ns1-hooks/find-zone.sh
++        {{ vault_ns1_ssh_alias }}:{{ vault_ns1_admin_home | default('/home/admin') }}/find-zone.sh
++      changed_when: true
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    - name: Rendre le script de découverte de zone exécutable sur ns1
++      become: false
++      ansible.builtin.command: >-
++        ssh {{ vault_ns1_ssh_alias }} chmod +x {{ vault_ns1_admin_home | default('/home/admin') }}/find-zone.sh
++      changed_when: true
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    # certbot (plus loin dans ce playbook) tourne en root et invoque nos
++    # hooks --manual, qui font "ssh ${NS1_SSH_ALIAS}" — il faut donc que
++    # root ait AUSSI la clé et l'alias ns1, pas seulement koby.
++    - name: Provisionner le ~/.ssh de root avec la clé et l'alias ns1 (pour les hooks certbot)
++      ansible.builtin.copy:
++        src: "{{ item.src }}"
++        dest: "{{ item.dest }}"
++        mode: "{{ item.mode }}"
++        owner: root
++        group: root
++        remote_src: true
++      loop:
++        - { src: "/home/koby/.ssh/id_rsa", dest: "/root/.ssh/id_rsa", mode: '0600' }
++        - { src: "/home/koby/.ssh/id_rsa.pub", dest: "/root/.ssh/id_rsa.pub", mode: '0644' }
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    - name: S'assurer que le ~/.ssh de root a les bonnes permissions de répertoire
++      ansible.builtin.file:
++        path: /root/.ssh
++        state: directory
++        mode: '0700'
++        owner: root
++        group: root
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    - name: Ajouter l'alias ns1 au ~/.ssh/config de root, s'il n'y est pas déjà
++      ansible.builtin.blockinfile:
++        path: /root/.ssh/config
++        create: true
++        mode: '0600'
++        owner: root
++        group: root
++        marker: "# {mark} ANSIBLE MANAGED BLOCK - alias ns1"
++        block: |
++          Host {{ vault_ns1_ssh_alias }}
++              HostName {{ vault_ns1_dns_host }}
++              User admin
++              IdentityFile /root/.ssh/id_rsa
++              HostKeyAlgorithms +ssh-rsa
++              PubkeyAcceptedAlgorithms +ssh-rsa
++              IdentitiesOnly yes
++              StrictHostKeyChecking accept-new
++      when: ssh_zonefile_needed
++      tags: [always]
++
++    # --- Mode ad-hoc : découverte de la zone ns1 pour cert_domain ---
++    - name: "[ad-hoc] Découvrir la zone ns1 hébergeant {{ cert_domain | default('') }}"
++      become: false
++      ansible.builtin.command:
++        cmd: >-
++          ssh {{ vault_ns1_ssh_alias }}
++          "sudo -S {{ vault_ns1_admin_home | default('/home/admin') }}/find-zone.sh {{ cert_domain }}"
++        stdin: "{{ vault_ns1_sudo_password }}"
++      register: ns1_zone_lookup
++      changed_when: false
++      failed_when: false
++      no_log: true
++      when: cert_domain is defined
++      tags: [always]
++
++    - name: "[ad-hoc] Échouer si aucune zone ns1 ne contient {{ cert_domain | default('') }}"
++      ansible.builtin.fail:
++        msg: >-
++          Aucune zone trouvée sur ns1 pour {{ cert_domain }} :
++          {{ ns1_zone_lookup.stderr | default('sortie indisponible') }}
++      when: cert_domain is defined and ns1_zone_lookup.rc | default(1) != 0
++      tags: [always]
++
++    - name: "[ad-hoc] Extraire zone/fichier depuis la sortie de find-zone.sh"
++      ansible.builtin.set_fact:
++        ns1_zone_parts: "{{ ns1_zone_lookup.stdout.split('\t') }}"
++      when: cert_domain is defined and ns1_zone_lookup.rc == 0
++      tags: [always]
++
++    - name: "[ad-hoc] Construire l'entrée de certificat pour {{ cert_domain | default('') }}"
++      ansible.builtin.set_fact:
++        active_certificates: >-
++          {{ [{
++            'domain': cert_domain,
++            'extra_sans': [],
++            'dns_backend': 'ssh_zonefile',
++            'zone': ns1_zone_parts[0],
++            'zone_file': ns1_zone_parts[1],
++            'target_host': adhoc_target_host | default('CHANGEME'),
++            'webserver': adhoc_webserver | default('nginx'),
++            'service_name': adhoc_service_name | default('nginx'),
++            'cert_dest_dir': adhoc_cert_dest_dir | default('/etc/nginx/ssl/' + cert_domain),
++          }] }}
++      when: cert_domain is defined and ns1_zone_lookup.rc == 0
++      tags: [always]
++
++    - name: "[ad-hoc] Zone découverte pour {{ cert_domain | default('') }}"
++      ansible.builtin.debug:
++        msg: "{{ cert_domain }} -> zone {{ active_certificates[0].zone }} ({{ active_certificates[0].zone_file }})"
++      when: cert_domain is defined
++      tags: [always]
++
++  tasks:
++    - name: Émettre/renouveler les certificats — backend rfc2136 (ns1/BIND)
++      ansible.builtin.include_tasks: tasks/issue_and_queue_cert.yml
++      loop: "{{ active_certificates | selectattr('dns_backend', 'equalto', 'rfc2136') | list }}"
++      loop_control:
++        loop_var: cert
++      vars:
++        cert_backend_args: >-
++          --dns-rfc2136
++          --dns-rfc2136-credentials /root/.secrets/certbot/rfc2136.ini
++          --dns-rfc2136-propagation-seconds 30
++      tags: [issue]
++
++    - name: Émettre/renouveler les certificats — backend powerdns (dnsp-mst)
++      ansible.builtin.include_tasks: tasks/issue_and_queue_cert.yml
++      loop: "{{ active_certificates | selectattr('dns_backend', 'equalto', 'powerdns') | list }}"
++      loop_control:
++        loop_var: cert
++      vars:
++        cert_backend_args: >-
++          --manual --preferred-challenges dns
++          --manual-auth-hook /root/.secrets/certbot/pdns-auth-hook.sh
++          --manual-cleanup-hook /root/.secrets/certbot/pdns-cleanup-hook.sh
++        cert_env:
++          PDNS_API_URL: "{{ vault_powerdns_api_url }}"
++          PDNS_API_KEY: "{{ vault_powerdns_api_key }}"
++          PDNS_DNS_HOST: "{{ vault_powerdns_dns_host }}"
++      tags: [issue]
++
++    - name: Émettre/renouveler les certificats — backend ssh_zonefile (ns1/BIND, édition manuelle)
++      ansible.builtin.include_tasks: tasks/issue_and_queue_cert.yml
++      loop: "{{ active_certificates | selectattr('dns_backend', 'equalto', 'ssh_zonefile') | list }}"
++      loop_control:
++        loop_var: cert
++      vars:
++        cert_backend_args: >-
++          --manual --preferred-challenges dns
++          --manual-auth-hook /root/.secrets/certbot/ns1-zonefile-auth-hook.sh
++          --manual-cleanup-hook /root/.secrets/certbot/ns1-zonefile-cleanup-hook.sh
++        cert_env:
++          NS1_SSH_ALIAS: "{{ vault_ns1_ssh_alias }}"
++          NS1_DNS_HOST: "{{ vault_ns1_dns_host }}"
++          NS1_SUDO_PASS: "{{ vault_ns1_sudo_password }}"
++          NS1_ZONE_FILE: "{{ cert.zone_file }}"
++          NS1_ZONE_NAME: "{{ cert.zone }}"
++      tags: [issue]
++
++    - name: Résumé des certificats traités
++      ansible.builtin.debug:
++        var: certs_deploy_queue
++      tags: [issue, deploy]
++
++    - name: Déployer le certificat et recharger le webserver (uniquement si changé)
++      ansible.builtin.include_tasks: tasks/deploy_and_reload_cert.yml
++      loop: "{{ certs_deploy_queue | default([]) | selectattr('changed', 'equalto', true) | list }}"
++      loop_control:
++        loop_var: deploy_item
++      tags: [deploy]
+

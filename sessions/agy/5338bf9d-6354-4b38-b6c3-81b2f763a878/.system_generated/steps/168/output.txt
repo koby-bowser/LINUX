@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+ssh: Could not resolve hostname th2-ansid-run1: Name or service not known
+ssh: Could not resolve hostname th2-ansid-run1: Name or service not known
+NO_DIRECT_SSH_RUNNER
+

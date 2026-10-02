@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+[Baba-Koby e87d43e] feat(ansible): add audit-wextp-topology playbook and register WEXTP cluster hosts
+ 2 files changed, 440 insertions(+), 9 deletions(-)
+ create mode 100644 playbooks/audit-wextp-topology.yml
+

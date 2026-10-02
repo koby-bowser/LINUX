@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+{
+  'mcp-excalidraw-server': 'dist/bin.js',
+  'excalidraw-canvas': 'dist/bin.js'
+}
+

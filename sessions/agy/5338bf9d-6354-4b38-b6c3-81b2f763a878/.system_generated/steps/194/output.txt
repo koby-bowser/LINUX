@@ -1,0 +1,28 @@
+
+The command exited with code 0.
+Output:
+diff --git a/inventories/dev/hosts.yml b/inventories/dev/hosts.yml
+index 19dc724..a163b01 100644
+--- a/inventories/dev/hosts.yml
++++ b/inventories/dev/hosts.yml
+@@ -22,6 +22,10 @@ all:
+     trp-wm2md-be2:
+       ansible_host: 172.30.243.194
+       ansible_port: 30
++    # Serveur mail (Postfix / Dovecot / Roundcube)
++    mtq-mailsrvp-01:
++      ansible_host: 172.30.39.153
++      ansible_port: 30
+   children:
+     databases:
+       children:
+@@ -76,3 +80,8 @@ all:
+     batch_selfcarebusiness_php:
+       hosts:
+         trp-wm2md-be2:
++    # Serveurs mail (Postfix / Dovecot / Roundcube)
++    mail_servers:
++      hosts:
++        mtq-mailsrvp-01:
++
+

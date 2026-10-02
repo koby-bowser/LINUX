@@ -1,0 +1,18 @@
+
+The command exited with code 2.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+bash: -c: line 8: syntax error near unexpected token `)'
+bash: -c: line 8: `    # SSL (certificat dédié Let's Encrypt)'
+

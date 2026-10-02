@@ -1,0 +1,57 @@
+
+The command exited with code 0.
+Output:
+
+PLAY [KeePass Server Pool Manager & Search] ************************************
+
+TASK [Check default KeePass DB existence] **************************************
+ok: [localhost]
+
+TASK [Check server pool cache existence] ***************************************
+ok: [localhost]
+
+TASK [Determine if pool synchronization is required] ***************************
+ok: [localhost]
+
+TASK [Prompt for KeePass database password if pool needs sync] *****************
+skipping: [localhost]
+
+TASK [Set resolved KeePass password] *******************************************
+skipping: [localhost]
+
+TASK [Synchronize server pool from KeePass database] ***************************
+skipping: [localhost]
+
+TASK [Display synchronization summary] *****************************************
+skipping: [localhost]
+
+TASK [Search server pool for query] ********************************************
+ok: [localhost]
+
+TASK [Display search results] **************************************************
+ok: [localhost] => {
+    "msg": [
+        "",
+        "\u001b[1m=== [Search Results for 'mtq-mailsrvp-01': 1 match(es)] ===\u001b[0m",
+        "",
+        "  \u001b[1m 1. \u001b[0;32mmtq-mailsrvp-01\u001b[0m \u001b[0;36m[SSH]\u001b[0m",
+        "      \u001b[1mIP(s)   :\u001b[0m \u001b[0;33m172.30.39.153\u001b[0m Port: 30",
+        "      \u001b[1mUser    :\u001b[0m superuser",
+        "      \u001b[1mGroup   :\u001b[0m \u001b[0;34mOMT_PFS.SYSTEME.ALL/MTQ/linux\u001b[0m",
+        "      \u001b[1mNotes   :\u001b[0m root / [PROTECTED]"
+    ]
+}
+
+TASK [Read pool metadata] ******************************************************
+skipping: [localhost]
+
+TASK [Parse pool metadata] *****************************************************
+skipping: [localhost]
+
+TASK [Display pool summary and usage guide] ************************************
+skipping: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+
+

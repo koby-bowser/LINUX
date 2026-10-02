@@ -1,0 +1,46 @@
+
+The command exited with code 28.
+Output:
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== 1. Routing to 109.62.64.18 and 172.30.198.33 ===
+109.62.64.18 via 172.30.198.54 dev ens192 src 172.30.198.49 uid 1000 
+    cache 
+172.30.198.33 via 172.30.198.54 dev ens192 src 172.30.198.49 uid 1000 
+    cache 
+
+=== 2. Direct curl to Reverse Proxy internal IP (172.30.198.33:9443) ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0HTTP/2 401 
+server: nginx
+date: Thu, 10 Sep 2026 09:36:29 GMT
+content-type: application/json;charset=ISO-8859-1
+content-length: 80
+vary: Origin
+vary: Access-Control-Request-Method
+vary: Access-Control-Request-Headers
+x-content-type-options: nosniff
+x-xss-protection: 0
+100    80  100    80    0     0   3333      0 --:--:-- --:--:-- --:--:--  3333
+
+=== 3. Curl to Public VIP (109.62.64.18:9443) ===
+*   Trying 109.62.64.18...
+* TCP_NODELAY set
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0* Connection timed out after 3001 milliseconds
+  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0
+* Closing connection 0
+curl: (28) Connection timed out after 3001 milliseconds
+

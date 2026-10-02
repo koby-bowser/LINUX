@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+origin	https://github.com/koby-bowser/LINUX.git (fetch)
+origin	https://github.com/koby-bowser/LINUX.git (push)
+* Baba-Koby
+  remotes/origin/Baba-Koby
+  remotes/origin/HEAD -> origin/Baba-Koby
+  remotes/origin/Yoda
+  remotes/origin/claude/claude-md-docs-b7oxga
+  remotes/origin/koby-bowser-patch-1
+  remotes/origin/refactorisation-de-code-34769
+

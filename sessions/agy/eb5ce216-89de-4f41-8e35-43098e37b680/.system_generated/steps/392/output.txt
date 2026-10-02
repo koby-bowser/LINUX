@@ -1,0 +1,15 @@
+
+The command exited with code 2.
+Output:
+WARNING  Listing 1 violation(s) that are fatal
+yaml[line-length]: Line too long (185 > 160 characters)
+playbooks/kdbx-pool.yml:46
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+# Rule Violation Summary
+
+  1 yaml profile:basic tags:formatting,yaml
+
+Failed: 1 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+

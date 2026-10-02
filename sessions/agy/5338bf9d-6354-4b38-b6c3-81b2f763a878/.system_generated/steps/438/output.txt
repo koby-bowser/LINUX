@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+[{'domains': ['example.com', 'www.example.com'], 'ports': ['80'], 'ssl_certificate': None, 'ssl_key': None}, {'domains': ['example.com', 'www.example.com'], 'ports': ['443 ssl http2'], 'ssl_certificate': '/etc/ssl/certs/example.crt', 'ssl_key': '/etc/ssl/private/example.key'}]
+

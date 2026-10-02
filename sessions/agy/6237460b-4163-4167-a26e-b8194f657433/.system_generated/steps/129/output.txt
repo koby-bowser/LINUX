@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+      "notes": "",
+      "custom_fields": {}
+    },
+    {
+      "title": "th2-dnsp-mst1",
+      "group": "OMT_PFS.SYSTEME.ALL/TH2/linux/Core",
+      "ips": [
+        "172.30.198.162"
+      ],
+

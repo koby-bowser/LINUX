@@ -1,0 +1,16 @@
+
+The command exited with code 2.
+Output:
+/home/koby/.mozilla/firefox/:
+total 40
+drwx------  8 koby koby 4096 Jul  6 16:56  .
+drwx------  6 koby koby 4096 May  5 11:14  ..
+drwx------ 18 koby koby 4096 Sep 24 14:21  6gf59aqe.default-esr
+drwx------  6 koby koby 4096 Sep 24 10:43 'Crash Reports'
+-rw-rw-r--  1 koby koby  120 Jul  6 16:56  installs.ini
+drwx------  2 koby koby 4096 Dec 24  2025 'Pending Pings'
+drwxr-xr-x  2 koby koby 4096 Jul  6 16:56 'Profile Groups'
+-rw-rw-r--  1 koby koby  392 Jul  6 16:56  profiles.ini
+drwx------  2 koby koby 4096 Dec 26  2025  qcrrqshv.default
+drwx------ 12 koby koby 4096 Jul  6 17:07  xjtfxoqj.default-release
+

@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+-rw------- 1 koby koby 107 Sep 17 11:53 /home/koby/.git-credentials
+

@@ -1,0 +1,13 @@
+
+The command exited with code 0.
+Output:
+root        1916  0.0  0.0  11772  7724 ?        Ss   10:40   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+koby        3663  0.0  0.0  97308  7220 ?        Ssl  10:41   0:00 /usr/libexec/gcr-ssh-agent --base-dir /run/user/1000/gcr
+koby        3666  0.0  0.0  10544  6384 ?        Ss   10:41   0:00 /usr/bin/ssh-agent -D
+koby      151263  0.0  0.0  10820  7260 ?        S    12:00   0:00 /usr/bin/ssh-agent -D -a /run/user/1000/keyring/.ssh
+root      152166  0.1  0.2 112600 72616 ?        S    12:07   0:00 /usr/bin/python3 /usr/bin/certbot certonly --non-interactive --agree-tos --expand -m a.samy@outremer-telecom.fr --test-cert --manual --preferred-challenges dns --manual-auth-hook /root/.secrets/certbot/ns1-zonefile-auth-hook.sh --manual-cleanup-hook /root/.secrets/certbot/ns1-zonefile-cleanup-hook.sh --cert-name geo.sfrcaraibe.fr -d geo.sfrcaraibe.fr
+root      152168  0.0  0.0   2672  1792 ?        S    12:07   0:00 /bin/sh -c /root/.secrets/certbot/ns1-zonefile-auth-hook.sh
+root      152169  0.0  0.0   7012  3512 ?        S    12:07   0:00 bash /root/.secrets/certbot/ns1-zonefile-auth-hook.sh
+koby      152962  0.0  0.0   7012  3212 pts/6    Ss+  12:10   0:00 bash -c ps aux | grep -E "certbot|auth-hook|curl|ssh"
+koby      152964  0.0  0.0   6600  2260 pts/6    S+   12:10   0:00 grep -E certbot|auth-hook|curl|ssh
+

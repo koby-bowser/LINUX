@@ -1,0 +1,7 @@
+Title: Live Content
+
+OG Description: Fetched live
+
+The full content of the article at https://outlook.cloud.microsoft has been saved to: /home/koby/.gemini/antigravity-cli/brain/a6d077d5-5dc2-45c4-8e83-b3c97e1ae6d2/.system_generated/steps/12/content.md
+
+You can use the view_file tool to read specific sections if needed.

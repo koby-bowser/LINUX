@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+sending incremental file list
+created directory /tmp/test-codex
+./
+2026/
+2026/09/
+2026/09/29/
+2026/09/29/rollout-2026-09-29T15-22-32-01a0ece6-ee44-7c03-a9bc-de387e5e4555.jsonl
+2026/09/29/rollout-2026-09-29T18-32-39-01a0ed94-fb6f-7781-8b27-0303ee8c2702.jsonl
+2026/09/29/rollout-2026-09-29T18-37-34-01a0ed99-7d00-7ac2-a65d-81c72dca3e18.jsonl
+2026/09/29/rollout-2026-09-29T18-38-21-01a0ed9a-33c8-7472-b6de-a2ac4deb60b1.jsonl
+2026/09/29/rollout-2026-09-29T18-42-12-01a0ed9d-bc41-7871-b4cf-e9f8db38da8a.jsonl
+2026/09/29/rollout-2026-09-29T18-42-45-01a0ed9e-3bfc-7723-bfc7-f824d44064e9.jsonl
+2026/09/29/rollout-2026-09-29T18-42-53-01a0ed9e-5a7a-7c63-a8c3-b41ab5ff4af2.jsonl
+2026/09/29/rollout-2026-09-29T18-46-00-01a0eda1-3814-7990-9760-72c4d6cf2baf.jsonl
+2026/09/30/
+2026/09/30/rollout-2026-09-30T14-59-24-01a0f1f8-1ba9-7dd1-a1bc-981d4b306672.jsonl
+
+sent 821 bytes  received 100 bytes  1,842.00 bytes/sec
+total size is 3,326,875  speedup is 3,612.24 (DRY RUN)
+

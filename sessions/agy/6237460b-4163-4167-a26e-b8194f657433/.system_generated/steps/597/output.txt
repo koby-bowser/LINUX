@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+debug1: Offering public key: /home/koby/.ssh/id_ed25519 ED25519 SHA256:m+Jegs4hOstTTUsylZBwv90EW+rOYPk85cyup4PUtks agent
+debug1: Server accepts key: /home/koby/.ssh/id_ed25519 ED25519 SHA256:m+Jegs4hOstTTUsylZBwv90EW+rOYPk85cyup4PUtks agent
+Authenticated to 172.30.198.162 ([172.30.198.162]:30) using "publickey".
+debug1: channel 0: new session [client-session] (inactive timeout: 0)
+debug1: Requesting no-more-sessions@openssh.com
+

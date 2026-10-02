@@ -1,0 +1,7 @@
+
+The command exited with code 1.
+Output:
+fatal: Unsupported SSL backend 'openssl'. Supported SSL backends:
+	gnutls
+fatal: remote helper 'https' aborted session
+

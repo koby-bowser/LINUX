@@ -1,0 +1,249 @@
+
+The command exited with code 0.
+Output:
+[
+  {
+    "id": 3,
+    "name": "GITSI Access token",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 1,
+    "name": "None",
+    "type": "none",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    },
+    "empty": true
+  },
+  {
+    "id": 2,
+    "name": "Vault Password",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 11,
+    "name": "Vault Password - monitoring",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 8,
+    "name": "db_resiliation_sfr_dev",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    },
+    "source_storage_id": 1,
+    "source_storage_key": "semaphore/db_resiliation_sfr_dev"
+  },
+  {
+    "id": 13,
+    "name": "db_retractation_lapostemobile_dev",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 12,
+    "name": "db_retractation_redcaraibe_dev",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 10,
+    "name": "db_retractation_sfrcaraibe_dev",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 21,
+    "name": "spui-runner-ssh-corp",
+    "type": "ssh",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 4,
+    "name": "spui-runner-ssh-dev",
+    "type": "ssh",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 16,
+    "name": "spui-runner-ssh-prod",
+    "type": "ssh",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 5,
+    "name": "superuser-trp-wextd-dbm1",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 15,
+    "name": "superuser-trp-wm2mp-be2",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 14,
+    "name": "superuser-trp-wm2mp-fe1",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  },
+  {
+    "id": 9,
+    "name": "wp_recrutement_sfrcaraibe_dev",
+    "type": "login_password",
+    "project_id": 1,
+    "string": "",
+    "login_password": {
+      "login": "",
+      "password": ""
+    },
+    "ssh": {
+      "login": "",
+      "passphrase": "",
+      "private_key": ""
+    }
+  }
+]
+

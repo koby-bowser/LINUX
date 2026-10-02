@@ -1,0 +1,82 @@
+
+The command exited with code 0.
+Output:
+We have found the **exact source code** for that button in Centreon Web ([`listOptions.js`](file:///usr/share/centreon/www/modules/centreon-map4-web-client/views/options/listOptions.js#L266-L281)).
+
+This reveals why `tcpdump` captured 0 packets from the backend: **The backend never makes this call.**
+
+---
+
+### The Code Behind the Buttons
+
+In [`listOptions.js`](file:///usr/share/centreon/www/modules/centreon-map4-web-client/views/options/listOptions.js#L266-L295):
+
+```javascript
+// 1. "MAP Engine server address" button:
+function testServerAddressNg() {
+  const urlServerNg = jQuery('input[name="server_address_ng"]').val();
+
+  jQuery.ajax({
+    type : 'GET',
+    url : `${urlServerNg}/centreon-map/api/latest/actuator/health`,
+    success: () => { /* Green Check */ }, 
+    error: () => { /* Red X */ }
+  });
+}
+
+// 2. "MAP server address as seen by Central" button:
+function testInternalServerAddressNg() {
+  const baseUrl = window.location.origin;
+  const internalUrlServerNg = jQuery('input[name="internal_server_address_ng"]').val();
+  const data = { url: internalUrlServerNg };
+
+  jQuery.ajax({
+    type: 'POST',
+    url: `${baseUrl}/centreon/api/latest/map/check-health`,  // <--- Sent to PHP backend!
+    ...
+```
+
+---
+
+### The Revelation
+
+1. **`MAP server address as seen by Central`** (Green check):
+   * Tested **server-side** by PHP on Central (`th2-centprop-be1`). It queries the internal network directly, which is why it succeeds.
+2. **`MAP Engine server address`** (Red X):
+   * Tested **client-side by your web browser** on your workstation via JavaScript AJAX!
+   * Your browser directly calls:
+     ```text
+     GET https://map.extranetclient.outremer-telecom.fr:9443/centreon-map/api/latest/actuator/health
+     ```
+
+---
+
+### The 2 Exact Reasons Why Your Browser Fails
+
+#### 1. CORS Block (Cross-Origin Resource Sharing)
+* Your browser is viewing the Centreon Web page on port **`443`** (`https://extranetclient.outremer-telecom.fr`).
+* The AJAX script calls port **`9443`** (`https://map.extranetclient.outremer-telecom.fr:9443`).
+* Because the port is different (`443` vs `9443`), modern web browsers (Chrome, Firefox, Edge) treat this as a **Cross-Origin request**.
+* Browsers strictly **block** cross-origin AJAX calls unless Nginx returns CORS headers:
+  ```nginx
+  add_header 'Access-Control-Allow-Origin' '*' always;
+  add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+  add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type' always;
+  ```
+  Without these headers, your browser silently rejects the response and displays **Connection test failed**.
+
+#### 2. Workstation Hairpin NAT
+* Your browser resolves `map.extranetclient.outremer-telecom.fr` to the public IP **`109.62.64.18`**.
+* If your PC is connected to the internal corporate LAN/VPN, traffic from your PC targeting the corporate public VIP `109.62.64.18:9443` is dropped by the corporate firewall (lack of NAT loopback / Hairpin NAT).
+
+---
+
+### How to Verify in 5 Seconds
+
+1. On the Centreon Web page, press **F12** in your browser to open **Developer Tools**.
+2. Go to the **Console** tab.
+3. Click **"Test connection to server"**.
+4. You will see the exact red browser error, for example:
+   * `Access to XMLHttpRequest at 'https://map...:9443/.../health' from origin 'https://extranetclient...' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
+   * Or: `net::ERR_CONNECTION_TIMED_OUT` (Firewall dropping packet from workstation to public IP).
+

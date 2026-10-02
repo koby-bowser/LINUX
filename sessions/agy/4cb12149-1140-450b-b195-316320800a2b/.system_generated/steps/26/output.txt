@@ -1,0 +1,7 @@
+Title: Live Content
+
+OG Description: Fetched live
+
+The full content of the article at https://raw.githubusercontent.com/jgraph/drawio-mcp/main/README.md has been saved to: /home/koby/.gemini/antigravity-cli/brain/4cb12149-1140-450b-b195-316320800a2b/.system_generated/steps/26/content.md
+
+You can use the view_file tool to read specific sections if needed.

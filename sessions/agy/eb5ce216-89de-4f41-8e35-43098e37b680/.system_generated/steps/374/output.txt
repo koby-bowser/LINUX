@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+Sanitized server_pool.json
+Sanitized server_pool.yml
+

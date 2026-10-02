@@ -1,0 +1,41 @@
+The search for ""AUTHENTICATION_BACKENDS = [" site:github.com/netbox-community/netbox/blob/develop/netbox/netbox/settings.py" returned the following summary:
+In NetBox, the `AUTHENTICATION_BACKENDS` setting is defined in `netbox/settings.py` to determine which authentication mechanisms the application uses and in what order[1][2].
+
+### Default Configuration
+By default, NetBox typically includes its own remote backend and the object permission backend[3][4]:
+
+```python
+AUTHENTICATION_BACKENDS = [
+    'netbox.authentication.RemoteUserBackend',
+    'netbox.authentication.ObjectPermissionBackend',
+]
+```
+
+### Customizing Authentication
+When you need to implement custom authentication (such as LDAP, OAuth, or SAML), you generally modify this setting in your `configuration.py` file rather than editing `settings.py` directly[1][5].
+
+*   **LDAP:** If you enable LDAP, you often need to ensure the LDAP backend is included in the list[6][7].
+    ```python
+    AUTHENTICATION_BACKENDS = [
+        'netbox.authentication.LDAPBackend',
+        'django.contrib.auth.backends.ModelBackend',
+    ]
+    ```
+*   **Order Matters:** The order of backends is important[2]. Django iterates through them until one successfully authenticates the user[8]. If you are adding a new backend (like for SSO or TACACS+), you must typically include the default `ModelBackend` (for local database users) if you wish to retain the ability to log in with local accounts[2][9][10].
+
+### Important Notes
+*   **Do Not Modify `settings.py` Directly:** It is strongly recommended to define `AUTHENTICATION_BACKENDS` in your `configuration.py` file[1][5]. NetBox is designed to pick up these settings from `configuration.py`, and modifying the core `settings.py` can cause issues during upgrades or with containerized deployments[1].
+*   **Remote Auth:** Many authentication methods rely on the `REMOTE_AUTH_ENABLED` setting being set to `True` in `configuration.py` alongside the appropriate `REMOTE_AUTH_BACKEND`[8][11].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEq4l_EXEbzE235-3qPnYCebn57yXiButO4PnX72Dm8l_3UxTbJByHB0we1OlyctJvOjKDxbUyZRFAUwDChCG2_dQhT0izq9biK9FjlgeQFhvVfqzo0Uresio09YWjdmIdR7oauMvJwX5vutCRfhBlU1w-1WDXYIQ8=)
+[2] [pypi.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFYeC3QBaj3oosL03jodrrykP7F8WW2Fxupqlifoyi6dv4kO7ffOKm156UokOVvBwitLAcSlGXnIoxU6P1uho2V_4CeRBIHbh9-FWGpoEoeqTNfFfm7Ya9SiEPQRVMxZAR7uA==)
+[3] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUF3UxCRlkFIaSPSgecxdkYGe9GLKEbpmPWcdYUKOg9SXLPgc54O448nJXtuD_kVZ7wd24sF0uUwGUmQbUHqgV0hpnlV4kB4bD9zi4PaZSSoiAAFOS4guQL5fh7SwZu4B1AYoABXE-ClmsiSc=)
+[4] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEUF3UxCRlkFIaSPSgecxdkYGe9GLKEbpmPWcdYUKOg9SXLPgc54O448nJXtuD_kVZ7wd24sF0uUwGUmQbUHqgV0hpnlV4kB4bD9zi4PaZSSoiAAFOS4guQL5fh7SwZu4B1AYoABXE-ClmsiSc=)
+[5] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEfRAn6piURvry5m4Ys22lGLE5G9ln3TWYJXm1qPlix7CJX_q3hRuc0EPSlQlECxe_w7gnVtMJWLs6i9kdalxyxbrDzR56M4p9UcOH0FYC_HsHxN-Es0BKk74FCvkwNYlOMrmnLq42EJgtEYsd97anAQ1Q=)
+[6] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHvYms1rYsRstPWi_TuO1LMXDob_p8c1RbjgBw5vFPhKdzMF0H178v366xK4SuUICAPMye_gcsjMZSty8agXuj_PpFScDEkjAT3O9qIQs_tqkZGEXa01ke96zz_1xOR7-LxW49S7d1JPKK2Yob6Ks6-hRtK2XlQro4=)
+[7] [packetcoders.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHrUQuoPrGK16KjldFc-UxMy9fXXLSe_16lWJrtEZmEAqB5-JeyoWtTR0hoj1BhZ8oZvWoZAKqkuFcNag8fRmMgSKyDmJ--o6lHtN1Bb5MJAS-V4CiEWcI6m41_n7psy2hMYwgm10gRGyk0076whbe2mqAG8lKkYcyhd8p34qc=)
+[8] [netboxlabs.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEZKzCEW8bAigyNmNu41duFrkv_gCwcGxpEqxLSV-AWRx0EzoPeg7VcPxbNMincOzQS6gbr91kI0H59IhckuFc8E7DniWd-meWYaQ9_30bNb-WHJ_YMOYie1uIFoFKcygjWH1I6aqOrTEr9e2cNTnA-VgQ2GcJMm4ctQfqRRA==)
+[9] [readthedocs.io](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGQLhXIUTFZknGz1zOinsq22BEDsCtj3_JOvlqPYUlmsLoi9AVKgIjndrRseSMKS-vAafKUqN5l7yqho5IIak1DxEUov1huX2WHbu5uk7MKxS1H5Ek_qNXVSRUlAi4IAh6MyFCYeDK5juN3G7cgFaiGl7fRRkLMM-4m3dT7hzyZyQ==)
+[10] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQFvpvfM60wcnr_eAs2fCUaPnT3Woy4EVqOyUZU3cTL338N9eCO7zbIYGtjhTtBk7bB7ZkK7hzFePCEnoacZlOGZCM0kN0GTmO2pKfmnYH3ZqoLP5_banjgdzcFKnIgXMU4or7wY_knBPwP5maPPabVYQzmbJozgL9Zl1BeZnjY=)
+[11] [chameleoncloud.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHXVEM8E_-lZuabbw0eEX1IaUjuxGnfYSrI31LWVJc2PV1HgNNxIa9KrQsFE5cLKYDUyoXszER5bokmuKBt21paZJHi-mGVDeSDD9rRZWzi6yPzHS8pgao_GA-XPvy2HBkLUZoxIiM3KQ4B_luoC_jApKE1lzD-qtAvK3FLHv_dJTG3XJA_Eq9eBXMBqfM=)

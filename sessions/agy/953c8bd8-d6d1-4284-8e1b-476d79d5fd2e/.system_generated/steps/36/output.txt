@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+PING 10.92.74.1 (10.92.74.1) 56(84) bytes of data.
+64 bytes from 10.92.74.1: icmp_seq=1 ttl=56 time=213 ms
+64 bytes from 10.92.74.1: icmp_seq=2 ttl=56 time=212 ms
+
+--- 10.92.74.1 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 212.061/212.386/212.711/0.325 ms
+

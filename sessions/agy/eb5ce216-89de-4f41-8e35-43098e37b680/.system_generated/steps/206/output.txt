@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+ M ansible.cfg
+ M playbooks/deploy-ssh-key.yml
+?? copy-to-remote.sh
+?? playbooks/copy-to-tmp.yml
+?? scripts/
+?? typescript
+

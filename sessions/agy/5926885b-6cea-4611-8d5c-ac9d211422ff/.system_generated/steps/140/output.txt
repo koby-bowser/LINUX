@@ -1,0 +1,2 @@
+Created file file:///home/koby/.gemini/antigravity-cli/brain/5926885b-6cea-4611-8d5c-ac9d211422ff/procedure_decommissionnement.md with requested content.
+If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.

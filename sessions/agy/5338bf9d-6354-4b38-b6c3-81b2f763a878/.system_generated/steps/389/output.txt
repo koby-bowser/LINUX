@@ -1,0 +1,13 @@
+{"name":"00-smoke-test.yml", "sizeBytes":"667"}
+{"name":"bootstrap-koby-bowser.yml", "sizeBytes":"4525"}
+{"name":"copy-to-tmp.yml", "sizeBytes":"1670"}
+{"name":"deploy-ssh-key.yml", "sizeBytes":"8145"}
+{"name":"files", "isDir":true}
+{"name":"group_vars", "isDir":true}
+{"name":"issue-deploy-certs.yml", "sizeBytes":"14340"}
+{"name":"kdbx-pool.yml", "sizeBytes":"4181"}
+{"name":"search-servers.yml", "sizeBytes":"43"}
+{"name":"tasks", "isDir":true}
+{"name":"templates", "isDir":true}
+
+Summary: This directory contains 4 subdirectories and 7 files.

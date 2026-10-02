@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+ANTIGRAVITY_AGENTAPI_EXE=/home/koby/.local/bin/agy
+ANTIGRAVITY_CSRF_TOKEN=cdd9a234-78b9-4976-8c81-3fd7d91dba59
+ANTIGRAVITY_SOURCE_METADATA={"tool":{"conversationId":"5926885b-6cea-4611-8d5c-ac9d211422ff", "stepIndex":38, "toolCall":{"id":"call_383176", "name":"run_command", "argumentsJson":"{\"CommandLine\":\"env | grep -iE \\\"outline|wiki|token|api\\\"\",\"Cwd\":\"/home/koby\",\"RunPersistent\":false,\"WaitMsBeforeAsync\":5000,\"toolAction\":\"Checking environment for wiki credentials\",\"toolSummary\":\"Check wiki env vars\"}", "thinkingSignature":"EpcDCpQDAWkUfRNLfz2evUE7DHV5cFvE1U3nV5PV58zSWuuQW2ogSxbUlhjocZFYn7CtFrkIHIetUaABf0m9pt7jd+DJsgnKOODrkGscIEv+M3u0GlAVutQ1dHcczfdNvmmvRA38YT+QKNtD8uppiR8iL6/SllzsumdjlxQfLbrm4Mb7uyjjf6/eOrI+xMhD/Z7S7PLE08QLpD5X7URnxhIH1p7bXebWfZvBEs7MJRKSt588GJl210qk3a3x+xl/iHgwhCMZAQ8Zt0PbknsssZczKaYzkA5mKFbzqMFI65+t6xUFQZQYAwv7mS/DvLCQzg2XXD/iLvyxDEjXRq9rICp78oo3kx9N8zE+H/NGRNjaj5nE5duNRJyJsG24vZU3ugyc2LieFgkGXvnNJbOc2H0f9VqQSe2/dQC18bZG4M8GNQQAMJVCpR8Zsy+D6NxYIXL14uXAwcQiLVxCweTtTU0nYvAzF7ZvPG1p7Ay8V8JUuv/nXQ4rYCi7jyHKqAfB237XYlIZ0prKXxz9KV4SttE8YqUwsabxwNY="}}}
+

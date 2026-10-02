@@ -1,0 +1,9 @@
+
+The command exited with code 0.
+Output:
+---
+# MODÈLE — ne pas utiliser tel quel, ce fichier n'est PAS chiffré.
+#
+# Créez le vrai fichier chiffré avec :
+#   ansible-vault create group_vars/all/vault.yml
+

@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+0 verbose cli /home/koby/.local/share/pi-node/node-v22.23.2-linux-x64/bin/node /home/koby/.local/share/pi-node/node-v22.23.2-linux-x64/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@10.9.8
+2 info using node@v22.23.2
+3 silly config load:file:/home/koby/.local/share/pi-node/node-v22.23.2-linux-x64/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/koby/.npmrc
+5 silly config load:file:/home/koby/.local/share/pi-node/node-v22.23.2-linux-x64/etc/npmrc
+6 verbose title npm exec mcp-excalidraw-server
+7 verbose argv "exec" "--cache" "/tmp/koby-npm-cache" "--yes" "--" "mcp-excalidraw-server"
+8 verbose logfile logs-max:10 dir:/tmp/koby-npm-cache/_logs/2026-09-22T14_18_16_321Z-
+9 verbose logfile /tmp/koby-npm-cache/_logs/2026-09-22T14_18_16_321Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ENETUNREACH
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 http fetch GET https://registry.npmjs.org/mcp-excalidraw-server attempt 1 failed with ENETUNREACH
+14 http fetch GET https://registry.npmjs.org/npm attempt 2 failed with ENETUNREACH
+15 http fetch GET https://registry.npmjs.org/mcp-excalidraw-server attempt 2 failed with ENETUNREACH
+

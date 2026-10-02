@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+10.92.74.1.gbs.intranet.local.
+

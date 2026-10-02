@@ -1,0 +1,1 @@
+- [Pi agent install state](pi_agent_install_state.md) — pi CLI installed via standalone Node 22 workaround, /login still pending

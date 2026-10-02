@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+172.30.198.33   map.extranetclient.outremer-telecom.fr
+

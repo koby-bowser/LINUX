@@ -1,0 +1,32 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.save HTTP/1.1" 404 292 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko; compatible; Bytespider; +https://zhanzhang.toutiao.com/) Chrome/126.0.6844.78 Safari/537.36 Edg/126.0.6844.78"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.swp HTTP/1.1" 404 292 "-" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Amzn-SearchBot/1.0; +https://developer.amazon.com/support/amazonbot)"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.tmp HTTP/1.1" 404 292 "-" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ChatGPT-User/1.0; +https://openai.com/bot"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.1 HTTP/1.1" 404 292 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_6_1) AppleWebKit/537.36 (KHTML, like Gecko; compatible; meta-externalagent/1.1; +https://developers.facebook.com/docs/sharing/webmasters/crawler) Chrome/151.0.7998.109 Safari/537.36"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml~ HTTP/1.1" 404 292 "-" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.old HTTP/1.1" 404 292 "-" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; Claude-User/1.0; +Claude-User@anthropic.com"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.bak HTTP/1.1" 404 292 "-" "Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko; compatible; Amzn-SearchBot/1.0; +https://developer.amazon.com/support/amazonbot) Chrome/133.0.8310.84 Safari/537.36"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.copy HTTP/1.1" 404 292 "-" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; facebookexternalhit/1.1; +http://www.facebook.com/externalhit_uatext.php)"
+34.139.237.200 - - [10/Sep/2026:14:27:13 +0000] "GET /serverless.yml.backup HTTP/1.1" 404 292 "-" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Bytespider; +https://zhanzhang.toutiao.com/)"
+18.116.101.220 - - [10/Sep/2026:14:27:36 +0000] "GET / HTTP/1.1" 400 650 "-" "visionheight.com/scan Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36"
+10.6.201.54 - - [10/Sep/2026:14:31:17 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "curl/8.14.1"
+10.6.201.54 - - [10/Sep/2026:14:32:37 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/1.1" 200 25 "-" "Python-urllib/3.13"
+10.6.201.54 - - [10/Sep/2026:14:37:03 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "curl/8.14.1"
+10.6.201.54 - - [10/Sep/2026:14:39:33 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+10.6.201.54 - - [10/Sep/2026:14:39:43 +0000] "GET /centreon-studio/api/beta/actuator/health HTTP/2.0" 404 280 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+10.6.201.54 - - [10/Sep/2026:14:41:42 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+172.30.198.49 - - [10/Sep/2026:14:42:45 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "Symfony HttpClient (Curl)"
+172.30.198.49 - - [10/Sep/2026:14:52:54 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "Symfony HttpClient (Curl)"
+172.30.198.49 - - [10/Sep/2026:14:53:26 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "-" "Symfony HttpClient (Curl)"
+10.6.201.54 - - [10/Sep/2026:14:53:31 +0000] "GET /centreon-map/api/latest/actuator/health HTTP/2.0" 200 15 "https://centreonpro.intranet.local/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"

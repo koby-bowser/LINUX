@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.gemini/antigravity-cli/builtin/skills/permissioned-github/SKILL.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/ide.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/app.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/cli.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/references/sdk.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/antigravity_guide/SKILL.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/migrate-workflows/SKILL.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/hooks.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/mcp_servers.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/rules.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/json_configs.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/skills.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/docs/plugins.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/agy-customizations/SKILL.md
+/home/koby/.gemini/antigravity-cli/builtin/skills/generative_ui/SKILL.md
+/home/koby/.gemini/antigravity-cli/brain/5338bf9d-6354-4b38-b6c3-81b2f763a878/.agents/agents/koby-bowser-sysadmin/agent.md
+/home/koby/.gemini/config/skills/koby-bowser-sysadmin/SKILL.md
+/home/koby/.gemini/config/AGENTS.md
+/home/koby/.gemini/agents/koby-bowser-ansible.md
+

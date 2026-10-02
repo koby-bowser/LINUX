@@ -1,0 +1,62 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-centprop-be1 (superuser@172.30.198.49:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+    success: () => {
+      const icon = '<img src="./img/icons/checked.png" class="ico-16">';
+      jQuery('.result_test_server_address').html(`${icon} ${i18n.ConnectionTestSuccessful}`);
+    }, 
+    error: () => {
+      const icon = '<img src="./img/icons/cross.png" class="ico-16">';
+      jQuery('.result_test_server_address').html(`${icon} ${i18n.ConnectionTestFailed}`);
+    }
+  });
+}
+
+function testServerAddressNg() {
+  const urlServerNg = jQuery('input[name="server_address_ng"]').val();
+
+  jQuery.ajax({
+    type : 'GET',
+    url : `${urlServerNg}/centreon-map/api/latest/actuator/health`,
+    success: () => {
+      const icon = '<img src="./img/icons/checked.png" class="ico-16">';
+      jQuery('.result_test_server_address_ng').html(`${icon} ${i18n.ConnectionTestSuccessful}`);
+    }, 
+    error: () => {
+      const icon = '<img src="./img/icons/cross.png" class="ico-16">';
+      jQuery('.result_test_server_address_ng').html(`${icon} ${i18n.ConnectionTestFailed}`);
+    }
+  });
+}
+
+function testInternalServerAddressNg() {
+  const baseUrl = window.location.origin;
+  const internalUrlServerNg = jQuery('input[name="internal_server_address_ng"]')
+    .val();
+  const data = { url: internalUrlServerNg };
+
+  jQuery.ajax({
+    type: 'POST',
+    url: `${baseUrl}/centreon/api/latest/map/check-health`,
+    dataType: 'json',
+    contentType: 'application/json; charset=utf-8',
+    data: JSON.stringify(data),
+    success: () => {
+      const icon = '<img src="./img/icons/checked.png" class="ico-16">';
+      jQuery('.result_test_internal_server_address_ng')
+        .html(`${icon} ${i18n.ConnectionTestSuccessful}`);
+    },
+    error: () => {
+

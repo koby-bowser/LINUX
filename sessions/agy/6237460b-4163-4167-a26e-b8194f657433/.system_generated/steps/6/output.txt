@@ -1,0 +1,8 @@
+{"name":".migrated"}
+{"name":"AGENTS.md", "sizeBytes":"2960"}
+{"name":"config.json", "sizeBytes":"80"}
+{"name":"mcp_config.json", "sizeBytes":"423"}
+{"name":"projects", "isDir":true}
+{"name":"skills", "isDir":true}
+
+Summary: This directory contains 2 subdirectories and 4 files.

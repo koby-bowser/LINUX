@@ -1,0 +1,5 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.gemini/antigravity-cli/bin:/home/koby/.local/bin:/home/koby/.local/share/pi-node/current/bin:/home/koby/.local/bin:/home/koby/.opencode/bin:/home/koby/.local/bin:/home/koby/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin
+

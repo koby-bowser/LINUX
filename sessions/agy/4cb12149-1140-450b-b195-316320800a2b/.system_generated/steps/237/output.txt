@@ -1,0 +1,34 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 200 
+server: nginx
+date: Tue, 22 Sep 2026 14:44:15 GMT
+content-type: text/html; charset=utf-8
+content-length: 14522
+vary: Accept-Encoding
+content-security-policy: base-uri 'none';default-src 'self';style-src 'self' 'unsafe-inline';script-src https://wiki.corp.intranet.local wiki.corp.intranet.local/static/ 'nonce-6a1cc1fe5e7fe2189b62abaa7d5a79b0';media-src * data: blob:;img-src * data: blob:;frame-src * data:;worker-src 'self';object-src https://wiki.corp.intranet.local 'self';connect-src *
+x-dns-prefetch-control: on
+expect-ct: max-age=0
+x-frame-options: SAMEORIGIN
+strict-transport-security: max-age=15552000; includeSubDomains
+x-download-options: noopen
+x-content-type-options: nosniff
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+x-xss-protection: 0
+vary: Accept-Encoding
+set-cookie: __Host-csrfToken=a53324629b01e57db1c852ea10a39aa3.762735d360e3eac1361429164348970105de9a779001e44ba097043b4adaff58; path=/; samesite=lax; secure
+timing-allow-origin: https://wiki.corp.intranet.local
+cache-control: no-cache, must-revalidate
+expires: -1
+
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Tue, 22 Sep 2026 14:44:16 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
+Location: https://wiki.corp.intranet.local/
+
+

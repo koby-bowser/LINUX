@@ -1,0 +1,27 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.claude
+/home/koby/.claude/.claude
+/home/koby/.claude/projects/-home-koby--claude
+/home/koby/.claude/projects/-home-koby--claude-projects
+/home/koby/.claude/backups/.claude.json.backup.1788788065209
+/home/koby/.claude/backups/.claude.json.backup.1788780888035
+/home/koby/.claude/backups/.claude.json.backup.1788780700190
+/home/koby/.claude/backups/.claude.json.backup.1788777382623
+/home/koby/.claude/backups/.claude.json.backup.1788781582832
+/home/koby/infra-management-system/.claude
+/home/koby/.local/state/claude
+/home/koby/.local/share/claude
+/home/koby/.local/bin/claude
+/home/koby/.ansible/.claude
+/home/koby/.claude.json
+/home/koby/.config/fish/.claude
+/home/koby/.config/Claude-3p/claude_desktop_config.json
+/home/koby/.cache/claude
+/home/koby/.cache/claude-desktop-debian
+/home/koby/.cache/claude-cli-nodejs
+/home/koby/.cache/claude-cli-nodejs/-home-koby--claude
+/home/koby/.cache/claude-cli-nodejs/-home-koby--claude-projects
+/home/koby/.cache/claude-cli-nodejs/-home-koby--claude-projects--home-koby
+

@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+Saisissez un mot de passe pour chiffrer la base de données (facultatif) :
+Confirmer le mot de passe :
+"Group","Title","Username","Password","URL","Notes","TOTP","Icon","Last Modified","Created"
+

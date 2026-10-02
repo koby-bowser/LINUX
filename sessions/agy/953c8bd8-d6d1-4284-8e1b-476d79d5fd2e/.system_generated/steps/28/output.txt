@@ -1,0 +1,35 @@
+
+The command exited with code 0.
+Output:
+
+; <<>> DiG 9.20.26-1~deb13u1-Debian <<>> fibre.argos.cgr.intranet.local
+;; global options: +cmd
+;; Got answer:
+;; WARNING: .local is reserved for Multicast DNS
+;; You are currently testing what happens when an mDNS query is leaked to DNS
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58002
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 2, ADDITIONAL: 3
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;fibre.argos.cgr.intranet.local.	IN	A
+
+;; ANSWER SECTION:
+fibre.argos.cgr.intranet.local.	180 IN	CNAME	gbs-webcgr-01.intranet.local.
+gbs-webcgr-01.intranet.local. 180 IN	A	10.92.74.1
+
+;; AUTHORITY SECTION:
+intranet.local.		180	IN	NS	th2-dnsintra-01.intranet.local.
+intranet.local.		180	IN	NS	th2-dnsintra-02.intranet.local.
+
+;; ADDITIONAL SECTION:
+th2-dnsintra-01.intranet.local.	180 IN	A	172.16.75.2
+th2-dnsintra-02.intranet.local.	180 IN	A	172.16.75.3
+
+;; Query time: 4 msec
+;; SERVER: 172.16.6.2#53(172.16.6.2) (UDP)
+;; WHEN: Wed Sep 16 18:54:11 +04 2026
+;; MSG SIZE  rcvd: 195
+
+

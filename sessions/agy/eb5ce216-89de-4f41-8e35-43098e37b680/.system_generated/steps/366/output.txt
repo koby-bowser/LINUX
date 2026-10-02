@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+ORIGINAL: 'root / cy/+v5Zp9IUu)u|jc6Xw,g*`q'
+MASKED  : 'root / [PROTECTED]'
+
+ORIGINAL: 'Port 30 ssh\nroot / 8&#JMl1Mwe0GyN'
+MASKED  : 'Port 30 ssh\nroot / [PROTECTED]'
+
+ORIGINAL: 'root / root2026'
+MASKED  : 'root / [PROTECTED]'
+
+ORIGINAL: 'mdp: mySecret123'
+MASKED  : 'mdp: [PROTECTED]'
+
+ORIGINAL: 'Password=TopSecret!'
+MASKED  : 'Password: [PROTECTED]'
+
+ORIGINAL: 'mot de passe : pass1234'
+MASKED  : 'mot de passe: [PROTECTED]'
+
+ORIGINAL: 'Serveur Postfix port 30'
+MASKED  : 'Serveur Postfix port 30'
+
+

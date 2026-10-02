@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/inventories/corp/hosts.yml:43:# du master PowerDNS public th2-dnsp-mst1 (zones publiques, cf. scripts/acme/).
+/home/koby/infra-management-system/inventories/corp/group_vars/all/bootstrap_debian.yml:27:# th2-dnsc-res1 : serveur PowerDNS distinct du master public th2-dnsp-mst1
+/home/koby/infra-management-system/inventories/prod/group_vars/all.yml:47:# master public th2-dnsp-mst1 (zones publiques, cf. scripts/acme/).
+

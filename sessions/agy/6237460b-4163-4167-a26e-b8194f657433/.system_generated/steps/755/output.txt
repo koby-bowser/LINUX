@@ -1,0 +1,10 @@
+
+The command exited with code 0.
+Output:
+subject=CN=extranetclient.outremer-telecom.fr
+issuer=C=US, O=Let's Encrypt, CN=YR2
+notBefore=Aug 19 04:13:28 2026 GMT
+notAfter=Nov 17 04:13:27 2026 GMT
+X509v3 Subject Alternative Name: 
+    DNS:extranetclient.outremer-telecom.fr
+

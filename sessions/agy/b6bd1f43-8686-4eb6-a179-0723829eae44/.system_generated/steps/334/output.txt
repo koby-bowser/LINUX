@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+-rw-r--r--. 1 root root 12780 Oct  2 08:20 /var/named/sfrcaraibe.fr.bak.20261002082004
+-rw-r--r--. 1 root root 12707 Oct  2 08:14 /var/named/sfrcaraibe.fr.bak.20261002081427
+-rw-r--r--. 1 root root 12777 Oct  2 08:10 /var/named/sfrcaraibe.fr.bak.20261002081014
+-rw-r-----. 1 root root 12777 Oct  2 08:06 /var/named/sfrcaraibe.fr.bak.20261002080625
+

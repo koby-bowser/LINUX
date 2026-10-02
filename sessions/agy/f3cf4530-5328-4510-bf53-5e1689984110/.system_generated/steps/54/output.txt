@@ -1,0 +1,29 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/.claude/settings.json:13:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system 2>/dev/null && which ansible-playbook && ansible --version | head -1')",
+/home/koby/infra-management-system/.claude/settings.json:14:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && export ANSIBLE_ROLES_PATH=$\\(pwd\\)/roles && export ANSIBLE_INVENTORY=$\\(pwd\\)/inventories/dev/hosts.yml && for p in playbooks/deploy-php-define-config.yml playbooks/deploy-php-fpm-pool.yml; do echo \"== $p ==\"; ansible-playbook --syntax-check \"$p\" 2>&1 | grep -v \"world writable\"; done')",
+/home/koby/infra-management-system/.claude/settings.json:15:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && export ANSIBLE_ROLES_PATH=\"$\\(pwd\\)/roles\" && ansible-playbook --syntax-check playbooks/deploy-php-define-config.yml 2>&1 | grep -v \"world writable\"')",
+/home/koby/infra-management-system/.claude/settings.json:16:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && export ANSIBLE_ROLES_PATH=\"$\\(pwd\\)/roles\" && ansible-playbook --syntax-check playbooks/deploy-php-fpm-pool.yml 2>&1 | grep -v \"world writable\"')",
+/home/koby/infra-management-system/.claude/settings.json:17:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && ansible-inventory -i inventories/dev/hosts.yml --graph 2>&1 | grep -v \"world writable\"')",
+/home/koby/infra-management-system/.claude/settings.json:18:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && python3 -c \" *)",
+/home/koby/infra-management-system/.claude/settings.json:19:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && source ~/.venvs/ansible/bin/activate 2>/dev/null; python -c \" *)",
+/home/koby/infra-management-system/.claude/settings.json:22:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && source ~/.venvs/ansible/bin/activate 2>/dev/null; export ANSIBLE_ROLES_PATH=roles ANSIBLE_LOCALHOST_WARNING=False ANSIBLE_INVENTORY_UNPARSED_WARNING=False; for p in deploy-alloy-agent deploy-monitoring-backend check-monitoring; do echo \"=== $p ===\"; ansible-playbook -i \"localhost,\" playbooks/$p.yml --syntax-check 2>&1 | tail -15; done')",
+/home/koby/infra-management-system/.claude/settings.json:23:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && source ~/.venvs/ansible/bin/activate 2>/dev/null; export ANSIBLE_ROLES_PATH=roles ANSIBLE_LOCALHOST_WARNING=False; ansible-playbook -i \"localhost,\" playbooks/deploy-monitoring-backend.yml --syntax-check 2>&1 | grep -v world.writable | tail -20')",
+/home/koby/infra-management-system/.claude/settings.json:24:      "Bash(wsl -- bash -lc 'cd /mnt/d/gitsi/omt/infra/management/infra-management-system && source ~/.venvs/ansible/bin/activate 2>/dev/null; export ANSIBLE_ROLES_PATH=roles ANSIBLE_LOCALHOST_WARNING=False; ansible-playbook -i \"localhost,\" playbooks/deploy-alloy-agent.yml --syntax-check 2>&1 | grep -v world.writable | tail -20; echo \"----\"; ansible-playbook -i \"localhost,\" playbooks/check-monitoring.yml --syntax-check 2>&1 | grep -v world.writable | tail -20')",
+/home/koby/infra-management-system/.claude/settings.json:74:      "Bash(grep -c 'BEGIN CERTIFICATE' d:/gitsi/omt/infra/management/infra-management-system/files/tls/batch.retractation.sfrcaraibe.dev.intranet.local/batch.retractation.sfrcaraibe.dev.intranet.local_certificate_chain.pem)",
+/home/koby/infra-management-system/.claude/agents/koby-kamek-infra.md:11:Dépôt GitLab : `gitsi.intranet.local/omt/infra/management/infra-management-system` (projet id 144).
+/home/koby/infra-management-system/docs/workflow-equipe.md:47:Le GitLab interne (`gitsi.intranet.local`) présente un certificat signé par la PKI corp que le
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:149:git clone https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+/home/koby/infra-management-system/docs/certs-publics-semaphore.md:162:> `gitsi.intranet.local` — d'où `-c http.sslBackend=openssl` sur les commandes qui
+/home/koby/infra-management-system/docs/batch-selfcarebusiness-dev-status.md:4:> **MR :** [!130 (Draft)](https://gitsi.intranet.local/omt/infra/management/infra-management-system/-/merge_requests/130) — En attente de validation
+/home/koby/infra-management-system/docs/batch-selfcarebusiness-dev-status.md:142:| MR GitSI | [!130 (Draft)](https://gitsi.intranet.local/omt/infra/management/infra-management-system/-/merge_requests/130) |
+/home/koby/infra-management-system/docs/tp-emission-cert-drive-otc.md:153:   git clone https://gitsi.intranet.local/omt/infra/management/infra-management-system.git
+/home/koby/infra-management-system/playbooks/issue-pki-cert-doccli-val.yml:30:    le_gitlab_url: "https://gitsi.intranet.local"
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:269:    le_gitlab_url: "https://gitsi.intranet.local"
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:278:    # Le runner clone déjà gitsi en HTTPS : la CA interne est dans son magasin système,
+/home/koby/infra-management-system/playbooks/issue-le-cert.yml:640:          - "   git clone https://gitsi.intranet.local/omt/infra/management/infra-management-system.git"
+/home/koby/infra-management-system/playbooks/generate-idemia-csr.yml:33:    gitlab_url: "https://gitsi.intranet.local"
+/home/koby/infra-management-system/playbooks/tasks/gitlab-commit-files.yml:23:#   gl_url             : ex. https://gitsi.intranet.local
+/home/koby/infra-management-system/README.md:7:- Repo GitLab : `gitsi.intranet.local/omt/infra/management/infra-management-system` (projet id **144**)
+

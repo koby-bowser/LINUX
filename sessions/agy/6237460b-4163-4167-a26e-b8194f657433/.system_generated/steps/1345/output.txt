@@ -1,0 +1,77 @@
+The following changes were made by the replace_file_content tool to: /home/koby/.gemini/antigravity-cli/brain/6237460b-4163-4167-a26e-b8194f657433/centreon-map-chain-report.md. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -65,19 +65,13 @@
+   ```
+   Tomcat immediately aborted the connection with `400 Bad Request`.
+ 
+-### B. Missing CORS Headers (Browser AJAX Block)
+-* In [`listOptions.js`](file:///usr/share/centreon/www/modules/centreon-map4-web-client/views/options/listOptions.js#L266):
+-  ```javascript
+-  function testServerAddressNg() {
+-    const urlServerNg = jQuery('input[name="server_address_ng"]').val();
+-    jQuery.ajax({
+-      type : 'GET',
+-      url : `${urlServerNg}/centreon-map/api/latest/actuator/health`
+-    });
+-  }
+-  ```
+-* The test button is triggered directly by the **client web browser** from origin `https://extranetclient...` (port 443) targeting port 9443.
+-* Modern browsers strictly block cross-origin requests unless the target server returns `Access-Control-Allow-Origin`.
++### B. Dual CORS Header Conflict
++* **Discovery**: Spring Boot Actuator on Tomcat **natively** provides CORS support and dynamically reflects the exact client origin (e.g. `Access-Control-Allow-Origin: https://centreonpro.intranet.local` with `Access-Control-Allow-Credentials: true`).
++* **The Conflict**: Adding `add_header Access-Control-Allow-Origin '*'` in Nginx caused **duplicate** CORS headers to be returned to the browser:
++  1. `Access-Control-Allow-Origin: https://centreonpro.intranet.local` (from Tomcat)
++  2. `Access-Control-Allow-Origin: *` (from Nginx)
++* **The Browser Block**: Per the W3C / Fetch CORS specification, a response MUST NOT contain multiple `Access-Control-Allow-Origin` headers, and wildcard `*` is strictly forbidden when `Access-Control-Allow-Credentials: true` is present. Modern browsers (Firefox / Chrome) automatically reject the response as a CORS violation.
++* **The Resolution**: Removed the manual CORS `add_header` block in Nginx to allow Tomcat's native, dynamic CORS to pass through cleanly.
+ 
+ ---
+ 
+@@ -84,38 +84,12 @@
+ 
+-The configuration [`/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf`](file:///etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf) has been upgraded:
++The configuration [`/etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf`](file:///etc/nginx/sites-available/03-map.extranetclient.outremer-telecom.fr.conf) has been finalized:
+ 
+ 1. **Clean Header Proxification**:
+-   * Removed `nginxconfig.io/proxy.conf` include to eliminate all duplicate header injection.
+-   * Defined clean, RFC-compliant singular proxy headers:
+-     ```nginx
+-     proxy_set_header Host              $http_host;
+-     proxy_set_header X-Real-IP         $remote_addr;
+-     proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+-     proxy_set_header X-Forwarded-Proto https;
+-     proxy_set_header X-Forwarded-Ssl   on;
+-     proxy_set_header X-Forwarded-Host  $host;
+-     proxy_set_header X-Forwarded-Port  9443;
+-     ```
+-
+-2. **Full CORS Support Added**:
+-   ```nginx
+-   add_header 'Access-Control-Allow-Origin' '*' always;
+-   add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
+-   add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+-   add_header 'Access-Control-Expose-Headers' 'Content-Length,Content-Range' always;
+-
+-   if ($request_method = 'OPTIONS') {
+-       add_header 'Access-Control-Allow-Origin' '*' always;
+-       add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
+-       add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+-       add_header 'Access-Control-Max-Age' 1728000;
+-       add_header 'Content-Type' 'text/plain; charset=utf-8';
+-       add_header 'Content-Length' 0;
+-       return 204;
+-   }
+-   ```
+-
+-3. **Validation & Reload**:
++   * Removed `nginxconfig.io/proxy.conf` include to eliminate duplicate `Host:` injection.
++   * Defined clean, RFC-compliant singular proxy headers.
++   * Allowed Tomcat to manage CORS dynamically without conflicting header injection.
++
++2. **Validation & Reload**:
+    * `nginx -t`: **Syntax OK, test successful**.
+    * Recharged seamlessly via `systemctl reload nginx`.
+ 
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

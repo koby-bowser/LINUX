@@ -1,0 +1,22 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+Routes found: 6
+['api.selfcarebusiness.sfrcaraibe.fr'] (root: /var/www/api.selfcarebusiness.sfrcaraibe.fr/public) -> ['SELFCAREBIZPROD83']
+['www.sfrcaraibe.fr'] (root: /var/www/uxui.sfrcaraibe.fr) -> ['SFRUXUIPROD82']
+['pay.sfrcaraibe.fr'] (root: /var/www/pay.uxui.sfrcaraibe.fr/public) -> ['PAYSFRUXUIPROD82']
+['retractation.sfrcaraibe.fr'] (root: /var/www/retractation.sfrcaraibe.fr) -> ['RETRACTATIONSFRPROD83']
+['retractation.lapostemobile.sfrcaraibe.fr'] (root: /var/www/retractation.lapostemobile.sfrcaraibe.fr) -> ['RETRACTATIONLPMPROD83']
+['demo.api.selfcarebusiness.sfrcaraibe.fr'] (root: /var/www/demo.api.selfcarebusiness.sfrcaraibe.fr/public) -> ['SELFCAREBIZDEMO83']
+

@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+drwxrwxr-x 5 koby   koby    4096 Aug 25 11:16 /home/koby/.npm
+drwxrwxr-x 5 koby   koby    4096 Aug 12 13:16 /home/koby/.npm/_cacache
+drwxr-xr-x 2 nobody nogroup 4096 Sep  7 11:37 /home/koby/.npm/_cacache/content-v2/sha512/72/2d/
+total 32
+drwxr-xr-x 2 nobody nogroup  4096 Sep  7 11:37 .
+drwxrwxr-x 5 koby   koby     4096 Sep 10 10:49 ..
+-rw-r--r-- 1 nobody nogroup 23466 Sep  7 11:37 05a8a9e5e47c01071fb5460e6d8b6b99b0da17128b4c0dc3276db482f380ef7bb53d67cb2cc726e305279c2a2ad18fa0e0fcc55cb33e8e1d957e06f6d18b
+

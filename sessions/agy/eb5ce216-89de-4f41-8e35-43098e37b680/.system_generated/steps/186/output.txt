@@ -1,0 +1,36 @@
+
+The command exited with code 0.
+Output:
+
+Passed: 0 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'production'.
+
+PLAY [Validate local source file] **********************************************
+
+TASK [Validate that src_file parameter is provided] ****************************
+skipping: [127.0.0.1]
+
+TASK [Verify source file exists on control machine] ****************************
+ok: [127.0.0.1]
+
+TASK [Fail if source file does not exist on control machine] *******************
+skipping: [127.0.0.1]
+
+PLAY [Copy file to remote /tmp directory] **************************************
+
+TASK [Copy file to remote /tmp directory] **************************************
+changed: [127.0.0.1]
+
+TASK [Report file transfer summary] ********************************************
+ok: [127.0.0.1] => {
+    "msg": [
+        "Host: 127.0.0.1",
+        "Destination: /tmp/ansible.cfg",
+        "State: CHANGED (new/updated file copied)",
+        "Checksum: N/A"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+127.0.0.1                  : ok=3    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
+

@@ -1,0 +1,30 @@
+{"File":"/home/koby/infra-management-system/playbooks/files/fix-createdby-133/preview_outline_createdby.sql","LineNumber":31,"LineContent":"  ('dc8bfad9-5792-4b7e-8079-b415268cba79'::uuid, 'm.khemiri@outremer-telecom.fr', 'Migration de VMs via Advanced Cross vCenter vMotion (XVM)'),"}
+{"File":"/home/koby/infra-management-system/playbooks/files/fix-createdby-133/preview_outline_createdby.sql","LineNumber":64,"LineContent":"  ('a8ca4617-3bc8-4724-8f97-d35c61ce5cce'::uuid, 'm.khemiri@outremer-telecom.fr', 'Migration de VMs via Advanced Cross vCenter vMotion (XVM)'),"}
+{"File":"/home/koby/infra-management-system/playbooks/files/fix-createdby-133/apply_outline_createdby.sql","LineNumber":31,"LineContent":"  ('dc8bfad9-5792-4b7e-8079-b415268cba79'::uuid, 'm.khemiri@outremer-telecom.fr', 'Migration de VMs via Advanced Cross vCenter vMotion (XVM)'),"}
+{"File":"/home/koby/infra-management-system/playbooks/files/fix-createdby-133/apply_outline_createdby.sql","LineNumber":64,"LineContent":"  ('a8ca4617-3bc8-4724-8f97-d35c61ce5cce'::uuid, 'm.khemiri@outremer-telecom.fr', 'Migration de VMs via Advanced Cross vCenter vMotion (XVM)'),"}
+{"File":"/home/koby/infra-management-system/playbooks/vars/wikic-vms.yml","LineNumber":24,"LineContent":"# vCenter sous le nom `trp-wintc-rdb1` (pas `trp-wikic-rdb1`) — nom repris tel"}
+{"File":"/home/koby/infra-management-system/playbooks/provision-vsphere-vms.yml","LineNumber":5,"LineContent":"# pas via Semaphore : le poste joint vCenter, pas le runner."}
+{"File":"/home/koby/infra-management-system/playbooks/provision-vsphere-vms.yml","LineNumber":9,"LineContent":"#   - vault inventories/corp/group_vars/all_vault.yml (vcenter_*) déchiffrable ;"}
+{"File":"/home/koby/infra-management-system/roles/nfs_ha_cluster/templates/drbd-r0.res.j2","LineNumber":19,"LineContent":"##   fencing matériel (pas de fencing vCenter, tradeoff accepté)."}
+{"File":"/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md","LineNumber":8,"LineContent":"\u003e joint vCenter, pas le runner. Même logique que le flux PKI."}
+{"File":"/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md","LineNumber":35,"LineContent":"| `inventories/corp/group_vars/all/vault.yml` | Identifiants vCenter (chiffré ansible-vault) |"}
+{"File":"/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md","LineNumber":42,"LineContent":"1. **vCenter** : FQDN + compte de service (droits *Clone / Customize / Assign network*),"}
+{"File":"/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md","LineNumber":49,"LineContent":"5. **Template `debian13-base`** : présent dans vCenter, **avec `open-vm-tools` + `perl`**"}
+{"File":"/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md","LineNumber":64,"LineContent":"## Renseigner le vault vCenter"}
+{"File":"/home/koby/infra-management-system/docs/provisionnement-vsphere-wikic.md","LineNumber":99,"LineContent":"- Dans vCenter : VM créée, hardware conforme (vCPU/RAM/disques), **hostname + IP statique +"}
+{"File":"/home/koby/infra-management-system/roles/nfs_ha_cluster/meta/main.yml","LineNumber":13,"LineContent":"    (pas de fencing vCenter), complété par les garde-fous DRBD after-sb-*/"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/tasks/main.yml","LineNumber":11,"LineContent":"- name: Assert vCenter connection settings are present"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/tasks/main.yml","LineNumber":18,"LineContent":"      Identifiants vCenter manquants : renseigner vcenter_hostname / vcenter_username /"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/tasks/main.yml","LineNumber":19,"LineContent":"      vcenter_password (group_vars chiffré inventories/corp/group_vars/all/vault.yml)."}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":4,"LineContent":"# Calqué sur roles/pki_cert : piloté par API (ici vCenter), idempotent (vmware_guest"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":12,"LineContent":"#   name:      hostname court (= nom de la VM dans vCenter)         [requis]"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":25,"LineContent":"# Mapping clé logique -\u003e nom réel du template dans vCenter."}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":33,"LineContent":"# --- Connexion vCenter (SECRET — fournir vcenter_* via un group_vars chiffré) -------"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":35,"LineContent":"vsphere_vm_hostname: \"{{ vcenter_hostname | default('') }}\""}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":36,"LineContent":"vsphere_vm_username: \"{{ vcenter_username | default('') }}\""}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":37,"LineContent":"vsphere_vm_password: \"{{ vcenter_password | default('') }}\""}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":38,"LineContent":"# vCenter présente une CA interne ; passer à true si la CA est dans le magasin du poste."}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/defaults/main.yml","LineNumber":41,"LineContent":"# --- Placement dans l'inventaire vCenter (À CONFIRMER avec l'équipe virtu) ----------"}
+{"File":"/home/koby/infra-management-system/roles/vsphere_vm/meta/main.yml","LineNumber":11,"LineContent":"    execution (run from the workstation, connection: local) — vCenter credentials"}
+{"File":"/home/koby/infra-management-system/inventories/corp/hosts.yml","LineNumber":4,"LineContent":"# connection: local — charge group_vars/all*.yml, dont le vault vCenter) et"}
+{"File":"/home/koby/infra-management-system/inventories/corp/group_vars/all/main.yml","LineNumber":14,"LineContent":"# --- Placement dans l'inventaire vCenter (datacenter TH2) --------------------"}

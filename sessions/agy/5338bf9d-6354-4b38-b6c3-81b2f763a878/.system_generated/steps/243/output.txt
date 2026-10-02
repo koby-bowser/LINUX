@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+warning: deleting branch 'feat/onboard-mtq-mailsrvp-dev' that has been merged to
+         'refs/remotes/origin/feat/onboard-mtq-mailsrvp-dev', but not yet merged to HEAD
+Deleted branch feat/onboard-mtq-mailsrvp-dev (was 34dfdf8).
+

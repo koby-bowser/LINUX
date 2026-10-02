@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+HTTP/2 400 
+server: nginx
+date: Thu, 10 Sep 2026 13:36:44 GMT
+content-type: text/html;charset=utf-8
+content-length: 435
+content-language: en
+x-xss-protection: 1; mode=block
+x-content-type-options: nosniff
+referrer-policy: no-referrer-when-downgrade
+content-security-policy: default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline' 'unsafe-eval'; frame-ancestors 'self';
+permissions-policy: interest-cohort=()
+strict-transport-security: max-age=31536000; includeSubDomains
+
+

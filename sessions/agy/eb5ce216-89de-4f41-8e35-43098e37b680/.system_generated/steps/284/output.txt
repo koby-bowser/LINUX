@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+/home/koby/infra-management-system/inventories/dev/group_vars/batch_selfcarebusiness_config.yml:49:# 172.30.231.177) — le frontend de la plateforme M2M elle-même, PAS le service
+/home/koby/infra-management-system/inventories/prod/hosts.yml:64:      ansible_host: 172.30.231.177
+

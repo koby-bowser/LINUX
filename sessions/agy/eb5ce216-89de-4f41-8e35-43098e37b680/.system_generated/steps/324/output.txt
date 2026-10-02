@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+-rw-rw-r-- 1 koby koby  58732 Aug 17 17:04 /home/koby/Documents/keePassXC/Database.kdbx
+-rw-r--r-- 1 koby koby 489788 Aug 27 18:21 /home/koby/Documents/keePassXC/OMT_PFS.SYSTEME.ALL.kdbx
+-rw-rw-r-- 1 koby koby 491628 Aug 18 18:37 /home/koby/Downloads/OMT_PFS.SYSTEME.ALL.kdbx
+

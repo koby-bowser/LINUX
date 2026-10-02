@@ -1,0 +1,5 @@
+
+The command exited with code 255.
+Output:
+Host key verification failed.
+

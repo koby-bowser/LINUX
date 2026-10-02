@@ -1,0 +1,11 @@
+
+The command exited with code 0.
+Output:
+subject=CN=geo.sfrcaraibe.fr
+issuer=C=US, O=Let's Encrypt, CN=YE2
+notBefore=Oct  2 07:30:21 2026 GMT
+notAfter=Dec 31 07:30:20 2026 GMT
+X509v3 Subject Alternative Name: 
+    DNS:geo.sfrcaraibe.fr
+serial=05D0B3C020DAADDE2BE7DBCEA95F36D7907D
+

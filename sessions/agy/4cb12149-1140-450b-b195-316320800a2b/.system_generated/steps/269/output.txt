@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 9
+    print(f"- {doc.get(\"title\")} in collection {doc.get(\"collectionId\")}")
+                        ^
+SyntaxError: unexpected character after line continuation character
+

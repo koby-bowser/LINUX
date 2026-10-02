@@ -1,0 +1,31 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+156.225.1.91 - - [10/Sep/2026:08:10:21 +0000] "GET / HTTP/2.0" 502 552 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+156.225.1.91 - - [10/Sep/2026:08:10:27 +0000] "GET / HTTP/2.0" 502 552 "-" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+172.30.198.33 - - [10/Sep/2026:08:37:22 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:37:22 +0000] "GET /centreon-map/ HTTP/2.0" 400 435 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:38:06 +0000] "GET /centreon-map/ HTTP/1.1" 400 435 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:38:06 +0000] "GET /centreon-map/ HTTP/2.0" 400 435 "-" "curl/7.74.0"
+47.77.176.139 - - [10/Sep/2026:08:38:30 +0000] "GET / HTTP/1.1" 301 162 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+47.77.176.139 - - [10/Sep/2026:08:38:31 +0000] "GET /centreon-map/ HTTP/1.1" 400 435 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+172.30.198.33 - - [10/Sep/2026:08:39:49 +0000] "GET /centreon-map/ HTTP/1.1" 400 435 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:49:09 +0000] "GET /centreon-map/ HTTP/2.0" 400 435 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:49:56 +0000] "GET /centreon-map/ HTTP/2.0" 401 80 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:50:27 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:50:27 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:53:00 +0000] "GET / HTTP/2.0" 301 162 "-" "curl/7.74.0"
+172.30.198.33 - - [10/Sep/2026:08:53:00 +0000] "GET /centreon-map/ HTTP/2.0" 401 80 "-" "curl/7.74.0"
+

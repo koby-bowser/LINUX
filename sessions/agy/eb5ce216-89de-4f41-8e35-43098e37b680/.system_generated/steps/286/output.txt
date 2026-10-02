@@ -1,0 +1,50 @@
+
+The command exited with code 0.
+Output:
+61-    # HORS des groupes frontaux/backends/proxysql pour ne pas élargir la portée des
+62-    # plays wextp.
+63-    trp-wm2mp-fe1:
+64:      ansible_host: 172.30.231.177
+65-      ansible_port: 30
+66-    trp-wm2mp-be2:
+67:      ansible_host: 172.30.231.194
+68-      ansible_port: 30
+69-    # Pendant de trp-wm2mp-be2 — héberge des applications .NET, à ce jour
+70-    # entièrement hors IaC. Bootstrappé manuellement (bootstrap-spui-runner-manual.sh
+--
+75-    # de PROD ne doit JAMAIS recevoir de tâche modifiante depuis ce dépôt — cible
+76-    # uniquement par hostname littéral dans des playbooks de reconnaissance.
+77-    trp-wm2mp-be1:
+78:      ansible_host: 172.30.231.193
+79-      ansible_port: 30
+80-      ansible_user: spui-runner
+81-    # Serveurs Efalia Compose (échange mapping factures SFTP port 30, users
+--
+85-    # Volontairement HORS des groupes wextp/wm2mp (fleet différente, même principe que
+86-    # ces derniers) : regroupés dans efalia_compose ci-dessous.
+87-    trp-efaliap-cmp1:
+88:      ansible_host: 172.30.231.73
+89-      ansible_port: 30
+90-      ansible_user: spui-runner
+91-    trp-efaliap-cmp2:
+92:      ansible_host: 172.30.231.74
+93-      ansible_port: 30
+94-      ansible_user: spui-runner
+95-    # Matomo (stats.sfrcaraibe.com), hors IaC (vhost nginx posé à la main, pas le pattern
+--
+98-    # sans réécrire le vhost. Volontairement HORS des groupes wextp/wm2mp/frontaux (vhost
+99-    # isolé, même principe que efalia_compose ci-dessus).
+100-    trp-wextp-stat1:
+101:      ansible_host: 172.30.231.81
+102-      ansible_port: 30
+103-      ansible_user: spui-runner
+104-    # Reverse-proxy réel de trp-wm2mp-be1 (cf. commentaires dotnet_cgrcore_api.yml /
+--
+111-    # périmètre exact des vhosts qu'il héberge n'est pas confirmé par la recon — ciblé
+112-    # uniquement par hostname littéral.
+113-    trp-wintp-fe1:
+114:      ansible_host: 172.30.231.113
+115-      ansible_port: 30
+116-      ansible_user: spui-runner
+117-    # Serveur mail Martinique (Postfix / Dovecot / Roundcube). Héberge le service SMTP/IMAP
+

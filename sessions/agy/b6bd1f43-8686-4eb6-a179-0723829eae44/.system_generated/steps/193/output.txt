@@ -1,0 +1,14 @@
+The following changes were made by the replace_file_content tool to: /home/koby/LINUX/playbooks/group_vars/all/vault.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -18,7 +18,7 @@
+ # --- Backend powerdns (dnsp-mst) ---
+ vault_powerdns_api_url: "https://dnsp-mst.example.lan/api/v1"
+ vault_powerdns_api_key: "CLE_API_POWERDNS_ICI"
+-vault_powerdns_dns_host: "dnsp-mst.example.lan"   # interrogé directement pour vérifier la propagation
++vault_powerdns_dns_host: "172.30.198.162"   # interrogé directement pour vérifier la propagation
+ 
+ # --- Backend ssh_zonefile (ex. ns1 — pas de RFC2136, édition via SSH) ---
+ # vault_ns1_ssh_alias doit correspondre à un "Host" défini dans le
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

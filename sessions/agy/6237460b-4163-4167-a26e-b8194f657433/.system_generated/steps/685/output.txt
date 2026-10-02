@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+total 20
+drwxr-x--- 2 root root   79 Sep 10 13:29 .
+drwx------ 4 root root  108 Sep 10 13:29 ..
+-rw-r--r-- 1 root root 1354 Sep 10 13:29 cert.pem
+-rw-r--r-- 1 root root 3523 Sep 10 13:29 chain.pem
+-rw-r--r-- 1 root root 4877 Sep 10 13:29 fullchain.pem
+-rw------- 1 root root  241 Sep 10 13:29 privkey.pem
+

@@ -1,0 +1,50 @@
+
+; <<>> DiG 9.20.29-1~deb13u1-Debian <<>> +trace epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+;; global options: +cmd
+.			164247	IN	NS	b.root-servers.net.
+.			164247	IN	NS	l.root-servers.net.
+.			164247	IN	NS	g.root-servers.net.
+.			164247	IN	NS	k.root-servers.net.
+.			164247	IN	NS	j.root-servers.net.
+.			164247	IN	NS	e.root-servers.net.
+.			164247	IN	NS	m.root-servers.net.
+.			164247	IN	NS	d.root-servers.net.
+.			164247	IN	NS	a.root-servers.net.
+.			164247	IN	NS	h.root-servers.net.
+.			164247	IN	NS	c.root-servers.net.
+.			164247	IN	NS	f.root-servers.net.
+.			164247	IN	NS	i.root-servers.net.
+.			518375	IN	RRSIG	NS 8 0 518400 20261011050000 20260928040000 57780 . fYGw/hCSpKTmy+PIuYNZ3AvZajAtgqcRFbTYtNMJORPuZ6R2kAJC7dg0 p5tZ9AqjdXT3NZ3F5xgUA4XKx3Zpfy+bx9kyAf1lbouueKUnLS8wWvGd y9rw63jF2oxWWYNyFS3TVS4K7s0agRt+dhOfxfAe/P5qcEzZCmLA9pJA O2He9MrSKzlGNFU4cuCGzHQmWDoZaJ8k4ra3idZw97jpbnL9pI3m0Wr7 r//n7pIThdAZH7DWazH0phwy0DsT61pKStrV627a477jmj5Wlmt2qocl +CaOE2kTnndnZOY8ePsz0cNpVMK2siSYPfyIymGjXbwYpeJuUuYLhkWN wr6R4g==
+;; Received 1097 bytes from 172.16.6.2#53(172.16.6.2) in 4 ms
+
+;; UDP setup with 2001:500:a8::e#53(2001:500:a8::e) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; no servers could be reached
+;; UDP setup with 2001:500:a8::e#53(2001:500:a8::e) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; no servers could be reached
+;; UDP setup with 2001:500:a8::e#53(2001:500:a8::e) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:500:2::c#53(2001:500:2::c) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; communications error to 199.7.83.42#53: timed out
+;; UDP setup with 2801:1b8:10::b#53(2801:1b8:10::b) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; communications error to 202.12.27.33#53: connection refused
+;; communications error to 199.7.91.13#53: connection refused
+;; UDP setup with 2001:500:2d::d#53(2001:500:2d::d) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; communications error to 192.203.230.10#53: connection refused
+;; communications error to 192.112.36.4#53: connection refused
+;; communications error to 198.41.0.4#53: connection refused
+;; communications error to 192.5.5.241#53: connection refused
+;; communications error to 193.0.14.129#53: connection refused
+;; communications error to 192.33.4.12#53: connection refused
+;; communications error to 192.58.128.30#53: connection refused
+;; UDP setup with 2001:500:12::d0d#53(2001:500:12::d0d) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; communications error to 192.36.148.17#53: connection refused
+;; UDP setup with 2001:503:ba3e::2:30#53(2001:503:ba3e::2:30) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:dc3::35#53(2001:dc3::35) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; communications error to 170.247.170.2#53: connection refused
+;; UDP setup with 2001:500:2f::f#53(2001:500:2f::f) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:7fe::53#53(2001:7fe::53) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:500:1::53#53(2001:500:1::53) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:500:9f::42#53(2001:500:9f::42) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:503:c27::2:30#53(2001:503:c27::2:30) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; UDP setup with 2001:7fd::1#53(2001:7fd::1) for epdg.epc.mnc002.mcc340.pub.3gppnetwork.org failed: network unreachable.
+;; communications error to 198.97.190.53#53: connection refused
+;; no servers could be reached

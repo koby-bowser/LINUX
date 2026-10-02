@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+/home/koby/LINUX/.vault_pass
+/home/koby/vault-admin-sys
+

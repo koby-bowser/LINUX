@@ -1,0 +1,27 @@
+
+The command exited with code 1.
+Output:
+--- /var/named/sfrcaraibe.fr.bak.20261002080625	2026-10-02 08:06:25.955161925 +0000
++++ /var/named/sfrcaraibe.fr.bak.20261002081014	2026-10-02 08:10:14.355161654 +0000
+@@ -1,6 +1,6 @@
+ $TTL 180
+ @       IN SOA  ns1.outremer-telecom.fr. noc.resot.net. (
+-			2026092101 ; serial
++			2026100201 ; serial
+ 			12H        ; refresh
+ 			2H         ; retry
+ 			4W         ; expire
+@@ -62,7 +62,6 @@
+ ;_acme-challenge.esim			TXT bk4NS_7jFQc4qY7ywdcoMWcHsgMMlT0xaC02mv548hM
+ _acme-challenge.nep.smartwifi.alabs.private	TXT 	RUxEIXBn4ZbD4z2TIuQQA6kF6NyKVPGpfFuyQe888qY
+ _acme-challenge.sso.smartwifi			TXT	5r-oSE3xZMvXw9aA4Xr1u0s70b8OUFegwcJx34bk1-4
+-_acme-challenge.geo		TXT 	Druw6oLbgHO3kVB_auy3EBaah5RMNxTeM25DwjGhBm0
+ _acme-challenge.api.espaceclientbusiness	TXT 	xSTnlFTBfOVg0D9JrtU0imQ2MeizNAusyj1pZXlFG3U
+ _acme-challenge.play		TXT	5-5J4LZfArnX1cJ7iOpTQ8GsnLV-FwNH8fW1-HOxTlA
+ 
+@@ -274,3 +273,4 @@
+ sblb.smartwifi.alabs		CNAME 	omt-l2l-l4-internal-alb-72d227a2f50dee4f.elb.eu-west-3.amazonaws.com.
+ systemapi.smartwifi.alabs	CNAME	internal-omt-l2l-internal-alb-693611759.eu-west-3.elb.amazonaws.com.
+ api.eligibilite			CNAME	trp-wextp-aife1
++_acme-challenge.geo	TXT	"tspD67l9EBWnHUe7CHO7GL84yFn6u_dVpsrd9l0jJLI"
+

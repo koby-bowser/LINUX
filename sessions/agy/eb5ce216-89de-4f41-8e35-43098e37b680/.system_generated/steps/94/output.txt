@@ -1,0 +1,19 @@
+
+The command exited with code 0.
+Output:
+total 11G
+-rw-rw-r-- 1 koby koby  11G Sep  8 11:14 rhel-10.2-x86_64-dvd.iso
+-rw-rw-r-- 1 koby koby 882K Aug 13 14:37 ADSI_OMT_Compte rendu installation Sage X3 v12 TEST.pdf
+-rw-rw-r-- 1 koby koby 549K Aug 14 18:33 The-Complete-Guide-to-Building-Skill-for-Claude.pdf
+-rw-rw-r-- 1 koby koby 526K Jul 28 18:20 OMTDS-Reglement interieur-maj-au-01082026.pdf
+-rw-rw-r-- 1 koby koby 481K Aug 18 18:37 OMT_PFS.SYSTEME.ALL.kdbx
+-rw-rw-r-- 1 koby koby 197K Aug 13 14:36 YoozConnectorSageX3-Connectivity-SecurityArchitecture.pdf
+-rw-rw-r-- 1 koby koby  54K Sep  4 19:39 gua_mail_clients
+-rw-rw-r-- 1 koby koby  54K Sep  4 18:59 guy_mail_clients
+-rw-rw-r-- 1 koby koby  30K Sep  4 18:52 mail_clients
+-rw-rw-r-- 1 koby koby  17K Jun 30 13:08 Share.txt
+-rw-rw-r-- 1 koby koby 9.8K Jul 23 17:44 Cablage.xlsx
+drwxrwxr-x 2 koby koby 4.0K Aug 14 18:37 postfix.prod.intranet.local_bundle
+-rw-rw-r-- 1 koby koby 3.5K Aug 27 15:45 git_debug 1.log
+-rw-rw-r-- 1 koby koby   66 Sep  7 19:41 gemini.py
+

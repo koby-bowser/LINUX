@@ -1,0 +1,29 @@
+
+The command exited with code 0.
+Output:
+<truncated 438 lines>
+}
+
+TASK [Display Back-End Infrastructure, PHP & ProxySQL Summary Table] ***********
+ok: [localhost] => {
+    "msg": "========================================================================================================================================================================\nWEXTP INFRASTRUCTURE: BACK-END NODES, PHP ENGINES & PROXYSQL STATUS\n========================================================================================================================================================================\nBACKEND NODE     | IP ADDRESS       | PHP CLI            | ACTIVE PHP-FPM SERVICES             | LISTENING PHP PORTS          | PROXYSQL STATUS  | PROXYSQL PORTS | WEBROOTS\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\ntrp-wextp-be1    | 172.30.230.113   | 8.4.15             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,18204,27400,2... | ACTIVE           | 6032,6033,6080 | 42 roots\ntrp-wextp-be10   | 172.30.230.122   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 39 roots\ntrp-wextp-be11   | 172.30.230.123   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,27400            | ACTIVE           | 6032,6033,6080 | 42 roots\ntrp-wextp-be2    | 172.30.230.114   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,18204,27400,2... | ACTIVE           | 6032,6033,6080 | 39 roots\ntrp-wextp-be3    | 172.30.230.115   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,18204,27400,2... | ACTIVE           | 6032,6033,6080 | 36 roots\ntrp-wextp-be4    | 172.30.230.116   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,27400,27401,2... | ACTIVE           | 6032,6033,6080 | 37 roots\ntrp-wextp-be5    | 172.30.230.117   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,27400,27401,2... | ACTIVE           | 6032,6033,6080 | 37 roots\ntrp-wextp-be6    | 172.30.230.118   | 8.2.30             | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 37 roots\ntrp-wextp-be7    | 172.30.230.119   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 35 roots\ntrp-wextp-be8    | 172.30.230.120   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 35 roots\ntrp-wextp-be9    | 172.30.230.121   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 35 roots\n========================================================================================================================================================================\n"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=11   changed=2    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+trp-wextp-be1              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be10             : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be11             : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be2              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be3              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be4              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be5              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be6              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be7              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be8              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be9              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-fe1              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-fe2              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-fe3              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+

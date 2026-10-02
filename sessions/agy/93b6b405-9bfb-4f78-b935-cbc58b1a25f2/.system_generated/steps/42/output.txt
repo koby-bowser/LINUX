@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+125M	/home/koby/.gemini/antigravity-cli/brain
+58M	/home/koby/.gemini/antigravity-cli/conversations
+

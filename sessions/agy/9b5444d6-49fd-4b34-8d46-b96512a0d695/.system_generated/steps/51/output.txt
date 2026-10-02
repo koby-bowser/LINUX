@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.local/bin:
+total 412732
+drwxrwxr-x 2 koby koby      4096 Sep 17 10:45 .
+drwx------ 6 koby koby      4096 Jul 10 18:32 ..
+-rwxr-xr-x 1 koby koby 217284864 Sep 17 10:37 agy
+lrwxrwxrwx 1 koby koby        47 Sep 17 10:39 claude -> /home/koby/.local/share/claude/versions/2.1.274
+-rwxrwxr-x 1 koby koby 153847936 Aug 14 12:03 droid
+-rwxrwxr-x 1 koby koby       155 Aug 11 18:04 hermes
+-rwxrwxr-x 1 koby koby       159 Aug 11 18:04 hermes-acp
+-rwxrwxr-x 1 koby koby       161 Aug 11 18:04 hermes-agent
+lrwxrwxrwx 1 koby koby        35 Sep  9 19:26 kssh -> /home/koby/.ansible/scripts/kssh.py
+lrwxrwxrwx 1 koby koby        32 Aug 11 17:58 node -> /home/koby/.hermes/node/bin/node
+lrwxrwxrwx 1 koby koby        31 Aug 11 17:58 npm -> /home/koby/.hermes/node/bin/npm
+lrwxrwxrwx 1 koby koby        31 Aug 11 17:58 npx -> /home/koby/.hermes/node/bin/npx
+lrwxrwxrwx 1 koby koby        63 Aug 20 19:08 pi -> ../lib/node_modules/@earendil-works/pi-coding-agent/dist/cli.js
+-rwx------ 1 koby koby       801 Aug 18 12:58 pip-proxy
+lrwxrwxrwx 1 koby koby        78 Aug 11 17:55 python3.11 -> /home/koby/.local/share/uv/python/cpython-3.11-linux-x86_64-gnu/bin/python3.11
+lrwxrwxrwx 1 koby koby        66 Sep  2 15:42 semaphore-mcp -> /home/koby/.local/share/pipx/venvs/semaphore-mcp/bin/semaphore-mcp
+-rwxr-xr-x 1 koby koby  51102256 Aug 25 23:10 uv
+-rwxr-xr-x 1 koby koby    347120 Aug 25 23:10 uvx
+

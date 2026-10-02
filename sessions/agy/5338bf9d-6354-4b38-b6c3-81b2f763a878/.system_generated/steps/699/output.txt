@@ -1,0 +1,49 @@
+
+The command exited with code 2.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+/etc/php/8.2/fpm/pool.d/drive.conf.bak.2026-03-18-1102:1:[drive]
+/etc/php/8.2/fpm/pool.d/drive.conf.bak.2026-03-18-1102:5:listen = 0.0.0.0:28202
+/etc/php/8.2/fpm/pool.d/drive.conf:1:[drive]
+/etc/php/8.2/fpm/pool.d/drive.conf:5:listen = 0.0.0.0:28202
+/etc/php/8.2/fpm/pool.d/red-uxui.conf:1:[red-uxui]
+/etc/php/8.2/fpm/pool.d/red-uxui.conf:6:listen = 0.0.0.0:28200
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.bak.2025-10-15_1424:1:[pay-uxui]
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.bak.2025-10-15_1424:5:listen = 0.0.0.0:28210
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.bak.2025-10-27_1704:1:[pay-uxui]
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.bak.2025-10-27_1704:5:listen = 0.0.0.0:28210
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.bak.2025-10-27_1704:1:[uxui]
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.bak.2025-10-27_1704:5:listen = 0.0.0.0:28200
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.redis.bak.2025-11-04-0957:1:[pay-uxui]
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.redis.bak.2025-11-04-0957:6:listen = 0.0.0.0:28210
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.bak.10022026:1:[red-uxui]
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.bak.10022026:6:listen = 0.0.0.0:28200
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.bak.2026-02-13-1218:1:[pay-uxui]
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf.bak.2026-02-13-1218:6:listen = 0.0.0.0:28210
+/etc/php/8.2/fpm/pool.d/drive.conf.bak.2026-02-13-1236:1:[drive]
+/etc/php/8.2/fpm/pool.d/drive.conf.bak.2026-02-13-1236:5:listen = 0.0.0.0:28202
+/etc/php/8.2/fpm/pool.d/drive.conf.bak.2026-02-13-1749:1:[drive]
+/etc/php/8.2/fpm/pool.d/drive.conf.bak.2026-02-13-1749:5:listen = 0.0.0.0:28202
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.redis:1:[red-uxui]
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.redis:6:listen = 0.0.0.0:28200
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.bak.2026-03-03-0947:1:[red-uxui]
+/etc/php/8.2/fpm/pool.d/red-uxui.conf.bak.2026-03-03-0947:6:listen = 0.0.0.0:28200
+/etc/php/8.2/fpm/pool.d/www.conf.bak.2026-03-18-1137:4:[www]
+/etc/php/8.2/fpm/pool.d/www.conf.bak.2026-03-18-1137:42:listen =  0.0.0.0:18200
+/etc/php/8.2/fpm/pool.d/www.conf:1:[www]
+/etc/php/8.2/fpm/pool.d/www.conf:5:listen = 0.0.0.0:18200
+/etc/php/8.2/fpm/pool.d/retractation-red.conf:4:[retractation-red]
+/etc/php/8.2/fpm/pool.d/retractation-red.conf:5:listen = 0.0.0.0:18204
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf:1:[pay-uxui]
+/etc/php/8.2/fpm/pool.d/pay-uxui.conf:6:listen = 0.0.0.0:28210
+

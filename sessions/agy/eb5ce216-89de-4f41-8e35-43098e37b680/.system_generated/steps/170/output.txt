@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.ansible/.remember/today-2026-09-03.done.md:6:Cert-mgmt playbooks (issue-deploy-certs.yml, tasks/templates/bash hooks; RFC2136/BIND + PowerDNS API); syntax/lint-validated; added staging mode + test guide; SSH key deploy to ns1 (172.16.75.250) for RFC2136 zone updates; blocked legacy server compat (Python 2, no Ed25519, RSA-SHA1 deprecated) → unblocked via ssh-rsa; tested acme-zone-update.sh on zone copy (serial YYYYMMDDNN, ACME challenge fmt validated); integrated auth/cleanup hooks & certificates/vault configs; encrypted vault.yml; moved group_vars/all→playbooks/group_vars/all (Ansible var-load fix) — ready e2e test; untested.
+/home/koby/.ansible/.remember/remember.md:4:I tried deploying `~/.ssh/id_ed25519.pub` (koby@debian-trixie) to `172.30.249.209` (root, port 22) via `playbooks/deploy-ssh-key.yml`. SSH auth + vault decrypt both worked, but the play fails at "Gathering Facts": `/usr/bin/python3` doesn't exist on that host. User explicitly said **do not install anything on 172.30.249.209**, so I stopped. No changes were made on the target; no `changed` tasks ran.
+/home/koby/.ansible/.remember/remember.md:13:- `playbooks/group_vars/all/vault.yml` (DNS/certs secrets) auto-loads for ANY playbook targeting `all`, including unrelated ones like this SSH-key playbook — known gotcha, requires `--vault-password-file` even when the playbook itself uses no vault vars. Vault password: "koby".
+/home/koby/.ansible/.remember/today-2026-09-04.md:4:SSH ed25519 key 172.30.249.209: vault decrypt blocked (pwd given)→succeeded; SSH succeeded→playbook Gathering Facts failed (python3 missing); user declined install→blocked.
+

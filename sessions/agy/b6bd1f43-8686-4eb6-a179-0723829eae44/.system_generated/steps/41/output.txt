@@ -1,0 +1,17 @@
+
+The command exited with code 0.
+Output:
+zone "mnc002.mcc340.pub.3gppnetwork.org" {
+	type master;
+	file "mnc002.mcc340.pub.3gppnetwork.org";
+};
+
+// migré sur powerDNS TH2/RBX
+//zone "numericable-outremer.fr" {
+//	type master;
+//        file "numericable-outremer.fr";
+//};
+
+zone "omtds.mu" {
+        type master;
+

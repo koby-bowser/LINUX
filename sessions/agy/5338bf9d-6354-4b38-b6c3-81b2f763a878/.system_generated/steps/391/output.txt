@@ -1,0 +1,31 @@
+
+The command exited with code 0.
+Output:
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+	modified:   ansible.cfg
+	modified:   playbooks/deploy-ssh-key.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	copy-to-remote.sh
+	kssh
+	playbooks/bootstrap-koby-bowser.yml
+	playbooks/copy-to-tmp.yml
+	playbooks/kdbx-pool.yml
+	playbooks/search-servers.yml
+	scripts/
+	search-servers.sh
+	tmp/
+	typescript
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=== LOG ===
+a5b38b4 (HEAD -> master) Add Let's Encrypt DNS-01 cert issuance/deployment playbook
+fbadb50 Add SSH key deployment playbook
+39c49c6 Initial Ansible control node scaffolding
+d74c56b Add diamond.only.fr to certificates catalogue
+

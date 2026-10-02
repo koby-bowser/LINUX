@@ -1,0 +1,5 @@
+
+The command exited with code 2.
+Output:
+ls: cannot access /var/named/sfrcaraibe.fr*: Permission denied
+

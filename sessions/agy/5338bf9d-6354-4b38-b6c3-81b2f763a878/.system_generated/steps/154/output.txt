@@ -1,0 +1,20 @@
+
+The command exited with code 0.
+Output:
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+total 4
+drwxr-xr-x 2 root root   43 Aug 17 15:35 .
+drwxr-xr-x 8 root root 4096 Jul  1 06:04 ..
+lrwxrwxrwx 1 root root   34 Jun 10 12:08 default -> /etc/nginx/sites-available/default
+lrwxrwxrwx 1 root root   45 Aug 17 15:35 roundcube.conf -> /etc/nginx/sites-available/roundcube.conf_443
+

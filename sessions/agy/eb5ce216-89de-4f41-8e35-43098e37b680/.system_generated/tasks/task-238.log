@@ -1,0 +1,16 @@
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+total 12
+drwxr-xr-x 2 root      root        42 Sep  8 11:05 .
+drwxr-xr-x 6 root      root      4096 May 17 07:01 ..
+-rw-r--r-- 1 root      root       201 Sep  8 10:57 spui-runner
+-rw------- 1 superuser superuser  100 Sep  3 11:25 superuser

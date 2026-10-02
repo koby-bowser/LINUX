@@ -1,0 +1,23 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.claude/projects:
+total 40
+drwxrwxr-x 10 koby koby 4096 Sep 29 18:32 .
+drwxrwxr-x 29 koby koby 4096 Oct  2 11:04 ..
+drwx------  6 koby koby 4096 Sep 28 15:01 -home-koby
+drwx------  4 koby koby 4096 Sep  4 14:49 -home-koby--ansible
+drwx------  3 koby koby 4096 Sep 21 12:14 -home-koby--claude
+drwx------  4 koby koby 4096 Aug 31 13:21 -home-koby--config-fish
+drwxrwxr-x  3 koby koby 4096 Sep 29 18:42 -home-koby-infra-management-system
+drwxrwxr-x  3 koby koby 4096 Sep 21 12:14 -home-koby-pi
+drwx------  4 koby koby 4096 Aug 19 19:13 .remember
+drwx------  3 koby koby 4096 Sep 21 19:07 -tmp
+
+/home/koby/.claude/sessions:
+total 16
+drwx------  2 koby koby 4096 Oct  2 11:03 .
+drwxrwxr-x 29 koby koby 4096 Oct  2 11:04 ..
+-rw-------  1 koby koby  139 Oct  2 11:02 143707.6b327c00045f68e651ca7259c462baf8808257ac19c6f2a66f01568153d963bb.key
+-rw-rw-r--  1 koby koby  607 Oct  2 11:03 143707.json
+

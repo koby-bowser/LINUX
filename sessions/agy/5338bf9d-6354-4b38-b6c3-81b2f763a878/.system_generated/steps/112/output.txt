@@ -1,0 +1,33 @@
+
+The command exited with code 0.
+Output:
+total 136
+drwxrwxr-x 2 koby koby  4096 Sep  7 17:57 .
+drwxrwxr-x 4 koby koby  4096 Aug 11 13:41 ..
+-rw-rw-r-- 1 koby koby   658 Jun 24 18:45 all.yml
+-rw-rw-r-- 1 koby koby  1200 Jun 24 18:45 batch_retractation_php.yml
+-rw-rw-r-- 1 koby koby  1468 Sep  7 17:57 batch_selfcarebusiness_cli.yml
+-rw-rw-r-- 1 koby koby 13250 Aug 11 13:41 batch_selfcarebusiness_config_vault.yml
+-rw-rw-r-- 1 koby koby  4837 Aug 11 13:41 batch_selfcarebusiness_config.yml
+-rw-rw-r-- 1 koby koby  2239 Aug 11 13:41 doccli_php.yml
+-rw-rw-r-- 1 koby koby  2947 Aug 11 13:41 frontaux_vault.yml
+-rw-rw-r-- 1 koby koby   153 Jun 24 18:45 mariadb.yml
+-rw-rw-r-- 1 koby koby  3465 Jun 24 18:45 monitoring_vault.yml
+-rw-rw-r-- 1 koby koby  1790 Jun 24 18:45 monitoring.yml
+-rw-rw-r-- 1 koby koby  1703 Jun 24 18:45 proxysql_wm2md.yml
+-rw-rw-r-- 1 koby koby   419 Jun 24 18:45 proxysql.yml
+-rw-rw-r-- 1 koby koby  2752 Aug 11 13:41 retractation_define_vault.yml
+-rw-rw-r-- 1 koby koby   668 Jun 24 18:45 retractation_define.yml
+-rw-rw-r-- 1 koby koby  2882 Aug 11 13:41 retractation_lpm_define_vault.yml
+-rw-rw-r-- 1 koby koby   696 Jun 24 18:45 retractation_lpm_define.yml
+-rw-rw-r-- 1 koby koby   959 Jun 24 18:45 retractation_lpm_php.yml
+-rw-rw-r-- 1 koby koby   926 Jun 24 18:45 retractation_php.yml
+-rw-rw-r-- 1 koby koby  2817 Aug 11 13:41 retractation_red_define_vault.yml
+-rw-rw-r-- 1 koby koby   690 Jun 24 18:45 retractation_red_define.yml
+-rw-rw-r-- 1 koby koby   948 Jun 24 18:45 retractation_red_php.yml
+-rw-rw-r-- 1 koby koby  9621 Aug 11 13:41 selfcare_php_config_vault.yml
+-rw-rw-r-- 1 koby koby  3518 Jun 24 18:45 selfcare_php_config.yml
+-rw-rw-r-- 1 koby koby  3011 Aug 11 13:41 selfcare_php_vault.yml
+-rw-rw-r-- 1 koby koby  1581 Jun 24 18:45 selfcare_php.yml
+-rw-rw-r-- 1 koby koby  2083 Aug 11 13:41 webapp_php.yml
+

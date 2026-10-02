@@ -1,0 +1,12 @@
+
+The command exited with code 0.
+Output:
+total 24
+drwxr-xr-x 4 koby koby 4096 Sep  7 12:15 .
+drwxrwxr-x 7 koby koby 4096 Sep  7 18:23 ..
+-rw------- 1 koby koby   80 Sep  7 12:03 config.json
+-rw-r--r-- 1 koby koby  423 Sep  7 17:56 mcp_config.json
+-rw-r--r-- 1 koby koby    0 Sep  7 12:03 .migrated
+drwxr-xr-x 2 koby koby 4096 Sep  7 12:03 projects
+drwxrwxr-x 3 koby koby 4096 Sep  7 12:15 skills
+

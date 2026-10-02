@@ -1,0 +1,40 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 36,
+  "project_id": 1,
+  "inventory_id": 2,
+  "repository_id": 1,
+  "environment_id": 1,
+  "name": "Check apps - DEV",
+  "playbook": "playbooks/check-apps.yml",
+  "description": "Vérification end-to-end (lecture seule) des vhosts déployés depuis le frontal (rôle app_healthcheck) : matériel TLS sous /etc/ssl, nginx -t, upstreams php-fpm joignables, sonde HTTP locale sans 5xx. Apps : selfcare, api-selfcare, retractation (SFR/RED/LPM). git_branch=feat le temps de la branche TLS.",
+  "last_task": {
+    "id": 657,
+    "template_id": 36,
+    "project_id": 1,
+    "status": "success",
+    "playbook": "",
+    "environment": "{\"healthcheck_app_names\": \"selfcare,api-selfcare,retractation,retractation-red,retractation-lpm,webapp,doccli\"}",
+    "user_id": 2,
+    "created": "2026-07-29T13:02:12.822679Z",
+    "start": "2026-07-29T13:02:18.88161Z",
+    "end": "2026-07-29T13:02:31.861394Z",
+    "message": "Healthcheck complet avant merge feat/doccli-webapp-multi-domain",
+    "commit_hash": "82c4e0c7a614f025d459c3eb525e23fb6bc2e2f0",
+    "commit_message": "Merge branch 'docs/mep-webapp-doccli-prod-checklist' into 'main'",
+    "limit": "",
+    "tpl_playbook": "playbooks/check-apps.yml",
+    "tpl_alias": "Check apps - DEV",
+    "tpl_app": "ansible",
+    "user_name": "l.rangon"
+  },
+  "git_branch": "main",
+  "app": "ansible",
+  "tasks": 16,
+  "task_params": {
+    "allow_override_limit": true
+  }
+}
+

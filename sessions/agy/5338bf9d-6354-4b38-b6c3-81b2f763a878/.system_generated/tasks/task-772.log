@@ -1,0 +1,462 @@
+
+PLAY [KeePass Server Pool Manager & Search] ************************************
+
+TASK [Check default KeePass DB existence] **************************************
+ok: [localhost]
+
+TASK [Check server pool cache existence] ***************************************
+ok: [localhost]
+
+TASK [Determine if pool synchronization is required] ***************************
+ok: [localhost]
+
+TASK [Prompt for KeePass database password if pool needs sync] *****************
+skipping: [localhost]
+
+TASK [Set resolved KeePass password] *******************************************
+skipping: [localhost]
+
+TASK [Synchronize server pool from KeePass database] ***************************
+skipping: [localhost]
+
+TASK [Display synchronization summary] *****************************************
+skipping: [localhost]
+
+TASK [Search server pool for query] ********************************************
+ok: [localhost]
+
+TASK [Display search results] **************************************************
+ok: [localhost] => {
+    "msg": [
+        "=== [Search Results for 'trp-wextp-be': 44 match(es)] ===",
+        "",
+        "  [1] trp-wextp-be1 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.113 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [2] trp-wextp-be2 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.114 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [3] trp-wextp-be3 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.115 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [4] trp-wextp-be8 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.120 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [5] trp-wextp-be5 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.117 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [6] trp-wextp-be10 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.122 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [7] trp-wextp-be7 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.119 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [8] trp-wextp-be4 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.116 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [9] trp-wextp-be9 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.121 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP",
+        "",
+        "  [10] trp-wextp-be1 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.113 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [11] trp-wextp-be2 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.114 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [12] trp-wextp-be3 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.115 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [13] trp-wextp-be4 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.116 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [14] trp-wextp-be5 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.117 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [15] trp-wextp-be7 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.119 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [16] trp-wextp-be8 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.120 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [17] trp-wextp-be9 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.121 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [18] trp-wextp-be10 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.122 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP/root",
+        "",
+        "  [19] trp-wextp-be6 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.118 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [20] trp-wextp-be6 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.118 (Port: 30)",
+        "      User     : root",
+        "      Password : ?DGUbVBu!vnamwV=tLol",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [21] trp-wextp-be11 - Copy [SSH]",
+        "      IP(s)    : 172.30.230.123 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 4e021tzQbmdFqxmTx6d2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/Recycle Bin",
+        "",
+        "  [22] trp-wextp-be1 [SSH]",
+        "      IP(s)    : 172.30.230.113 (Port: 30)",
+        "      User     : superuser",
+        "      Password : G7v!r9Qp#2Lm8Zt4",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [23] trp-wextp-be2 [SSH]",
+        "      IP(s)    : 172.30.230.114 (Port: 30)",
+        "      User     : superuser",
+        "      Password : g7P#v9ZqR4!tB2yK",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [24] trp-wextp-be3 [SSH]",
+        "      IP(s)    : 172.30.230.115 (Port: 30)",
+        "      User     : superuser",
+        "      Password : Nf!5sV2@jH7cR0yM",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [25] trp-wextp-be8 [SSH]",
+        "      IP(s)    : 172.30.230.120 (Port: 30)",
+        "      User     : superuser",
+        "      Password : 92GLku4FKjUyh5bP",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [26] trp-wextp-be5 [SSH]",
+        "      IP(s)    : 172.30.230.117 (Port: 30)",
+        "      User     : superuser",
+        "      Password : mT4!qC9^rZ1&dW6p",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [27] trp-wextp-be10 [SSH]",
+        "      IP(s)    : 172.30.230.122 (Port: 30)",
+        "      User     : superuser",
+        "      Password : V7p!rQ2sXz#9gL4w",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [28] trp-wextp-be7 [SSH]",
+        "      IP(s)    : 172.30.230.119 (Port: 30)",
+        "      User     : superuser",
+        "      Password : qK6&nB3!tR9^fV1z",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [29] trp-wextp-be4 [SSH]",
+        "      IP(s)    : 172.30.230.116 (Port: 30)",
+        "      User     : superuser",
+        "      Password : bR9&zG3!tF6uH2cQ",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [30] trp-wextp-be9 [SSH]",
+        "      IP(s)    : 172.30.230.121 (Port: 30)",
+        "      User     : superuser",
+        "      Password : A4h^dE9yP!rL6uX2",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [31] trp-wextp-be11 [SSH]",
+        "      IP(s)    : 172.30.230.123 (Port: 30)",
+        "      User     : superuser",
+        "      Password : }`ig_+i}6[Ude_{U]5C8ea+0p",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [32] trp-wextp-be6 [SSH]",
+        "      IP(s)    : 172.30.230.118 (Port: 30)",
+        "      User     : superuser",
+        "      Password : q8R#vK3n!p2T$zF6",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [33] trp-wextp-be11 [SSH]",
+        "      IP(s)    : 172.30.230.123 (Port: 30)",
+        "      User     : root",
+        "      Password : A3!kP7^xD1#vM8yQ",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [34] trp-wextp-be11 [SSH]",
+        "      IP(s)    : 172.30.230.123 (Port: 30)",
+        "      User     : root",
+        "      Password : A3!kP7^xD1#vM8yQ",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP",
+        "",
+        "  [35] trp-wextp-be1 [SSH]",
+        "      IP(s)    : 172.30.230.113 (Port: 30)",
+        "      User     : root",
+        "      Password : tR3$kB6w@1Xc9Nf5",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [36] trp-wextp-be2 [SSH]",
+        "      IP(s)    : 172.30.230.114 (Port: 30)",
+        "      User     : root",
+        "      Password : xT$3mW8&uQz6Lp9r",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [37] trp-wextp-be3 [SSH]",
+        "      IP(s)    : 172.30.230.115 (Port: 30)",
+        "      User     : root",
+        "      Password : Y8#kD4qZ1^pL6wXe",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [38] trp-wextp-be4 [SSH]",
+        "      IP(s)    : 172.30.230.116 (Port: 30)",
+        "      User     : root",
+        "      Password : S2%vL7#nK5@xP8yJ",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [39] trp-wextp-be5 [SSH]",
+        "      IP(s)    : 172.30.230.117 (Port: 30)",
+        "      User     : root",
+        "      Password : H7#pX2@vG5!sL8yN",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [40] trp-wextp-be6 [SSH]",
+        "      IP(s)    : 172.30.230.118 (Port: 30)",
+        "      User     : root",
+        "      Password : M9$wX7r@t4L#cQ1v",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [41] trp-wextp-be7 [SSH]",
+        "      IP(s)    : 172.30.230.119 (Port: 30)",
+        "      User     : root",
+        "      Password : U4#yM8@pS2!cL7wQ",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [42] trp-wextp-be8 [SSH]",
+        "      IP(s)    : 172.30.230.120 (Port: 30)",
+        "      User     : root",
+        "      Password : q67poEEW6lyYIBxa",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [43] trp-wextp-be9 [SSH]",
+        "      IP(s)    : 172.30.230.121 (Port: 30)",
+        "      User     : root",
+        "      Password : T3g%vN7m#Q1bC8jF",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root",
+        "",
+        "  [44] trp-wextp-be10 [SSH]",
+        "      IP(s)    : 172.30.230.122 (Port: 30)",
+        "      User     : root",
+        "      Password : mK5$Zp8qF1@tW3nJ",
+        "      Group    : OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP/root"
+    ]
+}
+
+TASK [Read pool metadata] ******************************************************
+skipping: [localhost]
+
+TASK [Parse pool metadata] *****************************************************
+skipping: [localhost]
+
+TASK [Display pool summary and usage guide] ************************************
+skipping: [localhost]
+
+PLAY [Phase 1b - Ensure WEXTP Dynamic Inventory Groups from Pool] **************
+
+TASK [Load server pool cache] **************************************************
+ok: [localhost]
+
+TASK [Dynamically register backend hosts if not present] ***********************
+changed: [localhost] => (item={'title': 'trp-wextp-be1 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.113'], 'primary_ip': '172.30.230.113', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.113', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be2 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.114'], 'primary_ip': '172.30.230.114', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.114', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be3 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.115'], 'primary_ip': '172.30.230.115', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.115', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be8 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.120'], 'primary_ip': '172.30.230.120', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.120', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be5 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.117'], 'primary_ip': '172.30.230.117', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.117', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be10 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.122'], 'primary_ip': '172.30.230.122', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.122', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be7 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.119'], 'primary_ip': '172.30.230.119', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.119', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be4 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.116'], 'primary_ip': '172.30.230.116', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.116', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be9 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.121'], 'primary_ip': '172.30.230.121', 'username': 'superuser', 'password': '4e021tzQbmdFqxmTx6d2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.121', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be1', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.113'], 'primary_ip': '172.30.230.113', 'username': 'superuser', 'password': 'G7v!r9Qp#2Lm8Zt4', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.113', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be2', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.114'], 'primary_ip': '172.30.230.114', 'username': 'superuser', 'password': 'g7P#v9ZqR4!tB2yK', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.114', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be3', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.115'], 'primary_ip': '172.30.230.115', 'username': 'superuser', 'password': 'Nf!5sV2@jH7cR0yM', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.115', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be8', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.120'], 'primary_ip': '172.30.230.120', 'username': 'superuser', 'password': '92GLku4FKjUyh5bP', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.120', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be5', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.117'], 'primary_ip': '172.30.230.117', 'username': 'superuser', 'password': 'mT4!qC9^rZ1&dW6p', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.117', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be10', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.122'], 'primary_ip': '172.30.230.122', 'username': 'superuser', 'password': 'V7p!rQ2sXz#9gL4w', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.122', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be7', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.119'], 'primary_ip': '172.30.230.119', 'username': 'superuser', 'password': 'qK6&nB3!tR9^fV1z', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.119', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be4', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.116'], 'primary_ip': '172.30.230.116', 'username': 'superuser', 'password': 'bR9&zG3!tF6uH2cQ', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.116', 'notes': '', 'custom_fields': {}})
+ok: [localhost] => (item={'title': 'trp-wextp-be9', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.121'], 'primary_ip': '172.30.230.121', 'username': 'superuser', 'password': 'A4h^dE9yP!rL6uX2', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.121', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be11', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.123'], 'primary_ip': '172.30.230.123', 'username': 'superuser', 'password': '}`ig_+i}6[Ude_{U]5C8ea+0p', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.123', 'notes': '', 'custom_fields': {}})
+changed: [localhost] => (item={'title': 'trp-wextp-be6', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.118'], 'primary_ip': '172.30.230.118', 'username': 'superuser', 'password': 'q8R#vK3n!p2T$zF6', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.118', 'notes': '', 'custom_fields': {}})
+
+TASK [Dynamically register frontend hosts if not present] **********************
+changed: [localhost] => (item={'title': 'trp-wextp-fe2 - Copy', 'group': 'OMT_PFS.SYSTEME.ALL/MAU/linux/WEXTP', 'ips': ['172.30.230.98'], 'primary_ip': '172.30.230.98', 'username': 'superuser', 'password': 'iBjD2J5J!m%1=GZ2hSxn', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.98', 'notes': '', 'custom_fields': {'IP': '172.30.230.98'}})
+ok: [localhost] => (item={'title': 'trp-wextp-fe2', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.98'], 'primary_ip': '172.30.230.98', 'username': 'superuser', 'password': 'G7x!v9Pq#r2Zt4$Lm8wQy5', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.98', 'notes': '', 'custom_fields': {'IP': '172.30.230.98'}})
+changed: [localhost] => (item={'title': 'trp-wextp-fe3', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.99', '172.30.230.98'], 'primary_ip': '172.30.230.99', 'username': 'superuser', 'password': 'n9G$3vTq!zR8@pLf2#xHm7&bW1sY0uF', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.99', 'notes': "Old PWD: PY:7'1Ivu(%*IrxWm_cEtZY<d", 'custom_fields': {'IP': '172.30.230.98'}})
+changed: [localhost] => (item={'title': 'trp-wextp-fe1', 'group': 'OMT_PFS.SYSTEME.ALL/TRP/linux/WEXTP', 'ips': ['172.30.230.97'], 'primary_ip': '172.30.230.97', 'username': 'superuser', 'password': 'n7$Rk8!FvZq2@Yp4#B6tLm9%', 'port': 30, 'protocol': 'ssh', 'url': 'ssh30://172.30.230.97', 'notes': '', 'custom_fields': {'IP': '172.30.230.97'}})
+
+PLAY [Phase 2 - Audit Front-Ends (FE to BE Topology)] **************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [trp-wextp-fe3]
+ok: [trp-wextp-fe2]
+ok: [trp-wextp-fe1]
+
+TASK [Inspect Nginx configuration on Front-Ends] *******************************
+ok: [trp-wextp-fe2]
+ok: [trp-wextp-fe3]
+ok: [trp-wextp-fe1]
+
+TASK [Store parsed frontend routing facts] *************************************
+ok: [trp-wextp-fe2]
+ok: [trp-wextp-fe1]
+ok: [trp-wextp-fe3]
+
+PLAY [Phase 3 - Audit Back-Ends (PHP, ProxySQL, Webroots)] *********************
+
+TASK [Gathering Facts] *********************************************************
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Inspect PHP engines, ProxySQL, and webroots on Backend] ******************
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+TASK [Store parsed backend audit facts] ****************************************
+ok: [trp-wextp-be1]
+ok: [trp-wextp-be3]
+ok: [trp-wextp-be2]
+ok: [trp-wextp-be4]
+ok: [trp-wextp-be5]
+ok: [trp-wextp-be6]
+ok: [trp-wextp-be7]
+ok: [trp-wextp-be8]
+ok: [trp-wextp-be9]
+ok: [trp-wextp-be10]
+ok: [trp-wextp-be11]
+
+PLAY [Phase 4 - Consolidated Cluster Topology & Audit Reporting] ***************
+
+TASK [Display Host-by-Host Backend Health Summary] *****************************
+ok: [localhost] => (item=trp-wextp-be1) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be1\n====================================================================================================\n* Hostname         : trp-wextp-be1 (172.30.230.113)\n* PHP CLI          : PHP 8.4.15 (cli) (built: Nov 20 2025 19:02:10) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service\n* Listening Ports  : 17400, 18200, 18204, 27400, 27402, 27403, 27404, 27405, 27406, 28200, 28202, 28210\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 42 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be10) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be10\n====================================================================================================\n* Hostname         : trp-wextp-be10 (172.30.230.122)\n* PHP CLI          : PHP 8.5.3 (cli) (built: Feb 13 2026 15:51:35) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service, php8.3-fpm.service\n* Listening Ports  : 17400, 18200, 18202, 18203, 18205, 18207, 18208, 27400, 28202, 28204\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 39 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be11) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be11\n====================================================================================================\n* Hostname         : trp-wextp-be11 (172.30.230.123)\n* PHP CLI          : PHP 8.4.14 (cli) (built: Nov  8 2025 21:25:18) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service\n* Listening Ports  : 17400, 18200, 27400\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 42 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be2) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be2\n====================================================================================================\n* Hostname         : trp-wextp-be2 (172.30.230.114)\n* PHP CLI          : PHP 8.4.14 (cli) (built: Oct 27 2025 21:19:00) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service\n* Listening Ports  : 17400, 18200, 18204, 27400, 27401, 27402, 27403, 27404, 27405, 27406, 28200, 28210\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 39 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be3) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be3\n====================================================================================================\n* Hostname         : trp-wextp-be3 (172.30.230.115)\n* PHP CLI          : PHP 8.4.14 (cli) (built: Oct 27 2025 21:19:00) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service\n* Listening Ports  : 17400, 18200, 18204, 27400, 27401, 27402, 27403, 27404, 28200, 28210\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 36 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be4) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be4\n====================================================================================================\n* Hostname         : trp-wextp-be4 (172.30.230.116)\n* PHP CLI          : PHP 8.4.14 (cli) (built: Nov  8 2025 21:25:18) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service\n* Listening Ports  : 17400, 18200, 27400, 27401, 27402, 27403, 27404\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 37 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be5) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be5\n====================================================================================================\n* Hostname         : trp-wextp-be5 (172.30.230.117)\n* PHP CLI          : PHP 8.4.14 (cli) (built: Nov  8 2025 21:25:18) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service\n* Listening Ports  : 17400, 18200, 27400, 27401, 27402, 27403, 27404\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 37 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be6) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be6\n====================================================================================================\n* Hostname         : trp-wextp-be6 (172.30.230.118)\n* PHP CLI          : PHP 8.2.30 (cli) (built: Dec 18 2025 23:12:21) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service, php8.3-fpm.service\n* Listening Ports  : 17400, 18200, 18202, 18203, 18205, 18206, 18207, 18208, 27400, 28202, 28204, 37400\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (2150 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 37 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be7) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be7\n====================================================================================================\n* Hostname         : trp-wextp-be7 (172.30.230.119)\n* PHP CLI          : PHP 8.5.3 (cli) (built: Feb 13 2026 15:51:35) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service, php8.3-fpm.service\n* Listening Ports  : 17400, 18200, 18202, 18203, 18205, 18207, 18208, 27400, 28202, 28204\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 35 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be8) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be8\n====================================================================================================\n* Hostname         : trp-wextp-be8 (172.30.230.120)\n* PHP CLI          : PHP 8.5.3 (cli) (built: Feb 13 2026 15:51:35) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service, php8.3-fpm.service\n* Listening Ports  : 17400, 18200, 18202, 18203, 18205, 18207, 18208, 27400, 28202, 28204\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 35 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+ok: [localhost] => (item=trp-wextp-be9) => {
+    "msg": "====================================================================================================\nBACKEND NODE AUDIT: trp-wextp-be9\n====================================================================================================\n* Hostname         : trp-wextp-be9 (172.30.230.121)\n* PHP CLI          : PHP 8.5.3 (cli) (built: Feb 13 2026 15:51:35) (NTS)\n* Active PHP-FPM   : php7.4-fpm.service, php8.2-fpm.service, php8.3-fpm.service\n* Listening Ports  : 17400, 18200, 18202, 18203, 18205, 18207, 18208, 27400, 28202, 28204\n* ProxySQL Service : ACTIVE (ProxySQL version 2.7.3-12-g50b7f85, codename Truls)\n* ProxySQL Config  : /etc/proxysql.cnf (13725 bytes)\n* ProxySQL Ports   : 6032, 6033, 6080\n* Hosted Webroots  : 35 root directories in /var/www/\n----------------------------------------------------------------------------------------------------\n"
+}
+
+TASK [Display Front-End to Back-End Domain Routing Topology Table] *************
+ok: [localhost] => {
+    "msg": "========================================================================================================================================================================\nWEXTP TOPOLOGY: FRONT-END TO BACK-END DOMAIN ROUTING TABLE\n========================================================================================================================================================================\nFRONT-END       | HOSTED DOMAIN(S)                         | UPSTREAM POOL          | TARGET BACKEND(S)                   | PORT(S)      | FE ROOT DIRECTORY        \n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\ntrp-wextp-fe1   | commande.sfrcaraibe.fr, commande.sfrc... | SFRDEV82               | trp-wextp-be11                      | 18200        | /var/www/commande.sfrc...\ntrp-wextp-fe1   | espaceclient-lapostemobile.sfrcaraibe.fr | SFRDEV82               | trp-wextp-be11                      | 18200        | /var/www/espaceclient-...\ntrp-wextp-fe1   | espaceclient.sfrcaraibe.fr, espacecli... | SFRPROD74              | trp-wextp-be6, trp-wextp-be7, tr... | 17400        | /var/www/espaceclient....\ntrp-wextp-fe1   | espaceclientbusiness.sfrcaraibe.fr       | SFRPROD74, SFRBIZPR... | trp-wextp-be6, trp-wextp-be7, tr... | 17400,37400  | /var/www/espaceclientb...\ntrp-wextp-fe1   | resiliation.sfrcaraibe.fr                | SFRRESIL               | trp-wextp-be4, trp-wextp-be5        | 27404        | /var/www/resiliation.s...\ntrp-wextp-fe1   | rechargement.sfrcaraibe.fr, rechargem... | SFRDEV82               | trp-wextp-be11                      | 18200        | /var/www/rechargement....\ntrp-wextp-fe1   | ssosfr.intranet.local                    | SFRDEV82               | trp-wextp-be11                      | 18200        | /var/www/sso.sfrcaraibe.fr\ntrp-wextp-fe1   | sso.sfrcaraibe.fr, sso.sfrcaraibe.com... | SFRDEV82               | trp-wextp-be11                      | 18200        | /var/www/sso.sfrcaraibe.fr\ntrp-wextp-fe1   | assistance.sfrcaraibe.fr, assistance.... | SFRPROD74              | trp-wextp-be6, trp-wextp-be7, tr... | 17400        | /var/www/assistance.sf...\ntrp-wextp-fe1   | isp.sfrcaraibe.fr, ipsf.sfrcaraibe.fr, on | https://ingenico.ws... | ingenico.wscgr.intranet.local       | 80           | None                     \ntrp-wextp-fe1   | geo2.sfrcaraibe.fr                       | http://172.16.92.85:8080/ | 172.16.92.85                        | 8080         | /var/www/geo.sfrcaraibe.fr\ntrp-wextp-fe1   | geoloc.api.sfrcaraibe.fr                 | 172.30.230.118:17400   | 172.30.230.118                      | 17400        | /var/www/geoloc.api.sf...\ntrp-wextp-fe1   | geoloc.sfrcaraibe.fr                     | 172.30.230.118:17400   | 172.30.230.118                      | 17400        | /var/www/geoloc.sfrcaraibe.fr\ntrp-wextp-fe1   | resiliation.lapostemobile.sfrcaraibe.fr  | SFRRESIL               | trp-wextp-be4, trp-wextp-be5        | 27404        | /var/www/resiliation.l...\ntrp-wextp-fe1   | config.yealink.sfrcaraibe.fr             | http://127.0.0.1:80... | 127.0.0.1                           | 8000         | None                     \ntrp-wextp-fe1   | business.sfrcaraibe.fr                   | SFRBIZPROD74           | trp-wextp-be6                       | 17400        | /var/www/business.sfrc...\ntrp-wextp-fe1   | catalogues.sfrcaraibe.fr                 | 172.30.230.113:27400   | 172.30.230.113                      | 27400        | /var/www/catalogues.sf...\ntrp-wextp-fe1   | api.selfcarebusiness.sfrcaraibe.fr       | SELFCAREBIZPROD83      | trp-wextp-be6, trp-wextp-be7, tr... | 18202        | /var/www/api.selfcareb...\ntrp-wextp-fe1   | demo.api.selfcarebusiness.sfrcaraibe.fr  | SELFCAREBIZDEMO83      | trp-wextp-be6                       | 18206        | /var/www/demo.api.self...\ntrp-wextp-fe1   | pay.sfrcaraibe.fr                        | PAYSFRUXUIPROD82       | trp-wextp-be6, trp-wextp-be7, tr... | 28204        | /var/www/pay.uxui.sfrc...\ntrp-wextp-fe1   | retractation.lapostemobile.sfrcaraibe.fr | RETRACTATIONLPMPROD83  | trp-wextp-be6                       | 18205        | /var/www/retractation....\ntrp-wextp-fe1   | retractation.sfrcaraibe.fr               | RETRACTATIONSFRPROD83  | trp-wextp-be6                       | 18203        | /var/www/retractation....\ntrp-wextp-fe1   | www.sfrcaraibe.fr                        | SFRUXUIPROD82          | trp-wextp-be6, trp-wextp-be7, tr... | 28202        | /var/www/uxui.sfrcaraibe.fr\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\ntrp-wextp-fe2   | www.redcaraibe.fr                        | REDUXUIPROD82          | trp-wextp-be1, trp-wextp-be2, tr... | 28200        | /var/www/uxui.redcaraibe.fr\ntrp-wextp-fe2   | pay.redcaraibe.fr, pay.ed-prod           | PHP_PAYREDUXUI82       | trp-wextp-be1, trp-wextp-be2, tr... | 28210        | /var/www/pay-uxui.redc...\ntrp-wextp-fe2   | espaceclient.redcaraibe.fr, espacecli... | ecred_fpm_cluster      | trp-wextp-be4                       | 27402        | /var/www/espaceclient....\ntrp-wextp-fe2   | assistance.redcaraibe.fr                 | astred_fpm_cluster     | trp-wextp-be5                       | 27404        | /var/www/assistance.re...\ntrp-wextp-fe2   | commande.redcaraibe.fr, commande.redc... | cmdred_fpm_cluster     | trp-wextp-be4                       | 27404        | /var/www/commande.redc...\ntrp-wextp-fe2   | resiliation.redcaraibe.fr                | resilred_fpm_cluster   | trp-wextp-be4                       | 27404        | /var/www/resiliation.r...\ntrp-wextp-fe2   | retractation.redcaraibe.fr               | RETRACTATIONREDPROD83  | trp-wextp-be1                       | 18204        | /var/www/retractation....\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\ntrp-wextp-fe3   | recrutement.omtds.mu, recrutement.out... | PHP74                  | trp-wextp-be1                       | 17400        | /var/www/recrutement.omtds.mu/\ntrp-wextp-fe3   | recrutement.sfrcaraibe.fr                | PHP74                  | trp-wextp-be1                       | 17400        | /var/www/recrutement.s...\ntrp-wextp-fe3   | mantis2.outremer-telecom.fr              | WEXTP                  | trp-wextp-be1, trp-wextp-be2, tr... | 27400        | /var/www/mantis.outrem...\ntrp-wextp-fe3   | drive2.outremer-telecom.fr               | php-handler            | php-handler                         | 80           | /var/www/drive2.outrem...\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n========================================================================================================================================================================\n"
+}
+
+TASK [Display Back-End Infrastructure, PHP & ProxySQL Summary Table] ***********
+ok: [localhost] => {
+    "msg": "========================================================================================================================================================================\nWEXTP INFRASTRUCTURE: BACK-END NODES, PHP ENGINES & PROXYSQL STATUS\n========================================================================================================================================================================\nBACKEND NODE     | IP ADDRESS       | PHP CLI            | ACTIVE PHP-FPM SERVICES             | LISTENING PHP PORTS          | PROXYSQL STATUS  | PROXYSQL PORTS | WEBROOTS\n------------------------------------------------------------------------------------------------------------------------------------------------------------------------\ntrp-wextp-be1    | 172.30.230.113   | 8.4.15             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,18204,27400,2... | ACTIVE           | 6032,6033,6080 | 42 roots\ntrp-wextp-be10   | 172.30.230.122   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 39 roots\ntrp-wextp-be11   | 172.30.230.123   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,27400            | ACTIVE           | 6032,6033,6080 | 42 roots\ntrp-wextp-be2    | 172.30.230.114   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,18204,27400,2... | ACTIVE           | 6032,6033,6080 | 39 roots\ntrp-wextp-be3    | 172.30.230.115   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,18204,27400,2... | ACTIVE           | 6032,6033,6080 | 36 roots\ntrp-wextp-be4    | 172.30.230.116   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,27400,27401,2... | ACTIVE           | 6032,6033,6080 | 37 roots\ntrp-wextp-be5    | 172.30.230.117   | 8.4.14             | php7.4-fpm.service, php8.2-fpm.service | 17400,18200,27400,27401,2... | ACTIVE           | 6032,6033,6080 | 37 roots\ntrp-wextp-be6    | 172.30.230.118   | 8.2.30             | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 37 roots\ntrp-wextp-be7    | 172.30.230.119   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 35 roots\ntrp-wextp-be8    | 172.30.230.120   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 35 roots\ntrp-wextp-be9    | 172.30.230.121   | 8.5.3              | php7.4-fpm.service, php8.2-fpm.s... | 17400,18200,18202,18203,1... | ACTIVE           | 6032,6033,6080 | 35 roots\n========================================================================================================================================================================\n"
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=11   changed=2    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+trp-wextp-be1              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be10             : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be11             : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be2              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be3              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be4              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be5              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be6              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be7              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be8              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-be9              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-fe1              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-fe2              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+trp-wextp-fe3              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+[ERROR]: Unable to retrieve file contents.
+Could not find or access '/home/koby/.gemini/antigravity-cli/brain/5338bf9d-6354-4b38-b6c3-81b2f763a878/scratch/kdbx-pool.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option: [Errno 2] No such file or directory: '/home/koby/.gemini/antigravity-cli/brain/5338bf9d-6354-4b38-b6c3-81b2f763a878/scratch/kdbx-pool.yml'
+
+

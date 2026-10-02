@@ -1,0 +1,24 @@
+
+The command exited with code 0.
+Output:
+=== Public DNS (8.8.8.8) for extranetclient.outremer-telecom.fr ===
+;; communications error to 8.8.8.8#53: connection refused
+;; communications error to 8.8.8.8#53: connection refused
+;; communications error to 8.8.8.8#53: connection refused
+;; no servers could be reached
+
+=== Public DNS (1.1.1.1) for extranetclient.outremer-telecom.fr ===
+;; communications error to 1.1.1.1#53: connection refused
+;; communications error to 1.1.1.1#53: connection refused
+;; communications error to 1.1.1.1#53: connection refused
+;; no servers could be reached
+
+=== Public DNS (8.8.8.8) for map.extranetclient.outremer-telecom.fr ===
+;; communications error to 8.8.8.8#53: connection refused
+;; communications error to 8.8.8.8#53: connection refused
+;; communications error to 8.8.8.8#53: connection refused
+;; no servers could be reached
+
+=== Local DNS ===
+109.62.64.27
+

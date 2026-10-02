@@ -1,0 +1,259 @@
+
+The command exited with code 0.
+Output:
+{
+  "id": 90,
+  "name": "Add ProxySQL user espaceclient_prod - wm2mp",
+  "playbook": "playbooks/add-proxysql-user-wm2mp-espaceclient-prod.yml"
+}
+{
+  "id": 116,
+  "name": "Audit tous services cgrcore-* BE1 - PROD (recon)",
+  "playbook": "playbooks/recon-wm2mp-be1-cgrcore-units.yml"
+}
+{
+  "id": 126,
+  "name": "Bootstrap Debian 13 - PROD",
+  "playbook": "playbooks/bootstap-bebian13.yml"
+}
+{
+  "id": 121,
+  "name": "Check /_environment cgrcore - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-environment.yml"
+}
+{
+  "id": 112,
+  "name": "Check HTTP cgrcore-api BE1 vs BE2 - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-api-http.yml"
+}
+{
+  "id": 92,
+  "name": "Check api-selfcare nginx prereqs - PROD (recon)",
+  "playbook": "playbooks/check-api-selfcare-nginx-prereqs-prod.yml"
+}
+{
+  "id": 86,
+  "name": "Check batch.selfcarebusiness prereqs - PROD (recon)",
+  "playbook": "playbooks/check-batch-selfcarebusiness-prereqs-prod.yml"
+}
+{
+  "id": 102,
+  "name": "Check cert stats.sfrcaraibe.com - PROD",
+  "playbook": "playbooks/check-cert-stats-sfrcaraibe.yml"
+}
+{
+  "id": 114,
+  "name": "Check driver DB2/Informix cgrcore-api - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-api-db-driver.yml"
+}
+{
+  "id": 113,
+  "name": "Check erreurs health cgrcore-api - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-api-health-errors.yml"
+}
+{
+  "id": 118,
+  "name": "Check fichiers présents cgrcore - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-files-present.yml"
+}
+{
+  "id": 119,
+  "name": "Check localisation réelle cgrcore - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-actual-locations.yml"
+}
+{
+  "id": 106,
+  "name": "Check prérequis .NET wm2mp-be2 - PROD (recon)",
+  "playbook": "playbooks/check-wm2mp-be2-dotnet-prereqs.yml"
+}
+{
+  "id": 117,
+  "name": "Check runtime versions cgrcore - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-runtime-versions.yml"
+}
+{
+  "id": 111,
+  "name": "Check statut app .NET - PROD (recon)",
+  "playbook": "playbooks/check-dotnet-app-status.yml"
+}
+{
+  "id": 120,
+  "name": "Check statut groupé cgrcore - PROD (recon)",
+  "playbook": "playbooks/check-cgrcore-all-status.yml"
+}
+{
+  "id": 48,
+  "name": "Check tunnel RED - PROD (lecture seule)",
+  "playbook": "playbooks/check-tunnel-red.yml"
+}
+{
+  "id": 49,
+  "name": "Check tunnel RED vhosts - PROD (lecture seule)",
+  "playbook": "playbooks/check-tunnel-red-vhosts.yml"
+}
+{
+  "id": 100,
+  "name": "Check uxui ODR_OMT media registration prereqs - PROD (recon)",
+  "playbook": "playbooks/check-uxui-odr-omt-media-registration-prereqs-prod.yml"
+}
+{
+  "id": 98,
+  "name": "Check uxui ODR_OMT upload prereqs - PROD (recon)",
+  "playbook": "playbooks/check-uxui-odr-omt-upload-prereqs-prod.yml"
+}
+{
+  "id": 110,
+  "name": "Copier cgrcore BE1→BE2 - PROD",
+  "playbook": "playbooks/copy-cgrcore-be1-to-be2.yml"
+}
+{
+  "id": 108,
+  "name": "Deploy .NET app cgrcore-api - PROD (wm2mp-be2)",
+  "playbook": "playbooks/deploy-dotnet-app.yml"
+}
+{
+  "id": 39,
+  "name": "Deploy Nginx vhost - PROD",
+  "playbook": "playbooks/deploy-nginx-vhost.yml"
+}
+{
+  "id": 88,
+  "name": "Deploy PHP App Config - batch.selfcarebusiness - PROD",
+  "playbook": "playbooks/deploy-php-app-config.yml"
+}
+{
+  "id": 21,
+  "name": "Deploy PHP app config - PROD",
+  "playbook": "playbooks/deploy-php-app-config.yml"
+}
+{
+  "id": 40,
+  "name": "Deploy PHP define config - retractation - PROD",
+  "playbook": "playbooks/deploy-php-define-config.yml"
+}
+{
+  "id": 38,
+  "name": "Deploy TLS bundle - PROD",
+  "playbook": "playbooks/deploy-tls-bundle.yml"
+}
+{
+  "id": 123,
+  "name": "Deploy cert eligibilite (chirurgical) - PROD",
+  "playbook": "playbooks/deploy-cert-eligibilite.yml"
+}
+{
+  "id": 125,
+  "name": "Deploy cert resiliation.batch (chirurgical) - PROD",
+  "playbook": "playbooks/deploy-cert-resiliation-batch.yml"
+}
+{
+  "id": 104,
+  "name": "Deploy cert stats.sfrcaraibe.com - PROD",
+  "playbook": "playbooks/deploy-cert-stats-sfrcaraibe.yml"
+}
+{
+  "id": 4,
+  "name": "Deploy demo app to Production",
+  "playbook": "deploy.yml"
+}
+{
+  "id": 37,
+  "name": "Deploy php-fpm pool - PROD",
+  "playbook": "playbooks/deploy-php-fpm-pool.yml"
+}
+{
+  "id": 99,
+  "name": "Deploy uxui ODR_OMT bundle - PROD",
+  "playbook": "playbooks/deploy-uxui-odr-omt-upload-prod.yml"
+}
+{
+  "id": 89,
+  "name": "Grant espaceclient_prod - wm2mp",
+  "playbook": "playbooks/grant-espaceclient-prod-wm2mp.yml"
+}
+{
+  "id": 87,
+  "name": "Install PHP CLI - batch.selfcarebusiness - PROD",
+  "playbook": "playbooks/install-php-cli.yml"
+}
+{
+  "id": 47,
+  "name": "Install pdftk - batch.retractation - PROD",
+  "playbook": "playbooks/install-pdftk.yml"
+}
+{
+  "id": 7,
+  "name": "Print system info (Bash)",
+  "playbook": "print_system_info.sh"
+}
+{
+  "id": 8,
+  "name": "Print system info (PowerShell)",
+  "playbook": "print_system_info.ps1"
+}
+{
+  "id": 41,
+  "name": "Provision App DB - retractation - PROD",
+  "playbook": "playbooks/provision-app-db.yml"
+}
+{
+  "id": 109,
+  "name": "Préflight copie cgrcore BE1→BE2 - PROD (recon)",
+  "playbook": "playbooks/recon-wm2mp-cgrcore-copy-preflight.yml"
+}
+{
+  "id": 83,
+  "name": "Recon SFTP mapping (cgrbatch/cgr) - Efalia Compose PROD",
+  "playbook": "playbooks/sftp-mapping-recon.yml"
+}
+{
+  "id": 105,
+  "name": "Recon apps .NET wm2mp-be1 - PROD (lecture seule)",
+  "playbook": "playbooks/recon-wm2mp-be1-dotnet-audit.yml"
+}
+{
+  "id": 122,
+  "name": "Recon eligibilite cert+vhost - PROD (lecture seule)",
+  "playbook": "playbooks/recon-eligibilite-cert-and-vhost.yml"
+}
+{
+  "id": 128,
+  "name": "Recon php config compare sfr-uxui - PROD (lecture seule)",
+  "playbook": "playbooks/recon-php-config-compare.yml"
+}
+{
+  "id": 124,
+  "name": "Recon resiliation.batch cert+500 - PROD (lecture seule)",
+  "playbook": "playbooks/recon-resiliation-batch-cert-500.yml"
+}
+{
+  "id": 107,
+  "name": "Recon rôle Apache wm2mp-be1 - PROD (lecture seule)",
+  "playbook": "playbooks/recon-wm2mp-be1-apache-role.yml"
+}
+{
+  "id": 101,
+  "name": "Register uxui ODR_OMT media - PROD",
+  "playbook": "playbooks/register-uxui-odr-omt-media-prod.yml"
+}
+{
+  "id": 103,
+  "name": "Renew cert stats.sfrcaraibe.com - PROD",
+  "playbook": "playbooks/renew-cert-stats-sfrcaraibe.yml"
+}
+{
+  "id": 91,
+  "name": "Renew sury GPG key - trp-wm2mp-be2",
+  "playbook": "playbooks/renew-sury-gpg-key-wm2mp-be2.yml"
+}
+{
+  "id": 115,
+  "name": "Restart app .NET - PROD",
+  "playbook": "playbooks/restart-dotnet-app.yml"
+}
+{
+  "id": 84,
+  "name": "SFTP mapping dual-user (cgr+cgrbatch) - Efalia Compose PROD",
+  "playbook": "playbooks/sftp-mapping-dual-user.yml"
+}
+

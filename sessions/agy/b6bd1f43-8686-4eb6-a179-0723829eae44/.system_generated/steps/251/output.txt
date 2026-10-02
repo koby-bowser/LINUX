@@ -1,0 +1,7 @@
+
+The command exited with code 0.
+Output:
+zone sfrcaraibe.fr/IN: entreprise.sfrcaraibe.fr/MX 'mxW1.entreprise.sfrcaraibe.fr' has no address records (A or AAAA)
+zone sfrcaraibe.fr/IN: loaded serial 2026092101
+OK
+

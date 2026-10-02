@@ -1,0 +1,8 @@
+
+The command exited with code 0.
+Output:
+/home/koby/LINUX/inventory/server_pool.json:936:      "title": "gbs-frontweb-01",
+/home/koby/LINUX/inventory/server_pool.yml:591:        gbs-frontweb-01:
+/home/koby/LINUX/inventory/server_pool.yml:596:          kdbx_title: gbs-frontweb-01
+/home/koby/infra-management-system/inventories/prod/host_vars/th2-promp-scrp1/monitoring.yml:139:          - gbs-frontweb-01:9100
+

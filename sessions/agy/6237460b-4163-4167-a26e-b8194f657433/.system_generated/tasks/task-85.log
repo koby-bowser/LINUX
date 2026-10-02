@@ -1,0 +1,33 @@
+[kssh] Connecting to th2-revproxyp-fe1 (superuser@172.30.198.33:30)...
+
+#####################################################################
+#                                                                   #
+# ~# Outremer Telecom #~                                            #
+#                                                                   #
+#      You are trying to login to an Outremer Telecom server.       #
+# Authorized uses only. All activity may be monitored and recorded. #
+#    Disconnect IMMEDIATELY if you are not an authorized user.      #
+#                                                                   #
+#####################################################################
+
+=== CERTIFICATE INSPECTION ===
+issuer=C = US, O = Let's Encrypt, CN = YR2
+subject=CN = extranetclient.outremer-telecom.fr
+notBefore=Aug 19 04:13:28 2026 GMT
+notAfter=Nov 17 04:13:27 2026 GMT
+
+=== NGINXCONFIG.IO FILES ===
+
+=== CERTBOT RENEWAL / STATUS ===
+ls: cannot open directory '/etc/nginx/nginxconfig.io/': Permission denied
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following certs:
+  Certificate Name: extranetclient.outremer-telecom.fr
+    Serial Number: 663fba1f2ebace31eb339a464ffd34a2dde
+    Key Type: RSA
+    Domains: extranetclient.outremer-telecom.fr
+    Expiry Date: 2026-11-17 04:13:27+00:00 (VALID: 67 days)
+    Certificate Path: /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/extranetclient.outremer-telecom.fr/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

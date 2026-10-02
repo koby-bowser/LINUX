@@ -1,0 +1,51 @@
+The search for ""github.com/excalidraw" mcp" returned the following summary:
+The **excalidraw/excalidraw-mcp** repository provides an official Model Context Protocol (MCP) server that allows AI assistants (like Claude Desktop) to create and edit diagrams directly within your workflow using Excalidraw[1][2][3].
+
+### Key Features
+*   **AI-Driven Diagramming:** Enables you to use natural language prompts to generate hand-drawn style diagrams (e.g., architecture diagrams, flowcharts, mind maps)[4][5][3].
+*   **Interactive Editing:** Supports viewport camera control, full-screen editing, and the ability to export diagrams as PNG, SVG, or JSON[5][6][7].
+*   **Workflow Integration:** Allows AI agents to "see" and iterate on drawings, helping move diagramming from a post-hoc documentation task to an active part of the design and coding loop[8][9].
+
+### Setup Options
+You can integrate Excalidraw into your MCP-compatible environment using one of the following methods:
+
+#### 1. Remote Server (Easiest)
+You can point your MCP client to the hosted endpoint[5][10].
+*   **Endpoint:** `https://mcp.excalidraw.com` (or `https://excalidraw-mcp-app.vercel.app/mcp`)[1][11][10]
+
+#### 2. Local Installation
+For full control, you can run the server locally[1][5]:
+1.  **Clone the repository:** `git clone https://github.com/excalidraw/excalidraw-mcp.git`[1][5]
+2.  **Build:** Run `pnpm install && pnpm run build`[1][5].
+3.  **Configure:** Add the server to your MCP configuration file (e.g., `claude_desktop_config.json` for Claude Desktop)[1][10]:
+    ```json
+    {
+      "mcpServers": {
+        "excalidraw": {
+          "command": "node",
+          "args": ["/path/to/excalidraw-mcp/dist/index.js", "--stdio"]
+        }
+      }
+    }
+    ```
+
+### Excalidraw+ MCP
+In addition to the open-source project, **Excalidraw+** offers a separate MCP integration currently in public beta[12][13]. It is designed for Excalidraw Plus workspace users and uses a different endpoint:
+*   **Endpoint:** `https://api.excalidraw.com/api/v1/mcp`[12][14]
+*   **Authentication:** Requires an API key from your Excalidraw Plus workspace, sent via an `Authorization: Bearer <API_KEY>` header[12][14].
+
+Sources:
+[1] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeuhdGlZBDkvou3S-LKjTWpcw4gESqPC_W0VtWi8qhTRuOTRsa1NLnfzSbLoohQmE43NPNKb7cgXh2rsPc-A4blyfR8jW9lFxzVjP1jKut1Uujcn6-YyF4a1D13nnhhOYk)
+[2] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGfzeaieOfvHtYAQTnF9wk8n01nXNN4JfkZjn-LYwHoYiVHZC8znQTKoJhReVDO158V-g27jXaOGQZZIlLnOLUrbcVq2u87QugKr70K3DeM9__e)
+[3] [youtube.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH72iKiZHeyF8ExTYwzf07ueUMekAguBgLCH7FC6j-SDgofOE3xDBA8Ok13wvByy1qeH18nDprUvRazhDqts9Tkw4rMsbKlczGRqwkXfbqX1bAgzp0empauJZ4E6fIIVsY=)
+[4] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHOer0t0-jT1w0jtyMsdmuqby3usSFR_8SVnAat-DJHSvV7ujs1OnWsPLxqbCNvZnhIjm---E2dgV1B0odE8mjk48gLYKd-3DFQ3u_XbGqOuW-IBrNqdQGNu0T_aAC8LyDm7BQ6ryTWajY=)
+[5] [medium.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGUzv7Evi5hr9i0pWcTIf15tSvtORUnP3PfvpsVxePf7m9-2qItUgAXsbACfq2358McRKmmgG9vhaC6lgZzca-cs75Tt6hI491JJkmUikCBnihTnPdvqJ8Id6ZRZJwjDSu9pp4N6rTWu1M4ZbqdstxRUz1LhmDV8Yj2IDmV3uQ5r0d8n4jExPpCrbqFMFn27SCUAHJued6LG9xd9QuA7zFKVpBwgA==)
+[6] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeuhdGlZBDkvou3S-LKjTWpcw4gESqPC_W0VtWi8qhTRuOTRsa1NLnfzSbLoohQmE43NPNKb7cgXh2rsPc-A4blyfR8jW9lFxzVjP1jKut1Uujcn6-YyF4a1D13nnhhOYk)
+[7] [reddit.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQE-Mk6cmMGP5jd6OmC3v8d5t3jLoz61rp6_i4KRlzGgHL7UkBc4CNVtCV4HuXPBrp0Mr9nm4lspWm82tDXDwskaPBUkIfn3TVnVkTH7MkS8OQTXIFkdrYKdgLuiN2ZKxG01OZ-O8ZXuHsMaS_zM-85N8rmmmTbOaxLYZUXTib5eqF9M_s5g1gglmmy95dJ8)
+[8] [thomasthornton.cloud](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEH8nM1SfKHM5NAr8D-bDGOYoDtW8xKpIzA8XprCkpN5oPVbl3juFE2BKWuT11u8DfS2sff7UpDO-DUMI0H9d1UzyBigaWWS8r_PSdHCUBgHa5IJScwvDmzRLo8dzRZmwnuV83KlLWRgI5ovIni4-p_xIE30OJBDCD9tECL-5EbSFm9GTuuyqlUsmke1s69XONoHqJs_dE=)
+[9] [mcpservers.org](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHsq4locEJkZXD4WrN1vY2TkezBkPh-aKIQ4WLyNvhABF9tJsF_Xocu5LlPwZS4udCzFQXeZtT6kPkDw6CyR4KWECOKpsjPfJtI_L6Bq4JO2sz6hh0ODC_2Z3u1shjkO4NKWYRz9vbU9hEnlw==)
+[10] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHeuhdGlZBDkvou3S-LKjTWpcw4gESqPC_W0VtWi8qhTRuOTRsa1NLnfzSbLoohQmE43NPNKb7cgXh2rsPc-A4blyfR8jW9lFxzVjP1jKut1Uujcn6-YyF4a1D13nnhhOYk)
+[11] [github.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEwtZ1g8BMRtuoaiS9LQPTXgCeeUTe1OEZ-0KGxiqnS4UWlLly9ZFIWgNTeu1xQ5Xgx1o0tOiFX-hskGVM0474EK03zqvEscysmbIyYoImOvyaetuFM0vIb2VZQ8WcZLuX0z-Bo8dnFRloz_3Mz)
+[12] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpAisY9vFQN8cghRxCAxvv4cy2097OS1debzPVCqtFXsdi6NtwOrGkVXPgop4XS8S1MxytMBv8yqAKlUwcRmer3oEXSiYx8ikSOjiwdvFwioPBSRxeaB2SGg==)
+[13] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEpAisY9vFQN8cghRxCAxvv4cy2097OS1debzPVCqtFXsdi6NtwOrGkVXPgop4XS8S1MxytMBv8yqAKlUwcRmer3oEXSiYx8ikSOjiwdvFwioPBSRxeaB2SGg==)
+[14] [excalidraw.com](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHRyi5-ftGSixUjZadzMaxZhapznmChj2MBgNfmNZLhLSO3h1xjfsZjAxffAki3OmK2AvM_0dee26h-BuQFrJ0uSAzsg3APOzAWVsVsJqvl6oXJPcmG6ECMNI1K2_cmyf-QRA_54XqiBEQ=)

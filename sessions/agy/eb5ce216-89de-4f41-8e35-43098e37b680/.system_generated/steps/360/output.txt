@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+      ],
+      "primary_ip": "172.30.39.107",
+      "username": "data_admin",
+      "port": 30,
+      "protocol": "ssh",
+      "url": "ssh://172.30.39.107 port 30",
+      "notes": "",
+      "custom_fields": {}
+    },
+    {
+      "title": "mtq-mailsrvp-01",
+      "group": "OMT_PFS.SYSTEME.ALL/MTQ/linux",
+      "ips": [
+        "172.30.39.153"
+      ],
+      "primary_ip": "172.30.39.153",
+      "username": "superuser",
+      "port": null,
+      "protocol": "ssh",
+      "url": "ssh30://172.30.39.153",
+      "notes": "root / cy/+v5Zp9IUu)u|jc6Xw,g*`q",
+

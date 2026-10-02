@@ -1,0 +1,19 @@
+You have 2 background task(s) currently running:
+{
+  "taskId":  "4cb12149-1140-450b-b195-316320800a2b/task-76",
+  "toolName":  "run_command",
+  "toolSummary":  "Test mcp-excalidraw-server version",
+  "description":  "npx -y mcp-excalidraw-server --version || true",
+  "startTime":  "2026-09-22T14:09:00.800474399Z",
+  "stepIndex":  76,
+  "logUri":  "file:///home/koby/.gemini/antigravity-cli/brain/4cb12149-1140-450b-b195-316320800a2b/.system_generated/tasks/task-76.log"
+}
+{
+  "taskId":  "4cb12149-1140-450b-b195-316320800a2b/task-82",
+  "toolName":  "schedule",
+  "toolSummary":  "Wait for task-76 completion",
+  "description":  "Timer: 15s, Prompt: Check if task-76 has finished downloading mcp-excalidraw-server",
+  "startTime":  "2026-09-22T14:14:38.711214138Z",
+  "stepIndex":  82,
+  "logUri":  "file:///home/koby/.gemini/antigravity-cli/brain/4cb12149-1140-450b-b195-316320800a2b/.system_generated/tasks/task-82.log"
+}

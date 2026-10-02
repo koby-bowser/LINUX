@@ -1,0 +1,48 @@
+
+The command exited with code 0.
+Output:
+/home/koby/.ansible/host_vars:
+total 8
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 .
+drwxrwxr-x 14 koby koby 4096 Sep  9 19:26 ..
+
+/home/koby/.ansible/inventory:
+total 2296
+drwxrwxr-x  2 koby koby    4096 Sep  9 18:27 .
+drwxrwxr-x 14 koby koby    4096 Sep  9 19:26 ..
+-rw-rw-r--  1 koby koby     597 Sep  3 14:30 hosts.ini
+-rw-------  1 koby koby 1239266 Sep  9 18:40 server_pool.json
+-rw-------  1 koby koby 1095328 Sep  9 18:40 server_pool.yml
+
+/home/koby/.ansible/playbooks:
+total 72
+drwxrwxr-x  6 koby koby  4096 Sep  9 18:25 .
+drwxrwxr-x 14 koby koby  4096 Sep  9 19:26 ..
+-rw-rw-r--  1 koby koby   667 Sep  3 14:30 00-smoke-test.yml
+-rw-rw-r--  1 koby koby  4525 Sep  9 16:33 bootstrap-koby-bowser.yml
+-rw-rw-r--  1 koby koby  1670 Sep  9 16:08 copy-to-tmp.yml
+-rw-rw-r--  1 koby koby  8145 Sep  4 12:25 deploy-ssh-key.yml
+drwxrwxr-x  4 koby koby  4096 Sep  3 16:26 files
+drwxrwxr-x  3 koby koby  4096 Sep  3 16:45 group_vars
+-rw-rw-r--  1 koby koby 14340 Sep  3 17:50 issue-deploy-certs.yml
+-rw-rw-r--  1 koby koby  4181 Sep  9 18:43 kdbx-pool.yml
+lrwxrwxrwx  1 koby koby    43 Sep  9 18:25 search-servers.yml -> /home/koby/.ansible/playbooks/kdbx-pool.yml
+drwxrwxr-x  2 koby koby  4096 Sep  3 16:53 tasks
+drwxrwxr-x  2 koby koby  4096 Sep  3 15:43 templates
+
+/home/koby/.ansible/roles:
+total 8
+drwxrwxr-x  2 koby koby 4096 Sep  3 14:30 .
+drwxrwxr-x 14 koby koby 4096 Sep  9 19:26 ..
+
+/home/koby/.ansible/scripts:
+total 56
+drwxrwxr-x  3 koby koby  4096 Sep  9 19:28 .
+drwxrwxr-x 14 koby koby  4096 Sep  9 19:26 ..
+-rwxrwxr-x  1 koby koby 11735 Sep  9 18:43 build_kdbx_pool.py
+-rwxrwxr-x  1 koby koby  9412 Sep  9 16:31 copy-to-remote.sh
+-rwxrwxr-x  1 koby koby  4772 Sep  9 19:25 kssh
+-rwxrwxr-x  1 koby koby  5930 Sep  9 19:28 kssh.py
+drwxrwxr-x  2 koby koby  4096 Sep  9 18:33 __pycache__
+-rwxrwxr-x  1 koby koby  3102 Sep  9 18:35 search-servers.sh
+

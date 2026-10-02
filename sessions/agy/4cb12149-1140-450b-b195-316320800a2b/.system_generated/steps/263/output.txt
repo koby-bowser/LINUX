@@ -1,0 +1,8 @@
+
+The command exited with code 1.
+Output:
+  File "<string>", line 8
+    print(f"- {d.get(\"title\")} ({d.get(\"id\")})")
+                      ^
+SyntaxError: unexpected character after line continuation character
+

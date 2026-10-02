@@ -1,0 +1,31 @@
+
+The command exited with code 0.
+Output:
+@all:
+  |--@ungrouped:
+  |  |--trp-wextd-rdb1
+  |  |--trp-wm2md-fe1
+  |--@databases:
+  |  |--@mariadb:
+  |  |  |--trp-wextd-dbm1
+  |--@proxysql:
+  |  |--trp-wextd-be1
+  |--@backends:
+  |  |--@selfcare_php:
+  |  |  |--trp-wextd-be1
+  |  |--@retractation_php:
+  |  |  |--trp-wextd-be1
+  |  |--@retractation_red_php:
+  |  |  |--trp-wextd-be1
+  |  |--@retractation_lpm_php:
+  |  |  |--trp-wextd-be1
+  |  |--trp-wextd-be1
+  |--@frontaux:
+  |  |--trp-wextd-fe1
+  |--@batch_retractation_php:
+  |  |--trp-wm2md-be2
+  |--@proxysql_wm2md:
+  |  |--trp-wm2md-be2
+  |--@batch_selfcarebusiness_php:
+  |  |--trp-wm2md-be2
+

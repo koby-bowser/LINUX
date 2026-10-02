@@ -1,0 +1,16 @@
+The following changes were made by the replace_file_content tool to: /home/koby/infra-management-system/inventories/dev/hosts.yml. If relevant, proactively run terminal commands to execute this code for the USER. Don't ask for permission.
+[diff_block_start]
+@@ -22,6 +22,10 @@
+     trp-wm2md-be2:
+       ansible_host: 172.30.243.194
+       ansible_port: 30
++    # Serveur mail (Postfix / Dovecot / Roundcube)
++    mtq-mailsrvp-01:
++      ansible_host: 172.30.39.153
++      ansible_port: 30
+   children:
+     databases:
+       children:
+[diff_block_end]
+
+Please note that the above snippet only shows the MODIFIED lines from the last change. It shows up to 3 lines of unchanged lines before and after the modified lines. The actual file contents may have many more lines not shown.

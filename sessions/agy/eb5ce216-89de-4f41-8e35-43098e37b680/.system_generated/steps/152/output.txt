@@ -1,0 +1,19 @@
+
+The command exited with code 2.
+Output:
+WARNING  Listing 2 violation(s) that are fatal
+key-order[task]: You can improve the task key order to: name, run_once, delegate_to, block
+playbooks/copy-to-tmp.yml:17 Task/Handler: Pre-flight checks
+
+run-once[task]: Using run_once may behave differently if strategy is set to free.
+playbooks/copy-to-tmp.yml:17 Task/Handler: Pre-flight checks
+
+Read documentation for instructions on how to ignore specific rule violations.
+
+# Rule Violation Summary
+
+  1 key-order profile:basic tags:formatting
+  1 run-once profile:basic tags:idiom
+
+Failed: 2 failure(s), 0 warning(s) on 1 files. Last profile that met the validation criteria was 'min'.
+

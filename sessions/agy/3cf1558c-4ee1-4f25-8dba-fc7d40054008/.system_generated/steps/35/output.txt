@@ -1,0 +1,6 @@
+
+The command exited with code 0.
+Output:
+uid=2001(admin) gid=2001(admin) groups=2001(admin),634(syniverse),801(SSH_Users) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+Linux gbs-ftpx-01 2.6.32-504.8.1.el6.x86_64 #1 SMP Fri Dec 19 12:09:25 EST 2014 x86_64 x86_64 x86_64 GNU/Linux
+

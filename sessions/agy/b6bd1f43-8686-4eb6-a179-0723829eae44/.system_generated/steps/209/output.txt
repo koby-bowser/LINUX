@@ -1,0 +1,16 @@
+
+The command exited with code 0.
+Output:
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Found the following matching certs:
+  Certificate Name: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+    Serial Number: 2c896059a0cdedefa631851fe71bf2b808f0
+    Key Type: ECDSA
+    Domains: epdg.epc.mnc002.mcc340.pub.3gppnetwork.org
+    Expiry Date: 2026-12-27 10:29:33+00:00 (INVALID: TEST_CERT)
+    Certificate Path: /etc/letsencrypt/live/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org/fullchain.pem
+    Private Key Path: /etc/letsencrypt/live/epdg.epc.mnc002.mcc340.pub.3gppnetwork.org/privkey.pem
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+

@@ -1,0 +1,1 @@
+{"File":"/home/koby/infra-management-system/playbooks/deploy-alloy-agent.yml","LineNumber":7,"LineContent":"# (on est en connection: local). tag dev -\u003e th2-ansid-run1."}
