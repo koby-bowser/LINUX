@@ -1,0 +1,37 @@
+
+The command exited with code 0.
+Output:
+total 152
+drwxr-xr-x 18 koby koby  4096 Oct  2 15:19 .
+drwxr-xr-x  5 koby koby  4096 Oct  2 15:19 ..
+drwxr-xr-x  5 koby koby  4096 Sep 16 12:08 20db857b-8785-48da-9198-01add9384dc4
+drwxr-xr-x  6 koby koby  4096 Sep 22 12:38 3cf1558c-4ee1-4f25-8dba-fc7d40054008
+drwxr-xr-x  5 koby koby  4096 Sep 22 17:59 4cb12149-1140-450b-b195-316320800a2b
+drwxr-xr-x  5 koby koby  4096 Sep  7 18:28 50479c19-5180-4aa7-94da-62d796e908db
+drwxr-xr-x  6 koby koby  4096 Sep  7 12:15 5338bf9d-6354-4b38-b6c3-81b2f763a878
+drwxr-xr-x  6 koby koby  4096 Sep 24 15:28 5926885b-6cea-4611-8d5c-ac9d211422ff
+drwxr-xr-x  7 koby koby  4096 Sep 10 16:53 6237460b-4163-4167-a26e-b8194f657433
+drwxr-xr-x  5 koby koby  4096 Oct  2 15:02 93b6b405-9bfb-4f78-b935-cbc58b1a25f2
+drwxr-xr-x  5 koby koby  4096 Sep 16 18:50 953c8bd8-d6d1-4284-8e1b-476d79d5fd2e
+drwxr-xr-x  5 koby koby  4096 Sep 17 10:46 9b5444d6-49fd-4b34-8d46-b96512a0d695
+drwxr-xr-x  5 koby koby  4096 Sep 30 14:19 a6d077d5-5dc2-45c4-8e83-b3c97e1ae6d2
+drwxr-xr-x  5 koby koby  4096 Sep  9 11:28 ac6b2cc9-4e43-49c7-a9af-9015af0f4f0d
+total 352
+drwxrwxr-x 10 koby koby   4096 Oct  2 15:19 .
+drwxr-xr-x  5 koby koby   4096 Oct  2 15:19 ..
+-rw-r--r--  1 koby koby 319134 Oct  2 15:19 history.jsonl
+drwx------  6 koby koby   4096 Sep 28 15:01 -home-koby
+drwx------  4 koby koby   4096 Sep  4 14:49 -home-koby--ansible
+drwx------  3 koby koby   4096 Sep 21 12:14 -home-koby--claude
+drwx------  4 koby koby   4096 Aug 31 13:21 -home-koby--config-fish
+drwxrwxr-x  3 koby koby   4096 Sep 29 18:42 -home-koby-infra-management-system
+drwxrwxr-x  3 koby koby   4096 Sep 21 12:14 -home-koby-pi
+drwx------  3 koby koby   4096 Aug 19 19:13 .remember
+drwx------  3 koby koby   4096 Sep 21 19:07 -tmp
+total 20
+drwxrwxr-x 3 koby koby 4096 Oct  2 15:19 .
+drwxr-xr-x 5 koby koby 4096 Oct  2 15:19 ..
+drwxrwxr-x 3 koby koby 4096 Sep 29 15:24 2026
+-rw-r--r-- 1 koby koby 2626 Oct  2 15:19 history.jsonl
+-rw-r--r-- 1 koby koby  251 Oct  2 15:19 session_index.jsonl
+

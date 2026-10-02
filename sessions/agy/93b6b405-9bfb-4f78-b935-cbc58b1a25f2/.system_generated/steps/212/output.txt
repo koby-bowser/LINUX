@@ -1,0 +1,25 @@
+
+The command exited with code 0.
+Output:
+On branch Baba-Koby
+Your branch is ahead of 'origin/Baba-Koby' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	modified:   playbooks/files/certbot-hooks/ns1-zonefile-auth-hook.sh
+	modified:   playbooks/files/ns1-hooks/acme-zone-update.sh
+	modified:   playbooks/group_vars/all/certificates.yml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	playbooks/sync-ai-sessions.yml
+	scripts/export_session_index.py
+	sync-ai-sessions.yml
+	tests/__pycache__/
+	tests/test_sync_ai_sessions.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
